@@ -1,0 +1,14 @@
+platform :ios, '6.0'
+
+pod 'GDRealtime', :path => '..'
+# podspec :path => "../GDRealtime.podspec"
+
+target :demo do
+  pod 'BlocksKit'
+end
+
+target :test, :exclusive => true do
+  platform :osx
+
+  pod 'GDRealtime/test'
+end
