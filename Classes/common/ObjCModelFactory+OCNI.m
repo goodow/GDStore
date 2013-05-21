@@ -1,9 +1,9 @@
-#import "ObjcNativeInterfaceFactory+OCNI.h"
+#import "ObjCModelFactory+OCNI.h"
 #import "Google-Diff-Match-Patch/DiffMatchPatch.h"
 #import "GDR.h"
 #import "java/lang/RuntimeException.h"
 
-@implementation ComGoodowRealtimeUtilObjcNativeInterfaceFactory (OCNI)
+@implementation ComGoodowRealtimeUtilImplObjCModelFactory (OCNI)
 -(void)setTextImpl:(GDRCollaborativeString *)str text:(NSString *)text {
   DiffMatchPatch *dmp = [DiffMatchPatch new];
   NSMutableArray * diffs = [dmp diff_mainOfOldString:[str getText] andNewString:text];

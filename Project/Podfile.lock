@@ -3,21 +3,62 @@ PODS:
     - libffi
   - GDRealtime (0.0.1):
     - GDRealtime/default
-  - GDRealtime/core (0.0.1):
+  - GDRealtime/common (0.0.1):
     - Google-Diff-Match-Patch (~> 0.0.1)
   - GDRealtime/default (0.0.1):
-    - GDRealtime/core
+    - GDRealtime/common
     - GDRealtime/generated
+    - Google-API-Client/Common
+    - Google-API-Client/Objects
+    - Google-API-Client/Utilities
     - jre_emul (~> 0.7.2)
-  - GDRealtime/generated (0.0.1)
+  - GDRealtime/generated (0.0.1):
+    - GDRealtime/generated/channel
+    - GDRealtime/generated/elemental
+    - GDRealtime/generated/model
+  - GDRealtime/generated/channel (0.0.1)
+  - GDRealtime/generated/elemental (0.0.1)
+  - GDRealtime/generated/model (0.0.1):
+    - GDRealtime/generated/model/op
+  - GDRealtime/generated/model/op (0.0.1)
   - GDRealtime/test (0.0.1):
-    - GDRealtime/core
+    - GDRealtime/common
     - GDRealtime/generated
+  - Google-API-Client/Common (0.0.1):
+    - gtm-oauth2
+    - GTMHTTPFetcher
+    - SBJson
+  - Google-API-Client/Objects (0.0.1):
+    - gtm-oauth2
+    - GTMHTTPFetcher
+    - SBJson
+  - Google-API-Client/Utilities (0.0.1):
+    - gtm-oauth2
+    - GTMHTTPFetcher
+    - SBJson
   - Google-Diff-Match-Patch (0.0.1)
+  - gtm-oauth2 (0.0.1):
+    - gtm-oauth2/Core
+    - GTMHTTPFetcher
+    - SBJson
+  - gtm-oauth2/Core (0.0.1):
+    - gtm-oauth2/Core/Mac
+    - gtm-oauth2/Core/Touch
+    - GTMHTTPFetcher
+    - SBJson
+  - gtm-oauth2/Core/Mac (0.0.1):
+    - GTMHTTPFetcher
+    - SBJson
+  - gtm-oauth2/Core/Touch (0.0.1):
+    - GTMHTTPFetcher
+    - SBJson
+  - GTMHTTPFetcher (0.0.1):
+    - SBJson
   - jre_emul (0.7.2):
     - jre_emul/jre
   - jre_emul/jre (0.7.2)
   - libffi (3.0.11)
+  - SBJson (3.2)
 
 DEPENDENCIES:
   - BlocksKit
@@ -30,9 +71,13 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   BlocksKit: 7396526b0816734103f6133fbb1a520c8b04e80c
-  GDRealtime: eb97cdfa88f53fec7db065308db12e2bc57b295d
+  GDRealtime: 6ff7d66b0b8dd93b6cc9491b8490b6e8c3671947
+  Google-API-Client: 1418612c357ae32aeb9aa9ddf6ba42e1652a49de
   Google-Diff-Match-Patch: a4f62e11af850bea98689c8f24e382e47c46bf59
+  gtm-oauth2: c4824003b569bc9b96446661fb92dbc681335499
+  GTMHTTPFetcher: 99f026c2d7afbcf2a051a64a3e81dcaedd060135
   jre_emul: d4d14f21215f74c88830c834e6e46f63e285e149
   libffi: 8a1d9ba43c0c84b546b42c6f742714e73aa07ae1
+  SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
 
 COCOAPODS: 0.19.1

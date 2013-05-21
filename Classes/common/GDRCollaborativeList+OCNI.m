@@ -25,7 +25,7 @@
   return toRtn;
 }
 
--(int)indexOf:(id)value comparator:(GDRComparatorBlock)opt_comparator {
+-(int)indexOf:(id)value comparator:(NSComparator)opt_comparator {
   return [self indexOfWithId:value withJavaUtilComparator:opt_comparator];
 }
 
@@ -38,7 +38,7 @@
   return [IOSObjectArray arrayWithNSArray:array type:[IOSClass classWithClass:[NSObject class]]];
 }
 
--(int)lastIndexOf:(id)value comparator:(GDRComparatorBlock)opt_comparator {
+-(int)lastIndexOf:(id)value comparator:(NSComparator)opt_comparator {
   return [self lastIndexOfWithId:value withJavaUtilComparator:opt_comparator];
 }
 

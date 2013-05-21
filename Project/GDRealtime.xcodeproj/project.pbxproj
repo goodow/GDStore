@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		055817FB9E054A578C8DE214 /* libPods-demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE324FAA28F4670B4B27AEC /* libPods-demo.a */; };
 		0CA3B6C16AFA4502A56E2629 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
+		8D0F5047174B716A001CAE7C /* GDRCollaborativeList+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F502A174B716A001CAE7C /* GDRCollaborativeList+OCNI.m */; };
+		8D0F5048174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F502C174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m */; };
+		8D0F5049174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F502E174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m */; };
+		8D0F504A174B716A001CAE7C /* GDRCollaborativeString+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5030174B716A001CAE7C /* GDRCollaborativeString+OCNI.m */; };
+		8D0F504B174B716A001CAE7C /* GDRDocument+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5032174B716A001CAE7C /* GDRDocument+OCNI.m */; };
+		8D0F504C174B716A001CAE7C /* GDRError+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5034174B716A001CAE7C /* GDRError+OCNI.m */; };
+		8D0F504D174B716A001CAE7C /* GDRIndexReference+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5036174B716A001CAE7C /* GDRIndexReference+OCNI.m */; };
+		8D0F504E174B716A001CAE7C /* GDRModel+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5038174B716A001CAE7C /* GDRModel+OCNI.m */; };
+		8D0F504F174B716A001CAE7C /* GDRRealtime+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */; };
+		8D0F5050174B716A001CAE7C /* ObjCModelFactory+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */; };
+		8D0F5051174B716A001CAE7C /* ObjCHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5044174B716A001CAE7C /* ObjCHttpRequest.m */; };
+		8D0F5052174B716A001CAE7C /* ObjCHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5045174B716A001CAE7C /* ObjCHttpResponse.m */; };
 		8D8CA154172BC9B400652CC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8CA153172BC9B400652CC1 /* Foundation.framework */; };
 		8D9446B017363044002EB5AE /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74A3172BD0F20052F0ED /* test.m */; };
 		8DBB745C172BD0B60052F0ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745B172BD0B60052F0ED /* UIKit.framework */; };
@@ -22,19 +34,9 @@
 		8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */; };
 		8DBB7474172BD0B70052F0ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7472172BD0B70052F0ED /* MainStoryboard.storyboard */; };
 		8DBB7477172BD0B70052F0ED /* GDRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB7476172BD0B70052F0ED /* GDRViewController.m */; };
-		8DBB74C8172C136C0052F0ED /* ObjcNativeInterfaceFactory+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.m */; };
-		8DBB74D1172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m */; };
-		8DBB74D4172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m */; };
-		8DBB74D7172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m */; };
-		8DBB74DA172D7D180052F0ED /* GDRIndexReference+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74D9172D7D180052F0ED /* GDRIndexReference+OCNI.m */; };
-		8DBB74DD172D82350052F0ED /* GDRModel+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74DC172D82340052F0ED /* GDRModel+OCNI.m */; };
-		8DD585081733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD585071733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m */; };
-		8DD5850D1734C50C00E4EB66 /* GDRRealtime+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */; };
-		8DD585101734CA5100E4EB66 /* GDRError+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DD5850F1734CA5000E4EB66 /* GDRError+OCNI.m */; };
 		8DF804E7173397C600B67EDC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */; };
 		8DF804E8173397C600B67EDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD88AD0172F7811006DCFA8 /* Cocoa.framework */; };
 		8DF804F7173398F300B67EDC /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF804DA1733979300B67EDC /* UnitTest.m */; };
-		8DF804FA1733B6EB00B67EDC /* GDRDocument+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF804F91733B6EB00B67EDC /* GDRDocument+OCNI.m */; };
 		E358178C59DA4C24A7880E03 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 934154E8F61A46D3939CD886 /* libPods-test.a */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,30 @@
 		1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
 		31DD2DBBD4894B0A890BE47B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.xcconfig"; path = "Pods/Pods-demo.xcconfig"; sourceTree = SOURCE_ROOT; };
+		8D0F5028174B716A001CAE7C /* GDR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDR.h; sourceTree = "<group>"; };
+		8D0F5029174B716A001CAE7C /* GDRCollaborativeList+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+OCNI.h"; sourceTree = "<group>"; };
+		8D0F502A174B716A001CAE7C /* GDRCollaborativeList+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeList+OCNI.m"; sourceTree = "<group>"; };
+		8D0F502B174B716A001CAE7C /* GDRCollaborativeMap+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeMap+OCNI.h"; sourceTree = "<group>"; };
+		8D0F502C174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeMap+OCNI.m"; sourceTree = "<group>"; };
+		8D0F502D174B716A001CAE7C /* GDRCollaborativeObject+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeObject+OCNI.h"; sourceTree = "<group>"; };
+		8D0F502E174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeObject+OCNI.m"; sourceTree = "<group>"; };
+		8D0F502F174B716A001CAE7C /* GDRCollaborativeString+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeString+OCNI.h"; sourceTree = "<group>"; };
+		8D0F5030174B716A001CAE7C /* GDRCollaborativeString+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeString+OCNI.m"; sourceTree = "<group>"; };
+		8D0F5031174B716A001CAE7C /* GDRDocument+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRDocument+OCNI.h"; sourceTree = "<group>"; };
+		8D0F5032174B716A001CAE7C /* GDRDocument+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRDocument+OCNI.m"; sourceTree = "<group>"; };
+		8D0F5033174B716A001CAE7C /* GDRError+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRError+OCNI.h"; sourceTree = "<group>"; };
+		8D0F5034174B716A001CAE7C /* GDRError+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRError+OCNI.m"; sourceTree = "<group>"; };
+		8D0F5035174B716A001CAE7C /* GDRIndexReference+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRIndexReference+OCNI.h"; sourceTree = "<group>"; };
+		8D0F5036174B716A001CAE7C /* GDRIndexReference+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRIndexReference+OCNI.m"; sourceTree = "<group>"; };
+		8D0F5037174B716A001CAE7C /* GDRModel+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRModel+OCNI.h"; sourceTree = "<group>"; };
+		8D0F5038174B716A001CAE7C /* GDRModel+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRModel+OCNI.m"; sourceTree = "<group>"; };
+		8D0F5039174B716A001CAE7C /* GDRRealtime+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRRealtime+OCNI.h"; sourceTree = "<group>"; };
+		8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRRealtime+OCNI.m"; sourceTree = "<group>"; };
+		8D0F503B174B716A001CAE7C /* ObjCModelFactory+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjCModelFactory+OCNI.h"; sourceTree = "<group>"; };
+		8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ObjCModelFactory+OCNI.m"; sourceTree = "<group>"; };
+		8D0F5044174B716A001CAE7C /* ObjCHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHttpRequest.m; sourceTree = "<group>"; };
+		8D0F5045174B716A001CAE7C /* ObjCHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHttpResponse.m; sourceTree = "<group>"; };
+		8D0F5046174B716A001CAE7C /* EventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTarget.h; sourceTree = "<group>"; };
 		8D31C8011734F9A900F21114 /* CollaborativeListTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborativeListTest.h; sourceTree = "<group>"; };
 		8D31C8021734F9A900F21114 /* CollaborativeListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollaborativeListTest.m; sourceTree = "<group>"; };
 		8D31C8031734F9A900F21114 /* CollaborativeMapTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborativeMapTest.h; sourceTree = "<group>"; };
@@ -94,39 +120,17 @@
 		8DBB74A2172BD0F20052F0ED /* test.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = test.h; sourceTree = "<group>"; };
 		8DBB74A3172BD0F20052F0ED /* test.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = test.m; sourceTree = "<group>"; };
 		8DBB74A5172BD0F20052F0ED /* test-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test-Prefix.pch"; sourceTree = "<group>"; };
-		8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjcNativeInterfaceFactory+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "ObjcNativeInterfaceFactory+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8DBB74AD172BD1300052F0ED /* GDR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = GDR.h; sourceTree = "<group>"; };
-		8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeString+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRCollaborativeString+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeMap+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRCollaborativeMap+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRCollaborativeList+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8DBB74D8172D7D180052F0ED /* GDRIndexReference+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRIndexReference+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74D9172D7D180052F0ED /* GDRIndexReference+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRIndexReference+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8DBB74DB172D82340052F0ED /* GDRModel+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRModel+OCNI.h"; sourceTree = "<group>"; };
-		8DBB74DC172D82340052F0ED /* GDRModel+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRModel+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8DD585061733F81500E4EB66 /* GDRCollaborativeObject+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeObject+OCNI.h"; sourceTree = "<group>"; };
-		8DD585071733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRCollaborativeObject+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8DD5850B1734C50B00E4EB66 /* GDRRealtime+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRRealtime+OCNI.h"; sourceTree = "<group>"; };
-		8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRRealtime+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		8DD5850E1734CA5000E4EB66 /* GDRError+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRError+OCNI.h"; sourceTree = "<group>"; };
-		8DD5850F1734CA5000E4EB66 /* GDRError+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRError+OCNI.m"; sourceTree = "<group>"; };
 		8DD88ACF172F7811006DCFA8 /* libtest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libtest.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DD88AD0172F7811006DCFA8 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
 		8DD88AD3172F7811006DCFA8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8DD88AD4172F7811006DCFA8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD88AD5172F7811006DCFA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8DF804C91733969600B67EDC /* EventTarget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventTarget.h; sourceTree = "<group>"; };
 		8DF804D51733979300B67EDC /* UnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTest-Info.plist"; sourceTree = "<group>"; };
 		8DF804D71733979300B67EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DF804D91733979300B67EDC /* UnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitTest.h; sourceTree = "<group>"; };
 		8DF804DA1733979300B67EDC /* UnitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UnitTest.m; sourceTree = "<group>"; };
 		8DF804DC1733979300B67EDC /* UnitTest-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UnitTest-Prefix.pch"; sourceTree = "<group>"; };
 		8DF804E6173397C600B67EDC /* UnitTest.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UnitTest.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		8DF804F81733B6EB00B67EDC /* GDRDocument+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRDocument+OCNI.h"; sourceTree = "<group>"; };
-		8DF804F91733B6EB00B67EDC /* GDRDocument+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "GDRDocument+OCNI.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		934154E8F61A46D3939CD886 /* libPods-test.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-test.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EE324FAA28F4670B4B27AEC /* libPods-demo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-demo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB8E7EADF911421F977C3180 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +180,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D0F5027174B716A001CAE7C /* common */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5028174B716A001CAE7C /* GDR.h */,
+				8D0F5029174B716A001CAE7C /* GDRCollaborativeList+OCNI.h */,
+				8D0F502A174B716A001CAE7C /* GDRCollaborativeList+OCNI.m */,
+				8D0F502B174B716A001CAE7C /* GDRCollaborativeMap+OCNI.h */,
+				8D0F502C174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m */,
+				8D0F502D174B716A001CAE7C /* GDRCollaborativeObject+OCNI.h */,
+				8D0F502E174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m */,
+				8D0F502F174B716A001CAE7C /* GDRCollaborativeString+OCNI.h */,
+				8D0F5030174B716A001CAE7C /* GDRCollaborativeString+OCNI.m */,
+				8D0F5031174B716A001CAE7C /* GDRDocument+OCNI.h */,
+				8D0F5032174B716A001CAE7C /* GDRDocument+OCNI.m */,
+				8D0F5033174B716A001CAE7C /* GDRError+OCNI.h */,
+				8D0F5034174B716A001CAE7C /* GDRError+OCNI.m */,
+				8D0F5035174B716A001CAE7C /* GDRIndexReference+OCNI.h */,
+				8D0F5036174B716A001CAE7C /* GDRIndexReference+OCNI.m */,
+				8D0F5037174B716A001CAE7C /* GDRModel+OCNI.h */,
+				8D0F5038174B716A001CAE7C /* GDRModel+OCNI.m */,
+				8D0F5039174B716A001CAE7C /* GDRRealtime+OCNI.h */,
+				8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */,
+				8D0F503B174B716A001CAE7C /* ObjCModelFactory+OCNI.h */,
+				8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */,
+			);
+			path = common;
+			sourceTree = "<group>";
+		};
+		8D0F503D174B716A001CAE7C /* override_generated */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F503E174B716A001CAE7C /* com */,
+			);
+			path = override_generated;
+			sourceTree = "<group>";
+		};
+		8D0F503E174B716A001CAE7C /* com */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F503F174B716A001CAE7C /* goodow */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		8D0F503F174B716A001CAE7C /* goodow */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5040174B716A001CAE7C /* realtime */,
+			);
+			path = goodow;
+			sourceTree = "<group>";
+		};
+		8D0F5040174B716A001CAE7C /* realtime */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5041174B716A001CAE7C /* channel */,
+				8D0F5046174B716A001CAE7C /* EventTarget.h */,
+			);
+			path = realtime;
+			sourceTree = "<group>";
+		};
+		8D0F5041174B716A001CAE7C /* channel */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5042174B716A001CAE7C /* http */,
+			);
+			path = channel;
+			sourceTree = "<group>";
+		};
+		8D0F5042174B716A001CAE7C /* http */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5043174B716A001CAE7C /* objc */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
+		8D0F5043174B716A001CAE7C /* objc */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5044174B716A001CAE7C /* ObjCHttpRequest.m */,
+				8D0F5045174B716A001CAE7C /* ObjCHttpResponse.m */,
+			);
+			path = objc;
+			sourceTree = "<group>";
+		};
 		8D31C7FD1734F9A900F21114 /* test_generated */ = {
 			isa = PBXGroup;
 			children = (
@@ -353,39 +443,11 @@
 		8DBB74A9172BD1300052F0ED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				8DF804C51733969600B67EDC /* override_generated */,
-				8DBB74AA172BD1300052F0ED /* ios */,
+				8D0F5027174B716A001CAE7C /* common */,
+				8D0F503D174B716A001CAE7C /* override_generated */,
 			);
 			name = Classes;
 			path = ../Classes;
-			sourceTree = "<group>";
-		};
-		8DBB74AA172BD1300052F0ED /* ios */ = {
-			isa = PBXGroup;
-			children = (
-				8DBB74AD172BD1300052F0ED /* GDR.h */,
-				8DD5850B1734C50B00E4EB66 /* GDRRealtime+OCNI.h */,
-				8DD5850C1734C50B00E4EB66 /* GDRRealtime+OCNI.m */,
-				8DBB74DB172D82340052F0ED /* GDRModel+OCNI.h */,
-				8DBB74DC172D82340052F0ED /* GDRModel+OCNI.m */,
-				8DF804F81733B6EB00B67EDC /* GDRDocument+OCNI.h */,
-				8DF804F91733B6EB00B67EDC /* GDRDocument+OCNI.m */,
-				8DD585061733F81500E4EB66 /* GDRCollaborativeObject+OCNI.h */,
-				8DD585071733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m */,
-				8DBB74CF172D68EF0052F0ED /* GDRCollaborativeString+OCNI.h */,
-				8DBB74D0172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m */,
-				8DBB74D2172D6D650052F0ED /* GDRCollaborativeMap+OCNI.h */,
-				8DBB74D3172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m */,
-				8DBB74D5172D70AF0052F0ED /* GDRCollaborativeList+OCNI.h */,
-				8DBB74D6172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m */,
-				8DBB74D8172D7D180052F0ED /* GDRIndexReference+OCNI.h */,
-				8DBB74D9172D7D180052F0ED /* GDRIndexReference+OCNI.m */,
-				8DBB74AB172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.h */,
-				8DBB74AC172BD1300052F0ED /* ObjcNativeInterfaceFactory+OCNI.m */,
-				8DD5850E1734CA5000E4EB66 /* GDRError+OCNI.h */,
-				8DD5850F1734CA5000E4EB66 /* GDRError+OCNI.m */,
-			);
-			path = ios;
 			sourceTree = "<group>";
 		};
 		8DD88AD2172F7811006DCFA8 /* Other Frameworks */ = {
@@ -396,38 +458,6 @@
 				8DD88AD5172F7811006DCFA8 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
-			sourceTree = "<group>";
-		};
-		8DF804C51733969600B67EDC /* override_generated */ = {
-			isa = PBXGroup;
-			children = (
-				8DF804C61733969600B67EDC /* com */,
-			);
-			path = override_generated;
-			sourceTree = "<group>";
-		};
-		8DF804C61733969600B67EDC /* com */ = {
-			isa = PBXGroup;
-			children = (
-				8DF804C71733969600B67EDC /* goodow */,
-			);
-			path = com;
-			sourceTree = "<group>";
-		};
-		8DF804C71733969600B67EDC /* goodow */ = {
-			isa = PBXGroup;
-			children = (
-				8DF804C81733969600B67EDC /* realtime */,
-			);
-			path = goodow;
-			sourceTree = "<group>";
-		};
-		8DF804C81733969600B67EDC /* realtime */ = {
-			isa = PBXGroup;
-			children = (
-				8DF804C91733969600B67EDC /* EventTarget.h */,
-			);
-			path = realtime;
 			sourceTree = "<group>";
 		};
 		8DF804D31733979300B67EDC /* UnitTest */ = {
@@ -708,16 +738,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8DBB74C8172C136C0052F0ED /* ObjcNativeInterfaceFactory+OCNI.m in Sources */,
-				8DBB74D1172D68EF0052F0ED /* GDRCollaborativeString+OCNI.m in Sources */,
-				8DBB74D4172D6D650052F0ED /* GDRCollaborativeMap+OCNI.m in Sources */,
-				8DBB74D7172D70AF0052F0ED /* GDRCollaborativeList+OCNI.m in Sources */,
-				8DBB74DA172D7D180052F0ED /* GDRIndexReference+OCNI.m in Sources */,
-				8DBB74DD172D82350052F0ED /* GDRModel+OCNI.m in Sources */,
-				8DF804FA1733B6EB00B67EDC /* GDRDocument+OCNI.m in Sources */,
-				8DD585081733F81500E4EB66 /* GDRCollaborativeObject+OCNI.m in Sources */,
-				8DD5850D1734C50C00E4EB66 /* GDRRealtime+OCNI.m in Sources */,
-				8DD585101734CA5100E4EB66 /* GDRError+OCNI.m in Sources */,
+				8D0F5047174B716A001CAE7C /* GDRCollaborativeList+OCNI.m in Sources */,
+				8D0F5048174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m in Sources */,
+				8D0F5049174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m in Sources */,
+				8D0F504A174B716A001CAE7C /* GDRCollaborativeString+OCNI.m in Sources */,
+				8D0F504B174B716A001CAE7C /* GDRDocument+OCNI.m in Sources */,
+				8D0F504C174B716A001CAE7C /* GDRError+OCNI.m in Sources */,
+				8D0F504D174B716A001CAE7C /* GDRIndexReference+OCNI.m in Sources */,
+				8D0F504E174B716A001CAE7C /* GDRModel+OCNI.m in Sources */,
+				8D0F504F174B716A001CAE7C /* GDRRealtime+OCNI.m in Sources */,
+				8D0F5050174B716A001CAE7C /* ObjCModelFactory+OCNI.m in Sources */,
+				8D0F5051174B716A001CAE7C /* ObjCHttpRequest.m in Sources */,
+				8D0F5052174B716A001CAE7C /* ObjCHttpResponse.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

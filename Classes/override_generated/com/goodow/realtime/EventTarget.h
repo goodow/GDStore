@@ -25,7 +25,7 @@ typedef void (^GDRCollaboratorJoinedBlock)(GDRCollaboratorJoinedEvent * event);
 typedef void (^GDRCollaboratorLeftBlock)(GDRCollaboratorLeftEvent * event);
 typedef void (^GDRDocumentSaveStateChangedBlock)(GDRDocumentSaveStateChangedEvent * event);
 
-typedef int (^GDRComparatorBlock)(id object1, id object2);
+//typedef int (^GDRComparatorBlock)(id object1, id object2);
 
 
 @class GDREventTypeEnum;

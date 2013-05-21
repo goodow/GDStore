@@ -35,7 +35,7 @@ J2OBJCC_FLAGS = -ObjC $(WARNINGS) $(SDKFLAGS) $(ARCHFLAGS) $(DEBUGFLAGS)
 J2OBJCC = $(J2OBJC_DIST)/j2objcc $(J2OBJCC_FLAGS)
 
 REALTIME_MODEL_DIR = ../../realtime-model
-MAIN_GEN_DIR = ../Classes/generated
+GEN_INCLUDE_DIR = ../Classes/generated/include
 SUPPORT_LIB = $(CONFIGURATION_BUILD_DIR)/libtest.a
 
 TEST_SRC_DIR = $(REALTIME_MODEL_DIR)/src/test/java
@@ -51,7 +51,7 @@ default: test
 $(TEST_BUILD_DIR)/%.o: $(TEST_GEN_DIR)/%.m $(TEST_SRC_DIR)/%.java
 	@mkdir -p `dirname $@`
 	@$(J2OBJCC) -c $< -o $@ \
-	  -g -I$(MAIN_GEN_DIR) -I$(TEST_GEN_DIR) \
+	  -g -I$(GEN_INCLUDE_DIR) -I$(TEST_GEN_DIR) \
 	  -Wno-objc-redundant-literal-use -Wno-format \
 	  -Werror -Wno-parentheses
 
