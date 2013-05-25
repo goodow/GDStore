@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = "GDRealtime"
   s.version      = "0.0.1"
-  s.summary      = "Goodow Realtime provides collaborative objects, events, and methods for creating collaborative applications via the use of operational transforms."
+  s.license      = { :type => 'Apache 2.0', :file => 'COPYING' }
+  s.summary      = "Goodow Realtime provides collaborative objects, events, and methods for creating collaborative apps via the use of operational transforms."
   s.homepage     = "https://github.com/goodow/realtime"
   s.author       = { "Larry Tin" => "dev@goodow.com" }
   s.source       = { :git => "https://github.com/goodow/GDRealtime.git", :tag => "v#{s.version}" }
@@ -9,7 +10,7 @@ Pod::Spec.new do |s|
   s.default_subspec = 'default'
   s.header_mappings_dir = 'Classes/generated/include'
 #  s.preserve_paths = 'Classes/generated/include'
-  s.resources = 'Resources/**'
+#  s.resources = 'Resources/**'
   s.requires_arc = true
 
 #  s.xcconfig = { 'HEADER_SEARCH_PATHS' => \
