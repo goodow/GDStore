@@ -33,7 +33,7 @@
 		8DBB746D172BD0B70052F0ED /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB746C172BD0B70052F0ED /* Default.png */; };
 		8DBB746F172BD0B70052F0ED /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB746E172BD0B70052F0ED /* Default@2x.png */; };
 		8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */; };
-		8DF699CA174F6FD30031CEBF /* GDRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF699C9174F6FD30031CEBF /* GDRAppDelegate.m */; };
+		8DF602841750E37F00A82BE3 /* GDRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF602831750E37F00A82BE3 /* GDRAppDelegate.m */; };
 		8DF804E7173397C600B67EDC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */; };
 		8DF804E8173397C600B67EDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD88AD0172F7811006DCFA8 /* Cocoa.framework */; };
 		8DF804F7173398F300B67EDC /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF804DA1733979300B67EDC /* UnitTest.m */; };
@@ -124,8 +124,8 @@
 		8DD88AD3172F7811006DCFA8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8DD88AD4172F7811006DCFA8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD88AD5172F7811006DCFA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		8DF699C8174F6FD30031CEBF /* GDRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRAppDelegate.h; sourceTree = "<group>"; };
-		8DF699C9174F6FD30031CEBF /* GDRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRAppDelegate.m; sourceTree = "<group>"; };
+		8DF602821750E37F00A82BE3 /* GDRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRAppDelegate.h; sourceTree = "<group>"; };
+		8DF602831750E37F00A82BE3 /* GDRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRAppDelegate.m; sourceTree = "<group>"; };
 		8DF804D51733979300B67EDC /* UnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTest-Info.plist"; sourceTree = "<group>"; };
 		8DF804D71733979300B67EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DF804D91733979300B67EDC /* UnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitTest.h; sourceTree = "<group>"; };
@@ -205,8 +205,6 @@
 				8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */,
 				8D0F503B174B716A001CAE7C /* ObjCModelFactory+OCNI.h */,
 				8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */,
-				8DF699C8174F6FD30031CEBF /* GDRAppDelegate.h */,
-				8DF699C9174F6FD30031CEBF /* GDRAppDelegate.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -485,6 +483,7 @@
 		8DBB74A9172BD1300052F0ED /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8DF602811750E34400A82BE3 /* ios */,
 				8D0F5027174B716A001CAE7C /* common */,
 				8D0F5054174DADDB001CAE7C /* override_generated */,
 			);
@@ -500,6 +499,15 @@
 				8DD88AD5172F7811006DCFA8 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		8DF602811750E34400A82BE3 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				8DF602821750E37F00A82BE3 /* GDRAppDelegate.h */,
+				8DF602831750E37F00A82BE3 /* GDRAppDelegate.m */,
+			);
+			path = ios;
 			sourceTree = "<group>";
 		};
 		8DF804D31733979300B67EDC /* UnitTest */ = {
@@ -792,7 +800,7 @@
 				8D0F5050174B716A001CAE7C /* ObjCModelFactory+OCNI.m in Sources */,
 				8D0F5064174DADDB001CAE7C /* ObjCHttpRequest.m in Sources */,
 				8D0F5065174DADDB001CAE7C /* ObjCHttpResponse.m in Sources */,
-				8DF699CA174F6FD30031CEBF /* GDRAppDelegate.m in Sources */,
+				8DF602841750E37F00A82BE3 /* GDRAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

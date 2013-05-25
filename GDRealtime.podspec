@@ -16,14 +16,17 @@ Pod::Spec.new do |s|
 #    '"${PODS_ROOT}/GDRealtime/Classes/generated" "${PODS_ROOT}/GDRealtime/Classes/test_generated"' }
 
   s.subspec 'default' do |d|
+    d.ios.source_files = 'Classes/ios'
     d.dependency 'jre_emul', '~> 0.7.2'
     d.dependency 'GDRealtime/common'
-    d.dependency 'GDRealtime/generated'
+    d.dependency 'GDRealtime/generated/services'
   end
 
   s.subspec 'common' do |common|
     common.source_files = 'Classes/common', 'Classes/generated/include/**/*.h'
     common.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
+    common.dependency 'GTMHTTPFetcher', '~> 0.0.1'
+    common.dependency 'GDRealtime/generated/channel'
   end
 
   s.subspec 'generated' do |gen|
@@ -58,7 +61,6 @@ Pod::Spec.new do |s|
     # test.source_files = 'Classes/test_generated'
 
     test.dependency 'GDRealtime/common'
-    test.dependency 'GDRealtime/generated/model'
 
     test.xcconfig = { 'HEADER_SEARCH_PATHS' => \
       '"${PODS_ROOT}/jre_emul/dist/include" "${PODS_ROOT}/jre_emul/jre_emul/icu4c/i18n/include" "${PODS_ROOT}/jre_emul/jre_emul/icu4c/common"' }

@@ -4,7 +4,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller - Root View Controller-->
+        <!--Root View Controller - Goodow Realtime Playground-->
         <scene sceneID="mVd-vg-y9O">
             <objects>
                 <tableViewController id="ZqW-72-gug" customClass="GDRRootViewController" sceneMemberID="viewController">
@@ -13,136 +13,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Step 1  Authorize" id="FtZ-vC-bhC">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="57" id="T3U-59-3GX">
-                                        <rect key="frame" x="0.0" y="46" width="320" height="59"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="56"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dU-mD-hzx">
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="43" id="CoW-1v-Df9"/>
-                                                        <constraint firstAttribute="width" constant="302" id="KZg-gR-Hpr"/>
-                                                    </constraints>
-                                                    <string key="text">#import "GDR.h"
-[GDRRealtime authorize:token userId:userId];</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                </textView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <constraints>
-                                            <constraint firstItem="3dU-mD-hzx" firstAttribute="centerY" secondItem="T3U-59-3GX" secondAttribute="centerY" type="default" id="YIZ-oY-761"/>
-                                            <constraint firstItem="3dU-mD-hzx" firstAttribute="centerX" secondItem="T3U-59-3GX" secondAttribute="centerX" type="default" id="tdf-Lm-XSY"/>
-                                        </constraints>
-                                    </tableViewCell>
-                                </cells>
+                            <tableViewSection headerTitle="Step 1  Authorize" footerTitle="To use the Goodow Realtime API Playground you must first Authorize the Playground." id="FtZ-vC-bhC">
+                                <cells/>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Step 2  Create or Open a document" id="cMU-Cq-2qM">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bxf-Bn-mzc" rowHeight="63" style="IBUITableViewCellStyleDefault" id="Iv4-ac-CGo">
-                                        <rect key="frame" x="0.0" y="172" width="320" height="65"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="62"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="[GDRRealtime load:docId onLoaded:onLoaded initializer:opt_initializer error:opt_error];" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" id="bxf-Bn-mzc">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="62"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
+                            <tableViewSection headerTitle="Step 2  Create or Open a document" footerTitle="You need to  Create a new document or  Open an existing document on which to collaborate." id="cMU-Cq-2qM">
+                                <cells/>
                             </tableViewSection>
                             <tableViewSection headerTitle="Step 3  Share" id="3lx-kV-Sj5">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="15F-WI-sjz" rowHeight="81" style="IBUITableViewCellStyleDefault" id="zYa-4W-R8m">
-                                        <rect key="frame" x="0.0" y="283" width="320" height="83"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="80"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" id="15F-WI-sjz">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="80"/>
-                                                    <string key="text">To collaborate you must Share this document with other users or open this same document in a new window and collaborate with yourself.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
+                                <string key="footerTitle">To collaborate you must Share this document with other users or open this same document in another device and collaborate with yourself.</string>
+                                <cells/>
                             </tableViewSection>
                             <tableViewSection headerTitle="Step 4  Collaborate" id="Z8P-B9-7Ye">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="bcV-jt-NdH" rowHeight="172" style="IBUITableViewCellStyleDefault" id="1kR-X9-0Ci">
-                                        <rect key="frame" x="0.0" y="412" width="320" height="174"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="171"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" id="bcV-jt-NdH">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="171"/>
-                                                    <string key="text">Goodow Realtime collaborative documents are made of 4 types of collaborative elements: String, Lists, Maps and Custom objects. A Goodow Realtime collaborative document can have as many of these collaborative elements as they need. As a demonstration, You will find below UI widgets representing collaborative elements of each type.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
+                                <string key="footerTitle">Goodow Realtime collaborative documents are made of 4 types of collaborative elements: String, Lists, Maps and Custom objects. A Goodow Realtime collaborative document can have as many of these collaborative elements as they need. As a demonstration, You will find below UI widgets representing collaborative elements of each type.</string>
+                                <cells/>
                             </tableViewSection>
                             <tableViewSection headerTitle="Collaborative strings" id="itT-R6-Clp">
+                                <string key="footerTitle">Collaborative strings are just like normal strings, except that all sessions will be notified and updated when the string changes. Events are fired when strings are inserted to the collaborative string or when part of the string is deleted.</string>
+                                <cells/>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Edit the demo Collaborative String" id="XKb-ht-6LB">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="xOm-GA-rH2" rowHeight="122" style="IBUITableViewCellStyleDefault" id="EKS-U8-Ury">
-                                        <rect key="frame" x="0.0" y="632" width="320" height="123"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="189" id="CM6-rO-y0T" userLabel="String Cell">
+                                        <rect key="frame" x="0.0" y="832" width="320" height="191"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="121"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="xOm-GA-rH2">
-                                                    <string key="text">Collaborative strings are just like normal strings, except that all sessions will be notified and updated when the string changes. Events are fired when strings are inserted to the collaborative string or when part of the string is deleted.</string>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="199" id="CM6-rO-y0T">
-                                        <rect key="frame" x="0.0" y="755" width="320" height="200"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="198"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Edit the demo Collaborative String" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOQ-Mj-DeW">
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="21" id="Mt2-YR-NQ5"/>
-                                                        <constraint firstAttribute="width" constant="258" id="eeT-jN-R9P"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                </label>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vxy-fO-vbB">
                                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                     <constraints>
@@ -151,122 +48,82 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="ZqW-72-gug" id="jhF-YN-Ss3"/>
+                                                    </connections>
                                                 </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="Vxy-fO-vbB" firstAttribute="leading" secondItem="IOQ-Mj-DeW" secondAttribute="leading" type="default" id="4Aw-zK-PTd"/>
-                                            <constraint firstItem="Vxy-fO-vbB" firstAttribute="top" secondItem="IOQ-Mj-DeW" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="Aj9-cK-d4e"/>
+                                            <constraint firstItem="Vxy-fO-vbB" firstAttribute="top" secondItem="CM6-rO-y0T" secondAttribute="top" constant="15" id="5pA-w7-LM4"/>
                                             <constraint firstItem="Vxy-fO-vbB" firstAttribute="centerX" secondItem="CM6-rO-y0T" secondAttribute="centerX" type="default" id="oZc-EE-2bg"/>
-                                            <constraint firstItem="IOQ-Mj-DeW" firstAttribute="top" secondItem="CM6-rO-y0T" secondAttribute="top" constant="2" id="osf-qW-wNf"/>
                                         </constraints>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-6" id="XKb-ht-6LB">
+                            <tableViewSection headerTitle="Collaborative lists" id="G3n-Ep-BAU">
+                                <string key="footerTitle">A collaborative list state is shared across sessions. Events are fired when items are added or removed to the list or when an existig item's value is set.</string>
+                                <cells/>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Add, remove or set items on the demo Collaborative List" id="nC0-Y2-rRd">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="iXt-0Q-iWl" style="IBUITableViewCellStyleDefault" id="FFn-lO-5yR">
-                                        <rect key="frame" x="0.0" y="1001" width="320" height="45"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="189" id="ew5-GB-jLy" userLabel="List Cell">
+                                        <rect key="frame" x="0.0" y="1224" width="320" height="191"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iXt-0Q-iWl">
-                                                    <rect key="frame" x="10" y="0.0" width="260" height="43"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="hXe-E7-SDK" style="IBUITableViewCellStyleDefault" id="DuA-Z1-9h8">
-                                        <rect key="frame" x="0.0" y="1046" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hXe-E7-SDK">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <string key="text">Realtime API Playground
-</string>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="xC2-rT-a6r">
-                                        <rect key="frame" x="0.0" y="1090" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="188"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Section-7" id="AKn-le-tdB">
+                            <tableViewSection headerTitle="Collaborative maps" id="40Z-6j-KIa">
+                                <string key="footerTitle">Collaborative maps share key/value state across sessions. They support standard map operations. Events are fired when key-value pairs are changed.</string>
+                                <cells/>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Add, change or remove key-value pairs on the demo Collaborative Map" id="jUv-DK-gXs">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="189" id="Qm6-BG-a9R" userLabel="Map Cell">
+                                        <rect key="frame" x="0.0" y="1637" width="320" height="191"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="10" y="1" width="300" height="188"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Debug Info" id="AKn-le-tdB">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="29z-LA-Q5w" style="IBUITableViewCellStyleDefault" id="vXK-XG-5YC">
-                                        <rect key="frame" x="0.0" y="1181" width="320" height="45"/>
+                                        <rect key="frame" x="0.0" y="1874" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="10" y="1" width="280" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="log" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="29z-LA-Q5w">
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="HTTP Logging" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="29z-LA-Q5w">
                                                     <rect key="frame" x="10" y="0.0" width="260" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="NQm-eV-4zM" style="IBUITableViewCellStyleDefault" id="rg7-Ih-5fq">
-                                        <rect key="frame" x="0.0" y="1226" width="320" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NQm-eV-4zM">
-                                                    <rect key="frame" x="10" y="0.0" width="280" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <string key="text">Realtime API Playground
-</string>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="PnS-ne-5Et">
-                                        <rect key="frame" x="0.0" y="1270" width="320" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="0.0" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="ZqW-72-gug" id="jwh-dE-mFN"/>
+                            <outlet property="delegate" destination="ZqW-72-gug" id="sFj-0u-nHj"/>
+                        </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="shZ-XD-CSB"/>
+                    <navigationItem key="navigationItem" title="Goodow Realtime Playground" id="shZ-XD-CSB"/>
                     <connections>
                         <outlet property="textView" destination="Vxy-fO-vbB" id="Vxu-c5-HvL"/>
                     </connections>
@@ -295,7 +152,6 @@
         <class className="GDRRootViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/GDRRootViewController.h"/>
             <relationships>
-                <relationship kind="action" name="textViewKeyUp:"/>
                 <relationship kind="outlet" name="textView" candidateClass="UITextView"/>
             </relationships>
         </class>

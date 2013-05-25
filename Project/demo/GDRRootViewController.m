@@ -48,6 +48,14 @@ static NSString * STR_KEY = @"demo_string";
   [GDRRealtime load:@"@tmp/test" onLoaded:onLoaded initializer:initializer error:nil];
 }
 
+- (void)didReceiveMemoryWarning
+{
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - Collaborative strings
+
 - (void) initializeString {
   GDRCollaborativeString *string = [mod createString:@"Edit Me!"];
   [root set:STR_KEY value:string];
@@ -55,16 +63,16 @@ static NSString * STR_KEY = @"demo_string";
 - (void) connectString {
   str = [root get:STR_KEY];
   GDRTextInsertedBlock block = ^(GDRBaseModelEvent *event) {
-    self.textView.text = [str getText];
+    if(!event.isLocal) {
+      self.textView.text = [str getText];
+    }
   };
   [str addTextDeletedListener: (GDRTextDeletedBlock) block];
   [str addTextInsertedListener:block];
 }
 
-- (void)didReceiveMemoryWarning
-{
-  [super didReceiveMemoryWarning];
-  // Dispose of any resources that can be recreated.
+- (void)textViewDidChange:(UITextView *)textView {
+  [str setText:self.textView.text];
 }
 
 /*
