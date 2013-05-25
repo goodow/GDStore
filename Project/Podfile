@@ -4,7 +4,7 @@ pod 'GDRealtime', :path => '..'
 # podspec :path => "../GDRealtime.podspec"
 
 target :demo do
-  pod 'BlocksKit'
+  pod 'GDRealtime'
 end
 
 target :test, :exclusive => true do

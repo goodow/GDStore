@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
   s.summary      = "Goodow Realtime provides collaborative objects, events, and methods for creating collaborative applications via the use of operational transforms."
   s.homepage     = "https://github.com/goodow/realtime"
   s.author       = { "Larry Tin" => "dev@goodow.com" }
-  s.source       = { :git => "https://github.com/goodow/realtime.git", :tag => "v#{s.version}" }
+  s.source       = { :git => "https://github.com/goodow/GDRealtime.git", :tag => "v#{s.version}" }
 
   s.default_subspec = 'default'
   s.header_mappings_dir = 'Classes/generated/include'
@@ -19,14 +19,10 @@ Pod::Spec.new do |s|
     d.dependency 'jre_emul', '~> 0.7.2'
     d.dependency 'GDRealtime/common'
     d.dependency 'GDRealtime/generated'
-    d.dependency 'Google-API-Client/Common'
-    d.dependency 'Google-API-Client/Objects'
-    d.dependency 'Google-API-Client/Utilities'
   end
 
   s.subspec 'common' do |common|
-    common.source_files = 'Classes/common/**/*.{h,m}', 'Classes/generated/include/**/*.h'
-
+    common.source_files = 'Classes/common', 'Classes/generated/include/**/*.h'
     common.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
   end
 
@@ -41,19 +37,28 @@ Pod::Spec.new do |s|
       model.subspec 'op' do |op|
         op.source_files = 'Classes/generated/operation/**/*.m'
         op.requires_arc = false
+        op.dependency 'GDRealtime/generated/elemental'
       end
     end
 
     gen.subspec 'channel' do |channel|
       channel.source_files = 'Classes/generated/channel/**/*.m'
+      channel.dependency 'GDRealtime/generated/model'
+    end
+
+    gen.subspec 'services' do |services|
+      services.source_files = 'Classes/generated/services/**/*.{h,m}'
+      services.dependency 'Google-API-Client/Common'
+      services.dependency 'Google-API-Client/Objects'
+      services.dependency 'Google-API-Client/Utilities'
     end
   end
 
   s.subspec 'test' do |test|
-    # test.source_files = 'Classes/test_generated/**/*.{h,m}'
+    # test.source_files = 'Classes/test_generated'
 
     test.dependency 'GDRealtime/common'
-    test.dependency 'GDRealtime/generated'
+    test.dependency 'GDRealtime/generated/model'
 
     test.xcconfig = { 'HEADER_SEARCH_PATHS' => \
       '"${PODS_ROOT}/jre_emul/dist/include" "${PODS_ROOT}/jre_emul/jre_emul/icu4c/i18n/include" "${PODS_ROOT}/jre_emul/jre_emul/icu4c/common"' }

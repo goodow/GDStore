@@ -19,8 +19,10 @@
 		8D0F504E174B716A001CAE7C /* GDRModel+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5038174B716A001CAE7C /* GDRModel+OCNI.m */; };
 		8D0F504F174B716A001CAE7C /* GDRRealtime+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */; };
 		8D0F5050174B716A001CAE7C /* ObjCModelFactory+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */; };
-		8D0F5051174B716A001CAE7C /* ObjCHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5044174B716A001CAE7C /* ObjCHttpRequest.m */; };
-		8D0F5052174B716A001CAE7C /* ObjCHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5045174B716A001CAE7C /* ObjCHttpResponse.m */; };
+		8D0F5064174DADDB001CAE7C /* ObjCHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F505C174DADDB001CAE7C /* ObjCHttpRequest.m */; };
+		8D0F5065174DADDB001CAE7C /* ObjCHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F505E174DADDB001CAE7C /* ObjCHttpResponse.m */; };
+		8D1D0EAD174F328600C8F83C /* GDRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D0EAC174F328600C8F83C /* GDRRootViewController.m */; };
+		8D78B446174F1B8E0006C456 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D78B445174F1B8E0006C456 /* Storyboard.storyboard */; };
 		8D8CA154172BC9B400652CC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8CA153172BC9B400652CC1 /* Foundation.framework */; };
 		8D9446B017363044002EB5AE /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74A3172BD0F20052F0ED /* test.m */; };
 		8DBB745C172BD0B60052F0ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745B172BD0B60052F0ED /* UIKit.framework */; };
@@ -28,12 +30,10 @@
 		8DBB745F172BD0B60052F0ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745E172BD0B60052F0ED /* CoreGraphics.framework */; };
 		8DBB7465172BD0B60052F0ED /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7463172BD0B60052F0ED /* InfoPlist.strings */; };
 		8DBB7467172BD0B60052F0ED /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB7466172BD0B60052F0ED /* main.m */; };
-		8DBB746B172BD0B70052F0ED /* GDRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB746A172BD0B70052F0ED /* GDRAppDelegate.m */; };
 		8DBB746D172BD0B70052F0ED /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB746C172BD0B70052F0ED /* Default.png */; };
 		8DBB746F172BD0B70052F0ED /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB746E172BD0B70052F0ED /* Default@2x.png */; };
 		8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */; };
-		8DBB7474172BD0B70052F0ED /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7472172BD0B70052F0ED /* MainStoryboard.storyboard */; };
-		8DBB7477172BD0B70052F0ED /* GDRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB7476172BD0B70052F0ED /* GDRViewController.m */; };
+		8DF699CA174F6FD30031CEBF /* GDRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF699C9174F6FD30031CEBF /* GDRAppDelegate.m */; };
 		8DF804E7173397C600B67EDC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */; };
 		8DF804E8173397C600B67EDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD88AD0172F7811006DCFA8 /* Cocoa.framework */; };
 		8DF804F7173398F300B67EDC /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF804DA1733979300B67EDC /* UnitTest.m */; };
@@ -77,9 +77,12 @@
 		8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRRealtime+OCNI.m"; sourceTree = "<group>"; };
 		8D0F503B174B716A001CAE7C /* ObjCModelFactory+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ObjCModelFactory+OCNI.h"; sourceTree = "<group>"; };
 		8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ObjCModelFactory+OCNI.m"; sourceTree = "<group>"; };
-		8D0F5044174B716A001CAE7C /* ObjCHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHttpRequest.m; sourceTree = "<group>"; };
-		8D0F5045174B716A001CAE7C /* ObjCHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHttpResponse.m; sourceTree = "<group>"; };
-		8D0F5046174B716A001CAE7C /* EventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTarget.h; sourceTree = "<group>"; };
+		8D0F505C174DADDB001CAE7C /* ObjCHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHttpRequest.m; sourceTree = "<group>"; };
+		8D0F505D174DADDB001CAE7C /* ObjCHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHttpResponse.h; sourceTree = "<group>"; };
+		8D0F505E174DADDB001CAE7C /* ObjCHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHttpResponse.m; sourceTree = "<group>"; };
+		8D0F5063174DADDB001CAE7C /* EventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTarget.h; sourceTree = "<group>"; };
+		8D1D0EAB174F328600C8F83C /* GDRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRRootViewController.h; sourceTree = "<group>"; };
+		8D1D0EAC174F328600C8F83C /* GDRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRRootViewController.m; sourceTree = "<group>"; };
 		8D31C8011734F9A900F21114 /* CollaborativeListTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborativeListTest.h; sourceTree = "<group>"; };
 		8D31C8021734F9A900F21114 /* CollaborativeListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollaborativeListTest.m; sourceTree = "<group>"; };
 		8D31C8031734F9A900F21114 /* CollaborativeMapTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborativeMapTest.h; sourceTree = "<group>"; };
@@ -96,6 +99,7 @@
 		8D31C8111734F9A900F21114 /* StringOpTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringOpTest.m; sourceTree = "<group>"; };
 		8D31C8131734F9A900F21114 /* MapOpTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapOpTest.h; sourceTree = "<group>"; };
 		8D31C8141734F9A900F21114 /* MapOpTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapOpTest.m; sourceTree = "<group>"; };
+		8D78B445174F1B8E0006C456 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		8D8344591737567700253F19 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		8D8CA150172BC9B400652CC1 /* libGDRealtime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDRealtime.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8CA153172BC9B400652CC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -106,14 +110,9 @@
 		8DBB7464172BD0B60052F0ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DBB7466172BD0B60052F0ED /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8DBB7468172BD0B70052F0ED /* demo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "demo-Prefix.pch"; sourceTree = "<group>"; };
-		8DBB7469172BD0B70052F0ED /* GDRAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRAppDelegate.h; sourceTree = "<group>"; };
-		8DBB746A172BD0B70052F0ED /* GDRAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDRAppDelegate.m; sourceTree = "<group>"; };
 		8DBB746C172BD0B70052F0ED /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		8DBB746E172BD0B70052F0ED /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		8DBB7473172BD0B70052F0ED /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
-		8DBB7475172BD0B70052F0ED /* GDRViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDRViewController.h; sourceTree = "<group>"; };
-		8DBB7476172BD0B70052F0ED /* GDRViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = GDRViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		8DBB749E172BD0F20052F0ED /* test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "test-Info.plist"; sourceTree = "<group>"; };
 		8DBB74A0172BD0F20052F0ED /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -125,6 +124,8 @@
 		8DD88AD3172F7811006DCFA8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8DD88AD4172F7811006DCFA8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD88AD5172F7811006DCFA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8DF699C8174F6FD30031CEBF /* GDRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRAppDelegate.h; sourceTree = "<group>"; };
+		8DF699C9174F6FD30031CEBF /* GDRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRAppDelegate.m; sourceTree = "<group>"; };
 		8DF804D51733979300B67EDC /* UnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTest-Info.plist"; sourceTree = "<group>"; };
 		8DF804D71733979300B67EDC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		8DF804D91733979300B67EDC /* UnitTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UnitTest.h; sourceTree = "<group>"; };
@@ -204,66 +205,109 @@
 				8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */,
 				8D0F503B174B716A001CAE7C /* ObjCModelFactory+OCNI.h */,
 				8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */,
+				8DF699C8174F6FD30031CEBF /* GDRAppDelegate.h */,
+				8DF699C9174F6FD30031CEBF /* GDRAppDelegate.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
 		};
-		8D0F503D174B716A001CAE7C /* override_generated */ = {
+		8D0F5054174DADDB001CAE7C /* override_generated */ = {
 			isa = PBXGroup;
 			children = (
-				8D0F503E174B716A001CAE7C /* com */,
+				8D0F5055174DADDB001CAE7C /* channel */,
+				8D0F505F174DADDB001CAE7C /* model */,
 			);
 			path = override_generated;
 			sourceTree = "<group>";
 		};
-		8D0F503E174B716A001CAE7C /* com */ = {
+		8D0F5055174DADDB001CAE7C /* channel */ = {
 			isa = PBXGroup;
 			children = (
-				8D0F503F174B716A001CAE7C /* goodow */,
-			);
-			path = com;
-			sourceTree = "<group>";
-		};
-		8D0F503F174B716A001CAE7C /* goodow */ = {
-			isa = PBXGroup;
-			children = (
-				8D0F5040174B716A001CAE7C /* realtime */,
-			);
-			path = goodow;
-			sourceTree = "<group>";
-		};
-		8D0F5040174B716A001CAE7C /* realtime */ = {
-			isa = PBXGroup;
-			children = (
-				8D0F5041174B716A001CAE7C /* channel */,
-				8D0F5046174B716A001CAE7C /* EventTarget.h */,
-			);
-			path = realtime;
-			sourceTree = "<group>";
-		};
-		8D0F5041174B716A001CAE7C /* channel */ = {
-			isa = PBXGroup;
-			children = (
-				8D0F5042174B716A001CAE7C /* http */,
+				8D0F5056174DADDB001CAE7C /* com */,
 			);
 			path = channel;
 			sourceTree = "<group>";
 		};
-		8D0F5042174B716A001CAE7C /* http */ = {
+		8D0F5056174DADDB001CAE7C /* com */ = {
 			isa = PBXGroup;
 			children = (
-				8D0F5043174B716A001CAE7C /* objc */,
+				8D0F5057174DADDB001CAE7C /* goodow */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		8D0F5057174DADDB001CAE7C /* goodow */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5058174DADDB001CAE7C /* realtime */,
+			);
+			path = goodow;
+			sourceTree = "<group>";
+		};
+		8D0F5058174DADDB001CAE7C /* realtime */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5059174DADDB001CAE7C /* channel */,
+			);
+			path = realtime;
+			sourceTree = "<group>";
+		};
+		8D0F5059174DADDB001CAE7C /* channel */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F505A174DADDB001CAE7C /* http */,
+			);
+			path = channel;
+			sourceTree = "<group>";
+		};
+		8D0F505A174DADDB001CAE7C /* http */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F505B174DADDB001CAE7C /* objc */,
 			);
 			path = http;
 			sourceTree = "<group>";
 		};
-		8D0F5043174B716A001CAE7C /* objc */ = {
+		8D0F505B174DADDB001CAE7C /* objc */ = {
 			isa = PBXGroup;
 			children = (
-				8D0F5044174B716A001CAE7C /* ObjCHttpRequest.m */,
-				8D0F5045174B716A001CAE7C /* ObjCHttpResponse.m */,
+				8D0F505C174DADDB001CAE7C /* ObjCHttpRequest.m */,
+				8D0F505D174DADDB001CAE7C /* ObjCHttpResponse.h */,
+				8D0F505E174DADDB001CAE7C /* ObjCHttpResponse.m */,
 			);
 			path = objc;
+			sourceTree = "<group>";
+		};
+		8D0F505F174DADDB001CAE7C /* model */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5060174DADDB001CAE7C /* com */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		8D0F5060174DADDB001CAE7C /* com */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5061174DADDB001CAE7C /* goodow */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		8D0F5061174DADDB001CAE7C /* goodow */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5062174DADDB001CAE7C /* realtime */,
+			);
+			path = goodow;
+			sourceTree = "<group>";
+		};
+		8D0F5062174DADDB001CAE7C /* realtime */ = {
+			isa = PBXGroup;
+			children = (
+				8D0F5063174DADDB001CAE7C /* EventTarget.h */,
+			);
+			path = realtime;
 			sourceTree = "<group>";
 		};
 		8D31C7FD1734F9A900F21114 /* test_generated */ = {
@@ -396,11 +440,9 @@
 		8DBB7460172BD0B60052F0ED /* demo */ = {
 			isa = PBXGroup;
 			children = (
-				8DBB7469172BD0B70052F0ED /* GDRAppDelegate.h */,
-				8DBB746A172BD0B70052F0ED /* GDRAppDelegate.m */,
-				8DBB7472172BD0B70052F0ED /* MainStoryboard.storyboard */,
-				8DBB7475172BD0B70052F0ED /* GDRViewController.h */,
-				8DBB7476172BD0B70052F0ED /* GDRViewController.m */,
+				8D78B445174F1B8E0006C456 /* Storyboard.storyboard */,
+				8D1D0EAB174F328600C8F83C /* GDRRootViewController.h */,
+				8D1D0EAC174F328600C8F83C /* GDRRootViewController.m */,
 				8DBB7461172BD0B60052F0ED /* Supporting Files */,
 			);
 			path = demo;
@@ -444,7 +486,7 @@
 			isa = PBXGroup;
 			children = (
 				8D0F5027174B716A001CAE7C /* common */,
-				8D0F503D174B716A001CAE7C /* override_generated */,
+				8D0F5054174DADDB001CAE7C /* override_generated */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -607,7 +649,7 @@
 				8DBB746D172BD0B70052F0ED /* Default.png in Resources */,
 				8DBB746F172BD0B70052F0ED /* Default@2x.png in Resources */,
 				8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */,
-				8DBB7474172BD0B70052F0ED /* MainStoryboard.storyboard in Resources */,
+				8D78B446174F1B8E0006C456 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -748,8 +790,9 @@
 				8D0F504E174B716A001CAE7C /* GDRModel+OCNI.m in Sources */,
 				8D0F504F174B716A001CAE7C /* GDRRealtime+OCNI.m in Sources */,
 				8D0F5050174B716A001CAE7C /* ObjCModelFactory+OCNI.m in Sources */,
-				8D0F5051174B716A001CAE7C /* ObjCHttpRequest.m in Sources */,
-				8D0F5052174B716A001CAE7C /* ObjCHttpResponse.m in Sources */,
+				8D0F5064174DADDB001CAE7C /* ObjCHttpRequest.m in Sources */,
+				8D0F5065174DADDB001CAE7C /* ObjCHttpResponse.m in Sources */,
+				8DF699CA174F6FD30031CEBF /* GDRAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -758,8 +801,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DBB7467172BD0B60052F0ED /* main.m in Sources */,
-				8DBB746B172BD0B70052F0ED /* GDRAppDelegate.m in Sources */,
-				8DBB7477172BD0B70052F0ED /* GDRViewController.m in Sources */,
+				8D1D0EAD174F328600C8F83C /* GDRRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -788,14 +830,6 @@
 				8DBB7464172BD0B60052F0ED /* en */,
 			);
 			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		8DBB7472172BD0B70052F0ED /* MainStoryboard.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8DBB7473172BD0B70052F0ED /* en */,
-			);
-			name = MainStoryboard.storyboard;
 			sourceTree = "<group>";
 		};
 		8DBB749F172BD0F20052F0ED /* InfoPlist.strings */ = {
