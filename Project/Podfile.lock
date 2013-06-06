@@ -2,7 +2,7 @@ PODS:
   - GDRealtime (0.0.1):
     - GDRealtime/default
   - GDRealtime/common (0.0.1):
-    - GDRealtime/generated/channel
+    - GDRealtime/generated/model
     - Google-Diff-Match-Patch (~> 0.0.1)
     - GTMHTTPFetcher (~> 0.0.1)
   - GDRealtime/default (0.0.1):
@@ -10,11 +10,11 @@ PODS:
     - GDRealtime/generated/services
     - jre_emul (~> 0.7.2)
   - GDRealtime/generated/channel (0.0.1):
-    - GDRealtime/generated/model
+    - GDRealtime/generated/operation
   - GDRealtime/generated/elemental (0.0.1)
   - GDRealtime/generated/model (0.0.1):
-    - GDRealtime/generated/model/op
-  - GDRealtime/generated/model/op (0.0.1):
+    - GDRealtime/generated/channel
+  - GDRealtime/generated/operation (0.0.1):
     - GDRealtime/generated/elemental
   - GDRealtime/generated/services (0.0.1):
     - Google-API-Client/Common
@@ -67,7 +67,7 @@ EXTERNAL SOURCES:
     :path: ..
 
 SPEC CHECKSUMS:
-  GDRealtime: de9a8467ff6d18ff5006e63307b722c57b74b0f1
+  GDRealtime: 02f11b3226abb17fc14889301e81efbb6f018ed3
   Google-API-Client: 1418612c357ae32aeb9aa9ddf6ba42e1652a49de
   Google-Diff-Match-Patch: a4f62e11af850bea98689c8f24e382e47c46bf59
   gtm-oauth2: c4824003b569bc9b96446661fb92dbc681335499
@@ -75,4 +75,4 @@ SPEC CHECKSUMS:
   jre_emul: d4d14f21215f74c88830c834e6e46f63e285e149
   SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
 
-COCOAPODS: 0.20.1
+COCOAPODS: 0.20.2

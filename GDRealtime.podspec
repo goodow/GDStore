@@ -27,7 +27,7 @@ Pod::Spec.new do |s|
     common.source_files = 'Classes/common', 'Classes/generated/include/**/*.h'
     common.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
     common.dependency 'GTMHTTPFetcher', '~> 0.0.1'
-    common.dependency 'GDRealtime/generated/channel'
+    common.dependency 'GDRealtime/generated/model'
   end
 
   s.subspec 'generated' do |gen|
@@ -36,18 +36,20 @@ Pod::Spec.new do |s|
       elemental.requires_arc = false
     end
 
-    gen.subspec 'model' do |model|
-      model.source_files = 'Classes/generated/model/**/*.m'
-      model.subspec 'op' do |op|
-        op.source_files = 'Classes/generated/operation/**/*.m'
-        op.requires_arc = false
-        op.dependency 'GDRealtime/generated/elemental'
-      end
+    gen.subspec 'operation' do |operation|
+      operation.source_files = 'Classes/generated/operation/**/*.m'
+      operation.requires_arc = false
+      operation.dependency 'GDRealtime/generated/elemental'
     end
 
     gen.subspec 'channel' do |channel|
       channel.source_files = 'Classes/generated/channel/**/*.m'
-      channel.dependency 'GDRealtime/generated/model'
+      channel.dependency 'GDRealtime/generated/operation'
+    end
+
+    gen.subspec 'model' do |model|
+      model.source_files = 'Classes/generated/model/**/*.m'
+      model.dependency 'GDRealtime/generated/channel'
     end
 
     gen.subspec 'services' do |services|

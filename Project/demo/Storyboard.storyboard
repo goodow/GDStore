@@ -96,7 +96,9 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Debug Info" id="AKn-le-tdB">
+                            <tableViewSection headerTitle="Debug Tools" id="AKn-le-tdB">
+                                <string key="footerTitle">  
+ http://reatime.goodow.com</string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="29z-LA-Q5w" style="IBUITableViewCellStyleDefault" id="vXK-XG-5YC">
                                         <rect key="frame" x="0.0" y="1874" width="320" height="46"/>

@@ -3,7 +3,7 @@
 #import "GDR.h"
 #import "java/lang/RuntimeException.h"
 
-@implementation ComGoodowRealtimeUtilImplObjCModelFactory (OCNI)
+@implementation ComGoodowRealtimeModelUtilImplObjCModelFactory (OCNI)
 -(void)setTextImpl:(GDRCollaborativeString *)str text:(NSString *)text {
   DiffMatchPatch *dmp = [DiffMatchPatch new];
   NSMutableArray * diffs = [dmp diff_mainOfOldString:[str getText] andNewString:text];

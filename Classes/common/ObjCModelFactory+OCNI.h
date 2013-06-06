@@ -1,6 +1,6 @@
-#import "com/goodow/realtime/util/impl/ObjCModelFactory.h"
+#import "com/goodow/realtime/model/util/impl/ObjCModelFactory.h"
 @class GDRCollaborativeString;
 
-@interface ComGoodowRealtimeUtilImplObjCModelFactory (OCNI)
+@interface ComGoodowRealtimeModelUtilImplObjCModelFactory (OCNI)
 -(void)setTextImpl:(GDRCollaborativeString *)str text:(NSString *)text;
 @end

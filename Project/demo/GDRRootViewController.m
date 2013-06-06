@@ -116,14 +116,16 @@ static NSString * STR_KEY = @"demo_string";
 
 #pragma mark - Table view delegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  if(indexPath.section == [self numberOfSectionsInTableView:self.tableView] -1 &&
-     indexPath.item == 0){
-    GTMHTTPFetcherLogViewController *logViewController = [[GTMHTTPFetcherLogViewController alloc] init];
-    [self.navigationController pushViewController:logViewController
-                                         animated:YES];
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+  
+  if(indexPath.section == [self numberOfSectionsInTableView:self.tableView] -1) {
+    if(indexPath.item == 0){
+      GTMHTTPFetcherLogViewController *logViewController = [[GTMHTTPFetcherLogViewController alloc] init];
+      [self.navigationController pushViewController:logViewController
+                                           animated:YES];
+    }
   }
 }
+
 
 @end

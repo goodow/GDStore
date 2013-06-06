@@ -63,15 +63,6 @@
       
     }
   }];
-//  query = [GTLQueryDevice queryForListDeviceInfo];
-//  query.limit = 3;
-//  ticket = [service executeQuery:query completionHandler:^(GTLServiceTicket *ticket, GTLDeviceCollectionResponseDeviceInfo *object, NSError *error) {
-//    if(error){
-//      
-//    } else {
-//      GTLDeviceInfo *d = object.items[0];
-//    }
-//  }];
   NSString *log = ticket.objectFetcher.log;
 }
 
