@@ -625,7 +625,7 @@
 		8D8CA148172BC9B400652CC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0460;
+				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Larry Tin";
 			};
 			buildConfigurationList = 8D8CA14B172BC9B400652CC1 /* Build configuration list for PBXProject "GDRealtime" */;
@@ -969,7 +969,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -987,7 +986,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1006,7 +1004,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -1026,7 +1023,6 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";

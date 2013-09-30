@@ -1,27 +1,25 @@
 PODS:
-  - GDRealtime (0.0.1):
+  - GDRealtime (0.3.0):
     - GDRealtime/default
-  - GDRealtime/common (0.0.1):
-    - GDRealtime/generated/model
+  - GDRealtime/common (0.3.0):
+    - GDRealtime/generated/api
     - Google-Diff-Match-Patch (~> 0.0.1)
     - GTMHTTPFetcher (~> 0.0.1)
-  - GDRealtime/default (0.0.1):
+  - GDRealtime/default (0.3.0):
     - GDRealtime/common
     - GDRealtime/generated/services
-    - jre_emul (~> 0.7.2)
-  - GDRealtime/generated/channel (0.0.1):
-    - GDRealtime/generated/operation
-  - GDRealtime/generated/elemental (0.0.1)
-  - GDRealtime/generated/model (0.0.1):
+  - GDRealtime/generated/api (0.3.0):
     - GDRealtime/generated/channel
-  - GDRealtime/generated/operation (0.0.1):
+  - GDRealtime/generated/channel (0.3.0):
+    - GDRealtime/generated/operation
+  - GDRealtime/generated/elemental (0.3.0):
+    - jre_emul (= 0.8.6.1)
+  - GDRealtime/generated/operation (0.3.0):
     - GDRealtime/generated/elemental
-  - GDRealtime/generated/services (0.0.1):
+  - GDRealtime/generated/services (0.3.0):
     - Google-API-Client/Common
     - Google-API-Client/Objects
     - Google-API-Client/Utilities
-  - GDRealtime/test (0.0.1):
-    - GDRealtime/common
   - Google-API-Client/Common (0.0.1):
     - gtm-oauth2
     - GTMHTTPFetcher
@@ -52,27 +50,25 @@ PODS:
     - SBJson
   - GTMHTTPFetcher (0.0.1):
     - SBJson
-  - jre_emul (0.7.2):
+  - jre_emul (0.8.6.1):
     - jre_emul/jre
-  - jre_emul/jre (0.7.2)
+  - jre_emul/jre (0.8.6.1)
   - SBJson (3.2)
 
 DEPENDENCIES:
-  - GDRealtime
-  - GDRealtime (from `..`)
-  - GDRealtime/test
+  - GDRealtime (from `../GDRealtime.podspec`)
 
 EXTERNAL SOURCES:
   GDRealtime:
-    :path: ..
+    :path: ../GDRealtime.podspec
 
 SPEC CHECKSUMS:
-  GDRealtime: 02f11b3226abb17fc14889301e81efbb6f018ed3
-  Google-API-Client: 1418612c357ae32aeb9aa9ddf6ba42e1652a49de
-  Google-Diff-Match-Patch: a4f62e11af850bea98689c8f24e382e47c46bf59
-  gtm-oauth2: c4824003b569bc9b96446661fb92dbc681335499
-  GTMHTTPFetcher: 99f026c2d7afbcf2a051a64a3e81dcaedd060135
-  jre_emul: d4d14f21215f74c88830c834e6e46f63e285e149
+  GDRealtime: d073237ab6025f5851d05d69402eb084f75a8a8d
+  Google-API-Client: a5aea65083895ad2fa8eeca4747478215c9ac934
+  Google-Diff-Match-Patch: 63f4950ecbd0bf3f7ccae48987e958fc825041d3
+  gtm-oauth2: af6d1ff3d4b14b35d3709f7f4bf2be8b43e45e62
+  GTMHTTPFetcher: b0af09f18ec87e7a5edeffcc8cb6449fdbf0e83f
+  jre_emul: 164fdb77aa391efa12c89032862c07cde22dbf4d
   SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
 
-COCOAPODS: 0.20.2
+COCOAPODS: 0.25.0
