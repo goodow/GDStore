@@ -1,13 +1,9 @@
 #import "GDRModel+OCNI.h"
 #import "GDR.h"
+#import "IOSClass.h"
 #import "java/util/HashMap.h"
 
 @implementation GDRModel (OCNI)
-@dynamic canRedo, canUndo, isReadOnly;
-
--(void)addUndoRedoStateChangedListener:(GDRUndoRedoStateChangedBlock)handler{
-  [self addUndoRedoStateChangedListenerWithGDREventHandler:handler];
-}
 
 -(GDRCollaborativeList *)createList:(NSArray *)opt_initialValue {
   IOSObjectArray * array = nil;

@@ -11,26 +11,31 @@ Pod::Spec.new do |s|
   s.osx.deployment_target = '10.8'
   s.requires_arc = true
   s.default_subspec = 'default'
+  # target Pods-GDRealtime need this
   s.header_mappings_dir = 'Classes/generated/include'
 #  s.resources = 'Resources/**'
 
   s.subspec 'default' do |d|
     d.ios.source_files = 'Classes/ios'
     d.dependency 'GDRealtime/common'
-    d.dependency 'GDRealtime/generated/services'
   end
 
   s.subspec 'common' do |common|
-    common.source_files = 'Classes/common', 'Classes/generated/include/**/*.h'
+    common.source_files = 'Classes/common'
     common.dependency 'Google-Diff-Match-Patch', '~> 0.0.1'
     common.dependency 'GTMHTTPFetcher', '~> 0.0.1'
-    common.dependency 'GDRealtime/generated/api'
+    common.dependency 'GDRealtime/generated'
+    # target GDRealtime need this
+    common.header_mappings_dir = 'Classes/generated/include'
   end
 
   s.subspec 'generated' do |gen|
+    gen.source_files = 'Classes/generated/include/**/*.h'
+    
     gen.subspec 'elemental' do |elemental|
       elemental.source_files = 'Classes/generated/elemental/**/*.m'
       elemental.dependency 'jre_emul', '0.8.6.1'
+      elemental.xcconfig = { 'HEADER_SEARCH_PATHS' => '"${PODS_ROOT}/jre_emul/dist/include"' }
     end
 
     gen.subspec 'operation' do |operation|
@@ -50,19 +55,10 @@ Pod::Spec.new do |s|
 
     gen.subspec 'services' do |services|
       services.source_files = 'Classes/generated/services/**/*.{h,m}'
+      services.exclude_files = 'Classes/generated/services/**/*_Sources.m'
       services.dependency 'Google-API-Client/Common'
       services.dependency 'Google-API-Client/Objects'
       services.dependency 'Google-API-Client/Utilities'
     end
   end
-
-  s.subspec 'test' do |test|
-    # test.source_files = 'Classes/test_generated'
-
-    test.dependency 'GDRealtime/common'
-
-    test.xcconfig = { 'HEADER_SEARCH_PATHS' => \
-      '"${PODS_ROOT}/jre_emul/dist/include"' }
-  end
-
 end

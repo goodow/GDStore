@@ -7,20 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		055817FB9E054A578C8DE214 /* libPods-demo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EE324FAA28F4670B4B27AEC /* libPods-demo.a */; };
 		0CA3B6C16AFA4502A56E2629 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
-		8D0F5047174B716A001CAE7C /* GDRCollaborativeList+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F502A174B716A001CAE7C /* GDRCollaborativeList+OCNI.m */; };
-		8D0F5048174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F502C174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m */; };
-		8D0F5049174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F502E174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m */; };
-		8D0F504A174B716A001CAE7C /* GDRCollaborativeString+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5030174B716A001CAE7C /* GDRCollaborativeString+OCNI.m */; };
-		8D0F504B174B716A001CAE7C /* GDRDocument+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5032174B716A001CAE7C /* GDRDocument+OCNI.m */; };
-		8D0F504C174B716A001CAE7C /* GDRError+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5034174B716A001CAE7C /* GDRError+OCNI.m */; };
-		8D0F504D174B716A001CAE7C /* GDRIndexReference+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5036174B716A001CAE7C /* GDRIndexReference+OCNI.m */; };
-		8D0F504E174B716A001CAE7C /* GDRModel+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F5038174B716A001CAE7C /* GDRModel+OCNI.m */; };
-		8D0F504F174B716A001CAE7C /* GDRRealtime+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */; };
-		8D0F5050174B716A001CAE7C /* ObjCModelFactory+OCNI.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */; };
-		8D0F5064174DADDB001CAE7C /* ObjCHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F505C174DADDB001CAE7C /* ObjCHttpRequest.m */; };
-		8D0F5065174DADDB001CAE7C /* ObjCHttpResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D0F505E174DADDB001CAE7C /* ObjCHttpResponse.m */; };
+		6ACC144B292B4F8789221785 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
 		8D1D0EAD174F328600C8F83C /* GDRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D0EAC174F328600C8F83C /* GDRRootViewController.m */; };
 		8D78B446174F1B8E0006C456 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D78B445174F1B8E0006C456 /* Storyboard.storyboard */; };
 		8D8CA154172BC9B400652CC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8CA153172BC9B400652CC1 /* Foundation.framework */; };
@@ -33,11 +21,10 @@
 		8DBB746D172BD0B70052F0ED /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB746C172BD0B70052F0ED /* Default.png */; };
 		8DBB746F172BD0B70052F0ED /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB746E172BD0B70052F0ED /* Default@2x.png */; };
 		8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */; };
-		8DF602841750E37F00A82BE3 /* GDRAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF602831750E37F00A82BE3 /* GDRAppDelegate.m */; };
 		8DF804E7173397C600B67EDC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */; };
 		8DF804E8173397C600B67EDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD88AD0172F7811006DCFA8 /* Cocoa.framework */; };
 		8DF804F7173398F300B67EDC /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF804DA1733979300B67EDC /* UnitTest.m */; };
-		E358178C59DA4C24A7880E03 /* libPods-test.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 934154E8F61A46D3939CD886 /* libPods-test.a */; };
+		E9DC2A00751B46E898D9F2C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -53,24 +40,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = SOURCE_ROOT; };
 		31DD2DBBD4894B0A890BE47B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-demo.xcconfig"; path = "Pods/Pods-demo.xcconfig"; sourceTree = SOURCE_ROOT; };
+		7661909E0E644A658877C214 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = "<group>"; };
 		8D0F5028174B716A001CAE7C /* GDR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDR.h; sourceTree = "<group>"; };
 		8D0F5029174B716A001CAE7C /* GDRCollaborativeList+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+OCNI.h"; sourceTree = "<group>"; };
 		8D0F502A174B716A001CAE7C /* GDRCollaborativeList+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeList+OCNI.m"; sourceTree = "<group>"; };
 		8D0F502B174B716A001CAE7C /* GDRCollaborativeMap+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeMap+OCNI.h"; sourceTree = "<group>"; };
 		8D0F502C174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeMap+OCNI.m"; sourceTree = "<group>"; };
-		8D0F502D174B716A001CAE7C /* GDRCollaborativeObject+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeObject+OCNI.h"; sourceTree = "<group>"; };
-		8D0F502E174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeObject+OCNI.m"; sourceTree = "<group>"; };
-		8D0F502F174B716A001CAE7C /* GDRCollaborativeString+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeString+OCNI.h"; sourceTree = "<group>"; };
-		8D0F5030174B716A001CAE7C /* GDRCollaborativeString+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeString+OCNI.m"; sourceTree = "<group>"; };
-		8D0F5031174B716A001CAE7C /* GDRDocument+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRDocument+OCNI.h"; sourceTree = "<group>"; };
-		8D0F5032174B716A001CAE7C /* GDRDocument+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRDocument+OCNI.m"; sourceTree = "<group>"; };
-		8D0F5033174B716A001CAE7C /* GDRError+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRError+OCNI.h"; sourceTree = "<group>"; };
-		8D0F5034174B716A001CAE7C /* GDRError+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRError+OCNI.m"; sourceTree = "<group>"; };
-		8D0F5035174B716A001CAE7C /* GDRIndexReference+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRIndexReference+OCNI.h"; sourceTree = "<group>"; };
-		8D0F5036174B716A001CAE7C /* GDRIndexReference+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRIndexReference+OCNI.m"; sourceTree = "<group>"; };
 		8D0F5037174B716A001CAE7C /* GDRModel+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRModel+OCNI.h"; sourceTree = "<group>"; };
 		8D0F5038174B716A001CAE7C /* GDRModel+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRModel+OCNI.m"; sourceTree = "<group>"; };
 		8D0F5039174B716A001CAE7C /* GDRRealtime+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRRealtime+OCNI.h"; sourceTree = "<group>"; };
@@ -80,25 +56,8 @@
 		8D0F505C174DADDB001CAE7C /* ObjCHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHttpRequest.m; sourceTree = "<group>"; };
 		8D0F505D174DADDB001CAE7C /* ObjCHttpResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ObjCHttpResponse.h; sourceTree = "<group>"; };
 		8D0F505E174DADDB001CAE7C /* ObjCHttpResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ObjCHttpResponse.m; sourceTree = "<group>"; };
-		8D0F5063174DADDB001CAE7C /* EventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventTarget.h; sourceTree = "<group>"; };
 		8D1D0EAB174F328600C8F83C /* GDRRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRRootViewController.h; sourceTree = "<group>"; };
 		8D1D0EAC174F328600C8F83C /* GDRRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRRootViewController.m; sourceTree = "<group>"; };
-		8D31C8011734F9A900F21114 /* CollaborativeListTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborativeListTest.h; sourceTree = "<group>"; };
-		8D31C8021734F9A900F21114 /* CollaborativeListTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollaborativeListTest.m; sourceTree = "<group>"; };
-		8D31C8031734F9A900F21114 /* CollaborativeMapTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborativeMapTest.h; sourceTree = "<group>"; };
-		8D31C8041734F9A900F21114 /* CollaborativeMapTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollaborativeMapTest.m; sourceTree = "<group>"; };
-		8D31C8051734F9A900F21114 /* CollaborativeStringTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CollaborativeStringTest.h; sourceTree = "<group>"; };
-		8D31C8061734F9A900F21114 /* CollaborativeStringTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CollaborativeStringTest.m; sourceTree = "<group>"; };
-		8D31C80A1734F9A900F21114 /* ListOpComposerTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListOpComposerTest.h; sourceTree = "<group>"; };
-		8D31C80B1734F9A900F21114 /* ListOpComposerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListOpComposerTest.m; sourceTree = "<group>"; };
-		8D31C80C1734F9A900F21114 /* ListOpTransformerTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ListOpTransformerTest.h; sourceTree = "<group>"; };
-		8D31C80D1734F9A900F21114 /* ListOpTransformerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ListOpTransformerTest.m; sourceTree = "<group>"; };
-		8D31C80E1734F9A900F21114 /* StringNormalizerTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringNormalizerTest.h; sourceTree = "<group>"; };
-		8D31C80F1734F9A900F21114 /* StringNormalizerTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringNormalizerTest.m; sourceTree = "<group>"; };
-		8D31C8101734F9A900F21114 /* StringOpTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StringOpTest.h; sourceTree = "<group>"; };
-		8D31C8111734F9A900F21114 /* StringOpTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = StringOpTest.m; sourceTree = "<group>"; };
-		8D31C8131734F9A900F21114 /* MapOpTest.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapOpTest.h; sourceTree = "<group>"; };
-		8D31C8141734F9A900F21114 /* MapOpTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapOpTest.m; sourceTree = "<group>"; };
 		8D78B445174F1B8E0006C456 /* Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		8D8344591737567700253F19 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		8D8CA150172BC9B400652CC1 /* libGDRealtime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDRealtime.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +83,7 @@
 		8DD88AD3172F7811006DCFA8 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		8DD88AD4172F7811006DCFA8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		8DD88AD5172F7811006DCFA8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8DDAB93C17FB086E001F684B /* Disposable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Disposable.h; sourceTree = "<group>"; };
 		8DF602821750E37F00A82BE3 /* GDRAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRAppDelegate.h; sourceTree = "<group>"; };
 		8DF602831750E37F00A82BE3 /* GDRAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRAppDelegate.m; sourceTree = "<group>"; };
 		8DF804D51733979300B67EDC /* UnitTest-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UnitTest-Info.plist"; sourceTree = "<group>"; };
@@ -157,7 +117,7 @@
 				8DBB745C172BD0B60052F0ED /* UIKit.framework in Frameworks */,
 				8DBB745D172BD0B60052F0ED /* Foundation.framework in Frameworks */,
 				8DBB745F172BD0B60052F0ED /* CoreGraphics.framework in Frameworks */,
-				055817FB9E054A578C8DE214 /* libPods-demo.a in Frameworks */,
+				E9DC2A00751B46E898D9F2C8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,7 +125,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E358178C59DA4C24A7880E03 /* libPods-test.a in Frameworks */,
+				6ACC144B292B4F8789221785 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,24 +145,14 @@
 			isa = PBXGroup;
 			children = (
 				8D0F5028174B716A001CAE7C /* GDR.h */,
-				8D0F5029174B716A001CAE7C /* GDRCollaborativeList+OCNI.h */,
-				8D0F502A174B716A001CAE7C /* GDRCollaborativeList+OCNI.m */,
-				8D0F502B174B716A001CAE7C /* GDRCollaborativeMap+OCNI.h */,
-				8D0F502C174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m */,
-				8D0F502D174B716A001CAE7C /* GDRCollaborativeObject+OCNI.h */,
-				8D0F502E174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m */,
-				8D0F502F174B716A001CAE7C /* GDRCollaborativeString+OCNI.h */,
-				8D0F5030174B716A001CAE7C /* GDRCollaborativeString+OCNI.m */,
-				8D0F5031174B716A001CAE7C /* GDRDocument+OCNI.h */,
-				8D0F5032174B716A001CAE7C /* GDRDocument+OCNI.m */,
-				8D0F5033174B716A001CAE7C /* GDRError+OCNI.h */,
-				8D0F5034174B716A001CAE7C /* GDRError+OCNI.m */,
-				8D0F5035174B716A001CAE7C /* GDRIndexReference+OCNI.h */,
-				8D0F5036174B716A001CAE7C /* GDRIndexReference+OCNI.m */,
-				8D0F5037174B716A001CAE7C /* GDRModel+OCNI.h */,
-				8D0F5038174B716A001CAE7C /* GDRModel+OCNI.m */,
 				8D0F5039174B716A001CAE7C /* GDRRealtime+OCNI.h */,
 				8D0F503A174B716A001CAE7C /* GDRRealtime+OCNI.m */,
+				8D0F5037174B716A001CAE7C /* GDRModel+OCNI.h */,
+				8D0F5038174B716A001CAE7C /* GDRModel+OCNI.m */,
+				8D0F502B174B716A001CAE7C /* GDRCollaborativeMap+OCNI.h */,
+				8D0F502C174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m */,
+				8D0F5029174B716A001CAE7C /* GDRCollaborativeList+OCNI.h */,
+				8D0F502A174B716A001CAE7C /* GDRCollaborativeList+OCNI.m */,
 				8D0F503B174B716A001CAE7C /* ObjCModelFactory+OCNI.h */,
 				8D0F503C174B716A001CAE7C /* ObjCModelFactory+OCNI.m */,
 			);
@@ -213,7 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				8D0F5055174DADDB001CAE7C /* channel */,
-				8D0F505F174DADDB001CAE7C /* model */,
+				8DDAB93417FAFA12001F684B /* api */,
 			);
 			path = override_generated;
 			sourceTree = "<group>";
@@ -276,122 +226,9 @@
 			path = objc;
 			sourceTree = "<group>";
 		};
-		8D0F505F174DADDB001CAE7C /* model */ = {
-			isa = PBXGroup;
-			children = (
-				8D0F5060174DADDB001CAE7C /* com */,
-			);
-			path = model;
-			sourceTree = "<group>";
-		};
-		8D0F5060174DADDB001CAE7C /* com */ = {
-			isa = PBXGroup;
-			children = (
-				8D0F5061174DADDB001CAE7C /* goodow */,
-			);
-			path = com;
-			sourceTree = "<group>";
-		};
-		8D0F5061174DADDB001CAE7C /* goodow */ = {
-			isa = PBXGroup;
-			children = (
-				8D0F5062174DADDB001CAE7C /* realtime */,
-			);
-			path = goodow;
-			sourceTree = "<group>";
-		};
-		8D0F5062174DADDB001CAE7C /* realtime */ = {
-			isa = PBXGroup;
-			children = (
-				8D0F5063174DADDB001CAE7C /* EventTarget.h */,
-			);
-			path = realtime;
-			sourceTree = "<group>";
-		};
-		8D31C7FD1734F9A900F21114 /* test_generated */ = {
-			isa = PBXGroup;
-			children = (
-				8D31C7FE1734F9A900F21114 /* com */,
-			);
-			name = test_generated;
-			path = ../Classes/test_generated;
-			sourceTree = "<group>";
-		};
-		8D31C7FE1734F9A900F21114 /* com */ = {
-			isa = PBXGroup;
-			children = (
-				8D31C7FF1734F9A900F21114 /* goodow */,
-			);
-			path = com;
-			sourceTree = "<group>";
-		};
-		8D31C7FF1734F9A900F21114 /* goodow */ = {
-			isa = PBXGroup;
-			children = (
-				8D31C8001734F9A900F21114 /* realtime */,
-			);
-			path = goodow;
-			sourceTree = "<group>";
-		};
-		8D31C8001734F9A900F21114 /* realtime */ = {
-			isa = PBXGroup;
-			children = (
-				8D31C8011734F9A900F21114 /* CollaborativeListTest.h */,
-				8D31C8021734F9A900F21114 /* CollaborativeListTest.m */,
-				8D31C8031734F9A900F21114 /* CollaborativeMapTest.h */,
-				8D31C8041734F9A900F21114 /* CollaborativeMapTest.m */,
-				8D31C8051734F9A900F21114 /* CollaborativeStringTest.h */,
-				8D31C8061734F9A900F21114 /* CollaborativeStringTest.m */,
-				8D31C8071734F9A900F21114 /* op */,
-			);
-			path = realtime;
-			sourceTree = "<group>";
-		};
-		8D31C8071734F9A900F21114 /* op */ = {
-			isa = PBXGroup;
-			children = (
-				8D31C8081734F9A900F21114 /* list */,
-				8D31C8121734F9A900F21114 /* map */,
-			);
-			path = op;
-			sourceTree = "<group>";
-		};
-		8D31C8081734F9A900F21114 /* list */ = {
-			isa = PBXGroup;
-			children = (
-				8D31C8091734F9A900F21114 /* algorithm */,
-				8D31C80E1734F9A900F21114 /* StringNormalizerTest.h */,
-				8D31C80F1734F9A900F21114 /* StringNormalizerTest.m */,
-				8D31C8101734F9A900F21114 /* StringOpTest.h */,
-				8D31C8111734F9A900F21114 /* StringOpTest.m */,
-			);
-			path = list;
-			sourceTree = "<group>";
-		};
-		8D31C8091734F9A900F21114 /* algorithm */ = {
-			isa = PBXGroup;
-			children = (
-				8D31C80A1734F9A900F21114 /* ListOpComposerTest.h */,
-				8D31C80B1734F9A900F21114 /* ListOpComposerTest.m */,
-				8D31C80C1734F9A900F21114 /* ListOpTransformerTest.h */,
-				8D31C80D1734F9A900F21114 /* ListOpTransformerTest.m */,
-			);
-			path = algorithm;
-			sourceTree = "<group>";
-		};
-		8D31C8121734F9A900F21114 /* map */ = {
-			isa = PBXGroup;
-			children = (
-				8D31C8131734F9A900F21114 /* MapOpTest.h */,
-				8D31C8141734F9A900F21114 /* MapOpTest.m */,
-			);
-			path = map;
-			sourceTree = "<group>";
-		};
 		8D8CA147172BC9B400652CC1 = {
 			isa = PBXGroup;
 			children = (
-				8D31C7FD1734F9A900F21114 /* test_generated */,
 				8DBB74A9172BD1300052F0ED /* Classes */,
 				8DBB7460172BD0B60052F0ED /* demo */,
 				8DBB749C172BD0F20052F0ED /* test */,
@@ -399,9 +236,8 @@
 				8D8CA152172BC9B400652CC1 /* Frameworks */,
 				8D8CA151172BC9B400652CC1 /* Products */,
 				CC32686C9A964CE998DA7A84 /* Pods.xcconfig */,
-				7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */,
-				1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */,
 				8D8344591737567700253F19 /* Makefile */,
+				7661909E0E644A658877C214 /* Pods-test.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -501,6 +337,38 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
+		8DDAB93417FAFA12001F684B /* api */ = {
+			isa = PBXGroup;
+			children = (
+				8DDAB93517FAFA12001F684B /* com */,
+			);
+			path = api;
+			sourceTree = "<group>";
+		};
+		8DDAB93517FAFA12001F684B /* com */ = {
+			isa = PBXGroup;
+			children = (
+				8DDAB93617FAFA12001F684B /* goodow */,
+			);
+			path = com;
+			sourceTree = "<group>";
+		};
+		8DDAB93617FAFA12001F684B /* goodow */ = {
+			isa = PBXGroup;
+			children = (
+				8DDAB93717FAFA12001F684B /* realtime */,
+			);
+			path = goodow;
+			sourceTree = "<group>";
+		};
+		8DDAB93717FAFA12001F684B /* realtime */ = {
+			isa = PBXGroup;
+			children = (
+				8DDAB93C17FB086E001F684B /* Disposable.h */,
+			);
+			path = realtime;
+			sourceTree = "<group>";
+		};
 		8DF602811750E34400A82BE3 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -567,12 +435,10 @@
 			buildConfigurationList = 8DBB7491172BD0B70052F0ED /* Build configuration list for PBXNativeTarget "demo" */;
 			buildPhases = (
 				4FCD2EBE48B549F5B664059A /* Check Pods Manifest.lock */,
-				5693BAD3825545FE90DA92DF /* Check Pods Manifest.lock */,
 				8DBB7456172BD0B60052F0ED /* Sources */,
 				8DBB7457172BD0B60052F0ED /* Frameworks */,
 				8DBB7458172BD0B60052F0ED /* Resources */,
 				177A272A02834CC8A112C7DA /* Copy Pods Resources */,
-				E4D86D0F8F3B4AB1A096CAF3 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -587,10 +453,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DD88ADC172F7811006DCFA8 /* Build configuration list for PBXNativeTarget "test" */;
 			buildPhases = (
+				C7B7848A669F48989FCFA9E0 /* Check Pods Manifest.lock */,
 				8DD88ACB172F7811006DCFA8 /* Sources */,
 				8DD88ACC172F7811006DCFA8 /* Frameworks */,
 				8DD88ACD172F7811006DCFA8 /* Headers */,
 				8D57F28A172F811A00F1B0FE /* ShellScript */,
+				738E3223B0894EEE80DD4F18 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -698,6 +566,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		4FCD2EBE48B549F5B664059A /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -713,19 +582,20 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
 		};
-		5693BAD3825545FE90DA92DF /* Check Pods Manifest.lock */ = {
+		738E3223B0894EEE80DD4F18 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sanbox is not in sync with the Podfile.lock. Run 'pod install'.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/Pods/Pods-test-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		8D57F28A172F811A00F1B0FE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -767,19 +637,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 		};
-		E4D86D0F8F3B4AB1A096CAF3 /* Copy Pods Resources */ = {
+		C7B7848A669F48989FCFA9E0 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-demo-resources.sh\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -788,19 +659,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8D0F5047174B716A001CAE7C /* GDRCollaborativeList+OCNI.m in Sources */,
-				8D0F5048174B716A001CAE7C /* GDRCollaborativeMap+OCNI.m in Sources */,
-				8D0F5049174B716A001CAE7C /* GDRCollaborativeObject+OCNI.m in Sources */,
-				8D0F504A174B716A001CAE7C /* GDRCollaborativeString+OCNI.m in Sources */,
-				8D0F504B174B716A001CAE7C /* GDRDocument+OCNI.m in Sources */,
-				8D0F504C174B716A001CAE7C /* GDRError+OCNI.m in Sources */,
-				8D0F504D174B716A001CAE7C /* GDRIndexReference+OCNI.m in Sources */,
-				8D0F504E174B716A001CAE7C /* GDRModel+OCNI.m in Sources */,
-				8D0F504F174B716A001CAE7C /* GDRRealtime+OCNI.m in Sources */,
-				8D0F5050174B716A001CAE7C /* ObjCModelFactory+OCNI.m in Sources */,
-				8D0F5064174DADDB001CAE7C /* ObjCHttpRequest.m in Sources */,
-				8D0F5065174DADDB001CAE7C /* ObjCHttpResponse.m in Sources */,
-				8DF602841750E37F00A82BE3 /* GDRAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -940,7 +798,7 @@
 		};
 		8DBB748D172BD0B70052F0ED /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */;
+			baseConfigurationReference = CC32686C9A964CE998DA7A84 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -953,7 +811,7 @@
 		};
 		8DBB748E172BD0B70052F0ED /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7902CBF143B343B1A5AF066B /* Pods-demo.xcconfig */;
+			baseConfigurationReference = CC32686C9A964CE998DA7A84 /* Pods.xcconfig */;
 			buildSettings = {
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -967,7 +825,7 @@
 		};
 		8DD88ADD172F7811006DCFA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
+			baseConfigurationReference = 7661909E0E644A658877C214 /* Pods-test.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -976,15 +834,16 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Debug;
 		};
 		8DD88ADE172F7811006DCFA8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
+			baseConfigurationReference = 7661909E0E644A658877C214 /* Pods-test.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
@@ -994,15 +853,15 @@
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				MACH_O_TYPE = staticlib;
 				MACOSX_DEPLOYMENT_TARGET = 10.7;
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
+				SDKROOT = iphoneos;
+				SUPPORTED_PLATFORMS = "iphonesimulator iphoneos";
 			};
 			name = Release;
 		};
 		8DF804F4173397C600B67EDC /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				FRAMEWORK_SEARCH_PATHS = "\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"";
@@ -1021,7 +880,6 @@
 		};
 		8DF804F5173397C600B67EDC /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1EA2B19E5F2040AC9E967E49 /* Pods-test.xcconfig */;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";

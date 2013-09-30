@@ -2,11 +2,16 @@ PODS:
   - GDRealtime (0.3.0):
     - GDRealtime/default
   - GDRealtime/common (0.3.0):
-    - GDRealtime/generated/api
+    - GDRealtime/generated
     - Google-Diff-Match-Patch (~> 0.0.1)
     - GTMHTTPFetcher (~> 0.0.1)
   - GDRealtime/default (0.3.0):
     - GDRealtime/common
+  - GDRealtime/generated (0.3.0):
+    - GDRealtime/generated/api
+    - GDRealtime/generated/channel
+    - GDRealtime/generated/elemental
+    - GDRealtime/generated/operation
     - GDRealtime/generated/services
   - GDRealtime/generated/api (0.3.0):
     - GDRealtime/generated/channel
@@ -56,14 +61,14 @@ PODS:
   - SBJson (3.2)
 
 DEPENDENCIES:
-  - GDRealtime (from `../GDRealtime.podspec`)
+  - GDRealtime (from `..`)
 
 EXTERNAL SOURCES:
   GDRealtime:
-    :path: ../GDRealtime.podspec
+    :path: ..
 
 SPEC CHECKSUMS:
-  GDRealtime: d073237ab6025f5851d05d69402eb084f75a8a8d
+  GDRealtime: aad297eed39fcea5f785509f6fe4c1e82f11d7fc
   Google-API-Client: a5aea65083895ad2fa8eeca4747478215c9ac934
   Google-Diff-Match-Patch: 63f4950ecbd0bf3f7ccae48987e958fc825041d3
   gtm-oauth2: af6d1ff3d4b14b35d3709f7f4bf2be8b43e45e62

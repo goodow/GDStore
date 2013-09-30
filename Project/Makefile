@@ -15,7 +15,7 @@ default: clean test
 $(TEST_BUILD_DIR)/%.o: $(TEST_GEN_DIR)/%.m $(TEST_SRC_DIR)/%.java
 	@mkdir -p `dirname $@`
 	@$(J2OBJCC) -c $< -o $@ \
-	  -g -I$(GEN_INCLUDE_DIR) -I$(TEST_GEN_DIR) \
+	  -g -I$(J2OBJC_DIST)/include -I$(GEN_INCLUDE_DIR) -I$(TEST_GEN_DIR) \
 	  -Wno-objc-redundant-literal-use -Wno-format \
 	  -Werror -Wno-parentheses
 
@@ -24,7 +24,7 @@ $(TEST_BIN): $(TEST_OBJECTS) $(SUPPORT_LIB)
 	  -g -Werror \
 	  -ljunit -ltest -L$(CONFIGURATION_BUILD_DIR)
 
-link-test: $(TEST_OBJECTS) $(TEST_BIN)
+link_test: $(TEST_OBJECTS) $(TEST_BIN)
 
 test: link_test $(TEST_BIN)
 	/bin/sh $(ROOT_DIR)/resources/make/runtests.sh $(TEST_BIN) $(subst /,.,$(TEST_SOURCES:%.java=%))

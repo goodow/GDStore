@@ -1,15 +1,5 @@
 platform :ios, '7.0'
 
-pod 'GDRealtime', :path => '../GDRealtime.podspec'
-# pod 'GDRealtime', :git => '/Users/retechretech/dev/workspace/realtime/GDRealtime/'
-# podspec :path => '../GDRealtime.podspec'
+pod 'GDRealtime', :path => '..'
 
-#target :demo do
-#  pod 'GDRealtime'
-#end
-
-#target :test, :exclusive => true do
-#  platform :osx, '10.8'
-#
-#  pod 'GDRealtime/test'
-#end
+link_with ['GDRealtime', 'demo', 'test']

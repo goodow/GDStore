@@ -30,7 +30,7 @@ static NSString * STR_KEY = @"demo_string";
   [super viewDidLoad];
   
   // Step 1  Authorize
-  [GDRRealtime authorize:@"fakeToken" userId:@"fakeUser"];
+  [GDRRealtime authorize:@"fakeUser" token:@"fakeToken"];
   
   // Step 2  Create or Open a document
   GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {

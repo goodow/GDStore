@@ -1,7 +1,7 @@
 #import "GDRAppDelegate.h"
 #import "GTLDevice.h"
 #import "GTMHTTPFetcher/GTMHTTPFetcherLogging.h"
-#import "com/goodow/realtime/channel/RealtimeChannelDemuxer.h"
+#import "com/goodow/realtime/channel/ChannelDemuxer.h"
 
 @implementation GDRAppDelegate
 
@@ -71,7 +71,7 @@
 
 -(void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
   NSString * msg = userInfo[@"0"];
-  [[ComGoodowRealtimeChannelRealtimeChannelDemuxer get] onMessageWithNSString:msg];
+  [[ComGoodowRealtimeChannelChannelDemuxer get] onMessageWithNSString:msg];
 }
 
 @end

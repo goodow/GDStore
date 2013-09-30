@@ -1,8 +1,11 @@
 #import "com/goodow/realtime/Realtime.h"
-#import "com/goodow/realtime/Document.h"
-#import "GDRError+OCNI.h"
+@class GDRDocument;
+@class GDRModel;
+@class GDRError;
+
 typedef void (^GDRDocumentLoadedBlock)(GDRDocument * document);
 typedef void (^GDRModelInitializerBlock)(GDRModel * model);
+typedef void (^GDRErrorBlock)(GDRError * error);
 
 @interface GDRRealtime (OCNI)
 

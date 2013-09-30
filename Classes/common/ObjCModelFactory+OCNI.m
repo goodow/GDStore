@@ -24,7 +24,7 @@
         cursor += len;
         break;
       case DIFF_DELETE:
-        [str removeRangeFrom:cursor to:cursor+len];
+        [str removeRange:cursor endIndex:cursor+len];
         break;
       default:
         @throw [[JavaLangRuntimeException alloc] initWithNSString:@"Shouldn't reach here!"];
