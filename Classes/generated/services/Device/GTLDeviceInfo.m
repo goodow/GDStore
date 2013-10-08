@@ -9,11 +9,11 @@
 // ----------------------------------------------------------------------------
 // NOTE: This file is generated from Google APIs Discovery Service.
 // Service:
-//   device/v1
+//   device/v0.0.1
 // Description:
 //   This is an API
 // Classes:
-//   GTLDeviceInfo (0 custom class methods, 3 custom properties)
+//   GTLDeviceInfo (0 custom class methods, 6 custom properties)
 
 #import "GTLDeviceInfo.h"
 
@@ -23,5 +23,13 @@
 //
 
 @implementation GTLDeviceInfo
-@dynamic deviceInformation, deviceRegistrationID, timestamp;
+@dynamic identifier, information, name, sessionId, timestamp, token;
+
++ (NSDictionary *)propertyToJSONKeyMap {
+  NSDictionary *map =
+    [NSDictionary dictionaryWithObject:@"id"
+                                forKey:@"identifier"];
+  return map;
+}
+
 @end

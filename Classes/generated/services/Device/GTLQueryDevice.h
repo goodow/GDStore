@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 // NOTE: This file is generated from Google APIs Discovery Service.
 // Service:
-//   device/v1
+//   device/v0.0.1
 // Description:
 //   This is an API
 // Classes:
@@ -41,13 +41,29 @@
 // identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
 @property (copy) NSString *identifier;
 @property (assign) NSInteger limit;
-@property (copy) NSString *message;
-@property (copy) NSString *platform;
+@property (copy) NSString *sessionId;
 @property (assign) long long timestamp;
+@property (copy) NSString *token;
+
+#pragma mark -
+#pragma mark "deviceEndpoint" methods
+// These create a GTLQueryDevice object.
+
+// Method: device.deviceEndpoint.findByToken
+// Fetches a GTLDeviceInfo.
++ (id)queryForDeviceEndpointFindByTokenWithToken:(NSString *)token;
+
+// Method: device.deviceEndpoint.updateDeviceInfo
+// Fetches a GTLDeviceInfo.
++ (id)queryForDeviceEndpointUpdateDeviceInfoWithObject:(GTLDeviceInfo *)object;
 
 #pragma mark -
 #pragma mark Service level methods
 // These create a GTLQueryDevice object.
+
+// Method: device.findBySessionId
+// Fetches a GTLDeviceInfo.
++ (id)queryForFindBySessionIdWithSessionId:(NSString *)sessionId;
 
 // Method: device.getDeviceInfo
 // Fetches a GTLDeviceInfo.
@@ -68,22 +84,11 @@
 //  Optional:
 //   cursor: NSString
 //   limit: NSInteger
-//   platform: NSString
 // Fetches a GTLDeviceCollectionResponseDeviceInfo.
 + (id)queryForListDeviceInfo;
-
-// Method: device.pushMessageToApns
-+ (id)queryForPushMessageToApnsWithMessage:(NSString *)message;
-
-// Method: device.pushMessageToGcm
-+ (id)queryForPushMessageToGcmWithMessage:(NSString *)message;
 
 // Method: device.removeDeviceInfo
 // Fetches a GTLDeviceInfo.
 + (id)queryForRemoveDeviceInfoWithIdentifier:(NSString *)identifier;
-
-// Method: device.updateDeviceInfo
-// Fetches a GTLDeviceInfo.
-+ (id)queryForUpdateDeviceInfoWithObject:(GTLDeviceInfo *)object;
 
 @end

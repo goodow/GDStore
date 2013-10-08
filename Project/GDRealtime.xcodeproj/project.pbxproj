@@ -41,7 +41,6 @@
 
 /* Begin PBXFileReference section */
 		31DD2DBBD4894B0A890BE47B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		7661909E0E644A658877C214 /* Pods-test.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-test.xcconfig"; path = "Pods/Pods-test.xcconfig"; sourceTree = "<group>"; };
 		8D0F5028174B716A001CAE7C /* GDR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDR.h; sourceTree = "<group>"; };
 		8D0F5029174B716A001CAE7C /* GDRCollaborativeList+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+OCNI.h"; sourceTree = "<group>"; };
 		8D0F502A174B716A001CAE7C /* GDRCollaborativeList+OCNI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDRCollaborativeList+OCNI.m"; sourceTree = "<group>"; };
@@ -237,7 +236,6 @@
 				8D8CA151172BC9B400652CC1 /* Products */,
 				CC32686C9A964CE998DA7A84 /* Pods.xcconfig */,
 				8D8344591737567700253F19 /* Makefile */,
-				7661909E0E644A658877C214 /* Pods-test.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -825,7 +823,6 @@
 		};
 		8DD88ADD172F7811006DCFA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7661909E0E644A658877C214 /* Pods-test.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
@@ -843,7 +840,6 @@
 		};
 		8DD88ADE172F7811006DCFA8 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7661909E0E644A658877C214 /* Pods-test.xcconfig */;
 			buildSettings = {
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";

@@ -58,10 +58,14 @@ PODS:
   - jre_emul (0.8.6.1):
     - jre_emul/jre
   - jre_emul/jre (0.8.6.1)
+  - PonyDebugger (0.3.0):
+    - SocketRocket
   - SBJson (3.2)
+  - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
   - GDRealtime (from `..`)
+  - PonyDebugger (~> 0.3.0)
 
 EXTERNAL SOURCES:
   GDRealtime:
@@ -74,6 +78,8 @@ SPEC CHECKSUMS:
   gtm-oauth2: af6d1ff3d4b14b35d3709f7f4bf2be8b43e45e62
   GTMHTTPFetcher: b0af09f18ec87e7a5edeffcc8cb6449fdbf0e83f
   jre_emul: 164fdb77aa391efa12c89032862c07cde22dbf4d
+  PonyDebugger: b8b504d18c6fe8cfe904295d8e908b076bdfa291
   SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
+  SocketRocket: 7ac946bcce46287a791dfff3c1f8daa692821dae
 
 COCOAPODS: 0.25.0

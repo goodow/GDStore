@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 // NOTE: This file is generated from Google APIs Discovery Service.
 // Service:
-//   device/v1
+//   device/v0.0.1
 // Description:
 //   This is an API
 

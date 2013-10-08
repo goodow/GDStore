@@ -9,7 +9,7 @@
 // ----------------------------------------------------------------------------
 // NOTE: This file is generated from Google APIs Discovery Service.
 // Service:
-//   device/v1
+//   device/v0.0.1
 // Description:
 //   This is an API
 // Classes:
@@ -23,7 +23,7 @@
 @implementation GTLQueryDevice
 
 @dynamic cursor, deviceInformation, deviceRegistrationID, fields, identifier,
-         limit, message, platform, timestamp;
+         limit, sessionId, timestamp, token;
 
 + (NSDictionary *)parameterNameMap {
   NSDictionary *map =
@@ -33,8 +33,40 @@
 }
 
 #pragma mark -
+#pragma mark "deviceEndpoint" methods
+// These create a GTLQueryDevice object.
+
++ (id)queryForDeviceEndpointFindByTokenWithToken:(NSString *)token {
+  NSString *methodName = @"device.deviceEndpoint.findByToken";
+  GTLQueryDevice *query = [self queryWithMethodName:methodName];
+  query.token = token;
+  query.expectedObjectClass = [GTLDeviceInfo class];
+  return query;
+}
+
++ (id)queryForDeviceEndpointUpdateDeviceInfoWithObject:(GTLDeviceInfo *)object {
+  if (object == nil) {
+    GTL_DEBUG_ASSERT(object != nil, @"%@ got a nil object", NSStringFromSelector(_cmd));
+    return nil;
+  }
+  NSString *methodName = @"device.deviceEndpoint.updateDeviceInfo";
+  GTLQueryDevice *query = [self queryWithMethodName:methodName];
+  query.bodyObject = object;
+  query.expectedObjectClass = [GTLDeviceInfo class];
+  return query;
+}
+
+#pragma mark -
 #pragma mark Service level methods
 // These create a GTLQueryDevice object.
+
++ (id)queryForFindBySessionIdWithSessionId:(NSString *)sessionId {
+  NSString *methodName = @"device.findBySessionId";
+  GTLQueryDevice *query = [self queryWithMethodName:methodName];
+  query.sessionId = sessionId;
+  query.expectedObjectClass = [GTLDeviceInfo class];
+  return query;
+}
 
 + (id)queryForGetDeviceInfoWithIdentifier:(NSString *)identifier {
   NSString *methodName = @"device.getDeviceInfo";
@@ -73,36 +105,10 @@
   return query;
 }
 
-+ (id)queryForPushMessageToApnsWithMessage:(NSString *)message {
-  NSString *methodName = @"device.pushMessageToApns";
-  GTLQueryDevice *query = [self queryWithMethodName:methodName];
-  query.message = message;
-  return query;
-}
-
-+ (id)queryForPushMessageToGcmWithMessage:(NSString *)message {
-  NSString *methodName = @"device.pushMessageToGcm";
-  GTLQueryDevice *query = [self queryWithMethodName:methodName];
-  query.message = message;
-  return query;
-}
-
 + (id)queryForRemoveDeviceInfoWithIdentifier:(NSString *)identifier {
   NSString *methodName = @"device.removeDeviceInfo";
   GTLQueryDevice *query = [self queryWithMethodName:methodName];
   query.identifier = identifier;
-  query.expectedObjectClass = [GTLDeviceInfo class];
-  return query;
-}
-
-+ (id)queryForUpdateDeviceInfoWithObject:(GTLDeviceInfo *)object {
-  if (object == nil) {
-    GTL_DEBUG_ASSERT(object != nil, @"%@ got a nil object", NSStringFromSelector(_cmd));
-    return nil;
-  }
-  NSString *methodName = @"device.updateDeviceInfo";
-  GTLQueryDevice *query = [self queryWithMethodName:methodName];
-  query.bodyObject = object;
   query.expectedObjectClass = [GTLDeviceInfo class];
   return query;
 }

@@ -9,11 +9,11 @@
 // ----------------------------------------------------------------------------
 // NOTE: This file is generated from Google APIs Discovery Service.
 // Service:
-//   device/v1
+//   device/v0.0.1
 // Description:
 //   This is an API
 // Classes:
-//   GTLDeviceInfo (0 custom class methods, 3 custom properties)
+//   GTLDeviceInfo (0 custom class methods, 6 custom properties)
 
 #if GTL_BUILT_AS_FRAMEWORK
   #import "GTL/GTLObject.h"
@@ -27,7 +27,13 @@
 //
 
 @interface GTLDeviceInfo : GTLObject
-@property (copy) NSString *deviceInformation;
-@property (copy) NSString *deviceRegistrationID;
+
+// identifier property maps to 'id' in JSON (to avoid Objective C's 'id').
+@property (copy) NSString *identifier;
+
+@property (copy) NSString *information;
+@property (copy) NSString *name;
+@property (copy) NSString *sessionId;
 @property (retain) NSNumber *timestamp;  // longLongValue
+@property (copy) NSString *token;
 @end

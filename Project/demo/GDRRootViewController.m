@@ -30,7 +30,7 @@ static NSString * STR_KEY = @"demo_string";
   [super viewDidLoad];
   
   // Step 1  Authorize
-  [GDRRealtime authorize:@"fakeUser" token:@"fakeToken"];
+  [GDRRealtime authorize:@"688185492143008835447" token:@"68c8f4141821bdcc7a43f4233a2b732d3ed956b5"];
   
   // Step 2  Create or Open a document
   GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {
@@ -45,7 +45,7 @@ static NSString * STR_KEY = @"demo_string";
     root = [mod getRoot];
     [self initializeString];
   };
-  [GDRRealtime load:@"@tmp/test" onLoaded:onLoaded initializer:initializer error:nil];
+  [GDRRealtime load:@"@tmp/ios" onLoaded:onLoaded initializer:initializer error:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -62,12 +62,13 @@ static NSString * STR_KEY = @"demo_string";
 }
 - (void) connectString {
   str = [root get:STR_KEY];
-  GDRTextInsertedBlock block = ^(GDRBaseModelEvent *event) {
+  self.textView.text = [str getText];
+  id block = ^(GDRBaseModelEvent *event) {
     if(!event.isLocal) {
       self.textView.text = [str getText];
     }
   };
-  [str addTextDeletedListener: (GDRTextDeletedBlock) block];
+  [str addTextDeletedListener: block];
   [str addTextInsertedListener:block];
 }
 

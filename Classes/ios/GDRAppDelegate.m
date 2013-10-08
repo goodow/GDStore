@@ -2,11 +2,19 @@
 #import "GTLDevice.h"
 #import "GTMHTTPFetcher/GTMHTTPFetcherLogging.h"
 #import "com/goodow/realtime/channel/ChannelDemuxer.h"
+#import "PonyDebugger/PDDebugger.h"
 
 @implementation GDRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  PDDebugger *debugger = [PDDebugger defaultInstance];
+  [debugger enableNetworkTrafficDebugging];
+  [debugger forwardAllNetworkTraffic];
+  [debugger enableViewHierarchyDebugging];
+  [debugger setDisplayedViewAttributeKeyPaths:@[@"frame", @"hidden", @"alpha", @"opaque"]];
+  [debugger autoConnect];
+  
   [[ UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     // Override point for customization after application launch.
     return YES;
@@ -37,6 +45,7 @@
 - (void)applicationWillTerminate:(UIApplication *)application
 {
   // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+  // [debugger disconnect];
 }
 
 -(void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
@@ -49,21 +58,43 @@
     service.retryEnabled = YES;
     [GTMHTTPFetcher setLoggingEnabled:YES];
   }
-  GTLDeviceInfo *device = [GTLDeviceInfo object];
-  device.deviceRegistrationID = token;
-  UIDevice *currentDevice = [UIDevice currentDevice];
-  device.deviceInformation = [currentDevice description];
-//  device.timestamp = @([[NSDate date] timeIntervalSince1970]);
   GTLQueryDevice *query;
   GTLServiceTicket *ticket;
-  query = [GTLQueryDevice queryForInsertOrUpdateDeviceInfoWithDeviceRegistrationID:token deviceInformation:@"cd"];
-  query.timestamp = 1234;
+  query = [GTLQueryDevice queryForGetDeviceInfoWithIdentifier:token];
   ticket = [service executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
-    if(error){
-      
+    if(!error) {
+      GTLQueryDevice *query;
+      GTLDeviceInfo *device;
+      NSString *sessionId = [ComGoodowRealtimeChannelChannelDemuxer getSessionId];
+      NSNumber *timestamp = @([[NSDate date] timeIntervalSince1970] * 1000);
+      device = object;
+      if(device && device.identifier) {
+        device.sessionId = sessionId;
+        device.timestamp = timestamp;
+        
+        query = [GTLQueryDevice queryForDeviceEndpointUpdateDeviceInfoWithObject:device];
+        ticket = [service executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
+          if(error){
+            NSString *log = ticket.objectFetcher.log;
+          }
+        }];
+      } else {
+        device = [GTLDeviceInfo object];
+        device.identifier = token;
+        device.sessionId = sessionId;
+        UIDevice *currentDevice = [UIDevice currentDevice];
+        device.information = [currentDevice description];
+        device.timestamp = timestamp;
+        
+        query = [GTLQueryDevice queryForInsertDeviceInfoWithObject:device];
+        ticket = [service executeQuery:query completionHandler:^(GTLServiceTicket *ticket, id object, NSError *error) {
+          if(error){
+            NSString *log = ticket.objectFetcher.log;
+          }
+        }];
+      }
     }
   }];
-  NSString *log = ticket.objectFetcher.log;
 }
 
 -(void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {

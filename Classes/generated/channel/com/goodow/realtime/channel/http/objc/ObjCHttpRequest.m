@@ -13,6 +13,7 @@
   NSURL *url_ = [NSURL URLWithString:url];
   request = [[NSMutableURLRequest alloc] initWithURL:url_];
   [request setHTTPMethod:method];
+  [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
   return [super init];
 }
 
@@ -24,8 +25,10 @@
   }
   [fetcher beginFetchWithCompletionHandler:^(NSData *retrievedData, NSError *error) {
     if (error != nil) {
+      NSData *data = [[error userInfo] valueForKey:@"data"];
+      NSString *errorDataString = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
       // status code or network error
-      [callback onFailureWithJavaLangThrowable:[[JavaIoIOException alloc] initWithNSString:[error description]]];
+      [callback onFailureWithJavaLangThrowable:[[JavaIoIOException alloc] initWithNSString:errorDataString]];
     } else {
       // succeeded
       [callback onResponseWithComGoodowRealtimeChannelHttpHttpResponse:[[ComGoodowRealtimeChannelHttpObjcObjCHttpResponse alloc] initWithGTMHTTPFetech:fetcher withNSData:retrievedData]];
