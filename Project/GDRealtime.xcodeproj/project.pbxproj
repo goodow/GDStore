@@ -140,6 +140,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65A8E98F1804F5DA0021E7D3 /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
 		8D0F5027174B716A001CAE7C /* common */ = {
 			isa = PBXGroup;
 			children = (
@@ -272,6 +279,7 @@
 		8DBB7460172BD0B60052F0ED /* demo */ = {
 			isa = PBXGroup;
 			children = (
+				65A8E98F1804F5DA0021E7D3 /* iPad */,
 				8D78B445174F1B8E0006C456 /* Storyboard.storyboard */,
 				8D1D0EAB174F328600C8F83C /* GDRRootViewController.h */,
 				8D1D0EAC174F328600C8F83C /* GDRRootViewController.m */,
@@ -493,6 +501,11 @@
 			attributes = {
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Larry Tin";
+				TargetAttributes = {
+					8DBB7459172BD0B60052F0ED = {
+						DevelopmentTeam = 742YX7Q977;
+					};
+				};
 			};
 			buildConfigurationList = 8D8CA14B172BC9B400652CC1 /* Build configuration list for PBXProject "GDRealtime" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -798,11 +811,15 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CC32686C9A964CE998DA7A84 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: TIAN CHUANWU (R7292E78KD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -811,12 +828,16 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CC32686C9A964CE998DA7A84 /* Pods.xcconfig */;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: TIAN CHUANWU (R7292E78KD)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "demo/demo-Prefix.pch";
 				INFOPLIST_FILE = "demo/demo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
