@@ -24,8 +24,10 @@
 	<string>0.3.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>Storyboard-iPad</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Storyboard</string>
+	<string>Storyboard-iPhone</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
