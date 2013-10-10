@@ -2,18 +2,18 @@
 #import "GTLDevice.h"
 #import "GTMHTTPFetcher/GTMHTTPFetcherLogging.h"
 #import "com/goodow/realtime/channel/ChannelDemuxer.h"
-#import "PonyDebugger/PDDebugger.h"
+//#import "PonyDebugger/PDDebugger.h"
 
 @implementation GDRAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-  PDDebugger *debugger = [PDDebugger defaultInstance];
-  [debugger enableNetworkTrafficDebugging];
-  [debugger forwardAllNetworkTraffic];
-  [debugger enableViewHierarchyDebugging];
-  [debugger setDisplayedViewAttributeKeyPaths:@[@"frame", @"hidden", @"alpha", @"opaque"]];
-  [debugger autoConnect];
+//  PDDebugger *debugger = [PDDebugger defaultInstance];
+//  [debugger enableNetworkTrafficDebugging];
+//  [debugger forwardAllNetworkTraffic];
+//  [debugger enableViewHierarchyDebugging];
+//  [debugger setDisplayedViewAttributeKeyPaths:@[@"frame", @"hidden", @"alpha", @"opaque"]];
+//  [debugger autoConnect];
   
   [[ UIApplication sharedApplication] registerForRemoteNotificationTypes:UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound];
     // Override point for customization after application launch.

@@ -1,6 +1,6 @@
 platform :ios, '7.0'
 
 pod 'GDRealtime', :path => '..'
-pod 'PonyDebugger', '~> 0.3.0'
+// pod 'PonyDebugger', '~> 0.3.0'
 
 link_with ['GDRealtime', 'demo', 'test']
