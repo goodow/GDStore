@@ -11,7 +11,7 @@ typedef void (^GDRErrorBlock)(GDRError * error);
 
 + (void)load:(NSString *)docId
     onLoaded:(GDRDocumentLoadedBlock)onLoaded
- initializer:(GDRModelInitializerBlock)opt_initializer
-       error:(GDRErrorBlock)opt_error;
+opt_initializer:(GDRModelInitializerBlock)opt_initializer
+   opt_error:(GDRErrorBlock)opt_error;
 
 @end

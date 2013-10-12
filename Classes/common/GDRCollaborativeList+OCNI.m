@@ -6,7 +6,7 @@
 
 -(NSArray *)asArray {
   IOSObjectArray * array = [self __asArray];
-  return [GDRCollaborativeMap arrayWithIOSArray:array];
+  return [GDRObjectChangedEvent arrayWithIOSArray:array];
 }
 
 -(void)insertAll:(int)index values:(NSArray *)values {

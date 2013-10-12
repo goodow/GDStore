@@ -6,5 +6,4 @@
 -(NSArray *)keys;
 -(NSArray *)values;
 
-+ (NSArray *)arrayWithIOSArray:(IOSObjectArray *)array;
 @end

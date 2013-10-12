@@ -33,7 +33,7 @@
   return index_;
 }
 
-- (IOSObjectArray *)getValues {
+- (IOSObjectArray *)__getValues {
   return values_;
 }
 
@@ -51,7 +51,7 @@
   return [IOSObjectArray arrayWithObjects:(id[]) { [[OrgTimepediaExporterClientExportAfterCreateMethodImpl alloc] init] } count:1 type:[IOSClass classWithProtocol:@protocol(JavaLangAnnotationAnnotation)]];
 }
 
-+ (IOSObjectArray *)__annotations_getValues {
++ (IOSObjectArray *)__annotations___getValues {
   return [IOSObjectArray arrayWithObjects:(id[]) { [[OrgTimepediaExporterClientNoExportImpl alloc] init] } count:1 type:[IOSClass classWithProtocol:@protocol(JavaLangAnnotationAnnotation)]];
 }
 

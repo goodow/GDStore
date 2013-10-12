@@ -25,7 +25,7 @@
                            withInt:(int)index
                  withNSObjectArray:(IOSObjectArray *)values;
 - (int)getIndex;
-- (IOSObjectArray *)getValues;
+- (IOSObjectArray *)__getValues;
 - (void)copyAllFieldsTo:(GDRValuesAddedEvent *)other;
 @end
 

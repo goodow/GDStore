@@ -15,7 +15,7 @@
 
 -(NSArray *)keys {
   IOSObjectArray * array = [self __keys];
-  return [GDRCollaborativeMap arrayWithIOSArray:array];
+  return [GDRObjectChangedEvent arrayWithIOSArray:array];
 }
 
 -(NSArray *)values {
@@ -23,14 +23,6 @@
   IOSObjectArray * array = [self __keys];
   for(int i=0,len=self.size; i<len; i++){
     [toRtn addObject:[self get:[array objectAtIndex:i]]];
-  }
-  return toRtn;
-}
-
-+ (NSArray *)arrayWithIOSArray:(IOSObjectArray *)array {
-  NSMutableArray * toRtn = [NSMutableArray array];
-  for(int i=0,len=[array count]; i<len; i++){
-    [toRtn addObject:[array objectAtIndex:i]];
   }
   return toRtn;
 }

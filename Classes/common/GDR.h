@@ -15,15 +15,15 @@
 #import "com/goodow/realtime/UndoRedoStateChangedEvent.h"
 
 #import "com/goodow/realtime/CollaborativeObject.h"
-#import "com/goodow/realtime/ObjectChangedEvent.h"
+#import "GDRObjectChangedEvent+OCNI.h"
 
 #import "GDRCollaborativeMap+OCNI.h"
 #import "com/goodow/realtime/ValueChangedEvent.h"
 
 #import "GDRCollaborativeList+OCNI.h"
-#import "com/goodow/realtime/ValuesAddedEvent.h"
-#import "com/goodow/realtime/ValuesRemovedEvent.h"
-#import "com/goodow/realtime/ValuesSetEvent.h"
+#import "GDRValuesAddedEvent+OCNI.h"
+#import "GDRValuesRemovedEvent+OCNI.h"
+#import "GDRValuesSetEvent+OCNI.h"
 
 #import "com/goodow/realtime/CollaborativeString.h"
 #import "com/goodow/realtime/TextDeletedEvent.h"

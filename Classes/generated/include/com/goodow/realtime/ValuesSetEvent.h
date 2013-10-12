@@ -27,8 +27,8 @@
                  withNSObjectArray:(IOSObjectArray *)oldValues
                  withNSObjectArray:(IOSObjectArray *)newValues;
 - (int)getIndex;
-- (IOSObjectArray *)getNewValues;
-- (IOSObjectArray *)getOldValues;
+- (IOSObjectArray *)__getNewValues;
+- (IOSObjectArray *)__getOldValues;
 - (void)copyAllFieldsTo:(GDRValuesSetEvent *)other;
 @end
 

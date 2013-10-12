@@ -33,11 +33,11 @@
 - (IOSObjectArray *)__asArray;
 - (void)clear;
 - (id)get:(int)index;
-- (int)indexOf:(id)value comparator:(NSComparator)opt_comparator;
+- (int)indexOf:(id)value opt_comparator:(NSComparator)opt_comparator;
 - (void)insert:(int)index value:(id)value;
 - (void)insertAllWithInt:(int)index
        withNSObjectArray:(IOSObjectArray *)values;
-- (int)lastIndexOf:(id)value comparator:(NSComparator)opt_comparator;
+- (int)lastIndexOf:(id)value opt_comparator:(NSComparator)opt_comparator;
 - (int)length;
 - (int)push:(id)value;
 - (void)pushAllWithNSObjectArray:(IOSObjectArray *)values;

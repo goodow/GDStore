@@ -81,7 +81,7 @@
   return (id) [ComGoodowRealtimeModelUtilJsonSerializer deserializeObjectWithGDRJsonValue:[((id<GDRJsonArray>) nil_chk(snapshot_)) getWithInt:index] withJavaUtilMap:((GDRModel *) nil_chk(model_))->objects_];
 }
 
-- (int)indexOf:(id)value comparator:(NSComparator)opt_comparator {
+- (int)indexOf:(id)value opt_comparator:(NSComparator)opt_comparator {
   if (opt_comparator == nil) {
     id<GDRJsonArray> serializedValue;
     @try {
@@ -124,7 +124,7 @@
   }
 }
 
-- (int)lastIndexOf:(id)value comparator:(NSComparator)opt_comparator {
+- (int)lastIndexOf:(id)value opt_comparator:(NSComparator)opt_comparator {
   if (opt_comparator == nil) {
     id<GDRJsonArray> serializedValue;
     @try {
@@ -187,7 +187,7 @@
 }
 
 - (BOOL)removeValue:(id)value {
-  int index = [self indexOf:value comparator:nil];
+  int index = [self indexOf:value opt_comparator:nil];
   if (index == -1) {
     return NO;
   }

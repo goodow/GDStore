@@ -45,7 +45,7 @@ static NSString * STR_KEY = @"demo_string";
     root = [mod getRoot];
     [self initializeString];
   };
-  [GDRRealtime load:@"@tmp/ios" onLoaded:onLoaded initializer:initializer error:nil];
+  [GDRRealtime load:@"@tmp/ios" onLoaded:onLoaded opt_initializer:initializer opt_error:nil];
 }
 
 - (void)didReceiveMemoryWarning

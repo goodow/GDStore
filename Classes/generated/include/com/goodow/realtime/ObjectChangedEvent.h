@@ -22,7 +22,7 @@
                         withNSString:(NSString *)sessionId
                         withNSString:(NSString *)userId
           withGDRBaseModelEventArray:(IOSObjectArray *)events;
-- (IOSObjectArray *)getEvents;
+- (IOSObjectArray *)__getEvents;
 - (void)copyAllFieldsTo:(GDRObjectChangedEvent *)other;
 @end
 

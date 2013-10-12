@@ -25,7 +25,7 @@
   return self;
 }
 
-- (IOSObjectArray *)getEvents {
+- (IOSObjectArray *)__getEvents {
   return events_;
 }
 

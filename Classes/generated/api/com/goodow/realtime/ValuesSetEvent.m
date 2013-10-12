@@ -35,11 +35,11 @@
   return index_;
 }
 
-- (IOSObjectArray *)getNewValues {
+- (IOSObjectArray *)__getNewValues {
   return newValues_;
 }
 
-- (IOSObjectArray *)getOldValues {
+- (IOSObjectArray *)__getOldValues {
   return oldValues_;
 }
 
@@ -58,11 +58,11 @@
   return [IOSObjectArray arrayWithObjects:(id[]) { [[OrgTimepediaExporterClientExportAfterCreateMethodImpl alloc] init] } count:1 type:[IOSClass classWithProtocol:@protocol(JavaLangAnnotationAnnotation)]];
 }
 
-+ (IOSObjectArray *)__annotations_getNewValues {
++ (IOSObjectArray *)__annotations___getNewValues {
   return [IOSObjectArray arrayWithObjects:(id[]) { [[OrgTimepediaExporterClientNoExportImpl alloc] init] } count:1 type:[IOSClass classWithProtocol:@protocol(JavaLangAnnotationAnnotation)]];
 }
 
-+ (IOSObjectArray *)__annotations_getOldValues {
++ (IOSObjectArray *)__annotations___getOldValues {
   return [IOSObjectArray arrayWithObjects:(id[]) { [[OrgTimepediaExporterClientNoExportImpl alloc] init] } count:1 type:[IOSClass classWithProtocol:@protocol(JavaLangAnnotationAnnotation)]];
 }
 
