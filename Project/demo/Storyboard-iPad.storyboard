@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F37" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="SiX-YH-bIF">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="12F45" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="SiX-YH-bIF">
     <dependencies>
         <deployment defaultVersion="1536" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
@@ -29,61 +29,202 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Step 1  Authorize" footerTitle="To use the Goodow Realtime API Playground you must first Authorize the Playground." id="Hf0-gQ-buk">
-                                <cells/>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Step 2  Create or Open a document" footerTitle="You need to  Create a new document or  Open an existing document on which to collaborate." id="8jF-6b-HsF">
-                                <cells/>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Step 3  Share" id="KOO-we-ehh">
-                                <string key="footerTitle">To collaborate you must Share this document with other users or open this same document in antoher device and collaborate with youserlf.</string>
-                                <cells/>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Step 4  Collaborate" id="hdo-xG-mFB">
-                                <string key="footerTitle">Goodow Realtime collaborative documents are made of 4 types of collaborative elements: String, Lists, Maps and Custom objects. A Goodow Realtime collaborative document can have as many of these collaborative elements as they need. As a demonstration, You will find below UI widgets representing collaborative elements of each type.</string>
-                                <cells/>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Collaborative strings" id="8ar-Dt-79p">
-                                <string key="footerTitle">Collaborative strings are just like normal strings, except that all sessions will be notified and updated when the string changes. Events are fired when strings are inserted to the collaborative string or when part of the string is deleted.</string>
-                                <cells/>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Edit the demo Collaborative String" id="0ud-kB-kvz">
+                            <tableViewSection headerTitle="Step 1  Authorize" id="Hf0-gQ-buk">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="189" id="vb7-kD-f6V" userLabel="String Cell">
-                                        <rect key="frame" x="0.0" y="577" width="768" height="189"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vb7-kD-f6V" id="7Z4-Ek-VdI">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="188"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" textLabel="Fvc-pN-A0Z" rowHeight="48" style="IBUITableViewCellStyleDefault" id="X06-m4-L8w">
+                                        <rect key="frame" x="0.0" y="119" width="768" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="X06-m4-L8w" id="igT-pV-DSR">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qfA-WS-hsK">
-                                                    <rect key="frame" x="20" y="15" width="728" height="159"/>
-                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="To use the Goodow Realtime API Playground you must first Authorize the Playground." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Fvc-pN-A0Z">
+                                                    <rect key="frame" x="15" y="0.0" width="738" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Step 2  Create or Open a document" id="8jF-6b-HsF">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="48" id="wp4-DC-1ng">
+                                        <rect key="frame" x="0.0" y="215" width="768" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="wp4-DC-1ng" id="Jag-ow-vHH">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="You need to  Create a new document or  Open an existing document on which to collaborate." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="T8I-C6-3tk">
+                                                    <rect key="frame" x="20" y="0.0" width="728" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Step 3  Share" id="KOO-we-ehh">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="73" id="4pd-45-pzd" userLabel="String Cell">
+                                        <rect key="frame" x="0.0" y="311" width="768" height="73"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4pd-45-pzd" id="rDM-yL-U0u">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="72"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dMQ-iF-ASj">
+                                                    <rect key="frame" x="20" y="6" width="728" height="61"/>
+                                                    <string key="text">To collaborate you must Share this document with other users or open this same document in antoher device and collaborate with youserlf.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="5iE-4S-ojF"/>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="RBD-9V-VBx"/>
                                                     </connections>
                                                 </textView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="qfA-WS-hsK" firstAttribute="leading" secondItem="7Z4-Ek-VdI" secondAttribute="leading" constant="20" symbolic="YES" id="14s-5Y-X7R"/>
-                                                <constraint firstAttribute="trailing" secondItem="qfA-WS-hsK" secondAttribute="trailing" constant="20" symbolic="YES" id="bfW-yD-l9S"/>
-                                                <constraint firstItem="qfA-WS-hsK" firstAttribute="centerY" secondItem="7Z4-Ek-VdI" secondAttribute="centerY" id="rmO-Ge-rdF"/>
-                                                <constraint firstItem="qfA-WS-hsK" firstAttribute="top" secondItem="7Z4-Ek-VdI" secondAttribute="top" constant="15" id="so2-cU-jUc"/>
+                                                <constraint firstItem="dMQ-iF-ASj" firstAttribute="centerY" secondItem="rDM-yL-U0u" secondAttribute="centerY" id="Ajh-pC-jGp"/>
+                                                <constraint firstItem="dMQ-iF-ASj" firstAttribute="leading" secondItem="rDM-yL-U0u" secondAttribute="leading" constant="20" symbolic="YES" id="qcr-23-MIV"/>
+                                                <constraint firstAttribute="trailing" secondItem="dMQ-iF-ASj" secondAttribute="trailing" constant="20" symbolic="YES" id="ylT-U2-f18"/>
+                                                <constraint firstItem="dMQ-iF-ASj" firstAttribute="top" secondItem="rDM-yL-U0u" secondAttribute="top" constant="6" id="zC1-QJ-4ql"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
+                            <tableViewSection headerTitle="Step 4  Collaborate" id="hdo-xG-mFB">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="116" id="PXp-y0-pJ2" userLabel="String Cell">
+                                        <rect key="frame" x="0.0" y="432" width="768" height="116"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PXp-y0-pJ2" id="t17-6b-Gvm">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="115"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2ch-cq-wou">
+                                                    <rect key="frame" x="20" y="15" width="728" height="91"/>
+                                                    <string key="text">Goodow Realtime collaborative documents are made of 4 types of collaborative elements: String, Lists, Maps and Custom objects. A Goodow Realtime collaborative document can have as many of these collaborative elements as they need. As a demonstration, You will find below UI widgets representing collaborative elements of each type.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="hIt-nm-s9H"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="2ch-cq-wou" secondAttribute="bottom" constant="9" id="31w-Rs-Heg"/>
+                                                <constraint firstItem="2ch-cq-wou" firstAttribute="top" secondItem="t17-6b-Gvm" secondAttribute="top" constant="15" id="LIk-km-cb2"/>
+                                                <constraint firstItem="2ch-cq-wou" firstAttribute="leading" secondItem="t17-6b-Gvm" secondAttribute="leading" constant="20" symbolic="YES" id="SC7-p8-P0x"/>
+                                                <constraint firstAttribute="trailing" secondItem="2ch-cq-wou" secondAttribute="trailing" constant="20" symbolic="YES" id="Ymy-3F-9M0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Collaborative strings" id="8ar-Dt-79p">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="96" id="DVX-n8-2jO" userLabel="String Cell">
+                                        <rect key="frame" x="0.0" y="596" width="768" height="96"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DVX-n8-2jO" id="egy-bY-T8X">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="95"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjg-4y-bQL">
+                                                    <rect key="frame" x="20" y="15" width="725" height="67"/>
+                                                    <string key="text">Collaborative strings are just like normal strings, except that all sessions will be notified and updated when the string changes. Events are fired when strings are inserted to the collaborative string or when part of the string is deleted.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="FVk-0F-nzt"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="tjg-4y-bQL" secondAttribute="trailing" constant="23" id="8sc-6o-sKy"/>
+                                                <constraint firstAttribute="bottom" secondItem="tjg-4y-bQL" secondAttribute="bottom" constant="13" id="HaW-Da-Rkj"/>
+                                                <constraint firstItem="tjg-4y-bQL" firstAttribute="leading" secondItem="egy-bY-T8X" secondAttribute="leading" constant="20" symbolic="YES" id="Kst-2h-VEb"/>
+                                                <constraint firstItem="tjg-4y-bQL" firstAttribute="top" secondItem="egy-bY-T8X" secondAttribute="top" constant="15" id="qGt-ne-mlp"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                            <tableViewSection headerTitle="Edit the demo Collaborative String" id="0ud-kB-kvz">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="fyn-wH-BZ6" rowHeight="48" style="IBUITableViewCellStyleDefault" id="vb7-kD-f6V" userLabel="String Cell">
+                                        <rect key="frame" x="0.0" y="740" width="768" height="48"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vb7-kD-f6V" id="7Z4-Ek-VdI">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Show String" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fyn-wH-BZ6">
+                                                    <rect key="frame" x="15" y="0.0" width="738" height="47"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
                             <tableViewSection headerTitle="Collaborative lists" id="eHJ-mb-WS1">
-                                <string key="footerTitle">A collaborative list state is shared across sessions. Events are fired when items are added or removed to the list or when an existig item's value is set.</string>
-                                <cells/>
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="92" id="YpV-gx-zhm" userLabel="String Cell">
+                                        <rect key="frame" x="0.0" y="836" width="768" height="92"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YpV-gx-zhm" id="S23-4q-Wps">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="91"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYf-ad-2VZ">
+                                                    <rect key="frame" x="20" y="7" width="725" height="43"/>
+                                                    <string key="text">A collaborative list state is shared across sessions. Events are fired when items are added or removed to the list or when an existig item's value is set.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="TjP-fy-8TH"/>
+                                                    </connections>
+                                                </textView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Add, change or remove key-value pairs on the demo Collaborative Map" translatesAutoresizingMaskIntoConstraints="NO" id="ZVN-bo-0xq">
+                                                    <rect key="frame" x="20" y="54" width="725" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="31" id="kY3-6l-giu"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="xVf-w8-c17"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="ZVN-bo-0xq" firstAttribute="trailing" secondItem="hYf-ad-2VZ" secondAttribute="trailing" id="27G-lL-hRG"/>
+                                                <constraint firstItem="hYf-ad-2VZ" firstAttribute="top" secondItem="S23-4q-Wps" secondAttribute="top" constant="7" id="Sx5-jG-IuR"/>
+                                                <constraint firstItem="ZVN-bo-0xq" firstAttribute="leading" secondItem="hYf-ad-2VZ" secondAttribute="leading" id="bMW-WV-21d"/>
+                                                <constraint firstAttribute="bottom" secondItem="ZVN-bo-0xq" secondAttribute="bottom" constant="6" id="dXc-tA-88d"/>
+                                                <constraint firstItem="hYf-ad-2VZ" firstAttribute="leading" secondItem="S23-4q-Wps" secondAttribute="leading" constant="20" symbolic="YES" id="isP-Ke-J0l"/>
+                                                <constraint firstItem="ZVN-bo-0xq" firstAttribute="top" secondItem="hYf-ad-2VZ" secondAttribute="bottom" constant="4" id="mjH-cf-bMy"/>
+                                                <constraint firstAttribute="trailing" secondItem="hYf-ad-2VZ" secondAttribute="trailing" constant="23" id="xyv-Pm-HsE"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Add, change or remove key-value pairs on the demo Collaborative Map" id="TqX-dJ-tqZ">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="189" id="hQ8-Qd-uQV" userLabel="Map Cell">
-                                        <rect key="frame" x="0.0" y="906" width="768" height="189"/>
+                                        <rect key="frame" x="0.0" y="976" width="768" height="189"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hQ8-Qd-uQV" id="9xx-nU-Dd0">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="188"/>
@@ -93,32 +234,45 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Collaborative maps" id="Jad-ma-tw5">
-                                <string key="footerTitle">Collaborative maps share key/value state across sessions. They support standard map operations. Events are fired when key-value pairs are changed.</string>
-                                <cells/>
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="82" id="0Eg-au-Baf" userLabel="String Cell">
+                                        <rect key="frame" x="0.0" y="1213" width="768" height="82"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Eg-au-Baf" id="EGC-xe-a8Z">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="81"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0iG-AW-dYw">
+                                                    <rect key="frame" x="20" y="2" width="725" height="63"/>
+                                                    <string key="text">Collaborative maps share key/value state across sessions. They support standard map operations. Events are fired when key-value pairs are changed.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="sf6-YS-dbM"/>
+                                                    </connections>
+                                                </textView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="0iG-AW-dYw" secondAttribute="trailing" constant="23" id="3q9-7r-uap"/>
+                                                <constraint firstAttribute="bottom" secondItem="0iG-AW-dYw" secondAttribute="bottom" constant="16" id="f1W-6H-HBd"/>
+                                                <constraint firstItem="0iG-AW-dYw" firstAttribute="top" secondItem="EGC-xe-a8Z" secondAttribute="top" constant="2" id="j6P-hv-A7j"/>
+                                                <constraint firstItem="0iG-AW-dYw" firstAttribute="leading" secondItem="EGC-xe-a8Z" secondAttribute="leading" constant="20" symbolic="YES" id="nyc-yl-Cdo"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="Debug Tools" id="xB9-qm-TgG">
                                 <string key="footerTitle">  
  http://reatime.goodow.com</string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DJf-os-Jsp" style="IBUITableViewCellStyleDefault" id="KDD-Zg-qYN">
-                                        <rect key="frame" x="0.0" y="1235" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="1343" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KDD-Zg-qYN" id="ARI-Wn-Bn4">
                                             <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FVh-Ma-1kJ">
-                                                    <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="HTTP Logging">
-                                                        <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="loggingEvent:" destination="QSo-Hj-GrP" eventType="touchUpInside" id="ZR0-Rm-zO2"/>
-                                                    </connections>
-                                                </button>
                                                 <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="HTTP Logging" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DJf-os-Jsp">
                                                     <rect key="frame" x="15" y="0.0" width="718" height="43"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -126,12 +280,6 @@
                                                     <color key="highlightedColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                 </label>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="FVh-Ma-1kJ" secondAttribute="trailing" id="UNp-BQ-hvB"/>
-                                                <constraint firstItem="FVh-Ma-1kJ" firstAttribute="leading" secondItem="ARI-Wn-Bn4" secondAttribute="leading" id="jpE-N3-jny"/>
-                                                <constraint firstItem="FVh-Ma-1kJ" firstAttribute="bottom" secondItem="DJf-os-Jsp" secondAttribute="bottom" id="rcB-0O-Fqz"/>
-                                                <constraint firstItem="FVh-Ma-1kJ" firstAttribute="top" secondItem="DJf-os-Jsp" secondAttribute="top" id="xaV-Zx-KsD"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -143,9 +291,6 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Goodow Realtime Playground" id="JuQ-3Q-bhZ"/>
-                    <connections>
-                        <outlet property="textView" destination="qfA-WS-hsK" id="Qv5-0G-1BV"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MAE-if-gBd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
