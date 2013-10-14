@@ -101,7 +101,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Step 4  Collaborate" id="hdo-xG-mFB">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="116" id="PXp-y0-pJ2" userLabel="String Cell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="116" id="PXp-y0-pJ2" userLabel="Cell">
                                         <rect key="frame" x="0.0" y="432" width="768" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PXp-y0-pJ2" id="t17-6b-Gvm">
@@ -126,137 +126,126 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Collaborative strings" id="8ar-Dt-79p">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="96" id="DVX-n8-2jO" userLabel="String Cell">
-                                        <rect key="frame" x="0.0" y="596" width="768" height="96"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="101" id="SZO-nc-wTZ" userLabel="Cell">
+                                        <rect key="frame" x="0.0" y="548" width="768" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DVX-n8-2jO" id="egy-bY-T8X">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="95"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SZO-nc-wTZ" id="uEl-gO-4Nn">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tjg-4y-bQL">
-                                                    <rect key="frame" x="20" y="15" width="725" height="67"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Collaborative strings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FwW-43-Im6">
+                                                    <rect key="frame" x="25" y="6" width="158" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c82-ww-AH0">
+                                                    <rect key="frame" x="21" y="28" width="725" height="67"/>
                                                     <string key="text">Collaborative strings are just like normal strings, except that all sessions will be notified and updated when the string changes. Events are fired when strings are inserted to the collaborative string or when part of the string is deleted.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="FVk-0F-nzt"/>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="6Ca-q3-KVX"/>
                                                     </connections>
                                                 </textView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="tjg-4y-bQL" secondAttribute="trailing" constant="23" id="8sc-6o-sKy"/>
-                                                <constraint firstAttribute="bottom" secondItem="tjg-4y-bQL" secondAttribute="bottom" constant="13" id="HaW-Da-Rkj"/>
-                                                <constraint firstItem="tjg-4y-bQL" firstAttribute="leading" secondItem="egy-bY-T8X" secondAttribute="leading" constant="20" symbolic="YES" id="Kst-2h-VEb"/>
-                                                <constraint firstItem="tjg-4y-bQL" firstAttribute="top" secondItem="egy-bY-T8X" secondAttribute="top" constant="15" id="qGt-ne-mlp"/>
-                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Edit the demo Collaborative String" id="0ud-kB-kvz">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="fyn-wH-BZ6" rowHeight="48" style="IBUITableViewCellStyleDefault" id="vb7-kD-f6V" userLabel="String Cell">
-                                        <rect key="frame" x="0.0" y="740" width="768" height="48"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="101" id="hUn-Fb-jBG" userLabel="String Cell">
+                                        <rect key="frame" x="0.0" y="649" width="768" height="101"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vb7-kD-f6V" id="7Z4-Ek-VdI">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="47"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hUn-Fb-jBG" id="iu6-uZ-kkz">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" text="Show String" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fyn-wH-BZ6">
-                                                    <rect key="frame" x="15" y="0.0" width="738" height="47"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Edit the demo Collaborative String" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kAT-8f-vYG">
+                                                    <rect key="frame" x="25" y="6" width="264" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="into String view" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N8c-SI-CL9">
+                                                    <rect key="frame" x="25" y="35" width="279" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Collaborative lists" id="eHJ-mb-WS1">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="92" id="YpV-gx-zhm" userLabel="String Cell">
-                                        <rect key="frame" x="0.0" y="836" width="768" height="92"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="122" id="rDb-jr-Rz4" userLabel="List Cell">
+                                        <rect key="frame" x="0.0" y="750" width="768" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YpV-gx-zhm" id="S23-4q-Wps">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="91"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rDb-jr-Rz4" id="gvu-a7-1Nl">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hYf-ad-2VZ">
-                                                    <rect key="frame" x="20" y="7" width="725" height="43"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uN2-Hv-6Yt">
+                                                    <rect key="frame" x="20" y="10" width="725" height="43"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="43" id="nQg-nW-8s7"/>
+                                                    </constraints>
                                                     <string key="text">A collaborative list state is shared across sessions. Events are fired when items are added or removed to the list or when an existig item's value is set.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="TjP-fy-8TH"/>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="znE-L6-clB"/>
                                                     </connections>
                                                 </textView>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Add, change or remove key-value pairs on the demo Collaborative Map" translatesAutoresizingMaskIntoConstraints="NO" id="ZVN-bo-0xq">
-                                                    <rect key="frame" x="20" y="54" width="725" height="31"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="31" id="kY3-6l-giu"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                                    <connections>
-                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="xVf-w8-c17"/>
-                                                    </connections>
-                                                </textView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="into List view" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83Y-Eh-gN8">
+                                                    <rect key="frame" x="22" y="56" width="723" height="45"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="ZVN-bo-0xq" firstAttribute="trailing" secondItem="hYf-ad-2VZ" secondAttribute="trailing" id="27G-lL-hRG"/>
-                                                <constraint firstItem="hYf-ad-2VZ" firstAttribute="top" secondItem="S23-4q-Wps" secondAttribute="top" constant="7" id="Sx5-jG-IuR"/>
-                                                <constraint firstItem="ZVN-bo-0xq" firstAttribute="leading" secondItem="hYf-ad-2VZ" secondAttribute="leading" id="bMW-WV-21d"/>
-                                                <constraint firstAttribute="bottom" secondItem="ZVN-bo-0xq" secondAttribute="bottom" constant="6" id="dXc-tA-88d"/>
-                                                <constraint firstItem="hYf-ad-2VZ" firstAttribute="leading" secondItem="S23-4q-Wps" secondAttribute="leading" constant="20" symbolic="YES" id="isP-Ke-J0l"/>
-                                                <constraint firstItem="ZVN-bo-0xq" firstAttribute="top" secondItem="hYf-ad-2VZ" secondAttribute="bottom" constant="4" id="mjH-cf-bMy"/>
-                                                <constraint firstAttribute="trailing" secondItem="hYf-ad-2VZ" secondAttribute="trailing" constant="23" id="xyv-Pm-HsE"/>
+                                                <constraint firstAttribute="trailing" secondItem="uN2-Hv-6Yt" secondAttribute="trailing" constant="23" id="FAc-Im-VhR"/>
+                                                <constraint firstItem="uN2-Hv-6Yt" firstAttribute="leading" secondItem="gvu-a7-1Nl" secondAttribute="leading" constant="20" symbolic="YES" id="cpn-1w-kIE"/>
+                                                <constraint firstItem="83Y-Eh-gN8" firstAttribute="leading" secondItem="gvu-a7-1Nl" secondAttribute="leading" constant="22" id="fXn-cl-cbr"/>
+                                                <constraint firstAttribute="bottom" secondItem="83Y-Eh-gN8" secondAttribute="bottom" constant="20" symbolic="YES" id="g6L-V5-cvl"/>
+                                                <constraint firstItem="83Y-Eh-gN8" firstAttribute="top" secondItem="uN2-Hv-6Yt" secondAttribute="bottom" constant="3" id="gGA-As-tay"/>
+                                                <constraint firstItem="83Y-Eh-gN8" firstAttribute="trailing" secondItem="uN2-Hv-6Yt" secondAttribute="trailing" id="sj0-zZ-I3F"/>
+                                                <constraint firstItem="uN2-Hv-6Yt" firstAttribute="top" secondItem="gvu-a7-1Nl" secondAttribute="top" constant="10" id="zcU-RJ-fGJ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Add, change or remove key-value pairs on the demo Collaborative Map" id="TqX-dJ-tqZ">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="189" id="hQ8-Qd-uQV" userLabel="Map Cell">
-                                        <rect key="frame" x="0.0" y="976" width="768" height="189"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="122" id="c8G-1d-cwm" userLabel="Map Cell">
+                                        <rect key="frame" x="0.0" y="872" width="768" height="122"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hQ8-Qd-uQV" id="9xx-nU-Dd0">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="188"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
-                            <tableViewSection headerTitle="Collaborative maps" id="Jad-ma-tw5">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="82" id="0Eg-au-Baf" userLabel="String Cell">
-                                        <rect key="frame" x="0.0" y="1213" width="768" height="82"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Eg-au-Baf" id="EGC-xe-a8Z">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="81"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c8G-1d-cwm" id="WNG-Vh-TXh">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="121"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0iG-AW-dYw">
-                                                    <rect key="frame" x="20" y="2" width="725" height="63"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lcG-bJ-FTZ">
+                                                    <rect key="frame" x="20" y="10" width="725" height="50"/>
                                                     <string key="text">Collaborative maps share key/value state across sessions. They support standard map operations. Events are fired when key-value pairs are changed.</string>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     <connections>
-                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="sf6-YS-dbM"/>
+                                                        <outlet property="delegate" destination="QSo-Hj-GrP" id="9Ip-KP-lVf"/>
                                                     </connections>
                                                 </textView>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="into Map view" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sn9-KR-nKQ">
+                                                    <rect key="frame" x="22" y="63" width="723" height="42"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="35"/>
+                                                    <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="0iG-AW-dYw" secondAttribute="trailing" constant="23" id="3q9-7r-uap"/>
-                                                <constraint firstAttribute="bottom" secondItem="0iG-AW-dYw" secondAttribute="bottom" constant="16" id="f1W-6H-HBd"/>
-                                                <constraint firstItem="0iG-AW-dYw" firstAttribute="top" secondItem="EGC-xe-a8Z" secondAttribute="top" constant="2" id="j6P-hv-A7j"/>
-                                                <constraint firstItem="0iG-AW-dYw" firstAttribute="leading" secondItem="EGC-xe-a8Z" secondAttribute="leading" constant="20" symbolic="YES" id="nyc-yl-Cdo"/>
+                                                <constraint firstItem="lcG-bJ-FTZ" firstAttribute="top" secondItem="WNG-Vh-TXh" secondAttribute="top" constant="10" id="1IE-KN-Ge9"/>
+                                                <constraint firstItem="lcG-bJ-FTZ" firstAttribute="leading" secondItem="WNG-Vh-TXh" secondAttribute="leading" constant="20" symbolic="YES" id="A7L-L7-BdR"/>
+                                                <constraint firstItem="sn9-KR-nKQ" firstAttribute="leading" secondItem="WNG-Vh-TXh" secondAttribute="leading" constant="22" id="AzW-6N-5Dl"/>
+                                                <constraint firstAttribute="bottom" secondItem="sn9-KR-nKQ" secondAttribute="bottom" constant="16" id="Kvu-hh-h7N"/>
+                                                <constraint firstItem="lcG-bJ-FTZ" firstAttribute="trailing" secondItem="sn9-KR-nKQ" secondAttribute="trailing" id="Pt0-Bf-p0E"/>
+                                                <constraint firstItem="sn9-KR-nKQ" firstAttribute="top" secondItem="lcG-bJ-FTZ" secondAttribute="bottom" constant="3" id="f3x-6b-sGm"/>
+                                                <constraint firstAttribute="trailing" secondItem="lcG-bJ-FTZ" secondAttribute="trailing" constant="23" id="ga7-zb-EvF"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -267,7 +256,7 @@
  http://reatime.goodow.com</string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DJf-os-Jsp" style="IBUITableViewCellStyleDefault" id="KDD-Zg-qYN">
-                                        <rect key="frame" x="0.0" y="1343" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="1042" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KDD-Zg-qYN" id="ARI-Wn-Bn4">
                                             <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>
