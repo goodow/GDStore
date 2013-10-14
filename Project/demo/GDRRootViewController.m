@@ -1,6 +1,7 @@
 #import "GDRRootViewController.h"
 #import "GTMHTTPFetcher/GTMHTTPFetcherLogViewController.h"
 #import "GDR.h"
+#import "GDRCollaborativeListViewController.h"
 #import "GDRCollaborativeStringViewController.h"
 
 @interface GDRRootViewController ()
@@ -53,7 +54,11 @@
         GDRCollaborativeStringViewController *collaborativeStringViewController = [[GDRCollaborativeStringViewController alloc]initWithNibName:@"GDRCollaborativeStringViewController" bundle:nil];
         [self.navigationController pushViewController:collaborativeStringViewController animated:YES];
     }
-    
+    else if (indexPath.section == 6){
+        NSLog(@"collaborative lists");
+        GDRCollaborativeListViewController *collaborativeListViewController = [[GDRCollaborativeListViewController alloc]initWithNibName:@"GDRCollaborativeListViewController_ipad" bundle:nil];
+        [self.navigationController pushViewController:collaborativeListViewController animated:YES];
+    }
 
 }
 
