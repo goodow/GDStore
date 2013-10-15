@@ -35,7 +35,9 @@ static NSString * LIST_KEY = @"demo_list";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [GDRRealtime load:@"@tmp/ios/test" onLoaded:[self onLoadedBlock] opt_initializer:[self initializerBlock] opt_error:nil];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
+    [GDRRealtime load:[dictionary objectForKey:@"load"] onLoaded:[self onLoadedBlock] opt_initializer:nil opt_error:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,14 +47,14 @@ static NSString * LIST_KEY = @"demo_list";
 }
 
 #pragma mark - Collaborative List
-- (GDRModelInitializerBlock) initializerBlock{
-    GDRModelInitializerBlock initializer = ^(GDRModel *model) {
-        mod = model;
-        root = [mod getRoot];
-        [self initializeList];
-    };
-    return initializer;
++(void)initializerWithModel:(GDRModel *)model{
+    
+    GDRCollaborativeMap *root = [model getRoot];
+    GDRCollaborativeList *arr = [model createList:[NSArray arrayWithObjects:@"aa",@"bbb",@"cccc", nil]];
+    [root set:LIST_KEY value:arr];
+    
 }
+
 - (GDRDocumentLoadedBlock) onLoadedBlock{
     GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {
         doc = document;
@@ -64,10 +66,6 @@ static NSString * LIST_KEY = @"demo_list";
     return onLoaded;
 }
 
-- (void) initializeList {
-    GDRCollaborativeList *arr = [mod createList:[NSArray arrayWithObjects:@"aa",@"bbb",@"cccc", nil]];
-    [root set:LIST_KEY value:arr];
-}
 - (void) connectList {
     list = [root get:LIST_KEY];
     
@@ -133,6 +131,7 @@ static NSString * LIST_KEY = @"demo_list";
     //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     selectedIndexPath = indexPath;
 }
+
 #pragma mark -IBAction
 -(IBAction)addItemByString:(id)sender{
     if (![self.addItemTextField.text isEqualToString:@""])

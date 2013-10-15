@@ -34,7 +34,9 @@ static NSString * STR_KEY = @"demo_string";
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [GDRRealtime load:@"@tmp/ios" onLoaded:[self onLoadedBlock] opt_initializer:[self initializerBlock] opt_error:nil];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
+    [GDRRealtime load:[dictionary objectForKey:@"load"] onLoaded:[self onLoadedBlock] opt_initializer:nil opt_error:nil];
     
 }
 
@@ -44,14 +46,14 @@ static NSString * STR_KEY = @"demo_string";
     // Dispose of any resources that can be recreated.
 }
 #pragma mark - Collaborative strings
-- (GDRModelInitializerBlock) initializerBlock{
-    GDRModelInitializerBlock initializer = ^(GDRModel *model) {
-        mod = model;
-        root = [mod getRoot];
-        [self initializeString];
-    };
-    return initializer;
++(void)initializerWithModel:(GDRModel *)model{
+    
+    GDRCollaborativeMap *root = [model getRoot];
+    GDRCollaborativeString *string = [model createString:@"Edit Me!"];
+    [root set:STR_KEY value:string];
+    
 }
+
 - (GDRDocumentLoadedBlock) onLoadedBlock{
     GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {
         doc = document;
@@ -62,11 +64,6 @@ static NSString * STR_KEY = @"demo_string";
     };
 
     return onLoaded;
-}
-
-- (void) initializeString {
-    GDRCollaborativeString *string = [mod createString:@"Edit Me!"];
-    [root set:STR_KEY value:string];
 }
 - (void) connectString {
     str = [root get:STR_KEY];

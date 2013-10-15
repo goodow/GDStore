@@ -223,12 +223,22 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="Add, change or remove key-value pairs on the demo Collaborative Map" id="TqX-dJ-tqZ">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="189" id="hQ8-Qd-uQV" userLabel="Map Cell">
-                                        <rect key="frame" x="0.0" y="976" width="768" height="189"/>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="71" id="hQ8-Qd-uQV" userLabel="Map Cell">
+                                        <rect key="frame" x="0.0" y="976" width="768" height="71"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hQ8-Qd-uQV" id="9xx-nU-Dd0">
-                                            <rect key="frame" x="0.0" y="0.0" width="768" height="188"/>
+                                        <tableViewCellContentView key="contentView" autoresizesSubviews="NO" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hQ8-Qd-uQV" id="9xx-nU-Dd0">
+                                            <rect key="frame" x="0.0" y="0.0" width="768" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uas-Hk-G4M">
+                                                    <rect key="frame" x="20" y="3" width="728" height="66"/>
+                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <string key="text">Collaborative maps share key/value state across sessions. They support standard map operations. Events are fired when key-value pairs are changed.</string>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -236,7 +246,7 @@
                             <tableViewSection headerTitle="Collaborative maps" id="Jad-ma-tw5">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="82" id="0Eg-au-Baf" userLabel="String Cell">
-                                        <rect key="frame" x="0.0" y="1213" width="768" height="82"/>
+                                        <rect key="frame" x="0.0" y="1095" width="768" height="82"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0Eg-au-Baf" id="EGC-xe-a8Z">
                                             <rect key="frame" x="0.0" y="0.0" width="768" height="81"/>
@@ -267,7 +277,7 @@
  http://reatime.goodow.com</string>
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="DJf-os-Jsp" style="IBUITableViewCellStyleDefault" id="KDD-Zg-qYN">
-                                        <rect key="frame" x="0.0" y="1343" width="768" height="44"/>
+                                        <rect key="frame" x="0.0" y="1225" width="768" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KDD-Zg-qYN" id="ARI-Wn-Bn4">
                                             <rect key="frame" x="0.0" y="0.0" width="735" height="43"/>

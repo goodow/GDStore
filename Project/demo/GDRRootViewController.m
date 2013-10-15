@@ -4,16 +4,12 @@
 #import "GDRCollaborativeListViewController.h"
 #import "GDRCollaborativeStringViewController.h"
 
+
 @interface GDRRootViewController ()
 
 @end
 
-@implementation GDRRootViewController {
-  
-}
-
-
-
+@implementation GDRRootViewController
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -27,10 +23,27 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  
-  // Step 1  Authorize
+    
+  NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
+  NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
+
   [GDRRealtime authorize:@"688185492143008835447" token:@"68c8f4141821bdcc7a43f4233a2b732d3ed956b5"];
- 
+
+  [GDRRealtime load:[dictionary objectForKey:@"load"]
+           onLoaded:^(GDRDocument *document) {
+        
+  } opt_initializer:^(GDRModel *model) {
+      
+      //初始化String
+      [GDRCollaborativeStringViewController initializerWithModel:model];
+      //初始化List
+      [GDRCollaborativeListViewController initializerWithModel:model];
+      //初始化Map
+      
+        
+  } opt_error:^(GDRError *error) {
+        
+  }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -42,7 +55,7 @@
 #pragma mark - Table view delegate
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+  [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if(indexPath.section == [self numberOfSectionsInTableView:self.tableView] -1) {
         if(indexPath.item == 0){
             GTMHTTPFetcherLogViewController *logViewController = [[GTMHTTPFetcherLogViewController alloc] init];
@@ -59,6 +72,7 @@
         GDRCollaborativeListViewController *collaborativeListViewController = [[GDRCollaborativeListViewController alloc]initWithNibName:@"GDRCollaborativeListViewController_ipad" bundle:nil];
         [self.navigationController pushViewController:collaborativeListViewController animated:YES];
     }
+    
 
 }
 
