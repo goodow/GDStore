@@ -3,7 +3,7 @@
 #import "GDR.h"
 #import "GDRCollaborativeListViewController.h"
 #import "GDRCollaborativeStringViewController.h"
-
+#import "GDRCollaborativeMapViewController.h"
 
 @interface GDRRootViewController ()
 
@@ -27,7 +27,7 @@
   NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
   NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
 
-  [GDRRealtime authorize:@"688185492143008835447" token:@"68c8f4141821bdcc7a43f4233a2b732d3ed956b5"];
+  [GDRRealtime authorize:[dictionary objectForKey:@"authorize"] token:[dictionary objectForKey:@"token"]];
 
   [GDRRealtime load:[dictionary objectForKey:@"load"]
            onLoaded:^(GDRDocument *document) {
@@ -39,7 +39,7 @@
       //初始化List
       [GDRCollaborativeListViewController initializerWithModel:model];
       //初始化Map
-      
+      [GDRCollaborativeMapViewController initializerWithModel:model];
         
   } opt_error:^(GDRError *error) {
         
@@ -71,6 +71,10 @@
         NSLog(@"collaborative lists");
         GDRCollaborativeListViewController *collaborativeListViewController = [[GDRCollaborativeListViewController alloc]initWithNibName:@"GDRCollaborativeListViewController_ipad" bundle:nil];
         [self.navigationController pushViewController:collaborativeListViewController animated:YES];
+    }else if (indexPath.section == 7){
+        NSLog(@"collaborative map");
+        GDRCollaborativeMapViewController *collaborativeMapViewController = [[GDRCollaborativeMapViewController alloc]initWithNibName:@"GDRCollaborativeMapViewController_ipad" bundle:nil];
+        [self.navigationController pushViewController:collaborativeMapViewController animated:YES];
     }
     
 

@@ -82,4 +82,5 @@ static NSString * STR_KEY = @"demo_string";
     NSLog(@"---%@0----",aTextView.text);
     [str setText:aTextView.text];
 }
+
 @end
