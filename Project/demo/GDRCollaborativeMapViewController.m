@@ -11,14 +11,15 @@
 
 @interface GDRCollaborativeMapViewController ()
 
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, weak) IBOutlet UIPickerView *pickerView;
+@property (nonatomic, weak) IBOutlet UITextField *keyTextField;
+@property (nonatomic, weak) IBOutlet UITextField *valueTextField;
+
 @property (nonatomic, strong) GDRDocument *doc;
 @property (nonatomic, strong) GDRModel *mod;
 @property (nonatomic, strong) GDRCollaborativeMap *root;
 @property (nonatomic, strong) GDRCollaborativeMap *map;
-
-@property (nonatomic, weak) IBOutlet UIPickerView *pickerView;
-@property (nonatomic, weak) IBOutlet UITextField *keyTextField;
-@property (nonatomic, weak) IBOutlet UITextField *valueTextField;
 
 @end
 
@@ -42,6 +43,7 @@ static NSString * MAP_KEY = @"demo_map";
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     [GDRRealtime load:[dictionary objectForKey:@"load"] onLoaded:[self onLoadedBlock] opt_initializer:nil opt_error:nil];
+    [self.activityIndicatorView startAnimating];
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,6 +66,14 @@ static NSString * MAP_KEY = @"demo_map";
 - (GDRDocumentLoadedBlock) onLoadedBlock{
     GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {
         self.doc = document;
+        __weak GDRCollaborativeMapViewController *weakSelf = self;
+        [self.doc addDocumentSaveStateListener:^(GDRDocumentSaveStateChangedEvent *event) {
+            if ([event isSaving]) {
+                [weakSelf.activityIndicatorView stopAnimating];
+            }
+            
+        }];
+
         self.mod = [self.doc getModel];
         self.root = [self.mod getRoot];
         
@@ -76,6 +86,7 @@ static NSString * MAP_KEY = @"demo_map";
 
     self.map = [self.root get:MAP_KEY];
     [self.pickerView reloadAllComponents];
+    [self.activityIndicatorView stopAnimating];
     
     [self.pickerView selectRow:[self lastIndexOfMap] inComponent:0 animated:YES];
     [self.pickerView selectRow:[self lastIndexOfMap] inComponent:1 animated:YES];
@@ -85,6 +96,7 @@ static NSString * MAP_KEY = @"demo_map";
     __weak GDRCollaborativeMapViewController *weakSelf = self;
 
     [self.map addValueChangedListener:^(GDRValueChangedEvent *event) {
+        [weakSelf.activityIndicatorView startAnimating];
         [weakSelf.pickerView reloadAllComponents];
         [weakSelf.pickerView selectRow:[weakSelf lastIndexOfMap] inComponent:0 animated:YES];
         [weakSelf.pickerView selectRow:[weakSelf lastIndexOfMap] inComponent:1 animated:YES];

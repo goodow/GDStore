@@ -14,6 +14,7 @@
 @property (nonatomic, weak) IBOutlet UITextField *addItemTextField;
 @property (nonatomic, weak) IBOutlet UITextField *selectedValueOfItemTextField;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
 
 @property (nonatomic, strong) GDRDocument *doc;
 @property (nonatomic, strong) GDRModel *mod;
@@ -46,6 +47,7 @@ static NSString * LIST_KEY = @"demo_list";
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     [GDRRealtime load:[dictionary objectForKey:@"load"] onLoaded:[self onLoadedBlock] opt_initializer:nil opt_error:nil];
+    [self.activityIndicatorView startAnimating];
     
 }
 
@@ -67,6 +69,13 @@ static NSString * LIST_KEY = @"demo_list";
 - (GDRDocumentLoadedBlock) onLoadedBlock{
     GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {
         self.doc = document;
+        __weak GDRCollaborativeListViewController *weakSelf = self;
+        [self.doc addDocumentSaveStateListener:^(GDRDocumentSaveStateChangedEvent *event) {
+            if ([event isSaving]) {
+                [weakSelf.activityIndicatorView stopAnimating];
+            }
+            
+        }];
         self.mod = [self.doc getModel];
         self.root = [self.mod getRoot];
         
@@ -78,7 +87,9 @@ static NSString * LIST_KEY = @"demo_list";
 - (void) connectList {
     self.list = [self.root get:LIST_KEY];
     [self.tableView reloadData];
+    [self.activityIndicatorView stopAnimating];
     id block = ^(GDRBaseModelEvent *event) {
+        [self.activityIndicatorView startAnimating];
         [self.tableView reloadData];
     };
     

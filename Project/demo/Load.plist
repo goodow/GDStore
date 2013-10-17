@@ -2,7 +2,7 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>authorize</key>
+	<key>userId</key>
 	<string>688185492143008835447</string>
 	<key>token</key>
 	<string>68c8f4141821bdcc7a43f4233a2b732d3ed956b5</string>

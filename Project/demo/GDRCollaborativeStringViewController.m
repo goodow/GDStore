@@ -12,6 +12,8 @@
 @interface GDRCollaborativeStringViewController ()
 
 @property (nonatomic, weak) IBOutlet UITextView *textView;
+@property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+
 @property (nonatomic, strong) GDRDocument *doc;
 @property (nonatomic, strong) GDRModel *mod;
 @property (nonatomic, strong) GDRCollaborativeMap *root;
@@ -38,6 +40,8 @@ static NSString * STR_KEY = @"demo_string";
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     [GDRRealtime load:[dictionary objectForKey:@"load"] onLoaded:[self onLoadedBlock] opt_initializer:nil opt_error:nil];
+    [self.activityIndicatorView startAnimating];
+    
     
 }
 
@@ -58,9 +62,15 @@ static NSString * STR_KEY = @"demo_string";
 - (GDRDocumentLoadedBlock) onLoadedBlock{
     GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {
         self.doc = document;
+        __weak GDRCollaborativeStringViewController *weakSelf = self;
+        [self.doc addDocumentSaveStateListener:^(GDRDocumentSaveStateChangedEvent *event) {
+            if ([event isSaving]) {
+                [weakSelf.activityIndicatorView stopAnimating];                
+            }
+
+        }];
         self.mod = [self.doc getModel];
         self.root = [self.mod getRoot];
-        
         [self connectString];
     };
 
@@ -69,10 +79,12 @@ static NSString * STR_KEY = @"demo_string";
 - (void) connectString {
     self.str = [self.root get:STR_KEY];
     self.textView.text = [self.str getText];
+    [self.activityIndicatorView stopAnimating];
     id block = ^(GDRBaseModelEvent *event) {
         if(!event.isLocal) {
             self.textView.text = [self.str getText];
         }
+        [self.activityIndicatorView startAnimating];
     };
     [self.str addTextDeletedListener: block];
     [self.str addTextInsertedListener:block];
@@ -80,7 +92,6 @@ static NSString * STR_KEY = @"demo_string";
 
 #pragma mark -UITextViewDelegate
 - (void)textViewDidChange:(UITextView *)aTextView {
-    NSLog(@"---%@0----",aTextView.text);
     [self.str setText:aTextView.text];
 }
 

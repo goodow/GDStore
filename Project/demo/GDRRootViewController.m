@@ -26,8 +26,8 @@
     
   NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
   NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
-
-  [GDRRealtime authorize:[dictionary objectForKey:@"authorize"] token:[dictionary objectForKey:@"token"]];
+  // [GDRRealtime setServerAddress:@"http://drive.retechcorp.com:8080"];
+  [GDRRealtime authorize:[dictionary objectForKey:@"userId"] token:[dictionary objectForKey:@"token"]];
 
   [GDRRealtime load:[dictionary objectForKey:@"load"]
            onLoaded:^(GDRDocument *document) {
@@ -64,7 +64,7 @@
         }
     }else if (indexPath.section == 5){
         NSLog(@"edit the collaborative string");
-        GDRCollaborativeStringViewController *collaborativeStringViewController = [[GDRCollaborativeStringViewController alloc]initWithNibName:@"GDRCollaborativeStringViewController" bundle:nil];
+        GDRCollaborativeStringViewController *collaborativeStringViewController = [[GDRCollaborativeStringViewController alloc]initWithNibName:@"GDRCollaborativeStringViewController_ipad" bundle:nil];
         [self.navigationController pushViewController:collaborativeStringViewController animated:YES];
     }
     else if (indexPath.section == 6){
