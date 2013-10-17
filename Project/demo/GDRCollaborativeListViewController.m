@@ -15,6 +15,8 @@
 @property (nonatomic, weak) IBOutlet UITextField *selectedValueOfItemTextField;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, weak) IBOutlet UIButton *undoBtn;
+@property (nonatomic, weak) IBOutlet UIButton *redoBtn;
 
 @property (nonatomic, strong) GDRDocument *doc;
 @property (nonatomic, strong) GDRModel *mod;
@@ -25,6 +27,8 @@
 -(IBAction)addItemByString:(id)sender;
 -(IBAction)clearList:(id)sender;
 -(IBAction)changeSelectedItemValue:(id)sender;
+-(IBAction)undoEvent:(id)sender;
+-(IBAction)redoEvent:(id)sender;
 @end
 
 
@@ -71,12 +75,25 @@ static NSString * LIST_KEY = @"demo_list";
         self.doc = document;
         __weak GDRCollaborativeListViewController *weakSelf = self;
         [self.doc addDocumentSaveStateListener:^(GDRDocumentSaveStateChangedEvent *event) {
-            if ([event isSaving]) {
+            if (![event isSaving] && ![event isPending]) {
                 [weakSelf.activityIndicatorView stopAnimating];
             }
             
         }];
         self.mod = [self.doc getModel];
+        [self.mod addUndoRedoStateChangedListener:^(GDRUndoRedoStateChangedEvent *event) {
+            if ([event canUndo]) {
+                [weakSelf.undoBtn setEnabled:YES];
+            }else{
+                [weakSelf.undoBtn setEnabled:NO];
+            }
+            
+            if ([event canRedo]) {
+                [weakSelf.redoBtn setEnabled:YES];
+            }else{
+                [weakSelf.redoBtn setEnabled:NO];
+            }
+        }];
         self.root = [self.mod getRoot];
         
         [self connectList];
@@ -96,7 +113,6 @@ static NSString * LIST_KEY = @"demo_list";
     [self.list addValuesAddedListener:block];
     [self.list addValuesRemovedListener:block];
     [self.list addValuesSetListener:block];
-    
 }
 #pragma mark - Table view data source
 
@@ -162,6 +178,12 @@ static NSString * LIST_KEY = @"demo_list";
     if (self.selectedIndexPath) {
         [self.list set:self.selectedIndexPath.row value:self.selectedValueOfItemTextField.text];
     }
+}
+-(IBAction)undoEvent:(id)sender{
+    [self.mod undo];
+}
+-(IBAction)redoEvent:(id)sender{
+    [self.mod redo];
 }
 
 @end
