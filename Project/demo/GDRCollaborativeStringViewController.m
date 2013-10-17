@@ -13,11 +13,16 @@
 
 @property (nonatomic, weak) IBOutlet UITextView *textView;
 @property (nonatomic, weak) IBOutlet UIActivityIndicatorView *activityIndicatorView;
+@property (nonatomic, weak) IBOutlet UIButton *undoBtn;
+@property (nonatomic, weak) IBOutlet UIButton *redoBtn;
 
 @property (nonatomic, strong) GDRDocument *doc;
 @property (nonatomic, strong) GDRModel *mod;
 @property (nonatomic, strong) GDRCollaborativeMap *root;
 @property (nonatomic, strong) GDRCollaborativeString *str;
+
+-(IBAction)undoEvent:(id)sender;
+-(IBAction)redoEvent:(id)sender;
 
 @end
 
@@ -43,6 +48,7 @@ static NSString * STR_KEY = @"demo_string";
     [self.activityIndicatorView startAnimating];
     
     
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -64,12 +70,27 @@ static NSString * STR_KEY = @"demo_string";
         self.doc = document;
         __weak GDRCollaborativeStringViewController *weakSelf = self;
         [self.doc addDocumentSaveStateListener:^(GDRDocumentSaveStateChangedEvent *event) {
-            if ([event isSaving]) {
+            if (![event isSaving] && ![event isPending]) {
                 [weakSelf.activityIndicatorView stopAnimating];                
             }
 
         }];
         self.mod = [self.doc getModel];
+        [self.mod addUndoRedoStateChangedListener:^(GDRUndoRedoStateChangedEvent *event) {
+            
+            if ([event canUndo]) {
+                [weakSelf.undoBtn setEnabled:YES];
+            }else{
+                [weakSelf.undoBtn setEnabled:NO];
+            }
+            
+            if ([event canRedo]) {
+                [weakSelf.redoBtn setEnabled:YES];
+            }else{
+                [weakSelf.redoBtn setEnabled:NO];
+            }
+            
+        }];
         self.root = [self.mod getRoot];
         [self connectString];
     };
@@ -81,9 +102,7 @@ static NSString * STR_KEY = @"demo_string";
     self.textView.text = [self.str getText];
     [self.activityIndicatorView stopAnimating];
     id block = ^(GDRBaseModelEvent *event) {
-        if(!event.isLocal) {
-            self.textView.text = [self.str getText];
-        }
+        self.textView.text = [self.str getText];
         [self.activityIndicatorView startAnimating];
     };
     [self.str addTextDeletedListener: block];
@@ -95,4 +114,11 @@ static NSString * STR_KEY = @"demo_string";
     [self.str setText:aTextView.text];
 }
 
+#pragma mark -IBAction
+-(IBAction)undoEvent:(id)sender{
+    [self.mod undo];
+}
+-(IBAction)redoEvent:(id)sender{
+    [self.mod redo];
+}
 @end
