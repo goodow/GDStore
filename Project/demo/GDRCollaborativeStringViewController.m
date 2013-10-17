@@ -10,12 +10,13 @@
 
 
 @interface GDRCollaborativeStringViewController ()
-{
-    GDRDocument *doc;
-    GDRModel *mod;
-    GDRCollaborativeMap *root;
-    GDRCollaborativeString *str;
-}
+
+@property (nonatomic, weak) IBOutlet UITextView *textView;
+@property (nonatomic, strong) GDRDocument *doc;
+@property (nonatomic, strong) GDRModel *mod;
+@property (nonatomic, strong) GDRCollaborativeMap *root;
+@property (nonatomic, strong) GDRCollaborativeString *str;
+
 @end
 
 static NSString * STR_KEY = @"demo_string";
@@ -56,9 +57,9 @@ static NSString * STR_KEY = @"demo_string";
 
 - (GDRDocumentLoadedBlock) onLoadedBlock{
     GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {
-        doc = document;
-        mod = [doc getModel];
-        root = [mod getRoot];
+        self.doc = document;
+        self.mod = [self.doc getModel];
+        self.root = [self.mod getRoot];
         
         [self connectString];
     };
@@ -66,21 +67,21 @@ static NSString * STR_KEY = @"demo_string";
     return onLoaded;
 }
 - (void) connectString {
-    str = [root get:STR_KEY];
-    self.textView.text = [str getText];
+    self.str = [self.root get:STR_KEY];
+    self.textView.text = [self.str getText];
     id block = ^(GDRBaseModelEvent *event) {
         if(!event.isLocal) {
-            self.textView.text = [str getText];
+            self.textView.text = [self.str getText];
         }
     };
-    [str addTextDeletedListener: block];
-    [str addTextInsertedListener:block];
+    [self.str addTextDeletedListener: block];
+    [self.str addTextInsertedListener:block];
 }
 
 #pragma mark -UITextViewDelegate
 - (void)textViewDidChange:(UITextView *)aTextView {
     NSLog(@"---%@0----",aTextView.text);
-    [str setText:aTextView.text];
+    [self.str setText:aTextView.text];
 }
 
 @end

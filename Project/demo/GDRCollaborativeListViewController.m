@@ -10,14 +10,22 @@
 #import "GDR.h"
 
 @interface GDRCollaborativeListViewController ()
-{
-    GDRDocument *doc;
-    GDRModel *mod;
-    GDRCollaborativeMap *root;
-    GDRCollaborativeList *list;
-    NSIndexPath *selectedIndexPath;
-}
+
+@property (nonatomic, weak) IBOutlet UITextField *addItemTextField;
+@property (nonatomic, weak) IBOutlet UITextField *selectedValueOfItemTextField;
+@property (nonatomic, weak) IBOutlet UITableView *tableView;
+
+@property (nonatomic, strong) GDRDocument *doc;
+@property (nonatomic, strong) GDRModel *mod;
+@property (nonatomic, strong) GDRCollaborativeMap *root;
+@property (nonatomic, strong) GDRCollaborativeList *list;
+@property (nonatomic, strong) NSIndexPath *selectedIndexPath;
+
+-(IBAction)addItemByString:(id)sender;
+-(IBAction)clearList:(id)sender;
+-(IBAction)changeSelectedItemValue:(id)sender;
 @end
+
 
 static NSString * LIST_KEY = @"demo_list";
 
@@ -38,6 +46,7 @@ static NSString * LIST_KEY = @"demo_list";
     NSString *path = [[NSBundle mainBundle] pathForResource:@"Load" ofType:@"plist"];
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:path];
     [GDRRealtime load:[dictionary objectForKey:@"load"] onLoaded:[self onLoadedBlock] opt_initializer:nil opt_error:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,9 +66,9 @@ static NSString * LIST_KEY = @"demo_list";
 
 - (GDRDocumentLoadedBlock) onLoadedBlock{
     GDRDocumentLoadedBlock onLoaded = ^(GDRDocument *document) {
-        doc = document;
-        mod = [doc getModel];
-        root = [mod getRoot];
+        self.doc = document;
+        self.mod = [self.doc getModel];
+        self.root = [self.mod getRoot];
         
         [self connectList];
     };
@@ -67,19 +76,15 @@ static NSString * LIST_KEY = @"demo_list";
 }
 
 - (void) connectList {
-    list = [root get:LIST_KEY];
-    
-    for (int i = 0; i<list.length; i++) {
-        NSLog(@"list content:%@",[list get:i]);
-        [self.tableView reloadData];
-    }
+    self.list = [self.root get:LIST_KEY];
+    [self.tableView reloadData];
     id block = ^(GDRBaseModelEvent *event) {
         [self.tableView reloadData];
     };
     
-    [list addValuesAddedListener:block];
-    [list addValuesRemovedListener:block];
-    [list addValuesSetListener:block];
+    [self.list addValuesAddedListener:block];
+    [self.list addValuesRemovedListener:block];
+    [self.list addValuesSetListener:block];
     
 }
 #pragma mark - Table view data source
@@ -93,7 +98,7 @@ static NSString * LIST_KEY = @"demo_list";
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     // Return the number of rows in the section.
-    return [list length];
+    return [self.list length];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -104,7 +109,7 @@ static NSString * LIST_KEY = @"demo_list";
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
 
-    cell.textLabel.text =[list get:indexPath.row];
+    cell.textLabel.text =[self.list get:indexPath.row];
     
     return cell;
 }
@@ -116,8 +121,7 @@ static NSString * LIST_KEY = @"demo_list";
     
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         
-        [list remove:indexPath.row];
-        // Delete the row from the data source.
+        [self.list remove:indexPath.row];
         [self.tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
     }
@@ -129,23 +133,23 @@ static NSString * LIST_KEY = @"demo_list";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    selectedIndexPath = indexPath;
+    self.selectedIndexPath = indexPath;
 }
 
 #pragma mark -IBAction
 -(IBAction)addItemByString:(id)sender{
     if (![self.addItemTextField.text isEqualToString:@""])
-        [list insert:[list length] value:self.addItemTextField.text];
+        [self.list insert:[self.list length] value:self.addItemTextField.text];
 }
 -(IBAction)clearList:(id)sender{
     
-    [list clear];
-    selectedIndexPath = nil;
+    [self.list clear];
+    self.selectedIndexPath = nil;
     
 }
 -(IBAction)changeSelectedItemValue:(id)sender{
-    if (selectedIndexPath) {
-        [list set:selectedIndexPath.row value:self.selectedValueOfItemTextField.text];
+    if (self.selectedIndexPath) {
+        [self.list set:self.selectedIndexPath.row value:self.selectedValueOfItemTextField.text];
     }
 }
 

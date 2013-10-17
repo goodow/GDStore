@@ -10,7 +10,5 @@
 
 @interface GDRCollaborativeStringViewController : UIViewController <UITextViewDelegate>
 
-@property (nonatomic, strong)IBOutlet UITextView *textView;
-
 +(void)initializerWithModel:(GDRModel *)model;
 @end

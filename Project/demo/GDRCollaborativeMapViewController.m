@@ -83,7 +83,7 @@ static NSString * MAP_KEY = @"demo_map";
     self.valueTextField.text = [[self.map values]objectAtIndex:[self lastIndexOfMap]];
     
     __weak GDRCollaborativeMapViewController *weakSelf = self;
-    
+
     [self.map addValueChangedListener:^(GDRValueChangedEvent *event) {
         [weakSelf.pickerView reloadAllComponents];
         [weakSelf.pickerView selectRow:[weakSelf lastIndexOfMap] inComponent:0 animated:YES];
