@@ -161,6 +161,10 @@ static NSString * LIST_KEY = @"demo_list";
 {
     //    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.selectedIndexPath = indexPath;
+    if (indexPath.row >= 0) {
+        self.selectedValueOfItemTextField.text = [self.list get:indexPath.row];
+    }
+    
 }
 
 #pragma mark -IBAction
