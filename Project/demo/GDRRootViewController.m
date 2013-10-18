@@ -62,22 +62,23 @@
             [self.navigationController pushViewController:logViewController
                                                  animated:YES];
         }
-    }else if (indexPath.section == 5){
-        NSLog(@"edit the collaborative string");
-        GDRCollaborativeStringViewController *collaborativeStringViewController = [[GDRCollaborativeStringViewController alloc]initWithNibName:@"GDRCollaborativeStringViewController_ipad" bundle:nil];
-        [self.navigationController pushViewController:collaborativeStringViewController animated:YES];
+    }else if (indexPath.section == 3){
+        if (indexPath.row == 2) {
+            NSLog(@"edit the collaborative string");
+            GDRCollaborativeStringViewController *collaborativeStringViewController = [[GDRCollaborativeStringViewController alloc]initWithNibName:@"GDRCollaborativeStringViewController_ipad" bundle:nil];
+            [self.navigationController pushViewController:collaborativeStringViewController animated:YES];
+        }else if (indexPath.row == 3){
+            NSLog(@"collaborative lists");
+            GDRCollaborativeListViewController *collaborativeListViewController = [[GDRCollaborativeListViewController alloc]initWithNibName:@"GDRCollaborativeListViewController_ipad" bundle:nil];
+            [self.navigationController pushViewController:collaborativeListViewController animated:YES];
+        }else if (indexPath.row == 4){
+            NSLog(@"collaborative map");
+            GDRCollaborativeMapViewController *collaborativeMapViewController = [[GDRCollaborativeMapViewController alloc]initWithNibName:@"GDRCollaborativeMapViewController_ipad" bundle:nil];
+            [self.navigationController pushViewController:collaborativeMapViewController animated:YES];
+        }
+        
+        
     }
-    else if (indexPath.section == 6){
-        NSLog(@"collaborative lists");
-        GDRCollaborativeListViewController *collaborativeListViewController = [[GDRCollaborativeListViewController alloc]initWithNibName:@"GDRCollaborativeListViewController_ipad" bundle:nil];
-        [self.navigationController pushViewController:collaborativeListViewController animated:YES];
-    }else if (indexPath.section == 7){
-        NSLog(@"collaborative map");
-        GDRCollaborativeMapViewController *collaborativeMapViewController = [[GDRCollaborativeMapViewController alloc]initWithNibName:@"GDRCollaborativeMapViewController_ipad" bundle:nil];
-        [self.navigationController pushViewController:collaborativeMapViewController animated:YES];
-    }
-    
-
 }
 
 @end
