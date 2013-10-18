@@ -8,11 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		0CA3B6C16AFA4502A56E2629 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
+		650442FB180CD61400A8BEEB /* GDRCollaborativeMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 650442F9180CD61400A8BEEB /* GDRCollaborativeMapViewController.m */; };
+		650442FE180CD64200A8BEEB /* GDRCollaborativeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 650442FD180CD64200A8BEEB /* GDRCollaborativeListViewController.xib */; };
+		65044302180CD6F100A8BEEB /* GDRCollaborativeMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65044301180CD6F100A8BEEB /* GDRCollaborativeMapViewController.xib */; };
+		65044304180CE18900A8BEEB /* GDRCollaborativeMapViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65044303180CE18900A8BEEB /* GDRCollaborativeMapViewController_ipad.xib */; };
+		65044306180CF2D100A8BEEB /* Load.plist in Resources */ = {isa = PBXBuildFile; fileRef = 65044305180CF2D100A8BEEB /* Load.plist */; };
+		653FE94F180F820200537FEF /* GDRCollaborativeStringViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 653FE94E180F820200537FEF /* GDRCollaborativeStringViewController_ipad.xib */; };
 		65A8E9931804FB870021E7D3 /* Storyboard-iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65A8E9921804FB870021E7D3 /* Storyboard-iPad.storyboard */; };
 		65E85C14180B8A18008BF906 /* GDRCollaborativeStringViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E85C12180B8A18008BF906 /* GDRCollaborativeStringViewController.m */; };
 		65E85C15180B8A18008BF906 /* GDRCollaborativeStringViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E85C13180B8A18008BF906 /* GDRCollaborativeStringViewController.xib */; };
 		65E85C19180BDF2D008BF906 /* GDRCollaborativeListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E85C17180BDF2D008BF906 /* GDRCollaborativeListViewController.m */; };
-		65E85C1A180BDF2D008BF906 /* GDRCollaborativeListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E85C18180BDF2D008BF906 /* GDRCollaborativeListViewController.xib */; };
 		65E85C1E180BE450008BF906 /* GDRCollaborativeListViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 65E85C1D180BE450008BF906 /* GDRCollaborativeListViewController_ipad.xib */; };
 		6ACC144B292B4F8789221785 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
 		8D1D0EAD174F328600C8F83C /* GDRRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D1D0EAC174F328600C8F83C /* GDRRootViewController.m */; };
@@ -51,13 +56,19 @@
 
 /* Begin PBXFileReference section */
 		31DD2DBBD4894B0A890BE47B /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		650442F8180CD61400A8BEEB /* GDRCollaborativeMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRCollaborativeMapViewController.h; sourceTree = "<group>"; };
+		650442F9180CD61400A8BEEB /* GDRCollaborativeMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRCollaborativeMapViewController.m; sourceTree = "<group>"; };
+		650442FD180CD64200A8BEEB /* GDRCollaborativeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDRCollaborativeListViewController.xib; sourceTree = "<group>"; };
+		65044301180CD6F100A8BEEB /* GDRCollaborativeMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDRCollaborativeMapViewController.xib; sourceTree = "<group>"; };
+		65044303180CE18900A8BEEB /* GDRCollaborativeMapViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDRCollaborativeMapViewController_ipad.xib; sourceTree = "<group>"; };
+		65044305180CF2D100A8BEEB /* Load.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Load.plist; sourceTree = "<group>"; };
+		653FE94E180F820200537FEF /* GDRCollaborativeStringViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDRCollaborativeStringViewController_ipad.xib; sourceTree = "<group>"; };
 		65A8E9921804FB870021E7D3 /* Storyboard-iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Storyboard-iPad.storyboard"; sourceTree = "<group>"; };
 		65E85C11180B8A18008BF906 /* GDRCollaborativeStringViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRCollaborativeStringViewController.h; sourceTree = "<group>"; };
 		65E85C12180B8A18008BF906 /* GDRCollaborativeStringViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRCollaborativeStringViewController.m; sourceTree = "<group>"; };
 		65E85C13180B8A18008BF906 /* GDRCollaborativeStringViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDRCollaborativeStringViewController.xib; sourceTree = "<group>"; };
 		65E85C16180BDF2D008BF906 /* GDRCollaborativeListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDRCollaborativeListViewController.h; sourceTree = "<group>"; };
 		65E85C17180BDF2D008BF906 /* GDRCollaborativeListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDRCollaborativeListViewController.m; sourceTree = "<group>"; };
-		65E85C18180BDF2D008BF906 /* GDRCollaborativeListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDRCollaborativeListViewController.xib; sourceTree = "<group>"; };
 		65E85C1D180BE450008BF906 /* GDRCollaborativeListViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GDRCollaborativeListViewController_ipad.xib; sourceTree = "<group>"; };
 		8D0F5028174B716A001CAE7C /* GDR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDR.h; sourceTree = "<group>"; };
 		8D0F5029174B716A001CAE7C /* GDRCollaborativeList+OCNI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDRCollaborativeList+OCNI.h"; sourceTree = "<group>"; };
@@ -313,10 +324,15 @@
 				65E85C11180B8A18008BF906 /* GDRCollaborativeStringViewController.h */,
 				65E85C12180B8A18008BF906 /* GDRCollaborativeStringViewController.m */,
 				65E85C13180B8A18008BF906 /* GDRCollaborativeStringViewController.xib */,
+				653FE94E180F820200537FEF /* GDRCollaborativeStringViewController_ipad.xib */,
 				65E85C16180BDF2D008BF906 /* GDRCollaborativeListViewController.h */,
 				65E85C17180BDF2D008BF906 /* GDRCollaborativeListViewController.m */,
-				65E85C18180BDF2D008BF906 /* GDRCollaborativeListViewController.xib */,
+				650442FD180CD64200A8BEEB /* GDRCollaborativeListViewController.xib */,
 				65E85C1D180BE450008BF906 /* GDRCollaborativeListViewController_ipad.xib */,
+				650442F8180CD61400A8BEEB /* GDRCollaborativeMapViewController.h */,
+				650442F9180CD61400A8BEEB /* GDRCollaborativeMapViewController.m */,
+				65044301180CD6F100A8BEEB /* GDRCollaborativeMapViewController.xib */,
+				65044303180CE18900A8BEEB /* GDRCollaborativeMapViewController_ipad.xib */,
 				8DBB7461172BD0B60052F0ED /* Supporting Files */,
 			);
 			path = demo;
@@ -332,6 +348,7 @@
 				8DBB746C172BD0B70052F0ED /* Default.png */,
 				8DBB746E172BD0B70052F0ED /* Default@2x.png */,
 				8DBB7470172BD0B70052F0ED /* Default-568h@2x.png */,
+				65044305180CF2D100A8BEEB /* Load.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -566,11 +583,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65044306180CF2D100A8BEEB /* Load.plist in Resources */,
+				65044302180CD6F100A8BEEB /* GDRCollaborativeMapViewController.xib in Resources */,
 				8DBB7465172BD0B60052F0ED /* InfoPlist.strings in Resources */,
 				8DBB746D172BD0B70052F0ED /* Default.png in Resources */,
 				8DBB746F172BD0B70052F0ED /* Default@2x.png in Resources */,
 				65E85C15180B8A18008BF906 /* GDRCollaborativeStringViewController.xib in Resources */,
-				65E85C1A180BDF2D008BF906 /* GDRCollaborativeListViewController.xib in Resources */,
+				653FE94F180F820200537FEF /* GDRCollaborativeStringViewController_ipad.xib in Resources */,
+				65044304180CE18900A8BEEB /* GDRCollaborativeMapViewController_ipad.xib in Resources */,
+				650442FE180CD64200A8BEEB /* GDRCollaborativeListViewController.xib in Resources */,
 				65A8E9931804FB870021E7D3 /* Storyboard-iPad.storyboard in Resources */,
 				8DBB7471172BD0B70052F0ED /* Default-568h@2x.png in Resources */,
 				65E85C1E180BE450008BF906 /* GDRCollaborativeListViewController_ipad.xib in Resources */,
@@ -719,6 +740,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				650442FB180CD61400A8BEEB /* GDRCollaborativeMapViewController.m in Sources */,
 				65E85C19180BDF2D008BF906 /* GDRCollaborativeListViewController.m in Sources */,
 				65E85C14180B8A18008BF906 /* GDRCollaborativeStringViewController.m in Sources */,
 				8DBB7467172BD0B60052F0ED /* main.m in Sources */,

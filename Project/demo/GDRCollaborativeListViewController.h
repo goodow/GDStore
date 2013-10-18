@@ -1,5 +1,5 @@
 //
-//  GDRCollaborativeStringViewController.h
+//  GDRCollaborativeListViewController.h
 //  GDRealtime
 //
 //  Created by 大黄 on 13-10-14.
@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+@class GDRModel;
 
-@interface GDRCollaborativeStringViewController : UIViewController <UITextViewDelegate>
+@interface GDRCollaborativeListViewController : UIViewController <UITableViewDataSource,UITableViewDelegate>
+
 
 +(void)initializerWithModel:(GDRModel *)model;
+
+
+
 @end
