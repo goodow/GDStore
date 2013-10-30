@@ -13,9 +13,9 @@
 #include "elemental/json/Json.h"
 #include "elemental/json/JsonArray.h"
 #include "elemental/json/JsonObject.h"
-#include "elemental/util/Collections.h"
-#include "elemental/util/MapFromStringToString.h"
 #include "java/lang/Throwable.h"
+#include "java/util/HashMap.h"
+#include "java/util/Map.h"
 #include "java/util/logging/Level.h"
 #include "java/util/logging/Logger.h"
 
@@ -34,13 +34,13 @@ static ComGoodowRealtimeChannelChannelDemuxer * ComGoodowRealtimeChannelRpcPrese
 
 - (void)disconnectWithNSString:(NSString *)sessionId
              withNSStringArray:(IOSObjectArray *)ids {
-  id<ElementalUtilMapFromStringToString> params = [ElementalUtilCollections mapFromStringToString];
-  [((id<ElementalUtilMapFromStringToString>) nil_chk(params)) putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withNSString:[((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(ComGoodowRealtimeChannelRpcPresenceService_demuxer_)) getAccessToken]];
-  [params putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID] withNSString:sessionId];
-  id<GDRJsonObject> obj = nil;
+  id<JavaUtilMap> params = [[JavaUtilHashMap alloc] init];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withId:[((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(ComGoodowRealtimeChannelRpcPresenceService_demuxer_)) getAccessToken]];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID] withId:sessionId];
+  id<GDJsonObject> obj = nil;
   if (ids != nil && (int) [ids count] != 0) {
-    obj = [GDRJson createObject];
-    id<GDRJsonArray> docIds = [GDRJson createArray];
+    obj = [GDJson createObject];
+    id<GDJsonArray> docIds = [GDJson createArray];
     int i = 0;
     {
       IOSObjectArray *a__ = ids;
@@ -48,12 +48,12 @@ static ComGoodowRealtimeChannelChannelDemuxer * ComGoodowRealtimeChannelRpcPrese
       id const *e__ = b__ + a__->size_;
       while (b__ < e__) {
         NSString *id_ = (*b__++);
-        [((id<GDRJsonArray>) nil_chk(docIds)) setWithInt:i++ withNSString:id_];
+        [((id<GDJsonArray>) nil_chk(docIds)) set:i++ string:id_];
       }
     }
-    [((id<GDRJsonObject>) nil_chk(obj)) putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params IDS] withGDRJsonValue:docIds];
+    [((id<GDJsonObject>) nil_chk(obj)) set:[ComGoodowRealtimeChannelConstantConstants_Params IDS] value:docIds];
   }
-  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk([ComGoodowRealtimeChannelRpcPresenceService_demuxer_ getRpc])) postWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services PRESENCE_DISCONNECT] withElementalUtilMapFromStringToString:params withNSString:obj == nil ? nil : [obj toJson] withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcPresenceService_$1 alloc] init]];
+  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk([ComGoodowRealtimeChannelRpcPresenceService_demuxer_ getRpc])) postWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services PRESENCE_DISCONNECT] withJavaUtilMap:params withNSString:obj == nil ? nil : [obj toJson] withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcPresenceService_$1 alloc] init]];
 }
 
 - (id)init {

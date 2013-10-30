@@ -11,7 +11,7 @@
 @class JavaUtilLoggingLogger;
 @protocol ComGoodowRealtimeChannelRpcRpc;
 @protocol ComGoodowRealtimeChannelRpcSnapshotService_Callback;
-@protocol GDRJsonValue;
+@protocol GDJsonValue;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/channel/rpc/Rpc.h"
@@ -34,9 +34,9 @@ withComGoodowRealtimeChannelRpcSnapshotService_Callback:(id<ComGoodowRealtimeCha
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelRpcSnapshotService, rpc_, id<ComGoodowRealtimeChannelRpcRpc>)
 
 @protocol ComGoodowRealtimeChannelRpcSnapshotService_Callback < NSObject, JavaObject >
-- (void)onSuccessWithGDRJsonValue:(id<GDRJsonValue>)snapshot
-                     withNSString:(NSString *)sessionId
-                          withInt:(int)revision;
+- (void)onSuccessWithGDJsonValue:(id<GDJsonValue>)snapshot
+                    withNSString:(NSString *)sessionId
+                         withInt:(int)revision;
 @end
 
 @interface ComGoodowRealtimeChannelRpcSnapshotService_$1 : NSObject < ComGoodowRealtimeChannelRpcRpc_RpcCallback > {

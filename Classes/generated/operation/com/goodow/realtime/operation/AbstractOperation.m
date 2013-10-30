@@ -17,8 +17,8 @@
 
 @implementation ComGoodowRealtimeOperationAbstractOperation
 
-+ (NSString *)parseIdWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  return [((id<GDRJsonValue>) nil_chk([((id<GDRJsonArray>) nil_chk(serialized)) getWithInt:1])) getType] == [GDRJsonTypeEnum NULL_] ? nil : [serialized getStringWithInt:1];
++ (NSString *)parseIdWithGDJsonArray:(id<GDJsonArray>)serialized {
+  return [((id<GDJsonValue>) nil_chk([((id<GDJsonArray>) nil_chk(serialized)) get:1])) getType] == [GDJsonTypeEnum NULL_] ? nil : [serialized getString:1];
 }
 
 - (id)initWithInt:(int)type

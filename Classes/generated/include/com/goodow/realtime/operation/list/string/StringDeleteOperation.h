@@ -9,7 +9,7 @@
 
 @class ComGoodowRealtimeOperationListStringStringHelper;
 @class ComGoodowRealtimeOperationListStringStringInsertOperation;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/list/AbstractDeleteOperation.h"
@@ -17,7 +17,7 @@
 @interface ComGoodowRealtimeOperationListStringStringDeleteOperation : ComGoodowRealtimeOperationListAbstractDeleteOperation {
 }
 
-+ (ComGoodowRealtimeOperationListStringStringDeleteOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (ComGoodowRealtimeOperationListStringStringDeleteOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithNSString:(NSString *)id_
                withInt:(int)startIndex
                withInt:(int)length;

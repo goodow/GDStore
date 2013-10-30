@@ -15,15 +15,15 @@
 
 @implementation ComGoodowRealtimeOperationListJsonJsonInsertOperation
 
-+ (ComGoodowRealtimeOperationListJsonJsonInsertOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  NSAssert([((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationListAbstractInsertOperation_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/json/JsonInsertOperation.java:23 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
-  IOSObjectArray *values = [((ComGoodowRealtimeOperationListJsonJsonHelper *) nil_chk([ComGoodowRealtimeOperationListJsonJsonHelper INSTANCE])) parseValuesWithGDRJsonArray:[serialized getArrayWithInt:3]];
-  return [[ComGoodowRealtimeOperationListJsonJsonInsertOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDRJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListOperation parseStartIndexWithGDRJsonArray:serialized] withId:values];
++ (ComGoodowRealtimeOperationListJsonJsonInsertOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized {
+  NSAssert([((id<GDJsonArray>) nil_chk(serialized)) getNumber:0] == ComGoodowRealtimeOperationListAbstractInsertOperation_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/json/JsonInsertOperation.java:23 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
+  IOSObjectArray *values = [((ComGoodowRealtimeOperationListJsonJsonHelper *) nil_chk([ComGoodowRealtimeOperationListJsonJsonHelper INSTANCE])) parseValuesWithGDJsonArray:[serialized getArray:3]];
+  return [[ComGoodowRealtimeOperationListJsonJsonInsertOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListOperation parseStartIndexWithGDJsonArray:serialized] withId:values];
 }
 
 - (id)initWithNSString:(NSString *)id_
                withInt:(int)startIndex
- withGDRJsonValueArray:(IOSObjectArray *)values {
+  withGDJsonValueArray:(IOSObjectArray *)values {
   return [super initWithNSString:id_ withInt:startIndex withId:values];
 }
 

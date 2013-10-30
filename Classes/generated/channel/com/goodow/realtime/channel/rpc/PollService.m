@@ -14,9 +14,9 @@
 #include "elemental/json/Json.h"
 #include "elemental/json/JsonArray.h"
 #include "elemental/json/JsonObject.h"
-#include "elemental/util/Collections.h"
-#include "elemental/util/MapFromStringToString.h"
 #include "java/lang/Throwable.h"
+#include "java/util/HashMap.h"
+#include "java/util/Map.h"
 #include "java/util/logging/Level.h"
 #include "java/util/logging/Logger.h"
 
@@ -33,14 +33,14 @@ static ComGoodowRealtimeChannelChannelDemuxer * ComGoodowRealtimeChannelRpcPollS
   return ComGoodowRealtimeChannelRpcPollService_demuxer_;
 }
 
-- (void)pollWithGDRJsonArray:(id<GDRJsonArray>)ids
-                withNSString:(NSString *)sessionId {
-  id<ElementalUtilMapFromStringToString> params = [ElementalUtilCollections mapFromStringToString];
-  [((id<ElementalUtilMapFromStringToString>) nil_chk(params)) putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withNSString:[((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(ComGoodowRealtimeChannelRpcPollService_demuxer_)) getAccessToken]];
-  [params putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID] withNSString:sessionId];
-  id<GDRJsonObject> obj = [GDRJson createObject];
-  [((id<GDRJsonObject>) nil_chk(obj)) putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params IDS] withGDRJsonValue:ids];
-  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk([ComGoodowRealtimeChannelRpcPollService_demuxer_ getRpc])) postWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services POLL] withElementalUtilMapFromStringToString:params withNSString:[obj toJson] withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcPollService_$1 alloc] init]];
+- (void)pollWithGDJsonArray:(id<GDJsonArray>)ids
+               withNSString:(NSString *)sessionId {
+  id<JavaUtilMap> params = [[JavaUtilHashMap alloc] init];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withId:[((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(ComGoodowRealtimeChannelRpcPollService_demuxer_)) getAccessToken]];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID] withId:sessionId];
+  id<GDJsonObject> obj = [GDJson createObject];
+  [((id<GDJsonObject>) nil_chk(obj)) set:[ComGoodowRealtimeChannelConstantConstants_Params IDS] value:ids];
+  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk([ComGoodowRealtimeChannelRpcPollService_demuxer_ getRpc])) postWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services POLL] withJavaUtilMap:params withNSString:[obj toJson] withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcPollService_$1 alloc] init]];
 }
 
 - (id)init {
@@ -66,14 +66,14 @@ static ComGoodowRealtimeChannelChannelDemuxer * ComGoodowRealtimeChannelRpcPollS
 }
 
 - (void)onSuccessWithNSString:(NSString *)data {
-  id<GDRJsonArray> msgs = [ComGoodowRealtimeChannelRpcRpcUtil evalPrefixedWithNSString:data];
-  for (int i = 0, len = [((id<GDRJsonArray>) nil_chk(msgs)) length]; i < len; i++) {
-    id<GDRJsonObject> msg = [msgs getObjectWithInt:i];
-    if ([((NSString *) nil_chk([ComGoodowRealtimeChannelConstantConstants_Params TOKEN])) isEqual:[((id<GDRJsonObject>) nil_chk(msg)) getStringWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ID]]]) {
-      [((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk([ComGoodowRealtimeChannelRpcPollService demuxer])) connectWithNSString:[msg getStringWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params TOKEN]]];
+  id<GDJsonArray> msgs = [ComGoodowRealtimeChannelRpcRpcUtil evalPrefixedWithNSString:data];
+  for (int i = 0, len = [((id<GDJsonArray>) nil_chk(msgs)) length]; i < len; i++) {
+    id<GDJsonObject> msg = [msgs getObject:i];
+    if ([((NSString *) nil_chk([ComGoodowRealtimeChannelConstantConstants_Params TOKEN])) isEqual:[((id<GDJsonObject>) nil_chk(msg)) getString:[ComGoodowRealtimeChannelConstantConstants_Params ID]]]) {
+      [((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk([ComGoodowRealtimeChannelRpcPollService demuxer])) connectWithNSString:[msg getString:[ComGoodowRealtimeChannelConstantConstants_Params TOKEN]]];
       continue;
     }
-    [((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk([ComGoodowRealtimeChannelRpcPollService demuxer])) publishMessageWithGDRJsonObject:msg];
+    [((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk([ComGoodowRealtimeChannelRpcPollService demuxer])) publishMessageWithGDJsonObject:msg];
   }
 }
 

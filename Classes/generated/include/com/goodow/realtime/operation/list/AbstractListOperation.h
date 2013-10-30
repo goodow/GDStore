@@ -9,7 +9,7 @@
 
 @class JavaLangStringBuilder;
 @protocol ComGoodowRealtimeOperationListListHelper;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/AbstractOperation.h"
@@ -21,7 +21,7 @@
   int length_;
 }
 
-+ (int)parseStartIndexWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (int)parseStartIndexWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithInt:(int)type
      withNSString:(NSString *)id_
           withInt:(int)startIndex

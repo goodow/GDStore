@@ -14,8 +14,8 @@
 @protocol ComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Listener;
 @protocol ComGoodowRealtimeChannelRpcRpc;
 @protocol ComGoodowRealtimeOperationTransformer;
-@protocol ElementalUtilMapFromIntTo;
-@protocol GDRJsonObject;
+@protocol GDJsonObject;
+@protocol JavaUtilMap;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/channel/operation/GenericOperationChannel.h"
@@ -30,7 +30,7 @@
   id<JavaLangRunnable> catchupTask_;
   id<ComGoodowRealtimeChannelRpcDeltaService_Callback> callback_;
   ComGoodowRealtimeChannelChannelDemuxer *demuxer_;
-  id<ElementalUtilMapFromIntTo> pending_;
+  id<JavaUtilMap> pending_;
   NSString *id__;
   ComGoodowRealtimeChannelRpcDeltaService *service_;
   id<ComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Listener> listener_;
@@ -53,7 +53,7 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Li
 - (void)onMessageWithInt:(int)resultingRevision
             withNSString:(NSString *)sid
                   withId:(id)mutation;
-- (void)onMessageWithGDRJsonObject:(id<GDRJsonObject>)msg;
+- (void)onMessageWithGDJsonObject:(id<GDJsonObject>)msg;
 - (int)revision;
 - (void)maybeCatchup;
 - (void)receiveUnorderedDataWithInt:(int)resultingRevision
@@ -69,7 +69,7 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Li
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl, catchupTask_, id<JavaLangRunnable>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl, callback_, id<ComGoodowRealtimeChannelRpcDeltaService_Callback>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl, demuxer_, ComGoodowRealtimeChannelChannelDemuxer *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl, pending_, id<ElementalUtilMapFromIntTo>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl, pending_, id<JavaUtilMap>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl, id__, NSString *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl, service_, ComGoodowRealtimeChannelRpcDeltaService *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl, listener_, id<ComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Listener>)
@@ -93,7 +93,7 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl_$1, th
 
 - (void)onConnectionErrorWithJavaLangThrowable:(JavaLangThrowable *)e;
 - (void)onFatalErrorWithJavaLangThrowable:(JavaLangThrowable *)e;
-- (void)onMessageWithGDRJsonObject:(id<GDRJsonObject>)msg;
+- (void)onMessageWithGDJsonObject:(id<GDJsonObject>)msg;
 - (id)initWithComGoodowRealtimeChannelOperationReceiveOpChannelImpl:(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *)outer$;
 @end
 

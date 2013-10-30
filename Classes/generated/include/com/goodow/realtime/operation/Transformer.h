@@ -8,7 +8,7 @@
 #define _ComGoodowRealtimeOperationTransformer_H_
 
 @class ComGoodowRealtimeOperationUtilPair;
-@protocol GDRJsonValue;
+@protocol GDJsonValue;
 @protocol JavaUtilList;
 
 #import "JreEmulation.h"
@@ -17,7 +17,7 @@
 - (id<JavaUtilList>)compactWithJavaUtilList:(id<JavaUtilList>)operations;
 - (id)createOperationWithNSString:(NSString *)userId
                      withNSString:(NSString *)sessionId
-                 withGDRJsonValue:(id<GDRJsonValue>)serialized;
+                  withGDJsonValue:(id<GDJsonValue>)serialized;
 - (ComGoodowRealtimeOperationUtilPair *)transformWithJavaUtilList:(id<JavaUtilList>)clientOps
                                                  withJavaUtilList:(id<JavaUtilList>)serverOps;
 - (void)transformWithJavaUtilList:(id<JavaUtilList>)transformedResults

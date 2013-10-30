@@ -12,7 +12,7 @@
 @class JavaUtilLoggingLogger;
 @protocol ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback;
 @protocol ComGoodowRealtimeChannelRpcRpc;
-@protocol GDRJsonValue;
+@protocol GDJsonValue;
 @protocol JavaUtilList;
 
 #import "JreEmulation.h"
@@ -36,7 +36,7 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callb
                              withInt:(int)revision
                     withJavaUtilList:(id<JavaUtilList>)operations
 withComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:(id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>)callback;
-- (id<GDRJsonValue>)serializeWithJavaUtilList:(id<JavaUtilList>)ops;
+- (id<GDJsonValue>)serializeWithJavaUtilList:(id<JavaUtilList>)ops;
 - (void)copyAllFieldsTo:(ComGoodowRealtimeChannelRpcSaveService *)other;
 @end
 

@@ -9,7 +9,7 @@
 
 @class IOSObjectArray;
 @class JavaLangStringBuilder;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/list/ListHelper.h"
@@ -22,7 +22,7 @@
 + (int)TYPE;
 + (ComGoodowRealtimeOperationListJsonJsonHelper *)INSTANCE;
 - (int)lengthWithId:(IOSObjectArray *)values;
-- (IOSObjectArray *)parseValuesWithGDRJsonArray:(id<GDRJsonArray>)serialized;
+- (IOSObjectArray *)parseValuesWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (IOSObjectArray *)replaceWithWithId:(IOSObjectArray *)values
                               withInt:(int)startIndex
                               withInt:(int)length

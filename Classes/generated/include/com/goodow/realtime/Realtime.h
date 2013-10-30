@@ -10,9 +10,9 @@
 @class ComGoodowRealtimeChannelChannelDemuxer;
 @class ComGoodowRealtimeChannelOperationOperationSucker;
 @class GDRDocumentBridge;
+@protocol GDJsonValue;
 @protocol GDRDocumentLoadedHandler;
 @protocol GDRErrorHandler;
-@protocol GDRJsonValue;
 @protocol GDRModelInitializerHandler;
 
 #import "JreEmulation.h"
@@ -46,9 +46,9 @@ typedef GDRRealtime ComGoodowRealtimeRealtime;
   id<GDRDocumentLoadedHandler> val$onLoaded_;
 }
 
-- (void)onSuccessWithGDRJsonValue:(id<GDRJsonValue>)snapshot
-                     withNSString:(NSString *)sessionId
-                          withInt:(int)revision;
+- (void)onSuccessWithGDJsonValue:(id<GDJsonValue>)snapshot
+                    withNSString:(NSString *)sessionId
+                         withInt:(int)revision;
 - (id)initWithGDRDocumentBridge:(GDRDocumentBridge *)capture$0
 withComGoodowRealtimeChannelOperationOperationSucker:(ComGoodowRealtimeChannelOperationOperationSucker *)capture$1
             withGDRErrorHandler:(id<GDRErrorHandler>)capture$2

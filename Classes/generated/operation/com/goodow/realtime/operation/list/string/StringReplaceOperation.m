@@ -14,10 +14,10 @@
 
 @implementation ComGoodowRealtimeOperationListStringStringReplaceOperation
 
-+ (ComGoodowRealtimeOperationListStringStringReplaceOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  NSAssert([((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationListAbstractReplaceOperation_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/string/StringReplaceOperation.java:22 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
-  NSString *values = [((ComGoodowRealtimeOperationListStringStringHelper *) nil_chk([ComGoodowRealtimeOperationListStringStringHelper INSTANCE])) parseValuesWithGDRJsonArray:[serialized getArrayWithInt:3]];
-  return [[ComGoodowRealtimeOperationListStringStringReplaceOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDRJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListOperation parseStartIndexWithGDRJsonArray:serialized] withId:nil withId:values];
++ (ComGoodowRealtimeOperationListStringStringReplaceOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized {
+  NSAssert([((id<GDJsonArray>) nil_chk(serialized)) getNumber:0] == ComGoodowRealtimeOperationListAbstractReplaceOperation_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/string/StringReplaceOperation.java:22 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
+  NSString *values = [((ComGoodowRealtimeOperationListStringStringHelper *) nil_chk([ComGoodowRealtimeOperationListStringStringHelper INSTANCE])) parseValuesWithGDJsonArray:[serialized getArray:3]];
+  return [[ComGoodowRealtimeOperationListStringStringReplaceOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListOperation parseStartIndexWithGDJsonArray:serialized] withId:nil withId:values];
 }
 
 - (id)initWithNSString:(NSString *)id_

@@ -8,8 +8,8 @@
 #define _ComGoodowRealtimeModelUtilJsonSerializer_H_
 
 @class IOSObjectArray;
-@protocol GDRJsonArray;
-@protocol GDRJsonValue;
+@protocol GDJsonArray;
+@protocol GDJsonValue;
 @protocol JavaUtilMap;
 
 #import "JreEmulation.h"
@@ -21,9 +21,9 @@
 }
 
 + (int)REFERENCE_TYPE;
-+ (id)deserializeObjectWithGDRJsonValue:(id<GDRJsonValue>)arrayOrNull
-                        withJavaUtilMap:(id<JavaUtilMap>)objects;
-+ (id<GDRJsonArray>)serializeObjectWithId:(id)obj;
++ (id)deserializeObjectWithGDJsonValue:(id<GDJsonValue>)arrayOrNull
+                       withJavaUtilMap:(id<JavaUtilMap>)objects;
++ (id<GDJsonArray>)serializeObjectWithId:(id)obj;
 + (IOSObjectArray *)serializeObjectsWithNSObjectArray:(IOSObjectArray *)values;
 - (id)init;
 @end

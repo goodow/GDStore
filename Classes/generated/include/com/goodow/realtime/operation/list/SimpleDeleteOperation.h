@@ -8,7 +8,7 @@
 #define _ComGoodowRealtimeOperationListSimpleDeleteOperation_H_
 
 @class JavaLangStringBuilder;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/list/AbstractDeleteOperation.h"
@@ -19,7 +19,7 @@
   id<ComGoodowRealtimeOperationListListHelper> delegate_;
 }
 
-+ (ComGoodowRealtimeOperationListSimpleDeleteOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (ComGoodowRealtimeOperationListSimpleDeleteOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithNSString:(NSString *)id_
                withInt:(int)startIndex
                withInt:(int)length;
@@ -28,7 +28,7 @@
                 withId:(id)values;
 - (ComGoodowRealtimeOperationListSimpleDeleteOperation *)invert;
 - (int)lengthWithId:(id)values;
-- (id)parseValuesWithGDRJsonArray:(id<GDRJsonArray>)serialized;
+- (id)parseValuesWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)replaceWithWithId:(id)values
                 withInt:(int)startIndex
                 withInt:(int)length

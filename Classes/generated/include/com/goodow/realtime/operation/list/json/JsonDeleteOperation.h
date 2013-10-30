@@ -10,7 +10,7 @@
 @class ComGoodowRealtimeOperationListJsonJsonHelper;
 @class ComGoodowRealtimeOperationListJsonJsonInsertOperation;
 @class IOSObjectArray;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/list/AbstractDeleteOperation.h"
@@ -18,13 +18,13 @@
 @interface ComGoodowRealtimeOperationListJsonJsonDeleteOperation : ComGoodowRealtimeOperationListAbstractDeleteOperation {
 }
 
-+ (ComGoodowRealtimeOperationListJsonJsonDeleteOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (ComGoodowRealtimeOperationListJsonJsonDeleteOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithNSString:(NSString *)id_
                withInt:(int)startIndex
                withInt:(int)length;
 - (id)initWithNSString:(NSString *)id_
                withInt:(int)startIndex
- withGDRJsonValueArray:(IOSObjectArray *)values;
+  withGDJsonValueArray:(IOSObjectArray *)values;
 - (ComGoodowRealtimeOperationListJsonJsonInsertOperation *)invert;
 - (ComGoodowRealtimeOperationListJsonJsonDeleteOperation *)createWithInt:(int)startIndex
                                                                  withInt:(int)length;

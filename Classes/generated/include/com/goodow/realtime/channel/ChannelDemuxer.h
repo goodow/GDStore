@@ -14,9 +14,9 @@
 @protocol ComGoodowRealtimeChannelRpcRpc;
 @protocol ComGoodowRealtimeChannelSocket;
 @protocol ComGoodowRealtimeOperationOperationSink;
-@protocol ElementalUtilArrayOfString;
-@protocol ElementalUtilMapFromStringTo;
-@protocol GDRJsonObject;
+@protocol GDJsonObject;
+@protocol JavaUtilMap;
+@protocol JavaUtilSet;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/channel/SocketListener.h"
@@ -30,7 +30,7 @@
 
 + (JavaUtilLoggingLogger *)log;
 + (ComGoodowRealtimeChannelChannelDemuxer *)INSTANCE;
-+ (id<ElementalUtilMapFromStringTo>)entries;
++ (id<JavaUtilMap>)entries;
 + (id<ComGoodowRealtimeChannelRpcRpc>)rpc;
 + (NSString *)sessionId;
 + (void)setSessionId:(NSString *)sessionId;
@@ -42,7 +42,7 @@
 - (void)closeWithNSString:(NSString *)id_;
 - (void)connectWithNSString:(NSString *)token;
 - (NSString *)getAccessToken;
-- (id<ElementalUtilArrayOfString>)getIds;
+- (id<JavaUtilSet>)getIds;
 - (int)getRevisionWithNSString:(NSString *)id_;
 - (id<ComGoodowRealtimeChannelRpcRpc>)getRpc;
 - (id<ComGoodowRealtimeOperationOperationSink>)getSnapshotWithNSString:(NSString *)id_;
@@ -50,7 +50,7 @@
 - (void)onErrorWithComGoodowRealtimeChannelChannelError:(id<ComGoodowRealtimeChannelChannelError>)error;
 - (void)onMessageWithNSString:(NSString *)message;
 - (void)onOpen;
-- (void)publishMessageWithGDRJsonObject:(id<GDRJsonObject>)msg;
+- (void)publishMessageWithGDJsonObject:(id<GDJsonObject>)msg;
 - (void)register__WithNSString:(NSString *)id_
 withComGoodowRealtimeChannelOperationOperationSucker_Listener:(id<ComGoodowRealtimeChannelOperationOperationSucker_Listener>)snapshot
 withComGoodowRealtimeChannelOperationReceiveOpChannelImpl:(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *)channel;

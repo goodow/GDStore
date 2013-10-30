@@ -15,24 +15,24 @@
 
 @implementation ComGoodowRealtimeOperationMapJsonJsonMapOperation
 
-+ (BOOL)jsonEqualsWithGDRJsonValue:(id<GDRJsonValue>)value0
-                  withGDRJsonValue:(id<GDRJsonValue>)value1 {
++ (BOOL)jsonEqualsWithGDJsonValue:(id<GDJsonValue>)value0
+                  withGDJsonValue:(id<GDJsonValue>)value1 {
   return value0 == nil ? value1 == nil : (value1 == nil ? NO : [((NSString *) nil_chk([value0 toJson])) isEqual:[value1 toJson]]);
 }
 
-+ (ComGoodowRealtimeOperationMapJsonJsonMapOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  int length = [((id<GDRJsonArray>) nil_chk(serialized)) length];
-  NSAssert([serialized getNumberWithInt:0] == ComGoodowRealtimeOperationMapAbstractMapOperation_TYPE && (length == 3 || length == 4), @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/map/json/JsonMapOperation.java:30 condition failed: assert serialized.getNumber(0) == TYPE && (length == 3 || length == 4);");
-  return [[ComGoodowRealtimeOperationMapJsonJsonMapOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDRJsonArray:serialized] withNSString:[serialized getStringWithInt:2] withId:nil withId:length == 3 ? nil : [serialized getWithInt:3]];
++ (ComGoodowRealtimeOperationMapJsonJsonMapOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized {
+  int length = [((id<GDJsonArray>) nil_chk(serialized)) length];
+  NSAssert([serialized getNumber:0] == ComGoodowRealtimeOperationMapAbstractMapOperation_TYPE && (length == 3 || length == 4), @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/map/json/JsonMapOperation.java:30 condition failed: assert serialized.getNumber(0) == TYPE && (length == 3 || length == 4);");
+  return [[ComGoodowRealtimeOperationMapJsonJsonMapOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDJsonArray:serialized] withNSString:[serialized getString:2] withId:nil withId:length == 3 ? nil : [serialized get:3]];
 }
 
 - (id)initWithNSString:(NSString *)id_
           withNSString:(NSString *)key
-      withGDRJsonValue:(id<GDRJsonValue>)oldValue
-      withGDRJsonValue:(id<GDRJsonValue>)newValue {
+       withGDJsonValue:(id<GDJsonValue>)oldValue
+       withGDJsonValue:(id<GDJsonValue>)newValue {
   if (self = [super initWithNSString:id_ withNSString:key withId:oldValue withId:newValue]) {
-    NSAssert(oldValue == nil || [oldValue getType] != [GDRJsonTypeEnum NULL_], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/map/json/JsonMapOperation.java:37 condition failed: assert oldValue == null || oldValue.getType() != JsonType.NULL;");
-    NSAssert(newValue == nil || [newValue getType] != [GDRJsonTypeEnum NULL_], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/map/json/JsonMapOperation.java:38 condition failed: assert newValue == null || newValue.getType() != JsonType.NULL;");
+    NSAssert(oldValue == nil || [oldValue getType] != [GDJsonTypeEnum NULL_], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/map/json/JsonMapOperation.java:37 condition failed: assert oldValue == null || oldValue.getType() != JsonType.NULL;");
+    NSAssert(newValue == nil || [newValue getType] != [GDJsonTypeEnum NULL_], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/map/json/JsonMapOperation.java:38 condition failed: assert newValue == null || newValue.getType() != JsonType.NULL;");
   }
   return self;
 }
@@ -43,14 +43,14 @@
 
 - (ComGoodowRealtimeOperationMapJsonJsonMapOperation *)createWithNSString:(NSString *)id_
                                                              withNSString:(NSString *)key
-                                                                   withId:(id<GDRJsonValue>)oldValue
-                                                                   withId:(id<GDRJsonValue>)newValue {
+                                                                   withId:(id<GDJsonValue>)oldValue
+                                                                   withId:(id<GDJsonValue>)newValue {
   return [[ComGoodowRealtimeOperationMapJsonJsonMapOperation alloc] initWithNSString:id_ withNSString:key withId:oldValue withId:newValue];
 }
 
-- (BOOL)equalsWithId:(id<GDRJsonValue>)value0
-              withId:(id<GDRJsonValue>)value1 {
-  return [ComGoodowRealtimeOperationMapJsonJsonMapOperation jsonEqualsWithGDRJsonValue:value0 withGDRJsonValue:value1];
+- (BOOL)equalsWithId:(id<GDJsonValue>)value0
+              withId:(id<GDJsonValue>)value1 {
+  return [ComGoodowRealtimeOperationMapJsonJsonMapOperation jsonEqualsWithGDJsonValue:value0 withGDJsonValue:value1];
 }
 
 - (void)toStringWithJavaLangStringBuilder:(JavaLangStringBuilder *)sb {

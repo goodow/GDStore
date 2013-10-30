@@ -13,16 +13,15 @@
 #include "com/goodow/realtime/channel/util/ChannelFactory.h"
 #include "com/goodow/realtime/channel/util/ChannelNative.h"
 #include "elemental/json/JsonException.h"
-#include "elemental/util/ArrayOfInt.h"
-#include "elemental/util/ArrayOfString.h"
-#include "elemental/util/Collections.h"
-#include "elemental/util/MapFromIntTo.h"
-#include "elemental/util/MapFromStringToString.h"
 #include "java/lang/AssertionError.h"
 #include "java/lang/Exception.h"
 #include "java/lang/IllegalArgumentException.h"
+#include "java/lang/Integer.h"
 #include "java/lang/StringBuilder.h"
 #include "java/lang/Throwable.h"
+#include "java/util/HashMap.h"
+#include "java/util/Map.h"
+#include "java/util/Set.h"
 #include "java/util/logging/Level.h"
 #include "java/util/logging/Logger.h"
 
@@ -30,7 +29,7 @@
 
 static JavaUtilLoggingLogger * ComGoodowRealtimeChannelRpcRpcImpl_log_;
 static int ComGoodowRealtimeChannelRpcRpcImpl_nextRequestId_;
-static id<ElementalUtilMapFromIntTo> ComGoodowRealtimeChannelRpcRpcImpl_handles_;
+static id<JavaUtilMap> ComGoodowRealtimeChannelRpcRpcImpl_handles_;
 
 + (JavaUtilLoggingLogger *)log {
   return ComGoodowRealtimeChannelRpcRpcImpl_log_;
@@ -44,23 +43,20 @@ static id<ElementalUtilMapFromIntTo> ComGoodowRealtimeChannelRpcRpcImpl_handles_
   return &ComGoodowRealtimeChannelRpcRpcImpl_nextRequestId_;
 }
 
-+ (id<ElementalUtilMapFromIntTo>)handles {
++ (id<JavaUtilMap>)handles {
   return ComGoodowRealtimeChannelRpcRpcImpl_handles_;
 }
 
-+ (void)setHandles:(id<ElementalUtilMapFromIntTo>)handles {
++ (void)setHandles:(id<JavaUtilMap>)handles {
   ComGoodowRealtimeChannelRpcRpcImpl_handles_ = handles;
 }
 
 + (void)dropRequestWithComGoodowRealtimeChannelRpcRpcImpl_Handle:(ComGoodowRealtimeChannelRpcRpcImpl_Handle *)handle {
-  [((id<ElementalUtilMapFromIntTo>) nil_chk(ComGoodowRealtimeChannelRpcRpcImpl_handles_)) removeWithInt:[((ComGoodowRealtimeChannelRpcRpcImpl_Handle *) nil_chk(handle)) getId]];
+  (void) [((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelRpcRpcImpl_handles_)) removeWithId:[JavaLangInteger valueOfWithInt:[((ComGoodowRealtimeChannelRpcRpcImpl_Handle *) nil_chk(handle)) getId]]];
 }
 
 + (void)dropAll {
-  id<ElementalUtilArrayOfInt> keys = [((id<ElementalUtilMapFromIntTo>) nil_chk(ComGoodowRealtimeChannelRpcRpcImpl_handles_)) keys];
-  for (int i = 0, len = [((id<ElementalUtilArrayOfInt>) nil_chk(keys)) length]; i < len; i++) {
-    [ComGoodowRealtimeChannelRpcRpcImpl_handles_ removeWithInt:[keys getWithInt:i]];
-  }
+  [((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelRpcRpcImpl_handles_)) clear];
 }
 
 - (id)initWithNSString:(NSString *)rpcRoot
@@ -75,9 +71,9 @@ withComGoodowRealtimeChannelRpcRpc_ConnectionStateListener:(id<ComGoodowRealtime
 }
 
 - (id<ComGoodowRealtimeChannelRpcRpc_RpcHandle>)getWithNSString:(NSString *)serviceName
-                         withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params
+                                                withJavaUtilMap:(id<JavaUtilMap>)params
                  withComGoodowRealtimeChannelRpcRpc_RpcCallback:(id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>)rpcCallback {
-  return [self makeRequestWithComGoodowRealtimeChannelRpcRpc_MethodEnum:[ComGoodowRealtimeChannelRpcRpc_MethodEnum GET] withNSString:serviceName withElementalUtilMapFromStringToString:params withNSString:nil withComGoodowRealtimeChannelRpcRpc_RpcCallback:rpcCallback];
+  return [self makeRequestWithComGoodowRealtimeChannelRpcRpc_MethodEnum:[ComGoodowRealtimeChannelRpcRpc_MethodEnum GET] withNSString:serviceName withJavaUtilMap:params withNSString:nil withComGoodowRealtimeChannelRpcRpc_RpcCallback:rpcCallback];
 }
 
 - (void)maybeSetConnectionStateWithComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum:(ComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum *)newState {
@@ -90,20 +86,17 @@ withComGoodowRealtimeChannelRpcRpc_ConnectionStateListener:(id<ComGoodowRealtime
 }
 
 - (id<ComGoodowRealtimeChannelRpcRpc_RpcHandle>)postWithNSString:(NSString *)serviceName
-                          withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params
+                                                 withJavaUtilMap:(id<JavaUtilMap>)params
                                                     withNSString:(NSString *)formData
                   withComGoodowRealtimeChannelRpcRpc_RpcCallback:(id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>)rpcCallback {
-  return [self makeRequestWithComGoodowRealtimeChannelRpcRpc_MethodEnum:[ComGoodowRealtimeChannelRpcRpc_MethodEnum POST] withNSString:serviceName withElementalUtilMapFromStringToString:params withNSString:formData withComGoodowRealtimeChannelRpcRpc_RpcCallback:rpcCallback];
+  return [self makeRequestWithComGoodowRealtimeChannelRpcRpc_MethodEnum:[ComGoodowRealtimeChannelRpcRpc_MethodEnum POST] withNSString:serviceName withJavaUtilMap:params withNSString:formData withComGoodowRealtimeChannelRpcRpc_RpcCallback:rpcCallback];
 }
 
 - (JavaLangStringBuilder *)addParamsWithJavaLangStringBuilder:(JavaLangStringBuilder *)b
-                       withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params {
-  id<ElementalUtilArrayOfString> keys = [((id<ElementalUtilMapFromStringToString>) nil_chk(params)) keys];
-  for (int i = 0, len = [((id<ElementalUtilArrayOfString>) nil_chk(keys)) length]; i < len; i++) {
-    NSString *key = [keys getWithInt:i];
-    NSString *value = [params getWithNSString:key];
-    if (value != nil) {
-      (void) [((JavaLangStringBuilder *) nil_chk(b)) appendWithNSString:[NSString stringWithFormat:@"%@=%@&", key, [((id<ComGoodowRealtimeChannelUtilChannelFactory>) nil_chk([ComGoodowRealtimeChannelUtilChannelNative get])) escapeUriQueryWithNSString:value]]];
+                                              withJavaUtilMap:(id<JavaUtilMap>)params {
+  for (id<JavaUtilMap_Entry> __strong entry in [((id<JavaUtilMap>) nil_chk(params)) entrySet]) {
+    if ([((id<JavaUtilMap_Entry>) nil_chk(entry)) getValue] != nil) {
+      (void) [((JavaLangStringBuilder *) nil_chk(b)) appendWithNSString:[NSString stringWithFormat:@"%@=%@&", [entry getKey], [((id<ComGoodowRealtimeChannelUtilChannelFactory>) nil_chk([ComGoodowRealtimeChannelUtilChannelNative get])) escapeUriQueryWithNSString:[entry getValue]]]];
     }
   }
   return b;
@@ -111,7 +104,7 @@ withComGoodowRealtimeChannelRpcRpc_ConnectionStateListener:(id<ComGoodowRealtime
 
 - (id<ComGoodowRealtimeChannelRpcRpc_RpcHandle>)makeRequestWithComGoodowRealtimeChannelRpcRpc_MethodEnum:(ComGoodowRealtimeChannelRpcRpc_MethodEnum *)method
                                                                                             withNSString:(NSString *)serviceName
-                                                                  withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params
+                                                                                         withJavaUtilMap:(id<JavaUtilMap>)params
                                                                                             withNSString:(NSString *)requestData
                                                           withComGoodowRealtimeChannelRpcRpc_RpcCallback:(id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>)rpcCallback {
   int requestId = ComGoodowRealtimeChannelRpcRpcImpl_nextRequestId_;
@@ -120,12 +113,12 @@ withComGoodowRealtimeChannelRpcRpc_ConnectionStateListener:(id<ComGoodowRealtime
     return [[ComGoodowRealtimeChannelRpcRpcImpl_Handle alloc] initWithComGoodowRealtimeChannelRpcRpcImpl:self withInt:requestId];
   }
   JavaLangStringBuilder *urlBuilder = [[JavaLangStringBuilder alloc] initWithNSString:[NSString stringWithFormat:@"%@/%@?", rpcRoot_, serviceName]];
-  (void) [self addParamsWithJavaLangStringBuilder:urlBuilder withElementalUtilMapFromStringToString:params];
+  (void) [self addParamsWithJavaLangStringBuilder:urlBuilder withJavaUtilMap:params];
   NSString *url = [urlBuilder description];
   id<ComGoodowRealtimeChannelHttpHttpRequest> r = [((ComGoodowRealtimeChannelHttpHttpTransport *) nil_chk([((id<ComGoodowRealtimeChannelUtilChannelFactory>) nil_chk([ComGoodowRealtimeChannelUtilChannelNative get])) getHttpTransport])) buildRequestWithNSString:[((ComGoodowRealtimeChannelRpcRpc_MethodEnum *) nil_chk(method)) name] withNSString:url];
   ComGoodowRealtimeChannelRpcRpcImpl_makeRequest_RpcRequestCallback *innerCallback = [[ComGoodowRealtimeChannelRpcRpcImpl_makeRequest_RpcRequestCallback alloc] initWithComGoodowRealtimeChannelRpcRpcImpl:self withInt:requestId withComGoodowRealtimeChannelRpcRpc_RpcCallback:rpcCallback withNSString:url];
   ComGoodowRealtimeChannelRpcRpcImpl_Handle *handle = [[ComGoodowRealtimeChannelRpcRpcImpl_Handle alloc] initWithComGoodowRealtimeChannelRpcRpcImpl:self withInt:requestId];
-  [((id<ElementalUtilMapFromIntTo>) nil_chk(ComGoodowRealtimeChannelRpcRpcImpl_handles_)) putWithInt:[handle getId] withId:handle];
+  (void) [((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelRpcRpcImpl_handles_)) putWithId:[JavaLangInteger valueOfWithInt:[handle getId]] withId:handle];
   [((id<ComGoodowRealtimeChannelHttpHttpRequest>) nil_chk(r)) executeAsyncWithComGoodowRealtimeChannelHttpHttpRequestCallback:innerCallback withNSString:requestData];
   return handle;
 }
@@ -133,7 +126,7 @@ withComGoodowRealtimeChannelRpcRpc_ConnectionStateListener:(id<ComGoodowRealtime
 + (void)initialize {
   if (self == [ComGoodowRealtimeChannelRpcRpcImpl class]) {
     ComGoodowRealtimeChannelRpcRpcImpl_log_ = [JavaUtilLoggingLogger getLoggerWithNSString:[[IOSClass classWithClass:[ComGoodowRealtimeChannelRpcRpcImpl class]] getName]];
-    ComGoodowRealtimeChannelRpcRpcImpl_handles_ = [ElementalUtilCollections mapFromIntTo];
+    ComGoodowRealtimeChannelRpcRpcImpl_handles_ = [[JavaUtilHashMap alloc] init];
   }
 }
 
@@ -176,7 +169,7 @@ withComGoodowRealtimeChannelRpcRpc_ConnectionStateListener:(id<ComGoodowRealtime
 }
 
 - (BOOL)isPending {
-  return [((id<ElementalUtilMapFromIntTo>) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl handles])) hasKeyWithInt:id__];
+  return [((id<JavaUtilMap>) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl handles])) containsKeyWithId:[JavaLangInteger valueOfWithInt:id__]];
 }
 
 - (void)copyAllFieldsTo:(ComGoodowRealtimeChannelRpcRpcImpl_Handle *)other {
@@ -252,7 +245,7 @@ IOSObjectArray *ComGoodowRealtimeChannelRpcRpcImpl_ResultEnum_values;
 }
 
 - (void)onFailureWithJavaLangThrowable:(JavaLangThrowable *)exception {
-  if (![((id<ElementalUtilMapFromIntTo>) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl handles])) hasKeyWithInt:id__]) {
+  if (![((id<JavaUtilMap>) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl handles])) containsKeyWithId:[JavaLangInteger valueOfWithInt:id__]]) {
     [((JavaUtilLoggingLogger *) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl log])) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel INFO] withNSString:[NSString stringWithFormat:@"RPC FailureDrop, id=%d %@", id__, [((JavaLangThrowable *) nil_chk(exception)) getMessage]]];
     return;
   }
@@ -261,7 +254,7 @@ IOSObjectArray *ComGoodowRealtimeChannelRpcRpcImpl_ResultEnum_values;
 }
 
 - (void)onResponseWithComGoodowRealtimeChannelHttpHttpResponse:(id<ComGoodowRealtimeChannelHttpHttpResponse>)response {
-  id<ComGoodowRealtimeChannelRpcRpc_RpcHandle> handle = [((id<ElementalUtilMapFromIntTo>) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl handles])) getWithInt:id__];
+  id<ComGoodowRealtimeChannelRpcRpc_RpcHandle> handle = [((id<JavaUtilMap>) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl handles])) getWithId:[JavaLangInteger valueOfWithInt:id__]];
   if (handle == nil) {
     [((JavaUtilLoggingLogger *) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl log])) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel INFO] withNSString:[NSString stringWithFormat:@"RPC SuccessDrop, id=%d", id__]];
     return;
@@ -298,7 +291,7 @@ IOSObjectArray *ComGoodowRealtimeChannelRpcRpcImpl_ResultEnum_values;
     @try {
       [((id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>) nil_chk(callback_)) onSuccessWithNSString:data];
     }
-    @catch (GDRJsonException *e) {
+    @catch (GDJsonException *e) {
       [this$0_ maybeSetConnectionStateWithComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum:[ComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum LOGGED_OUT]];
       [self errorWithJavaLangThrowable:[[JavaLangException alloc] initWithNSString:[NSString stringWithFormat:@"%@%d, data: %@", @"RPC failed due to message exception, treating as auth failure, status code: ", statusCode, data]]];
     }
@@ -325,7 +318,7 @@ IOSObjectArray *ComGoodowRealtimeChannelRpcRpcImpl_ResultEnum_values;
 }
 
 - (void)removeHandle {
-  [((id<ElementalUtilMapFromIntTo>) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl handles])) removeWithInt:id__];
+  (void) [((id<JavaUtilMap>) nil_chk([ComGoodowRealtimeChannelRpcRpcImpl handles])) removeWithId:[JavaLangInteger valueOfWithInt:id__]];
 }
 
 - (void)copyAllFieldsTo:(ComGoodowRealtimeChannelRpcRpcImpl_makeRequest_RpcRequestCallback *)other {

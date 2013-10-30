@@ -7,7 +7,7 @@
 #ifndef _ComGoodowRealtimeChannelRpcRpcUtil_H_
 #define _ComGoodowRealtimeChannelRpcRpcUtil_H_
 
-@protocol GDRJsonValue;
+@protocol GDJsonValue;
 
 #import "JreEmulation.h"
 

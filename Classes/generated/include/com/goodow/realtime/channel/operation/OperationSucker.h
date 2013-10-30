@@ -17,8 +17,8 @@
 @protocol ComGoodowRealtimeChannelOperationOperationSucker_OutputSink;
 @protocol ComGoodowRealtimeChannelRpcRpc;
 @protocol ComGoodowRealtimeOperationTransformer;
-@protocol GDRJsonObject;
-@protocol GDRJsonValue;
+@protocol GDJsonObject;
+@protocol GDJsonValue;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/channel/operation/GenericOperationChannel.h"
@@ -66,7 +66,7 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationOperationSucker, sessionId_
                    withNSString:(NSString *)message
                     withBoolean:(BOOL)isFatal;
 - (void)onCollaboratorChangedWithBoolean:(BOOL)isJoined
-                       withGDRJsonObject:(id<GDRJsonObject>)json;
+                        withGDJsonObject:(id<GDJsonObject>)json;
 - (void)onSaveStateChangedWithBoolean:(BOOL)isSaving
                           withBoolean:(BOOL)isPending;
 @end
@@ -97,9 +97,9 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelOperationOperationSucker_$1, val$id_
   id<ComGoodowRealtimeChannelRpcSnapshotService_Callback> val$callback_;
 }
 
-- (void)onSuccessWithGDRJsonValue:(id<GDRJsonValue>)snapshot
-                     withNSString:(NSString *)sid
-                          withInt:(int)revision;
+- (void)onSuccessWithGDJsonValue:(id<GDJsonValue>)snapshot
+                    withNSString:(NSString *)sid
+                         withInt:(int)revision;
 - (id)initWithComGoodowRealtimeChannelOperationOperationSucker:(ComGoodowRealtimeChannelOperationOperationSucker *)outer$
  withComGoodowRealtimeChannelOperationOperationSucker_Listener:(id<ComGoodowRealtimeChannelOperationOperationSucker_Listener>)capture$0
        withComGoodowRealtimeChannelRpcSnapshotService_Callback:(id<ComGoodowRealtimeChannelRpcSnapshotService_Callback>)capture$1;

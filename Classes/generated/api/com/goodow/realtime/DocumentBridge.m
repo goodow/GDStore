@@ -54,11 +54,11 @@ static id<ComGoodowRealtimeChannelOperationOperationSucker_OutputSink> GDRDocume
   return GDRDocumentBridge_VOID_;
 }
 
-- (id)initWithGDRJsonArray:(id<GDRJsonArray>)snapshot {
+- (id)initWithGDJsonArray:(id<GDJsonArray>)snapshot {
   if (self = [super init]) {
     outputSink_ = GDRDocumentBridge_VOID_;
     undoManager_ = [ComGoodowRealtimeOperationUndoUndoManagerFactory getNoOp];
-    [self createSnapshotWithGDRJsonValue:snapshot];
+    [self createSnapshotWithGDJsonValue:snapshot];
   }
   return self;
 }
@@ -87,8 +87,8 @@ static id<ComGoodowRealtimeChannelOperationOperationSucker_OutputSink> GDRDocume
 }
 
 - (void)onCollaboratorChangedWithBoolean:(BOOL)isJoined
-                       withGDRJsonObject:(id<GDRJsonObject>)json {
-  [((GDRDocument *) nil_chk(document_)) onCollaboratorChangedWithBoolean:isJoined withGDRJsonObject:json];
+                        withGDJsonObject:(id<GDJsonObject>)json {
+  [((GDRDocument *) nil_chk(document_)) onCollaboratorChangedWithBoolean:isJoined withGDJsonObject:json];
 }
 
 - (void)onSaveStateChangedWithBoolean:(BOOL)isSaving
@@ -153,18 +153,18 @@ static id<ComGoodowRealtimeChannelOperationOperationSucker_OutputSink> GDRDocume
   [((id<ComGoodowRealtimeChannelOperationOperationSucker_OutputSink>) nil_chk(outputSink_)) consumeWithId:operation];
 }
 
-- (void)createSnapshotWithGDRJsonValue:(id<GDRJsonValue>)serialized {
+- (void)createSnapshotWithGDJsonValue:(id<GDJsonValue>)serialized {
   ComGoodowRealtimeOperationTransformerImpl *transformer = [[ComGoodowRealtimeOperationTransformerImpl alloc] init];
   document_ = [[GDRDocument alloc] initWithGDRDocumentBridge:self withGDRDisposable:nil withGDRErrorHandler:nil];
   model_ = [document_ getModel];
-  id<GDRJsonArray> snapshot = (id<GDRJsonArray>) check_protocol_cast(serialized, @protocol(GDRJsonArray));
+  id<GDJsonArray> snapshot = (id<GDJsonArray>) check_protocol_cast(serialized, @protocol(GDJsonArray));
   if (snapshot == nil || [snapshot length] == 0) {
     [((GDRModel *) nil_chk(model_)) createRoot];
   }
   else {
     for (int i = 0, len = [snapshot length]; i < len; i++) {
-      id<GDRJsonArray> serializedOp = [snapshot getArrayWithInt:i];
-      id<ComGoodowRealtimeOperationOperation> op = [transformer createOperationWithGDRJsonArray:serializedOp];
+      id<GDJsonArray> serializedOp = [snapshot getArray:i];
+      id<ComGoodowRealtimeOperationOperation> op = [transformer createOperationWithGDJsonArray:serializedOp];
       ComGoodowRealtimeOperationRealtimeOperation *operation = [[ComGoodowRealtimeOperationRealtimeOperation alloc] initWithNSString:nil withNSString:nil withComGoodowRealtimeOperationOperationArray:[IOSObjectArray arrayWithObjects:(id[]){ op } count:1 type:[IOSClass classWithProtocol:@protocol(ComGoodowRealtimeOperationOperation)]]];
       [self applyLocallyWithComGoodowRealtimeOperationRealtimeOperation:operation];
     }

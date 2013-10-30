@@ -28,13 +28,13 @@ static ComGoodowRealtimeOperationListJsonJsonHelper * ComGoodowRealtimeOperation
   return (int) [((IOSObjectArray *) nil_chk(values)) count];
 }
 
-- (IOSObjectArray *)parseValuesWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  NSAssert([((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationListJsonJsonHelper_TYPE, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/json/JsonHelper.java:32 condition failed: assert serialized.getNumber(0) == TYPE;");
+- (IOSObjectArray *)parseValuesWithGDJsonArray:(id<GDJsonArray>)serialized {
+  NSAssert([((id<GDJsonArray>) nil_chk(serialized)) getNumber:0] == ComGoodowRealtimeOperationListJsonJsonHelper_TYPE, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/json/JsonHelper.java:32 condition failed: assert serialized.getNumber(0) == TYPE;");
   int length = [serialized length];
   NSAssert(length >= 2, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/json/JsonHelper.java:34 condition failed: assert length >= 2;");
   IOSObjectArray *values = [self createWithInt:length - 1];
   for (int i = 1; i < length; i++) {
-    (void) IOSObjectArray_Set(nil_chk(values), i - 1, [serialized getWithInt:i]);
+    (void) IOSObjectArray_Set(nil_chk(values), i - 1, [serialized get:i]);
   }
   return values;
 }
@@ -62,7 +62,7 @@ static ComGoodowRealtimeOperationListJsonJsonHelper * ComGoodowRealtimeOperation
     id const *b__ = ((IOSObjectArray *) nil_chk(a__))->buffer_;
     id const *e__ = b__ + a__->size_;
     while (b__ < e__) {
-      id<GDRJsonValue> value = (*b__++);
+      id<GDJsonValue> value = (*b__++);
       (void) [((JavaLangStringBuilder *) nil_chk([sb appendWithChar:','])) appendWithNSString:value == nil ? (NSString *) check_class_cast(nil, [NSString class]) : [value toJson]];
     }
   }
@@ -99,7 +99,7 @@ static ComGoodowRealtimeOperationListJsonJsonHelper * ComGoodowRealtimeOperation
 }
 
 - (IOSObjectArray *)createWithInt:(int)length {
-  return [IOSObjectArray arrayWithLength:length type:[IOSClass classWithProtocol:@protocol(GDRJsonValue)]];
+  return [IOSObjectArray arrayWithLength:length type:[IOSClass classWithProtocol:@protocol(GDJsonValue)]];
 }
 
 - (id)init {

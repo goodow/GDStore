@@ -30,76 +30,76 @@
   return ComGoodowRealtimeModelUtilJsonSerializer_REFERENCE_TYPE;
 }
 
-+ (id)deserializeObjectWithGDRJsonValue:(id<GDRJsonValue>)arrayOrNull
-                        withJavaUtilMap:(id<JavaUtilMap>)objects {
-  if ([ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDRJsonValue:arrayOrNull]) {
++ (id)deserializeObjectWithGDJsonValue:(id<GDJsonValue>)arrayOrNull
+                       withJavaUtilMap:(id<JavaUtilMap>)objects {
+  if ([ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDJsonValue:arrayOrNull]) {
     return nil;
   }
-  id<GDRJsonArray> array = (id<GDRJsonArray>) check_protocol_cast(arrayOrNull, @protocol(GDRJsonArray));
-  switch ((int) [((id<GDRJsonArray>) nil_chk(array)) getNumberWithInt:0]) {
+  id<GDJsonArray> array = (id<GDJsonArray>) check_protocol_cast(arrayOrNull, @protocol(GDJsonArray));
+  switch ((int) [((id<GDJsonArray>) nil_chk(array)) getNumber:0]) {
     case ComGoodowRealtimeModelUtilJsonSerializer_VALUE_TYPE:
     {
-      id<GDRJsonValue> val;
-      switch ([[((id<GDRJsonValue>) nil_chk([array getWithInt:1])) getType] ordinal]) {
-        case GDRJsonType_BOOLEAN:
-        return [JavaLangBoolean valueOfWithBoolean:[array getBooleanWithInt:1]];
-        case GDRJsonType_NUMBER:
-        return [JavaLangDouble valueOfWithDouble:[array getNumberWithInt:1]];
-        case GDRJsonType_STRING:
-        return [array getStringWithInt:1];
-        case GDRJsonType_OBJECT:
-        case GDRJsonType_ARRAY:
-        val = [array getWithInt:1];
-        return [((id<GDRJsonFactory>) nil_chk([GDRJson instance])) parseWithNSString:[((id<GDRJsonValue>) nil_chk(val)) toJson]];
-        case GDRJsonType_NULL:
+      id<GDJsonValue> val;
+      switch ([[((id<GDJsonValue>) nil_chk([array get:1])) getType] ordinal]) {
+        case GDJsonType_BOOLEAN:
+        return [JavaLangBoolean valueOfWithBoolean:[array getBoolean:1]];
+        case GDJsonType_NUMBER:
+        return [JavaLangDouble valueOfWithDouble:[array getNumber:1]];
+        case GDJsonType_STRING:
+        return [array getString:1];
+        case GDJsonType_OBJECT:
+        case GDJsonType_ARRAY:
+        val = [array get:1];
+        return [((id<GDJsonFactory>) nil_chk([GDJson instance])) parseWithNSString:[((id<GDJsonValue>) nil_chk(val)) toJson]];
+        case GDJsonType_NULL:
         default:
         @throw [[JavaLangRuntimeException alloc] initWithNSString:@"Should not reach here!"];
       }
     }
     case ComGoodowRealtimeModelUtilJsonSerializer_REFERENCE_TYPE:
-    return [((id<JavaUtilMap>) nil_chk(objects)) getWithId:[array getStringWithInt:1]];
+    return [((id<JavaUtilMap>) nil_chk(objects)) getWithId:[array getString:1]];
     default:
     @throw [[JavaLangUnsupportedOperationException alloc] init];
   }
 }
 
-+ (id<GDRJsonArray>)serializeObjectWithId:(id)obj {
++ (id<GDJsonArray>)serializeObjectWithId:(id)obj {
   if (obj == nil) {
     return nil;
   }
-  id<GDRJsonArray> array = [GDRJson createArray];
+  id<GDJsonArray> array = [GDJson createArray];
   int type = ComGoodowRealtimeModelUtilJsonSerializer_VALUE_TYPE;
-  id<GDRJsonValue> val;
+  id<GDJsonValue> val;
   if ([obj isKindOfClass:[NSString class]]) {
-    val = [GDRJson createWithNSString:(NSString *) check_class_cast(obj, [NSString class])];
+    val = [GDJson createString:(NSString *) check_class_cast(obj, [NSString class])];
   }
   else if ([obj isKindOfClass:[NSNumber class]]) {
-    val = [GDRJson createWithDouble:[((NSNumber *) nil_chk(obj)) doubleValue]];
+    val = [GDJson createNumber:[((NSNumber *) nil_chk(obj)) doubleValue]];
   }
   else if ([obj isKindOfClass:[JavaLangBoolean class]]) {
-    val = [GDRJson createWithBoolean:[((JavaLangBoolean *) nil_chk(obj)) booleanValue]];
+    val = [GDJson createBoolean:[((JavaLangBoolean *) nil_chk(obj)) booleanValue]];
   }
-  else if ([obj conformsToProtocol: @protocol(GDRJsonValue)]) {
-    val = (id<GDRJsonValue>) check_protocol_cast(obj, @protocol(GDRJsonValue));
-    if ([GDRJsonTypeEnum NULL_] == [((id<GDRJsonValue>) nil_chk(val)) getType]) {
+  else if ([obj conformsToProtocol: @protocol(GDJsonValue)]) {
+    val = (id<GDJsonValue>) check_protocol_cast(obj, @protocol(GDJsonValue));
+    if ([GDJsonTypeEnum NULL_] == [((id<GDJsonValue>) nil_chk(val)) getType]) {
       return nil;
     }
-    val = [((id<GDRJsonFactory>) nil_chk([GDRJson instance])) parseWithNSString:[val toJson]];
+    val = [((id<GDJsonFactory>) nil_chk([GDJson instance])) parseWithNSString:[val toJson]];
   }
   else if ([obj isKindOfClass:[GDRCollaborativeObject class]]) {
     type = ComGoodowRealtimeModelUtilJsonSerializer_REFERENCE_TYPE;
-    val = [GDRJson createWithNSString:[((GDRCollaborativeObject *) nil_chk(obj)) getId]];
+    val = [GDJson createString:[((GDRCollaborativeObject *) nil_chk(obj)) getId]];
   }
   else {
     @throw [[JavaLangClassCastException alloc] initWithNSString:[NSString stringWithFormat:@"Unsupported class type: %@", [[nil_chk(obj) getClass] getName]]];
   }
-  [((id<GDRJsonArray>) nil_chk(array)) setWithInt:0 withDouble:type];
-  [array setWithInt:1 withGDRJsonValue:val];
+  [((id<GDJsonArray>) nil_chk(array)) set:0 number:type];
+  [array set:1 value:val];
   return array;
 }
 
 + (IOSObjectArray *)serializeObjectsWithNSObjectArray:(IOSObjectArray *)values {
-  IOSObjectArray *array = [IOSObjectArray arrayWithLength:(int) [((IOSObjectArray *) nil_chk(values)) count] type:[IOSClass classWithProtocol:@protocol(GDRJsonValue)]];
+  IOSObjectArray *array = [IOSObjectArray arrayWithLength:(int) [((IOSObjectArray *) nil_chk(values)) count] type:[IOSClass classWithProtocol:@protocol(GDJsonValue)]];
   int i = 0;
   {
     IOSObjectArray *a__ = values;

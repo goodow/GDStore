@@ -138,8 +138,8 @@ static JavaUtilLoggingLogger * GDRDocument_log_;
 }
 
 - (void)onCollaboratorChangedWithBoolean:(BOOL)isJoined
-                       withGDRJsonObject:(id<GDRJsonObject>)json {
-  GDRCollaborator *collaborator = [[GDRCollaborator alloc] initWithNSString:[((id<GDRJsonObject>) nil_chk(json)) getStringWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params USER_ID]] withNSString:[json getStringWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID]] withNSString:[json getStringWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params DISPLAY_NAME]] withNSString:[json getStringWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params COLOR]] withBoolean:[json getBooleanWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params IS_ME]] withBoolean:[json getBooleanWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params IS_ANONYMOUS]] withNSString:[json getStringWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params PHOTO_URL]]];
+                        withGDJsonObject:(id<GDJsonObject>)json {
+  GDRCollaborator *collaborator = [[GDRCollaborator alloc] initWithNSString:[((id<GDJsonObject>) nil_chk(json)) getString:[ComGoodowRealtimeChannelConstantConstants_Params USER_ID]] withNSString:[json getString:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID]] withNSString:[json getString:[ComGoodowRealtimeChannelConstantConstants_Params DISPLAY_NAME]] withNSString:[json getString:[ComGoodowRealtimeChannelConstantConstants_Params COLOR]] withBoolean:[json getBoolean:[ComGoodowRealtimeChannelConstantConstants_Params IS_ME]] withBoolean:[json getBoolean:[ComGoodowRealtimeChannelConstantConstants_Params IS_ANONYMOUS]] withNSString:[json getString:[ComGoodowRealtimeChannelConstantConstants_Params PHOTO_URL]]];
   if (isJoined) {
     [((id<JavaUtilList>) nil_chk(collaborators_)) addWithId:collaborator];
     GDRCollaboratorJoinedEvent *event = [[GDRCollaboratorJoinedEvent alloc] initWithGDRDocument:self withGDRCollaborator:collaborator];

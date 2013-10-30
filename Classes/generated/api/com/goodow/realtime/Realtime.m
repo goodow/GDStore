@@ -82,13 +82,13 @@ withGDRModelInitializerHandler:(id<GDRModelInitializerHandler>)opt_initializer
 @end
 @implementation GDRRealtime_$1
 
-- (void)onSuccessWithGDRJsonValue:(id<GDRJsonValue>)snapshot
-                     withNSString:(NSString *)sessionId
-                          withInt:(int)revision {
+- (void)onSuccessWithGDJsonValue:(id<GDJsonValue>)snapshot
+                    withNSString:(NSString *)sessionId
+                         withInt:(int)revision {
   ((GDRDocumentBridge *) nil_chk(val$bridge_))->sessionId_ = sessionId;
   [val$bridge_ setOutputSinkWithComGoodowRealtimeChannelOperationOperationSucker_OutputSink:[((ComGoodowRealtimeChannelOperationOperationSucker *) nil_chk(val$operationSucker_)) getOutputSink]];
   [val$bridge_ addErrorHandlerWithGDRErrorHandler:val$opt_error_];
-  [val$bridge_ createSnapshotWithGDRJsonValue:snapshot];
+  [val$bridge_ createSnapshotWithGDJsonValue:snapshot];
   if (revision == 0) {
     if (val$opt_initializer_ != nil) {
       [val$bridge_ initializeModelWithGDRModelInitializerHandler:val$opt_initializer_];

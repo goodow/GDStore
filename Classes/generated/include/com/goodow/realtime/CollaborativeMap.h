@@ -11,9 +11,9 @@
 @class IOSObjectArray;
 @class JavaLangStringBuilder;
 @protocol ComGoodowRealtimeOperationOperation;
+@protocol GDJsonObject;
+@protocol GDJsonValue;
 @protocol GDREventHandler;
-@protocol GDRJsonObject;
-@protocol GDRJsonValue;
 @protocol JavaUtilList;
 @protocol JavaUtilSet;
 
@@ -23,7 +23,7 @@
 
 @interface GDRCollaborativeMap : GDRCollaborativeObject {
  @public
-  id<GDRJsonObject> snapshot_;
+  id<GDJsonObject> snapshot_;
 }
 
 - (id)initWithGDRModel:(GDRModel *)model;
@@ -47,7 +47,7 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
       withJavaLangStringBuilder:(JavaLangStringBuilder *)sb;
 - (void)checkKeyWithNSString:(NSString *)key;
 - (void)putAndFireEventWithNSString:(NSString *)key
-                   withGDRJsonValue:(id<GDRJsonValue>)newValue
+                    withGDJsonValue:(id<GDJsonValue>)newValue
                        withNSString:(NSString *)sessionId
                        withNSString:(NSString *)userId;
 - (void)removeAndFireEventWithNSString:(NSString *)key
@@ -56,7 +56,7 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
 - (void)copyAllFieldsTo:(GDRCollaborativeMap *)other;
 @end
 
-J2OBJC_FIELD_SETTER(GDRCollaborativeMap, snapshot_, id<GDRJsonObject>)
+J2OBJC_FIELD_SETTER(GDRCollaborativeMap, snapshot_, id<GDJsonObject>)
 
 typedef GDRCollaborativeMap ComGoodowRealtimeCollaborativeMap;
 
@@ -73,7 +73,7 @@ typedef GDRCollaborativeMap ComGoodowRealtimeCollaborativeMap;
 }
 
 - (void)setWithNSString:(NSString *)key
-                 withId:(id<GDRJsonValue>)newValue;
+                 withId:(id<GDJsonValue>)newValue;
 - (id)initWithGDRCollaborativeMap:(GDRCollaborativeMap *)outer$
                      withNSString:(NSString *)capture$0
                      withNSString:(NSString *)capture$1

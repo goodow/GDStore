@@ -10,8 +10,8 @@
 @class ComGoodowRealtimeOperationAbstractOperation;
 @class ComGoodowRealtimeOperationUtilPair;
 @protocol ComGoodowRealtimeOperationOperation;
-@protocol GDRJsonArray;
-@protocol GDRJsonValue;
+@protocol GDJsonArray;
+@protocol GDJsonValue;
 @protocol JavaUtilList;
 
 #import "JreEmulation.h"
@@ -21,10 +21,10 @@
 }
 
 - (id<JavaUtilList>)compactWithJavaUtilList:(id<JavaUtilList>)operations;
-- (ComGoodowRealtimeOperationAbstractOperation *)createOperationWithGDRJsonArray:(id<GDRJsonArray>)serialized;
+- (ComGoodowRealtimeOperationAbstractOperation *)createOperationWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)createOperationWithNSString:(NSString *)userId
                      withNSString:(NSString *)sessionId
-                 withGDRJsonValue:(id<GDRJsonValue>)serialized;
+                  withGDJsonValue:(id<GDJsonValue>)serialized;
 - (ComGoodowRealtimeOperationUtilPair *)transformWithJavaUtilList:(id<JavaUtilList>)clientOps
                                                  withJavaUtilList:(id<JavaUtilList>)serverOps;
 - (void)transformWithJavaUtilList:(id<JavaUtilList>)transformedResults

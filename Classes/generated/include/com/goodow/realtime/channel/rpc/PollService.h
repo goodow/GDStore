@@ -10,7 +10,7 @@
 @class ComGoodowRealtimeChannelChannelDemuxer;
 @class JavaLangThrowable;
 @class JavaUtilLoggingLogger;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/channel/rpc/Rpc.h"
@@ -20,8 +20,8 @@
 
 + (JavaUtilLoggingLogger *)log;
 + (ComGoodowRealtimeChannelChannelDemuxer *)demuxer;
-- (void)pollWithGDRJsonArray:(id<GDRJsonArray>)ids
-                withNSString:(NSString *)sessionId;
+- (void)pollWithGDJsonArray:(id<GDJsonArray>)ids
+               withNSString:(NSString *)sessionId;
 - (id)init;
 @end
 

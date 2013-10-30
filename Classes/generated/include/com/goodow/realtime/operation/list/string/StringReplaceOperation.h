@@ -8,7 +8,7 @@
 #define _ComGoodowRealtimeOperationListStringStringReplaceOperation_H_
 
 @class ComGoodowRealtimeOperationListStringStringHelper;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/list/AbstractReplaceOperation.h"
@@ -16,7 +16,7 @@
 @interface ComGoodowRealtimeOperationListStringStringReplaceOperation : ComGoodowRealtimeOperationListAbstractReplaceOperation {
 }
 
-+ (ComGoodowRealtimeOperationListStringStringReplaceOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (ComGoodowRealtimeOperationListStringStringReplaceOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithNSString:(NSString *)id_
                withInt:(int)startIndex
           withNSString:(NSString *)oldValues

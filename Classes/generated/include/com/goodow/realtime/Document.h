@@ -14,10 +14,10 @@
 @class GDRObjectChangedEvent;
 @class IOSObjectArray;
 @class JavaUtilLoggingLogger;
+@protocol GDJsonObject;
 @protocol GDRDisposable;
 @protocol GDRErrorHandler;
 @protocol GDREventHandler;
-@protocol GDRJsonObject;
 @protocol JavaUtilList;
 @protocol JavaUtilMap;
 @protocol JavaUtilSet;
@@ -63,7 +63,7 @@
                          withBoolean:(BOOL)opt_capture;
 - (void)checkStatus;
 - (void)onCollaboratorChangedWithBoolean:(BOOL)isJoined
-                       withGDRJsonObject:(id<GDRJsonObject>)json;
+                        withGDJsonObject:(id<GDJsonObject>)json;
 - (void)removeEventListenerWithNSString:(NSString *)id_
                    withGDREventTypeEnum:(GDREventTypeEnum *)type
                     withGDREventHandler:(id<GDREventHandler>)handler

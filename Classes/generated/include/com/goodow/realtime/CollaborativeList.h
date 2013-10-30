@@ -12,8 +12,8 @@
 @class IOSObjectArray;
 @class JavaLangStringBuilder;
 @protocol ComGoodowRealtimeOperationOperation;
+@protocol GDJsonArray;
 @protocol GDREventHandler;
-@protocol GDRJsonArray;
 @protocol JavaUtilComparator;
 @protocol JavaUtilSet;
 
@@ -23,7 +23,7 @@
 
 @interface GDRCollaborativeList : GDRCollaborativeObject {
  @public
-  id<GDRJsonArray> snapshot_;
+  id<GDJsonArray> snapshot_;
 }
 
 - (id)initWithGDRModel:(GDRModel *)model;
@@ -65,7 +65,7 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
                               withId:(id)object1
                               withId:(id)object2;
 - (void)insertAndFireEventWithInt:(int)index
-            withGDRJsonValueArray:(IOSObjectArray *)values
+             withGDJsonValueArray:(IOSObjectArray *)values
                      withNSString:(NSString *)sessionId
                      withNSString:(NSString *)userId;
 - (void)removeAndFireEventWithInt:(int)index
@@ -73,7 +73,7 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
                      withNSString:(NSString *)sessionId
                      withNSString:(NSString *)userId;
 - (void)replaceAndFireEventWithInt:(int)index
-             withGDRJsonValueArray:(IOSObjectArray *)values
+              withGDJsonValueArray:(IOSObjectArray *)values
                       withNSString:(NSString *)sessionId
                       withNSString:(NSString *)userId;
 - (IOSObjectArray *)subValuesWithInt:(int)startIndex
@@ -81,7 +81,7 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
 - (void)copyAllFieldsTo:(GDRCollaborativeList *)other;
 @end
 
-J2OBJC_FIELD_SETTER(GDRCollaborativeList, snapshot_, id<GDRJsonArray>)
+J2OBJC_FIELD_SETTER(GDRCollaborativeList, snapshot_, id<GDJsonArray>)
 
 typedef GDRCollaborativeList ComGoodowRealtimeCollaborativeList;
 

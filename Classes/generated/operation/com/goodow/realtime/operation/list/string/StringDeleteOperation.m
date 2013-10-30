@@ -14,9 +14,9 @@
 
 @implementation ComGoodowRealtimeOperationListStringStringDeleteOperation
 
-+ (ComGoodowRealtimeOperationListStringStringDeleteOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  NSAssert([((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationListAbstractDeleteOperation_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/string/StringDeleteOperation.java:22 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
-  return [[ComGoodowRealtimeOperationListStringStringDeleteOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDRJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListOperation parseStartIndexWithGDRJsonArray:serialized] withInt:(int) [serialized getNumberWithInt:3]];
++ (ComGoodowRealtimeOperationListStringStringDeleteOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized {
+  NSAssert([((id<GDJsonArray>) nil_chk(serialized)) getNumber:0] == ComGoodowRealtimeOperationListAbstractDeleteOperation_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/string/StringDeleteOperation.java:22 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
+  return [[ComGoodowRealtimeOperationListStringStringDeleteOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListOperation parseStartIndexWithGDJsonArray:serialized] withInt:(int) [serialized getNumber:3]];
 }
 
 - (id)initWithNSString:(NSString *)id_

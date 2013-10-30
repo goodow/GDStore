@@ -6,9 +6,9 @@
 
 #include "IOSClass.h"
 #include "com/goodow/realtime/channel/rpc/Rpc.h"
-#include "elemental/util/MapFromStringToString.h"
 #include "java/lang/IllegalArgumentException.h"
 #include "java/lang/Throwable.h"
+#include "java/util/Map.h"
 
 
 static ComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum *ComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum_CONNECTED;

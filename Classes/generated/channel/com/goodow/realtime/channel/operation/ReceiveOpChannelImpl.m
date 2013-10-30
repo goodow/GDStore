@@ -19,13 +19,14 @@
 #include "elemental/json/JsonException.h"
 #include "elemental/json/JsonObject.h"
 #include "elemental/json/JsonValue.h"
-#include "elemental/util/Collections.h"
-#include "elemental/util/MapFromIntTo.h"
 #include "java/lang/Exception.h"
+#include "java/lang/Integer.h"
 #include "java/lang/Math.h"
 #include "java/lang/Runnable.h"
 #include "java/lang/RuntimeException.h"
 #include "java/lang/Throwable.h"
+#include "java/util/HashMap.h"
+#include "java/util/Map.h"
 #include "java/util/logging/Level.h"
 #include "java/util/logging/Logger.h"
 
@@ -44,7 +45,7 @@ withComGoodowRealtimeOperationTransformer:(id<ComGoodowRealtimeOperationTransfor
     catchupTask_ = [[ComGoodowRealtimeChannelOperationReceiveOpChannelImpl_$1 alloc] initWithComGoodowRealtimeChannelOperationReceiveOpChannelImpl:self];
     callback_ = [[ComGoodowRealtimeChannelOperationReceiveOpChannelImpl_$2 alloc] initWithComGoodowRealtimeChannelOperationReceiveOpChannelImpl:self];
     demuxer_ = [ComGoodowRealtimeChannelChannelDemuxer get];
-    pending_ = [ElementalUtilCollections mapFromIntTo];
+    pending_ = [[JavaUtilHashMap alloc] init];
     currentRevision_ = 0;
     knownHeadRevision_ = 0;
     catchupRevision_ = 0;
@@ -84,26 +85,26 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Li
   [self receiveUnorderedDataWithInt:resultingRevision withNSString:sid withId:mutation];
 }
 
-- (void)onMessageWithGDRJsonObject:(id<GDRJsonObject>)msg {
-  id<GDRJsonArray> deltas = [((id<GDRJsonObject>) nil_chk(msg)) getArrayWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params DELTAS]];
-  for (int i = 0, len = [((id<GDRJsonArray>) nil_chk(deltas)) length]; i < len; i++) {
-    id<GDRJsonArray> delta = [deltas getArrayWithInt:i];
+- (void)onMessageWithGDJsonObject:(id<GDJsonObject>)msg {
+  id<GDJsonArray> deltas = [((id<GDJsonObject>) nil_chk(msg)) getArray:[ComGoodowRealtimeChannelConstantConstants_Params DELTAS]];
+  for (int i = 0, len = [((id<GDJsonArray>) nil_chk(deltas)) length]; i < len; i++) {
+    id<GDJsonArray> delta = [deltas getArray:i];
     id op;
-    NSString *sessionId = [((id<GDRJsonArray>) nil_chk(delta)) getStringWithInt:2];
+    NSString *sessionId = [((id<GDJsonArray>) nil_chk(delta)) getString:2];
     @try {
-      NSString *userId = [delta getStringWithInt:1];
-      op = [((id<ComGoodowRealtimeOperationTransformer>) nil_chk(transformer_)) createOperationWithNSString:userId withNSString:sessionId withGDRJsonValue:[delta getWithInt:3]];
+      NSString *userId = [delta getString:1];
+      op = [((id<ComGoodowRealtimeOperationTransformer>) nil_chk(transformer_)) createOperationWithNSString:userId withNSString:sessionId withGDJsonValue:[delta get:3]];
     }
-    @catch (GDRJsonException *e) {
+    @catch (GDJsonException *e) {
       [((id<ComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Listener>) nil_chk(listener_)) onErrorWithJavaLangThrowable:e];
       return;
     }
-    [self receiveUnorderedDataWithInt:(int) [delta getNumberWithInt:0] withNSString:sessionId withId:op];
+    [self receiveUnorderedDataWithInt:(int) [delta getNumber:0] withNSString:sessionId withId:op];
   }
-  if ([msg hasKeyWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]) {
-    [self onKnownHeadRevisionWithInt:(int) [msg getNumberWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]];
+  if ([msg hasKey:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]) {
+    [self onKnownHeadRevisionWithInt:(int) [msg getNumber:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]];
   }
-  if ([msg hasKeyWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params HAS_MORE]]) {
+  if ([msg hasKey:[ComGoodowRealtimeChannelConstantConstants_Params HAS_MORE]]) {
     [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl_log_)) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel INFO] withNSString:@"fetch history returned incomplete result, retrying for the rest"];
     [((ComGoodowRealtimeChannelRpcDeltaService *) nil_chk(service_)) fetchHistoryWithNSString:id__ withInt:currentRevision_ + 1 withComGoodowRealtimeChannelRpcDeltaService_Callback:callback_];
   }
@@ -158,7 +159,7 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Li
     [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl_log_)) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel FINE] withNSString:[NSString stringWithFormat:@"Old dup at revision %d, current is now %d", resultingRevision, currentRevision_]];
     return;
   }
-  ComGoodowRealtimeOperationUtilPair *existing = [((id<ElementalUtilMapFromIntTo>) nil_chk(pending_)) getWithInt:resultingRevision];
+  ComGoodowRealtimeOperationUtilPair *existing = [((id<JavaUtilMap>) nil_chk(pending_)) getWithId:[JavaLangInteger valueOfWithInt:resultingRevision]];
   if (existing != nil) {
     NSAssert(resultingRevision > currentRevision_ + 1, @"should not have pending data");
     if (![((NSString *) nil_chk(existing->first_)) isEqual:sessionId]) {
@@ -168,7 +169,7 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Li
     return;
   }
   if (resultingRevision > currentRevision_ + 1) {
-    [pending_ putWithInt:resultingRevision withId:[ComGoodowRealtimeOperationUtilPair ofWithId:sessionId withId:op]];
+    (void) [pending_ putWithId:[JavaLangInteger valueOfWithInt:resultingRevision] withId:[ComGoodowRealtimeOperationUtilPair ofWithId:sessionId withId:op]];
     [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl_log_)) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel FINE] withNSString:[NSString stringWithFormat:@"Missed message, currentRevision=%d message revision=%d", currentRevision_, resultingRevision]];
     [self scheduleCatchup];
     return;
@@ -179,17 +180,17 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Li
     [((id<ComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Listener>) nil_chk(listener_)) onMessageWithInt:currentRevision_ + 1 withNSString:sessionId withId:op];
     currentRevision_++;
     int next = currentRevision_ + 1;
-    ComGoodowRealtimeOperationUtilPair *pair = [pending_ getWithInt:next];
+    ComGoodowRealtimeOperationUtilPair *pair = [pending_ getWithId:[JavaLangInteger valueOfWithInt:next]];
     if (pair != nil) {
       sessionId = pair->first_;
       op = pair->second_;
-      [pending_ removeWithInt:next];
+      (void) [pending_ removeWithId:[JavaLangInteger valueOfWithInt:next]];
     }
     else {
       break;
     }
   }
-  NSAssert(![pending_ hasKeyWithInt:currentRevision_ + 1], @"/Users/retechretech/dev/workspace/realtime/realtime-channel/src/main/java/com/goodow/realtime/channel/operation/ReceiveOpChannelImpl.java:247 condition failed: assert !pending.hasKey(currentRevision + 1);");
+  NSAssert(![pending_ containsKeyWithId:[JavaLangInteger valueOfWithInt:currentRevision_ + 1]], @"/Users/retechretech/dev/workspace/realtime/realtime-channel/src/main/java/com/goodow/realtime/channel/operation/ReceiveOpChannelImpl.java:247 condition failed: assert !pending.containsKey(currentRevision + 1);");
 }
 
 + (void)initialize {
@@ -240,8 +241,8 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_ReceiveOpChannel_Li
   [((JavaUtilLoggingLogger *) nil_chk([ComGoodowRealtimeChannelOperationReceiveOpChannelImpl log])) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel WARNING] withNSString:@"onFatalError " withJavaLangThrowable:e];
 }
 
-- (void)onMessageWithGDRJsonObject:(id<GDRJsonObject>)msg {
-  [this$0_ onMessageWithGDRJsonObject:msg];
+- (void)onMessageWithGDJsonObject:(id<GDJsonObject>)msg {
+  [this$0_ onMessageWithGDJsonObject:msg];
 }
 
 - (id)initWithComGoodowRealtimeChannelOperationReceiveOpChannelImpl:(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *)outer$ {

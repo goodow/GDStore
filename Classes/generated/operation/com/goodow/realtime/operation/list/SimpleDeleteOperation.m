@@ -17,9 +17,9 @@
 
 @implementation ComGoodowRealtimeOperationListSimpleDeleteOperation
 
-+ (ComGoodowRealtimeOperationListSimpleDeleteOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  NSAssert([((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationListAbstractDeleteOperation_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/SimpleDeleteOperation.java:23 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
-  return [[ComGoodowRealtimeOperationListSimpleDeleteOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDRJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListOperation parseStartIndexWithGDRJsonArray:serialized] withInt:(int) [serialized getNumberWithInt:3]];
++ (ComGoodowRealtimeOperationListSimpleDeleteOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized {
+  NSAssert([((id<GDJsonArray>) nil_chk(serialized)) getNumber:0] == ComGoodowRealtimeOperationListAbstractDeleteOperation_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/SimpleDeleteOperation.java:23 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
+  return [[ComGoodowRealtimeOperationListSimpleDeleteOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListOperation parseStartIndexWithGDJsonArray:serialized] withInt:(int) [serialized getNumber:3]];
 }
 
 - (id)initWithNSString:(NSString *)id_
@@ -43,7 +43,7 @@
   return [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getDelegateWithId:values])) lengthWithId:values];
 }
 
-- (id)parseValuesWithGDRJsonArray:(id<GDRJsonArray>)serialized {
+- (id)parseValuesWithGDJsonArray:(id<GDJsonArray>)serialized {
   @throw [[JavaLangUnsupportedOperationException alloc] init];
 }
 

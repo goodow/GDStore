@@ -38,7 +38,7 @@
 
 - (id)initWithGDRModel:(GDRModel *)model {
   if (self = [super initWithGDRModel:model]) {
-    snapshot_ = [GDRJson createObject];
+    snapshot_ = [GDJson createObject];
   }
   return self;
 }
@@ -63,12 +63,12 @@
 
 - (id)get:(NSString *)key {
   [self checkKeyWithNSString:key];
-  return (id) [ComGoodowRealtimeModelUtilJsonSerializer deserializeObjectWithGDRJsonValue:[((id<GDRJsonObject>) nil_chk(snapshot_)) getArrayWithNSString:key] withJavaUtilMap:((GDRModel *) nil_chk(model_))->objects_];
+  return (id) [ComGoodowRealtimeModelUtilJsonSerializer deserializeObjectWithGDJsonValue:[((id<GDJsonObject>) nil_chk(snapshot_)) getArray:key] withJavaUtilMap:((GDRModel *) nil_chk(model_))->objects_];
 }
 
 - (BOOL)has:(NSString *)key {
   [self checkKeyWithNSString:key];
-  return [((id<GDRJsonObject>) nil_chk(snapshot_)) hasKeyWithNSString:key];
+  return [((id<GDJsonObject>) nil_chk(snapshot_)) hasKey:key];
 }
 
 - (BOOL)isEmpty {
@@ -88,7 +88,7 @@
 }
 
 - (IOSObjectArray *)__keys {
-  return [((id<GDRJsonObject>) nil_chk(snapshot_)) keys];
+  return [((id<GDJsonObject>) nil_chk(snapshot_)) keys];
 }
 
 - (id)remove:(NSString *)key {
@@ -97,7 +97,7 @@
   if (oldValue == nil) {
     return nil;
   }
-  ComGoodowRealtimeOperationMapJsonJsonMapOperation *op = [[ComGoodowRealtimeOperationMapJsonJsonMapOperation alloc] initWithNSString:id__ withNSString:key withId:[((id<GDRJsonObject>) nil_chk(snapshot_)) getArrayWithNSString:key] withId:nil];
+  ComGoodowRealtimeOperationMapJsonJsonMapOperation *op = [[ComGoodowRealtimeOperationMapJsonJsonMapOperation alloc] initWithNSString:id__ withNSString:key withId:[((id<GDJsonObject>) nil_chk(snapshot_)) getArray:key] withId:nil];
   [self consumeAndSubmitWithComGoodowRealtimeOperationOperation:op];
   return oldValue;
 }
@@ -108,10 +108,10 @@
 
 - (id)set:(NSString *)key value:(id)value {
   [self checkKeyWithNSString:key];
-  id<GDRJsonArray> serializedValue = [ComGoodowRealtimeModelUtilJsonSerializer serializeObjectWithId:value];
+  id<GDJsonArray> serializedValue = [ComGoodowRealtimeModelUtilJsonSerializer serializeObjectWithId:value];
   id oldObject = [self get:key];
-  id<GDRJsonArray> oldValue = [((id<GDRJsonObject>) nil_chk(snapshot_)) getArrayWithNSString:key];
-  if (![ComGoodowRealtimeOperationMapJsonJsonMapOperation jsonEqualsWithGDRJsonValue:oldValue withGDRJsonValue:serializedValue]) {
+  id<GDJsonArray> oldValue = [((id<GDJsonObject>) nil_chk(snapshot_)) getArray:key];
+  if (![ComGoodowRealtimeOperationMapJsonJsonMapOperation jsonEqualsWithGDJsonValue:oldValue withGDJsonValue:serializedValue]) {
     ComGoodowRealtimeOperationMapJsonJsonMapOperation *op = [[ComGoodowRealtimeOperationMapJsonJsonMapOperation alloc] initWithNSString:id__ withNSString:key withId:oldValue withId:serializedValue];
     [self consumeAndSubmitWithComGoodowRealtimeOperationOperation:op];
   }
@@ -148,7 +148,7 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
       id const *e__ = b__ + a__->size_;
       while (b__ < e__) {
         NSString *key = (*b__++);
-        (void) IOSObjectArray_Set(toRtn, i++, [[ComGoodowRealtimeOperationMapJsonJsonMapOperation alloc] initWithNSString:id__ withNSString:key withId:nil withId:[((id<GDRJsonObject>) nil_chk(snapshot_)) getWithNSString:key]]);
+        (void) IOSObjectArray_Set(toRtn, i++, [[ComGoodowRealtimeOperationMapJsonJsonMapOperation alloc] initWithNSString:id__ withNSString:key withId:nil withId:[((id<GDJsonObject>) nil_chk(snapshot_)) get:key]]);
       }
     }
   }
@@ -183,7 +183,7 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
         [((GDRCollaborativeObject *) nil_chk(obj)) toStringWithJavaUtilSet:seen withJavaLangStringBuilder:sb];
       }
       else {
-        (void) [sb appendWithNSString:[NSString stringWithFormat:@"[JsonValue %@]", [((id<GDRJsonValue>) nil_chk([((id<GDRJsonArray>) nil_chk([((id<GDRJsonObject>) nil_chk(snapshot_)) getArrayWithNSString:key])) getWithInt:1])) toJson]]];
+        (void) [sb appendWithNSString:[NSString stringWithFormat:@"[JsonValue %@]", [((id<GDJsonValue>) nil_chk([((id<GDJsonArray>) nil_chk([((id<GDJsonObject>) nil_chk(snapshot_)) getArray:key])) get:1])) toJson]]];
       }
     }
   }
@@ -197,33 +197,33 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
 }
 
 - (void)putAndFireEventWithNSString:(NSString *)key
-                   withGDRJsonValue:(id<GDRJsonValue>)newValue
+                    withGDJsonValue:(id<GDJsonValue>)newValue
                        withNSString:(NSString *)sessionId
                        withNSString:(NSString *)userId {
-  NSAssert(nil != newValue && [GDRJsonTypeEnum NULL_] != [newValue getType], @"/Users/retechretech/dev/workspace/realtime/realtime-api/src/main/java/com/goodow/realtime/CollaborativeMap.java:331 condition failed: assert null != newValue && JsonType.NULL != newValue.getType();");
-  id newObject = [ComGoodowRealtimeModelUtilJsonSerializer deserializeObjectWithGDRJsonValue:newValue withJavaUtilMap:((GDRModel *) nil_chk(model_))->objects_];
+  NSAssert(nil != newValue && [GDJsonTypeEnum NULL_] != [newValue getType], @"/Users/retechretech/dev/workspace/realtime/realtime-api/src/main/java/com/goodow/realtime/CollaborativeMap.java:331 condition failed: assert null != newValue && JsonType.NULL != newValue.getType();");
+  id newObject = [ComGoodowRealtimeModelUtilJsonSerializer deserializeObjectWithGDJsonValue:newValue withJavaUtilMap:((GDRModel *) nil_chk(model_))->objects_];
   GDRValueChangedEvent *event = [[GDRValueChangedEvent alloc] initWithGDRCollaborativeMap:self withNSString:sessionId withNSString:userId withNSString:key withId:newObject withId:[self get:key]];
-  if ([((id<GDRJsonObject>) nil_chk(snapshot_)) hasKeyWithNSString:key]) {
-    id<GDRJsonArray> oldValue = [snapshot_ getArrayWithNSString:key];
-    [model_ addOrRemoveParentWithGDRJsonValue:oldValue withNSString:id__ withBoolean:NO];
-    model_->bytesUsed_ -= [((NSString *) nil_chk([((id<GDRJsonArray>) nil_chk(oldValue)) toJson])) length];
+  if ([((id<GDJsonObject>) nil_chk(snapshot_)) hasKey:key]) {
+    id<GDJsonArray> oldValue = [snapshot_ getArray:key];
+    [model_ addOrRemoveParentWithGDJsonValue:oldValue withNSString:id__ withBoolean:NO];
+    model_->bytesUsed_ -= [((NSString *) nil_chk([((id<GDJsonArray>) nil_chk(oldValue)) toJson])) length];
   }
-  [snapshot_ putWithNSString:key withGDRJsonValue:newValue];
-  [model_ addOrRemoveParentWithGDRJsonValue:newValue withNSString:id__ withBoolean:YES];
+  [snapshot_ set:key value:newValue];
+  [model_ addOrRemoveParentWithGDJsonValue:newValue withNSString:id__ withBoolean:YES];
   [self fireEventWithGDRBaseModelEvent:event];
-  model_->bytesUsed_ += [((NSString *) nil_chk([((id<GDRJsonValue>) nil_chk(newValue)) toJson])) length];
+  model_->bytesUsed_ += [((NSString *) nil_chk([((id<GDJsonValue>) nil_chk(newValue)) toJson])) length];
 }
 
 - (void)removeAndFireEventWithNSString:(NSString *)key
                           withNSString:(NSString *)sessionId
                           withNSString:(NSString *)userId {
   NSAssert([self has:key], @"/Users/retechretech/dev/workspace/realtime/realtime-api/src/main/java/com/goodow/realtime/CollaborativeMap.java:347 condition failed: assert has(key);");
-  id<GDRJsonArray> oldValue = [((id<GDRJsonObject>) nil_chk(snapshot_)) getArrayWithNSString:key];
+  id<GDJsonArray> oldValue = [((id<GDJsonObject>) nil_chk(snapshot_)) getArray:key];
   GDRValueChangedEvent *event = [[GDRValueChangedEvent alloc] initWithGDRCollaborativeMap:self withNSString:sessionId withNSString:userId withNSString:key withId:nil withId:[self get:key]];
-  [snapshot_ removeWithNSString:key];
-  [((GDRModel *) nil_chk(model_)) addOrRemoveParentWithGDRJsonValue:oldValue withNSString:id__ withBoolean:NO];
+  [snapshot_ remove:key];
+  [((GDRModel *) nil_chk(model_)) addOrRemoveParentWithGDJsonValue:oldValue withNSString:id__ withBoolean:NO];
   [self fireEventWithGDRBaseModelEvent:event];
-  model_->bytesUsed_ -= [((NSString *) nil_chk([((id<GDRJsonArray>) nil_chk(oldValue)) toJson])) length];
+  model_->bytesUsed_ -= [((NSString *) nil_chk([((id<GDJsonArray>) nil_chk(oldValue)) toJson])) length];
 }
 
 - (void)copyAllFieldsTo:(GDRCollaborativeMap *)other {
@@ -263,14 +263,14 @@ withComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>
 @implementation GDRCollaborativeMap_$1
 
 - (void)setWithNSString:(NSString *)key
-                 withId:(id<GDRJsonValue>)newValue {
+                 withId:(id<GDJsonValue>)newValue {
   if (newValue == nil) {
     [this$0_ removeAndFireEventWithNSString:key withNSString:val$sessionId_ withNSString:val$userId_];
     ((GDRModel *) nil_chk(this$0_->model_))->bytesUsed_ -= [((NSString *) nil_chk([((id<ComGoodowRealtimeOperationOperation>) nil_chk(val$operation_)) description])) length];
     this$0_->model_->bytesUsed_ -= 2;
   }
   else {
-    [this$0_ putAndFireEventWithNSString:key withGDRJsonValue:newValue withNSString:val$sessionId_ withNSString:val$userId_];
+    [this$0_ putAndFireEventWithNSString:key withGDJsonValue:newValue withNSString:val$sessionId_ withNSString:val$userId_];
   }
 }
 

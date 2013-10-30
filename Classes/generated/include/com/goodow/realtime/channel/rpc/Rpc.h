@@ -11,18 +11,18 @@
 @class JavaLangThrowable;
 @protocol ComGoodowRealtimeChannelRpcRpc_RpcCallback;
 @protocol ComGoodowRealtimeChannelRpcRpc_RpcHandle;
-@protocol ElementalUtilMapFromStringToString;
+@protocol JavaUtilMap;
 
 #import "JreEmulation.h"
 #include "java/lang/Enum.h"
 
 @protocol ComGoodowRealtimeChannelRpcRpc < NSObject, JavaObject >
 - (id<ComGoodowRealtimeChannelRpcRpc_RpcHandle>)getWithNSString:(NSString *)serviceName
-                         withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params
+                                                withJavaUtilMap:(id<JavaUtilMap>)params
                  withComGoodowRealtimeChannelRpcRpc_RpcCallback:(id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>)rpcCallback;
 - (void)maybeSetConnectionStateWithComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum:(ComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum *)state;
 - (id<ComGoodowRealtimeChannelRpcRpc_RpcHandle>)postWithNSString:(NSString *)serviceName
-                          withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params
+                                                 withJavaUtilMap:(id<JavaUtilMap>)params
                                                     withNSString:(NSString *)formData
                   withComGoodowRealtimeChannelRpcRpc_RpcCallback:(id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>)rpcCallback;
 @end

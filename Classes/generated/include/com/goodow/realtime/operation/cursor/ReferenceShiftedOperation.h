@@ -10,7 +10,7 @@
 @class IOSObjectArray;
 @class JavaLangStringBuilder;
 @class JavaLangVoid;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/AbstractOperation.h"
@@ -26,7 +26,7 @@
 }
 
 + (int)TYPE;
-+ (ComGoodowRealtimeOperationCursorReferenceShiftedOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (ComGoodowRealtimeOperationCursorReferenceShiftedOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithNSString:(NSString *)id_
           withNSString:(NSString *)referencedObjectId
                withInt:(int)newIndex

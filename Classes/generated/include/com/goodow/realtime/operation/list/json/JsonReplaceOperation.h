@@ -9,7 +9,7 @@
 
 @class ComGoodowRealtimeOperationListJsonJsonHelper;
 @class IOSObjectArray;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/list/AbstractReplaceOperation.h"
@@ -17,11 +17,11 @@
 @interface ComGoodowRealtimeOperationListJsonJsonReplaceOperation : ComGoodowRealtimeOperationListAbstractReplaceOperation {
 }
 
-+ (ComGoodowRealtimeOperationListJsonJsonReplaceOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (ComGoodowRealtimeOperationListJsonJsonReplaceOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithNSString:(NSString *)id_
                withInt:(int)startIndex
- withGDRJsonValueArray:(IOSObjectArray *)oldValues
- withGDRJsonValueArray:(IOSObjectArray *)newValues;
+  withGDJsonValueArray:(IOSObjectArray *)oldValues
+  withGDJsonValueArray:(IOSObjectArray *)newValues;
 - (ComGoodowRealtimeOperationListJsonJsonReplaceOperation *)invert;
 - (ComGoodowRealtimeOperationListJsonJsonReplaceOperation *)createWithInt:(int)startIndex
                                                                    withId:(IOSObjectArray *)oldValues

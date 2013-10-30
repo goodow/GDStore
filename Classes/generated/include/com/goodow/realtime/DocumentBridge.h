@@ -13,11 +13,11 @@
 @class GDRModel;
 @protocol ComGoodowRealtimeOperationOperation;
 @protocol ComGoodowRealtimeOperationUndoUndoManager;
+@protocol GDJsonArray;
+@protocol GDJsonObject;
+@protocol GDJsonValue;
 @protocol GDRDocumentLoadedHandler;
 @protocol GDRErrorHandler;
-@protocol GDRJsonArray;
-@protocol GDRJsonObject;
-@protocol GDRJsonValue;
 @protocol GDRModelInitializerHandler;
 @protocol JavaUtilList;
 @protocol JavaUtilSet;
@@ -37,7 +37,7 @@
 }
 
 + (id<ComGoodowRealtimeChannelOperationOperationSucker_OutputSink>)VOID;
-- (id)initWithGDRJsonArray:(id<GDRJsonArray>)snapshot;
+- (id)initWithGDJsonArray:(id<GDJsonArray>)snapshot;
 - (id)init;
 - (void)consumeWithId:(ComGoodowRealtimeOperationRealtimeOperation *)operation;
 - (GDRDocument *)getDocument;
@@ -45,14 +45,14 @@
                    withNSString:(NSString *)message
                     withBoolean:(BOOL)isFatal;
 - (void)onCollaboratorChangedWithBoolean:(BOOL)isJoined
-                       withGDRJsonObject:(id<GDRJsonObject>)json;
+                        withGDJsonObject:(id<GDJsonObject>)json;
 - (void)onSaveStateChangedWithBoolean:(BOOL)isSaving
                           withBoolean:(BOOL)isPending;
 - (void)setOutputSinkWithComGoodowRealtimeChannelOperationOperationSucker_OutputSink:(id<ComGoodowRealtimeChannelOperationOperationSucker_OutputSink>)outputSink;
 - (NSString *)description;
 - (void)addErrorHandlerWithGDRErrorHandler:(id<GDRErrorHandler>)errorHandler;
 - (void)consumeAndSubmitWithComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>)op;
-- (void)createSnapshotWithGDRJsonValue:(id<GDRJsonValue>)serialized;
+- (void)createSnapshotWithGDJsonValue:(id<GDJsonValue>)serialized;
 - (void)handleErrorWithGDRError:(GDRError *)error;
 - (void)initializeModelWithGDRModelInitializerHandler:(id<GDRModelInitializerHandler>)initializer OBJC_METHOD_FAMILY_NONE;
 - (BOOL)isLocalSessionWithNSString:(NSString *)sessionId;

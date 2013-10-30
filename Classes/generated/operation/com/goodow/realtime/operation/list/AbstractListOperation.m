@@ -12,8 +12,8 @@
 
 @implementation ComGoodowRealtimeOperationListAbstractListOperation
 
-+ (int)parseStartIndexWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  return (int) [((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:2];
++ (int)parseStartIndexWithGDJsonArray:(id<GDJsonArray>)serialized {
+  return (int) [((id<GDJsonArray>) nil_chk(serialized)) getNumber:2];
 }
 
 - (id)initWithInt:(int)type

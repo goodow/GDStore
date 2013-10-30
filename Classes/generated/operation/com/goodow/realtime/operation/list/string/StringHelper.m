@@ -24,9 +24,9 @@ static ComGoodowRealtimeOperationListStringStringHelper * ComGoodowRealtimeOpera
   return [((NSString *) nil_chk(values)) length];
 }
 
-- (NSString *)parseValuesWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  NSAssert([((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationListStringStringHelper_TYPE && [serialized length] == 2, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/string/StringHelper.java:31 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 2;");
-  NSString *string = [serialized getStringWithInt:1];
+- (NSString *)parseValuesWithGDJsonArray:(id<GDJsonArray>)serialized {
+  NSAssert([((id<GDJsonArray>) nil_chk(serialized)) getNumber:0] == ComGoodowRealtimeOperationListStringStringHelper_TYPE && [serialized length] == 2, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/string/StringHelper.java:31 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 2;");
+  NSString *string = [serialized getString:1];
   NSAssert(![((NSString *) nil_chk(string)) isEmpty], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/string/StringHelper.java:33 condition failed: assert !string.isEmpty();");
   return string;
 }

@@ -8,8 +8,8 @@
 #define _ComGoodowRealtimeOperationMapJsonJsonMapOperation_H_
 
 @class JavaLangStringBuilder;
-@protocol GDRJsonArray;
-@protocol GDRJsonValue;
+@protocol GDJsonArray;
+@protocol GDJsonValue;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/map/AbstractMapOperation.h"
@@ -17,20 +17,20 @@
 @interface ComGoodowRealtimeOperationMapJsonJsonMapOperation : ComGoodowRealtimeOperationMapAbstractMapOperation {
 }
 
-+ (BOOL)jsonEqualsWithGDRJsonValue:(id<GDRJsonValue>)value0
-                  withGDRJsonValue:(id<GDRJsonValue>)value1;
-+ (ComGoodowRealtimeOperationMapJsonJsonMapOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (BOOL)jsonEqualsWithGDJsonValue:(id<GDJsonValue>)value0
+                  withGDJsonValue:(id<GDJsonValue>)value1;
++ (ComGoodowRealtimeOperationMapJsonJsonMapOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithNSString:(NSString *)id_
           withNSString:(NSString *)key
-      withGDRJsonValue:(id<GDRJsonValue>)oldValue
-      withGDRJsonValue:(id<GDRJsonValue>)newValue;
+       withGDJsonValue:(id<GDJsonValue>)oldValue
+       withGDJsonValue:(id<GDJsonValue>)newValue;
 - (ComGoodowRealtimeOperationMapJsonJsonMapOperation *)invert;
 - (ComGoodowRealtimeOperationMapJsonJsonMapOperation *)createWithNSString:(NSString *)id_
                                                              withNSString:(NSString *)key
-                                                                   withId:(id<GDRJsonValue>)oldValue
-                                                                   withId:(id<GDRJsonValue>)newValue;
-- (BOOL)equalsWithId:(id<GDRJsonValue>)value0
-              withId:(id<GDRJsonValue>)value1;
+                                                                   withId:(id<GDJsonValue>)oldValue
+                                                                   withId:(id<GDJsonValue>)newValue;
+- (BOOL)equalsWithId:(id<GDJsonValue>)value0
+              withId:(id<GDJsonValue>)value1;
 - (void)toStringWithJavaLangStringBuilder:(JavaLangStringBuilder *)sb;
 @end
 

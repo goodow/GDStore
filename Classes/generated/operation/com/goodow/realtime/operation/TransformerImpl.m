@@ -37,35 +37,35 @@
   return operations;
 }
 
-- (ComGoodowRealtimeOperationAbstractOperation *)createOperationWithGDRJsonArray:(id<GDRJsonArray>)serialized {
+- (ComGoodowRealtimeOperationAbstractOperation *)createOperationWithGDJsonArray:(id<GDJsonArray>)serialized {
   ComGoodowRealtimeOperationAbstractOperation *op = nil;
-  switch ((int) [((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0]) {
+  switch ((int) [((id<GDJsonArray>) nil_chk(serialized)) getNumber:0]) {
     case ComGoodowRealtimeOperationCreateCreateOperation_TYPE:
-    op = [ComGoodowRealtimeOperationCreateCreateOperation parseWithGDRJsonArray:serialized];
+    op = [ComGoodowRealtimeOperationCreateCreateOperation parseWithGDJsonArray:serialized];
     break;
     case ComGoodowRealtimeOperationMapAbstractMapOperation_TYPE:
-    op = [ComGoodowRealtimeOperationMapJsonJsonMapOperation parseWithGDRJsonArray:serialized];
+    op = [ComGoodowRealtimeOperationMapJsonJsonMapOperation parseWithGDJsonArray:serialized];
     break;
     case ComGoodowRealtimeOperationListAbstractInsertOperation_TYPE:
-    switch ((int) [((id<GDRJsonArray>) nil_chk([serialized getArrayWithInt:3])) getNumberWithInt:0]) {
+    switch ((int) [((id<GDJsonArray>) nil_chk([serialized getArray:3])) getNumber:0]) {
       case ComGoodowRealtimeOperationListJsonJsonHelper_TYPE:
-      op = [ComGoodowRealtimeOperationListJsonJsonInsertOperation parseWithGDRJsonArray:serialized];
+      op = [ComGoodowRealtimeOperationListJsonJsonInsertOperation parseWithGDJsonArray:serialized];
       break;
       case ComGoodowRealtimeOperationListStringStringHelper_TYPE:
-      op = [ComGoodowRealtimeOperationListStringStringInsertOperation parseWithGDRJsonArray:serialized];
+      op = [ComGoodowRealtimeOperationListStringStringInsertOperation parseWithGDJsonArray:serialized];
       break;
       default:
       @throw [[JavaLangUnsupportedOperationException alloc] initWithNSString:[NSString stringWithFormat:@"Unknow insert operation sub-type: %@", [serialized toJson]]];
     }
     break;
     case ComGoodowRealtimeOperationListAbstractDeleteOperation_TYPE:
-    op = [ComGoodowRealtimeOperationListSimpleDeleteOperation parseWithGDRJsonArray:serialized];
+    op = [ComGoodowRealtimeOperationListSimpleDeleteOperation parseWithGDJsonArray:serialized];
     break;
     case ComGoodowRealtimeOperationListAbstractReplaceOperation_TYPE:
-    op = [ComGoodowRealtimeOperationListJsonJsonReplaceOperation parseWithGDRJsonArray:serialized];
+    op = [ComGoodowRealtimeOperationListJsonJsonReplaceOperation parseWithGDJsonArray:serialized];
     break;
     case ComGoodowRealtimeOperationCursorReferenceShiftedOperation_TYPE:
-    op = [ComGoodowRealtimeOperationCursorReferenceShiftedOperation parseWithGDRJsonArray:serialized];
+    op = [ComGoodowRealtimeOperationCursorReferenceShiftedOperation parseWithGDJsonArray:serialized];
     break;
     default:
     @throw [[JavaLangUnsupportedOperationException alloc] initWithNSString:[NSString stringWithFormat:@"Unknow operation type: %@", [serialized toJson]]];
@@ -75,13 +75,13 @@
 
 - (id)createOperationWithNSString:(NSString *)userId
                      withNSString:(NSString *)sessionId
-                 withGDRJsonValue:(id<GDRJsonValue>)serialized {
-  id<GDRJsonArray> ops = (id<GDRJsonArray>) check_protocol_cast(serialized, @protocol(GDRJsonArray));
-  int length = [((id<GDRJsonArray>) nil_chk(ops)) length];
+                  withGDJsonValue:(id<GDJsonValue>)serialized {
+  id<GDJsonArray> ops = (id<GDJsonArray>) check_protocol_cast(serialized, @protocol(GDJsonArray));
+  int length = [((id<GDJsonArray>) nil_chk(ops)) length];
   NSAssert(length > 0, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/TransformerImpl.java:87 condition failed: assert length > 0;");
   id<JavaUtilList> operations = [[JavaUtilArrayList alloc] initWithInt:length];
   for (int i = 0; i < length; i++) {
-    [operations addWithId:[self createOperationWithGDRJsonArray:[ops getArrayWithInt:i]]];
+    [operations addWithId:[self createOperationWithGDJsonArray:[ops getArray:i]]];
   }
   return (id<ComGoodowRealtimeOperationOperation>) [[ComGoodowRealtimeOperationRealtimeOperation alloc] initWithNSString:userId withNSString:sessionId withJavaUtilList:operations];
 }

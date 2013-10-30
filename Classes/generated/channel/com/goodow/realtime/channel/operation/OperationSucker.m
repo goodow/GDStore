@@ -119,13 +119,13 @@ static ComGoodowRealtimeChannelChannelDemuxer * ComGoodowRealtimeChannelOperatio
 @end
 @implementation ComGoodowRealtimeChannelOperationOperationSucker_$2
 
-- (void)onSuccessWithGDRJsonValue:(id<GDRJsonValue>)snapshot
-                     withNSString:(NSString *)sid
-                          withInt:(int)revision {
+- (void)onSuccessWithGDJsonValue:(id<GDJsonValue>)snapshot
+                    withNSString:(NSString *)sid
+                         withInt:(int)revision {
   this$0_->bridge_ = val$listener_;
   [((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk([ComGoodowRealtimeChannelOperationOperationSucker demuxer])) register__WithNSString:this$0_->id__ withComGoodowRealtimeChannelOperationOperationSucker_Listener:this$0_->bridge_ withComGoodowRealtimeChannelOperationReceiveOpChannelImpl:(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *) check_class_cast(this$0_->receiveChannel_, [ComGoodowRealtimeChannelOperationReceiveOpChannelImpl class])];
   [((ComGoodowRealtimeChannelOperationGenericOperationChannel *) nil_chk(this$0_->channel_)) connectWithInt:revision withNSString:this$0_->sessionId_];
-  [((id<ComGoodowRealtimeChannelRpcSnapshotService_Callback>) nil_chk(val$callback_)) onSuccessWithGDRJsonValue:snapshot withNSString:this$0_->sessionId_ withInt:revision];
+  [((id<ComGoodowRealtimeChannelRpcSnapshotService_Callback>) nil_chk(val$callback_)) onSuccessWithGDJsonValue:snapshot withNSString:this$0_->sessionId_ withInt:revision];
   [((ComGoodowRealtimeChannelPollChannel *) nil_chk([ComGoodowRealtimeChannelPollChannel get])) connect];
 }
 

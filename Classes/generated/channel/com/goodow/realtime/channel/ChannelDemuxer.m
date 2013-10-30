@@ -21,9 +21,9 @@
 #include "com/goodow/realtime/operation/id/IdGenerator.h"
 #include "elemental/json/Json.h"
 #include "elemental/json/JsonObject.h"
-#include "elemental/util/ArrayOfString.h"
-#include "elemental/util/Collections.h"
-#include "elemental/util/MapFromStringTo.h"
+#include "java/util/HashMap.h"
+#include "java/util/Map.h"
+#include "java/util/Set.h"
 #include "java/util/logging/Level.h"
 #include "java/util/logging/Logger.h"
 
@@ -31,7 +31,7 @@
 
 static JavaUtilLoggingLogger * ComGoodowRealtimeChannelChannelDemuxer_log_;
 static ComGoodowRealtimeChannelChannelDemuxer * ComGoodowRealtimeChannelChannelDemuxer_INSTANCE_;
-static id<ElementalUtilMapFromStringTo> ComGoodowRealtimeChannelChannelDemuxer_entries_;
+static id<JavaUtilMap> ComGoodowRealtimeChannelChannelDemuxer_entries_;
 static id<ComGoodowRealtimeChannelRpcRpc> ComGoodowRealtimeChannelChannelDemuxer_rpc_;
 static NSString * ComGoodowRealtimeChannelChannelDemuxer_sessionId_;
 
@@ -43,7 +43,7 @@ static NSString * ComGoodowRealtimeChannelChannelDemuxer_sessionId_;
   return ComGoodowRealtimeChannelChannelDemuxer_INSTANCE_;
 }
 
-+ (id<ElementalUtilMapFromStringTo>)entries {
++ (id<JavaUtilMap>)entries {
   return ComGoodowRealtimeChannelChannelDemuxer_entries_;
 }
 
@@ -82,9 +82,7 @@ static NSString * ComGoodowRealtimeChannelChannelDemuxer_sessionId_;
 }
 
 - (void)clear {
-  for (int i = 0, len = [((id<ElementalUtilArrayOfString>) nil_chk([((id<ElementalUtilMapFromStringTo>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) keys])) length]; i < len; i++) {
-    [self closeWithNSString:[((id<ElementalUtilArrayOfString>) nil_chk([ComGoodowRealtimeChannelChannelDemuxer_entries_ keys])) getWithInt:i]];
-  }
+  [((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) clear];
 }
 
 - (void)close {
@@ -92,7 +90,7 @@ static NSString * ComGoodowRealtimeChannelChannelDemuxer_sessionId_;
 }
 
 - (void)closeWithNSString:(NSString *)id_ {
-  [((id<ElementalUtilMapFromStringTo>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) removeWithNSString:id_];
+  (void) [((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) removeWithId:id_];
 }
 
 - (void)connectWithNSString:(NSString *)token {
@@ -112,12 +110,12 @@ static NSString * ComGoodowRealtimeChannelChannelDemuxer_sessionId_;
   return accessToken_;
 }
 
-- (id<ElementalUtilArrayOfString>)getIds {
-  return [((id<ElementalUtilMapFromStringTo>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) keys];
+- (id<JavaUtilSet>)getIds {
+  return [((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) keySet];
 }
 
 - (int)getRevisionWithNSString:(NSString *)id_ {
-  return [((ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *) nil_chk(((ComGoodowRealtimeChannelChannelDemuxer_Entry *) nil_chk([((id<ElementalUtilMapFromStringTo>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) getWithNSString:id_]))->channel_)) revision];
+  return [((ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *) nil_chk(((ComGoodowRealtimeChannelChannelDemuxer_Entry *) nil_chk([((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) getWithId:id_]))->channel_)) revision];
 }
 
 - (id<ComGoodowRealtimeChannelRpcRpc>)getRpc {
@@ -125,10 +123,10 @@ static NSString * ComGoodowRealtimeChannelChannelDemuxer_sessionId_;
 }
 
 - (id<ComGoodowRealtimeOperationOperationSink>)getSnapshotWithNSString:(NSString *)id_ {
-  if (![((id<ElementalUtilMapFromStringTo>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) hasKeyWithNSString:id_]) {
+  if (![((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) containsKeyWithId:id_]) {
     return nil;
   }
-  return ((ComGoodowRealtimeChannelChannelDemuxer_Entry *) nil_chk([ComGoodowRealtimeChannelChannelDemuxer_entries_ getWithNSString:id_]))->snapshot_;
+  return ((ComGoodowRealtimeChannelChannelDemuxer_Entry *) nil_chk([ComGoodowRealtimeChannelChannelDemuxer_entries_ getWithId:id_]))->snapshot_;
 }
 
 - (void)onClose {
@@ -144,36 +142,36 @@ static NSString * ComGoodowRealtimeChannelChannelDemuxer_sessionId_;
     [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_log_)) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel WARNING] withNSString:@"Null data on channel"];
     return;
   }
-  id<GDRJsonObject> msg = [GDRJson parseWithNSString:message];
-  [self publishMessageWithGDRJsonObject:msg];
+  id<GDJsonObject> msg = [GDJson parse:message];
+  [self publishMessageWithGDJsonObject:msg];
 }
 
 - (void)onOpen {
   [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_log_)) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel FINE] withNSString:@"onOpened "];
 }
 
-- (void)publishMessageWithGDRJsonObject:(id<GDRJsonObject>)msg {
-  [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_log_)) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel FINE] withNSString:[NSString stringWithFormat:@"publishMessage data=%@", [((id<GDRJsonObject>) nil_chk(msg)) toJson]]];
-  NSAssert([msg hasKeyWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ID]] && [msg hasKeyWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params DELTAS]], [[NSString stringWithFormat:@"Bad data on channel (Missing fields) %@" J2OBJC_COMMA() msg] description]);
-  NSString *id_ = [msg getStringWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ID]];
-  ComGoodowRealtimeChannelChannelDemuxer_Entry *entry = [((id<ElementalUtilMapFromStringTo>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) getWithNSString:id_];
+- (void)publishMessageWithGDJsonObject:(id<GDJsonObject>)msg {
+  [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_log_)) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel FINE] withNSString:[NSString stringWithFormat:@"publishMessage data=%@", [((id<GDJsonObject>) nil_chk(msg)) toJson]]];
+  NSAssert([msg hasKey:[ComGoodowRealtimeChannelConstantConstants_Params ID]] && [msg hasKey:[ComGoodowRealtimeChannelConstantConstants_Params DELTAS]], [[NSString stringWithFormat:@"Bad data on channel (Missing fields) %@" J2OBJC_COMMA() msg] description]);
+  NSString *id_ = [msg getString:[ComGoodowRealtimeChannelConstantConstants_Params ID]];
+  ComGoodowRealtimeChannelChannelDemuxer_Entry *entry = [((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) getWithId:id_];
   if (entry == nil) {
     [ComGoodowRealtimeChannelChannelDemuxer_log_ logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel WARNING] withNSString:[NSString stringWithFormat:@"No channel registered for object with id %@", id_]];
     return;
   }
-  if ([msg hasKeyWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params IS_JOINED]]) {
-    [((id<ComGoodowRealtimeChannelOperationOperationSucker_Listener>) nil_chk(((ComGoodowRealtimeChannelChannelDemuxer_Entry *) nil_chk(entry))->snapshot_)) onCollaboratorChangedWithBoolean:[msg getBooleanWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params IS_JOINED]] withGDRJsonObject:msg];
+  if ([msg hasKey:[ComGoodowRealtimeChannelConstantConstants_Params IS_JOINED]]) {
+    [((id<ComGoodowRealtimeChannelOperationOperationSucker_Listener>) nil_chk(((ComGoodowRealtimeChannelChannelDemuxer_Entry *) nil_chk(entry))->snapshot_)) onCollaboratorChangedWithBoolean:[msg getBoolean:[ComGoodowRealtimeChannelConstantConstants_Params IS_JOINED]] withGDJsonObject:msg];
   }
   else {
-    [((ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *) nil_chk(((ComGoodowRealtimeChannelChannelDemuxer_Entry *) nil_chk(entry))->channel_)) onMessageWithGDRJsonObject:msg];
+    [((ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *) nil_chk(((ComGoodowRealtimeChannelChannelDemuxer_Entry *) nil_chk(entry))->channel_)) onMessageWithGDJsonObject:msg];
   }
 }
 
 - (void)register__WithNSString:(NSString *)id_
 withComGoodowRealtimeChannelOperationOperationSucker_Listener:(id<ComGoodowRealtimeChannelOperationOperationSucker_Listener>)snapshot
 withComGoodowRealtimeChannelOperationReceiveOpChannelImpl:(ComGoodowRealtimeChannelOperationReceiveOpChannelImpl *)channel {
-  NSAssert(![((id<ElementalUtilMapFromStringTo>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) hasKeyWithNSString:id_], [[NSString stringWithFormat:@"Channel handler already registered for %@" J2OBJC_COMMA() id_] description]);
-  [ComGoodowRealtimeChannelChannelDemuxer_entries_ putWithNSString:id_ withId:[[ComGoodowRealtimeChannelChannelDemuxer_Entry alloc] initWithComGoodowRealtimeChannelOperationOperationSucker_Listener:snapshot withComGoodowRealtimeChannelOperationReceiveOpChannelImpl:channel]];
+  NSAssert(![((id<JavaUtilMap>) nil_chk(ComGoodowRealtimeChannelChannelDemuxer_entries_)) containsKeyWithId:id_], [[NSString stringWithFormat:@"Channel handler already registered for %@" J2OBJC_COMMA() id_] description]);
+  (void) [ComGoodowRealtimeChannelChannelDemuxer_entries_ putWithId:id_ withId:[[ComGoodowRealtimeChannelChannelDemuxer_Entry alloc] initWithComGoodowRealtimeChannelOperationOperationSucker_Listener:snapshot withComGoodowRealtimeChannelOperationReceiveOpChannelImpl:channel]];
 }
 
 - (void)setAccessTokenWithNSString:(NSString *)accessToken {
@@ -184,7 +182,7 @@ withComGoodowRealtimeChannelOperationReceiveOpChannelImpl:(ComGoodowRealtimeChan
   if (self == [ComGoodowRealtimeChannelChannelDemuxer class]) {
     ComGoodowRealtimeChannelChannelDemuxer_log_ = [JavaUtilLoggingLogger getLoggerWithNSString:[[IOSClass classWithClass:[ComGoodowRealtimeChannelChannelDemuxer class]] getName]];
     ComGoodowRealtimeChannelChannelDemuxer_INSTANCE_ = [[ComGoodowRealtimeChannelChannelDemuxer alloc] init];
-    ComGoodowRealtimeChannelChannelDemuxer_entries_ = [ElementalUtilCollections mapFromStringTo];
+    ComGoodowRealtimeChannelChannelDemuxer_entries_ = [[JavaUtilHashMap alloc] init];
     ComGoodowRealtimeChannelChannelDemuxer_rpc_ = [[ComGoodowRealtimeChannelRpcRpcImpl alloc] initWithNSString:@"" withComGoodowRealtimeChannelRpcRpc_ConnectionStateListener:nil];
   }
 }

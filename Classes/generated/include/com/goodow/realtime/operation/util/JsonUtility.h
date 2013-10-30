@@ -7,16 +7,16 @@
 #ifndef _ComGoodowRealtimeOperationUtilJsonUtility_H_
 #define _ComGoodowRealtimeOperationUtilJsonUtility_H_
 
-@protocol GDRJsonValue;
+@protocol GDJsonValue;
 
 #import "JreEmulation.h"
 
 @interface ComGoodowRealtimeOperationUtilJsonUtility : NSObject {
 }
 
-+ (BOOL)isNullWithGDRJsonValue:(id<GDRJsonValue>)json;
-+ (BOOL)jsonEqualWithGDRJsonValue:(id<GDRJsonValue>)a
-                 withGDRJsonValue:(id<GDRJsonValue>)b;
++ (BOOL)isNullWithGDJsonValue:(id<GDJsonValue>)json;
++ (BOOL)jsonEqualWithGDJsonValue:(id<GDJsonValue>)a
+                 withGDJsonValue:(id<GDJsonValue>)b;
 - (id)init;
 @end
 

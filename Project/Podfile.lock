@@ -1,27 +1,26 @@
 PODS:
-  - GDRealtime (0.3.0):
+  - GDJson (0.3.0):
+    - J2ObjC (= 0.8.6.1)
+  - GDRealtime (0.3.1):
     - GDRealtime/default
-  - GDRealtime/common (0.3.0):
+  - GDRealtime/common (0.3.1):
     - GDRealtime/generated
     - Google-Diff-Match-Patch (~> 0.0.1)
     - GTMHTTPFetcher (~> 0.0.1)
-  - GDRealtime/default (0.3.0):
+  - GDRealtime/default (0.3.1):
     - GDRealtime/common
-  - GDRealtime/generated (0.3.0):
+  - GDRealtime/generated (0.3.1):
     - GDRealtime/generated/api
     - GDRealtime/generated/channel
-    - GDRealtime/generated/elemental
     - GDRealtime/generated/operation
     - GDRealtime/generated/services
-  - GDRealtime/generated/api (0.3.0):
+  - GDRealtime/generated/api (0.3.1):
     - GDRealtime/generated/channel
-  - GDRealtime/generated/channel (0.3.0):
+  - GDRealtime/generated/channel (0.3.1):
     - GDRealtime/generated/operation
-  - GDRealtime/generated/elemental (0.3.0):
-    - J2ObjC (= 0.8.6.1)
-  - GDRealtime/generated/operation (0.3.0):
-    - GDRealtime/generated/elemental
-  - GDRealtime/generated/services (0.3.0):
+  - GDRealtime/generated/operation (0.3.1):
+    - GDJson (~> 0.3.0)
+  - GDRealtime/generated/services (0.3.1):
     - Google-API-Client/Common
     - Google-API-Client/Objects
     - Google-API-Client/Utilities
@@ -61,22 +60,26 @@ PODS:
   - SBJson (3.2)
 
 DEPENDENCIES:
+  - GDJson (from `https://github.com/goodow/GDJson.git`)
   - GDRealtime (from `..`)
   - J2ObjC (from `https://github.com/larrytin/j2objc.git`)
 
 EXTERNAL SOURCES:
+  GDJson:
+    :git: https://github.com/goodow/GDJson.git
   GDRealtime:
     :path: ..
   J2ObjC:
     :git: https://github.com/larrytin/j2objc.git
 
 SPEC CHECKSUMS:
-  GDRealtime: 5b772a3beea624d14157cc3f5ae57e43ad0f9a53
+  GDJson: 5d71fc0ae1defd784602f89a0b29313c96cd6a88
+  GDRealtime: 0cc8bf0cd80f37d5b92f99db3173b93002bec845
   Google-API-Client: a5aea65083895ad2fa8eeca4747478215c9ac934
   Google-Diff-Match-Patch: 63f4950ecbd0bf3f7ccae48987e958fc825041d3
   gtm-oauth2: af6d1ff3d4b14b35d3709f7f4bf2be8b43e45e62
   GTMHTTPFetcher: b0af09f18ec87e7a5edeffcc8cb6449fdbf0e83f
-  J2ObjC: 8d92e82e53edd9699fc5fc01129a1a5606134576
+  J2ObjC: bea4c24af35100985485c173958f1189aa0f0f6b
   SBJson: e60b4dc22448c2ae1e754b523a4ab53408e85c8d
 
-COCOAPODS: 0.26.2
+COCOAPODS: 0.27.1

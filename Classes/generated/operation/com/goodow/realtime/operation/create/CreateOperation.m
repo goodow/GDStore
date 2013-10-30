@@ -35,9 +35,9 @@
   return ComGoodowRealtimeOperationCreateCreateOperation_INDEX_REFERENCE;
 }
 
-+ (ComGoodowRealtimeOperationCreateCreateOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  NSAssert([((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationCreateCreateOperation_TYPE && [serialized length] == 3, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/create/CreateOperation.java:28 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 3;");
-  return [[ComGoodowRealtimeOperationCreateCreateOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDRJsonArray:serialized] withInt:(int) [serialized getNumberWithInt:2]];
++ (ComGoodowRealtimeOperationCreateCreateOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized {
+  NSAssert([((id<GDJsonArray>) nil_chk(serialized)) getNumber:0] == ComGoodowRealtimeOperationCreateCreateOperation_TYPE && [serialized length] == 3, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/create/CreateOperation.java:28 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 3;");
+  return [[ComGoodowRealtimeOperationCreateCreateOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDJsonArray:serialized] withInt:(int) [serialized getNumber:2]];
 }
 
 - (id)initWithNSString:(NSString *)id_

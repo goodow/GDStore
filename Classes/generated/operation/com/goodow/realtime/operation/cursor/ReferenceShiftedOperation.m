@@ -19,9 +19,9 @@
   return ComGoodowRealtimeOperationCursorReferenceShiftedOperation_TYPE;
 }
 
-+ (ComGoodowRealtimeOperationCursorReferenceShiftedOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  NSAssert([((id<GDRJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationCursorReferenceShiftedOperation_TYPE && [serialized length] == 6, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedOperation.java:24 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 6;");
-  return [[ComGoodowRealtimeOperationCursorReferenceShiftedOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDRJsonArray:serialized] withNSString:[serialized getStringWithInt:2] withInt:(int) [serialized getNumberWithInt:3] withBoolean:[serialized getBooleanWithInt:4] withInt:(int) [serialized getNumberWithInt:5]];
++ (ComGoodowRealtimeOperationCursorReferenceShiftedOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized {
+  NSAssert([((id<GDJsonArray>) nil_chk(serialized)) getNumber:0] == ComGoodowRealtimeOperationCursorReferenceShiftedOperation_TYPE && [serialized length] == 6, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedOperation.java:24 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 6;");
+  return [[ComGoodowRealtimeOperationCursorReferenceShiftedOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDJsonArray:serialized] withNSString:[serialized getString:2] withInt:(int) [serialized getNumber:3] withBoolean:[serialized getBoolean:4] withInt:(int) [serialized getNumber:5]];
 }
 
 - (id)initWithNSString:(NSString *)id_

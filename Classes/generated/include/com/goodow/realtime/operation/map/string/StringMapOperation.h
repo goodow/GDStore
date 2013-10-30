@@ -8,7 +8,7 @@
 #define _ComGoodowRealtimeOperationMapStringStringMapOperation_H_
 
 @class JavaLangStringBuilder;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/map/AbstractMapOperation.h"
@@ -16,7 +16,7 @@
 @interface ComGoodowRealtimeOperationMapStringStringMapOperation : ComGoodowRealtimeOperationMapAbstractMapOperation {
 }
 
-+ (ComGoodowRealtimeOperationMapStringStringMapOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized;
++ (ComGoodowRealtimeOperationMapStringStringMapOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)initWithNSString:(NSString *)id_
           withNSString:(NSString *)key
           withNSString:(NSString *)oldValue

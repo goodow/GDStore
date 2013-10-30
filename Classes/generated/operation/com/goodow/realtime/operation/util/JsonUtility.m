@@ -10,17 +10,17 @@
 
 @implementation ComGoodowRealtimeOperationUtilJsonUtility
 
-+ (BOOL)isNullWithGDRJsonValue:(id<GDRJsonValue>)json {
-  return json == nil || [GDRJsonTypeEnum NULL_] == [json getType];
++ (BOOL)isNullWithGDJsonValue:(id<GDJsonValue>)json {
+  return json == nil || [GDJsonTypeEnum NULL_] == [json getType];
 }
 
-+ (BOOL)jsonEqualWithGDRJsonValue:(id<GDRJsonValue>)a
-                 withGDRJsonValue:(id<GDRJsonValue>)b {
-  if ([ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDRJsonValue:a]) {
-    return [ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDRJsonValue:b];
++ (BOOL)jsonEqualWithGDJsonValue:(id<GDJsonValue>)a
+                 withGDJsonValue:(id<GDJsonValue>)b {
+  if ([ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDJsonValue:a]) {
+    return [ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDJsonValue:b];
   }
   else {
-    return [ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDRJsonValue:b] ? NO : [((NSString *) nil_chk([((id<GDRJsonValue>) nil_chk(a)) toJson])) isEqual:[((id<GDRJsonValue>) nil_chk(b)) toJson]];
+    return [ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDJsonValue:b] ? NO : [((NSString *) nil_chk([((id<GDJsonValue>) nil_chk(a)) toJson])) isEqual:[((id<GDJsonValue>) nil_chk(b)) toJson]];
   }
 }
 

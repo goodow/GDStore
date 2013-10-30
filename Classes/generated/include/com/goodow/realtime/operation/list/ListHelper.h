@@ -8,13 +8,13 @@
 #define _ComGoodowRealtimeOperationListListHelper_H_
 
 @class JavaLangStringBuilder;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 
 @protocol ComGoodowRealtimeOperationListListHelper < NSObject, JavaObject >
 - (int)lengthWithId:(id)values;
-- (id)parseValuesWithGDRJsonArray:(id<GDRJsonArray>)serialized;
+- (id)parseValuesWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (id)replaceWithWithId:(id)values
                 withInt:(int)startIndex
                 withInt:(int)length

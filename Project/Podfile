@@ -1,6 +1,7 @@
 platform :ios, '7.0'
 
 pod 'J2ObjC', :git => 'https://github.com/larrytin/j2objc.git'
+pod 'GDJson', :git => 'https://github.com/goodow/GDJson.git'
 pod 'GDRealtime', :path => '..'
 # pod 'PonyDebugger', '~> 0.3.0'
 

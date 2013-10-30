@@ -15,10 +15,10 @@
 #include "elemental/json/JsonFactory.h"
 #include "elemental/json/JsonObject.h"
 #include "elemental/json/JsonValue.h"
-#include "elemental/util/Collections.h"
-#include "elemental/util/MapFromStringToString.h"
 #include "java/lang/Throwable.h"
+#include "java/util/HashMap.h"
 #include "java/util/List.h"
+#include "java/util/Map.h"
 #include "java/util/logging/Level.h"
 #include "java/util/logging/Logger.h"
 
@@ -44,10 +44,10 @@ static JavaUtilLoggingLogger * ComGoodowRealtimeChannelRpcSaveService_log_;
 - (void)requestRevisionWithNSString:(NSString *)id_
                        withNSString:(NSString *)sessionId
 withComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:(id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>)callback {
-  id<ElementalUtilMapFromStringToString> params = [ElementalUtilCollections mapFromStringToString];
-  [((id<ElementalUtilMapFromStringToString>) nil_chk(params)) putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ID] withNSString:id_];
-  [params putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withNSString:[((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(demuxer_)) getAccessToken]];
-  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk(rpc_)) getWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services REVISION] withElementalUtilMapFromStringToString:params withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcSaveService_$1 alloc] initWithComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:callback]];
+  id<JavaUtilMap> params = [[JavaUtilHashMap alloc] init];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params ID] withId:id_];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withId:[((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(demuxer_)) getAccessToken]];
+  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk(rpc_)) getWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services REVISION] withJavaUtilMap:params withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcSaveService_$1 alloc] initWithComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:callback]];
 }
 
 - (void)submitOperationsWithNSString:(NSString *)id_
@@ -55,18 +55,18 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callb
                              withInt:(int)revision
                     withJavaUtilList:(id<JavaUtilList>)operations
 withComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:(id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>)callback {
-  id<ElementalUtilMapFromStringToString> params = [ElementalUtilCollections mapFromStringToString];
-  [((id<ElementalUtilMapFromStringToString>) nil_chk(params)) putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ID] withNSString:id_];
-  [params putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withNSString:[((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(demuxer_)) getAccessToken]];
-  [params putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID] withNSString:sessionId];
-  id<GDRJsonObject> formData = [GDRJson createObject];
-  [((id<GDRJsonObject>) nil_chk(formData)) putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params REVISION] withDouble:revision];
-  [formData putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params CHANGES] withGDRJsonValue:[self serializeWithJavaUtilList:operations]];
-  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk(rpc_)) postWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services SAVE] withElementalUtilMapFromStringToString:params withNSString:[formData toJson] withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcSaveService_$2 alloc] initWithComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:callback]];
+  id<JavaUtilMap> params = [[JavaUtilHashMap alloc] init];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params ID] withId:id_];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withId:[((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(demuxer_)) getAccessToken]];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID] withId:sessionId];
+  id<GDJsonObject> formData = [GDJson createObject];
+  [((id<GDJsonObject>) nil_chk(formData)) set:[ComGoodowRealtimeChannelConstantConstants_Params REVISION] number:revision];
+  [formData set:[ComGoodowRealtimeChannelConstantConstants_Params CHANGES] value:[self serializeWithJavaUtilList:operations]];
+  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk(rpc_)) postWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services SAVE] withJavaUtilMap:params withNSString:[formData toJson] withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcSaveService_$2 alloc] initWithComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:callback]];
 }
 
-- (id<GDRJsonValue>)serializeWithJavaUtilList:(id<JavaUtilList>)ops {
-  return [((id<GDRJsonFactory>) nil_chk([GDRJson instance])) parseWithNSString:[((id<JavaUtilList>) nil_chk(ops)) description]];
+- (id<GDJsonValue>)serializeWithJavaUtilList:(id<JavaUtilList>)ops {
+  return [((id<GDJsonFactory>) nil_chk([GDJson instance])) parseWithNSString:[((id<JavaUtilList>) nil_chk(ops)) description]];
 }
 
 + (void)initialize {
@@ -94,8 +94,8 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callb
 
 - (void)onSuccessWithNSString:(NSString *)data {
   [((JavaUtilLoggingLogger *) nil_chk([ComGoodowRealtimeChannelRpcSaveService log])) logWithJavaUtilLoggingLevel:[JavaUtilLoggingLevel FINE] withNSString:data];
-  id<GDRJsonObject> connectResponse = [ComGoodowRealtimeChannelRpcRpcUtil evalPrefixedWithNSString:data];
-  [((id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>) nil_chk(val$callback_)) onSuccessWithInt:(int) [((id<GDRJsonObject>) nil_chk(connectResponse)) getNumberWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]];
+  id<GDJsonObject> connectResponse = [ComGoodowRealtimeChannelRpcRpcUtil evalPrefixedWithNSString:data];
+  [((id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>) nil_chk(val$callback_)) onSuccessWithInt:(int) [((id<GDJsonObject>) nil_chk(connectResponse)) getNumber:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]];
 }
 
 - (id)initWithComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:(id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>)capture$0 {
@@ -115,8 +115,8 @@ withComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callb
 }
 
 - (void)onSuccessWithNSString:(NSString *)data {
-  id<GDRJsonObject> json = [ComGoodowRealtimeChannelRpcRpcUtil evalPrefixedWithNSString:data];
-  [((id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>) nil_chk(val$callback_)) onSuccessWithInt:(int) [((id<GDRJsonObject>) nil_chk(json)) getNumberWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]];
+  id<GDJsonObject> json = [ComGoodowRealtimeChannelRpcRpcUtil evalPrefixedWithNSString:data];
+  [((id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>) nil_chk(val$callback_)) onSuccessWithInt:(int) [((id<GDJsonObject>) nil_chk(json)) getNumber:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]];
 }
 
 - (id)initWithComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback:(id<ComGoodowRealtimeChannelOperationGenericOperationChannel_SendOpService_Callback>)capture$0 {

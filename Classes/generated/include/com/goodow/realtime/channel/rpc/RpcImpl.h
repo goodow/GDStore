@@ -16,8 +16,7 @@
 @protocol ComGoodowRealtimeChannelHttpHttpResponse;
 @protocol ComGoodowRealtimeChannelRpcRpc_ConnectionStateListener;
 @protocol ComGoodowRealtimeChannelRpcRpc_RpcCallback;
-@protocol ElementalUtilMapFromIntTo;
-@protocol ElementalUtilMapFromStringToString;
+@protocol JavaUtilMap;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/channel/http/HttpRequestCallback.h"
@@ -37,25 +36,25 @@
 + (JavaUtilLoggingLogger *)log;
 + (int)nextRequestId;
 + (int *)nextRequestIdRef;
-+ (id<ElementalUtilMapFromIntTo>)handles;
-+ (void)setHandles:(id<ElementalUtilMapFromIntTo>)handles;
++ (id<JavaUtilMap>)handles;
++ (void)setHandles:(id<JavaUtilMap>)handles;
 + (void)dropRequestWithComGoodowRealtimeChannelRpcRpcImpl_Handle:(ComGoodowRealtimeChannelRpcRpcImpl_Handle *)handle;
 + (void)dropAll;
 - (id)initWithNSString:(NSString *)rpcRoot
 withComGoodowRealtimeChannelRpcRpc_ConnectionStateListener:(id<ComGoodowRealtimeChannelRpcRpc_ConnectionStateListener>)listener;
 - (id<ComGoodowRealtimeChannelRpcRpc_RpcHandle>)getWithNSString:(NSString *)serviceName
-                         withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params
+                                                withJavaUtilMap:(id<JavaUtilMap>)params
                  withComGoodowRealtimeChannelRpcRpc_RpcCallback:(id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>)rpcCallback;
 - (void)maybeSetConnectionStateWithComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum:(ComGoodowRealtimeChannelRpcRpc_ConnectionStateEnum *)newState;
 - (id<ComGoodowRealtimeChannelRpcRpc_RpcHandle>)postWithNSString:(NSString *)serviceName
-                          withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params
+                                                 withJavaUtilMap:(id<JavaUtilMap>)params
                                                     withNSString:(NSString *)formData
                   withComGoodowRealtimeChannelRpcRpc_RpcCallback:(id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>)rpcCallback;
 - (JavaLangStringBuilder *)addParamsWithJavaLangStringBuilder:(JavaLangStringBuilder *)b
-                       withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params;
+                                              withJavaUtilMap:(id<JavaUtilMap>)params;
 - (id<ComGoodowRealtimeChannelRpcRpc_RpcHandle>)makeRequestWithComGoodowRealtimeChannelRpcRpc_MethodEnum:(ComGoodowRealtimeChannelRpcRpc_MethodEnum *)method
                                                                                             withNSString:(NSString *)serviceName
-                                                                  withElementalUtilMapFromStringToString:(id<ElementalUtilMapFromStringToString>)params
+                                                                                         withJavaUtilMap:(id<JavaUtilMap>)params
                                                                                             withNSString:(NSString *)requestData
                                                           withComGoodowRealtimeChannelRpcRpc_RpcCallback:(id<ComGoodowRealtimeChannelRpcRpc_RpcCallback>)rpcCallback;
 - (void)copyAllFieldsTo:(ComGoodowRealtimeChannelRpcRpcImpl *)other;

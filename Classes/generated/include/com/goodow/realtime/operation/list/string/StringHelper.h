@@ -8,7 +8,7 @@
 #define _ComGoodowRealtimeOperationListStringStringHelper_H_
 
 @class JavaLangStringBuilder;
-@protocol GDRJsonArray;
+@protocol GDJsonArray;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/operation/list/ListHelper.h"
@@ -21,7 +21,7 @@
 + (int)TYPE;
 + (ComGoodowRealtimeOperationListStringStringHelper *)INSTANCE;
 - (int)lengthWithId:(NSString *)values;
-- (NSString *)parseValuesWithGDRJsonArray:(id<GDRJsonArray>)serialized;
+- (NSString *)parseValuesWithGDJsonArray:(id<GDJsonArray>)serialized;
 - (NSString *)replaceWithWithId:(NSString *)values
                         withInt:(int)startIndex
                         withInt:(int)length

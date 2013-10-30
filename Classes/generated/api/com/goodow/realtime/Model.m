@@ -117,7 +117,7 @@ static JavaUtilLoggingLogger * GDRModel_log_;
   [((GDRDocumentBridge *) nil_chk(bridge_)) consumeAndSubmitWithComGoodowRealtimeOperationOperation:[[ComGoodowRealtimeOperationCreateCreateOperation alloc] initWithNSString:id_ withInt:ComGoodowRealtimeOperationCreateCreateOperation_MAP]];
   if (opt_initialValue != nil && ![opt_initialValue isEmpty]) {
     for (id<JavaUtilMap_Entry> __strong entry in [opt_initialValue entrySet]) {
-      id<GDRJsonArray> serializedValue = [ComGoodowRealtimeModelUtilJsonSerializer serializeObjectWithId:[((id<JavaUtilMap_Entry>) nil_chk(entry)) getValue]];
+      id<GDJsonArray> serializedValue = [ComGoodowRealtimeModelUtilJsonSerializer serializeObjectWithId:[((id<JavaUtilMap_Entry>) nil_chk(entry)) getValue]];
       if (serializedValue == nil) {
         continue;
       }
@@ -188,15 +188,15 @@ static JavaUtilLoggingLogger * GDRModel_log_;
   [((GDRDocumentBridge *) nil_chk(bridge_)) undo];
 }
 
-- (void)addOrRemoveParentWithGDRJsonValue:(id<GDRJsonValue>)childOrNull
-                             withNSString:(NSString *)parentId
-                              withBoolean:(BOOL)isAdd {
-  if ([ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDRJsonValue:childOrNull]) {
+- (void)addOrRemoveParentWithGDJsonValue:(id<GDJsonValue>)childOrNull
+                            withNSString:(NSString *)parentId
+                             withBoolean:(BOOL)isAdd {
+  if ([ComGoodowRealtimeOperationUtilJsonUtility isNullWithGDJsonValue:childOrNull]) {
     return;
   }
-  id<GDRJsonArray> child = (id<GDRJsonArray>) check_protocol_cast(childOrNull, @protocol(GDRJsonArray));
-  if ([((id<GDRJsonArray>) nil_chk(child)) getNumberWithInt:0] == ComGoodowRealtimeModelUtilJsonSerializer_REFERENCE_TYPE) {
-    NSString *childId = [child getStringWithInt:1];
+  id<GDJsonArray> child = (id<GDJsonArray>) check_protocol_cast(childOrNull, @protocol(GDJsonArray));
+  if ([((id<GDJsonArray>) nil_chk(child)) getNumber:0] == ComGoodowRealtimeModelUtilJsonSerializer_REFERENCE_TYPE) {
+    NSString *childId = [child getString:1];
     id<JavaUtilList> list = [((id<JavaUtilMap>) nil_chk(parents_)) getWithId:childId];
     if (isAdd) {
       if (list == nil) {
@@ -206,7 +206,7 @@ static JavaUtilLoggingLogger * GDRModel_log_;
       [((id<JavaUtilList>) nil_chk(list)) addWithId:parentId];
     }
     else {
-      NSAssert(list != nil && [list containsWithId:parentId], @"/Users/retechretech/dev/workspace/realtime/realtime-api/src/main/java/com/goodow/realtime/Model.java:331 condition failed: assert list != null && list.contains(parentId);");
+      NSAssert(list != nil && [list containsWithId:parentId], @"/Users/retechretech/dev/workspace/realtime/realtime-api/src/main/java/com/goodow/realtime/Model.java:329 condition failed: assert list != null && list.contains(parentId);");
       [((id<JavaUtilList>) nil_chk(list)) removeWithId:parentId];
       if ([list isEmpty]) {
         (void) [parents_ removeWithId:childId];

@@ -15,9 +15,9 @@
 
 + (id)evalPrefixedWithNSString:(NSString *)data {
   if (![((NSString *) nil_chk(data)) hasPrefix:[ComGoodowRealtimeChannelConstantConstants XSSI_PREFIX]]) {
-    @throw [[GDRJsonException alloc] initWithNSString:[NSString stringWithFormat:@"Data did not start with XSSI prefix: %@", data]];
+    @throw [[GDJsonException alloc] initWithNSString:[NSString stringWithFormat:@"Data did not start with XSSI prefix: %@", data]];
   }
-  return [((id<GDRJsonFactory>) nil_chk([GDRJson instance])) parseWithNSString:[data substring:[((NSString *) nil_chk([ComGoodowRealtimeChannelConstantConstants XSSI_PREFIX])) length]]];
+  return [((id<GDJsonFactory>) nil_chk([GDJson instance])) parseWithNSString:[data substring:[((NSString *) nil_chk([ComGoodowRealtimeChannelConstantConstants XSSI_PREFIX])) length]]];
 }
 
 - (id)init {

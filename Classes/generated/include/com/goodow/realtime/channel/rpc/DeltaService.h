@@ -11,7 +11,7 @@
 @class JavaUtilLoggingLogger;
 @protocol ComGoodowRealtimeChannelRpcDeltaService_Callback;
 @protocol ComGoodowRealtimeChannelRpcRpc;
-@protocol GDRJsonObject;
+@protocol GDJsonObject;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/channel/rpc/Rpc.h"
@@ -34,7 +34,7 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeChannelRpcDeltaService, rpc_, id<ComGoodowR
 @protocol ComGoodowRealtimeChannelRpcDeltaService_Callback < NSObject, JavaObject >
 - (void)onConnectionErrorWithJavaLangThrowable:(JavaLangThrowable *)e;
 - (void)onFatalErrorWithJavaLangThrowable:(JavaLangThrowable *)e;
-- (void)onMessageWithGDRJsonObject:(id<GDRJsonObject>)msg;
+- (void)onMessageWithGDJsonObject:(id<GDJsonObject>)msg;
 @end
 
 @interface ComGoodowRealtimeChannelRpcDeltaService_$1 : NSObject < ComGoodowRealtimeChannelRpcRpc_RpcCallback > {

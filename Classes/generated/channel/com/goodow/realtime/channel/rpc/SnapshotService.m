@@ -11,10 +11,10 @@
 #include "com/goodow/realtime/channel/rpc/SnapshotService.h"
 #include "elemental/json/JsonObject.h"
 #include "elemental/json/JsonValue.h"
-#include "elemental/util/Collections.h"
-#include "elemental/util/MapFromStringToString.h"
 #include "java/lang/Boolean.h"
 #include "java/lang/Throwable.h"
+#include "java/util/HashMap.h"
+#include "java/util/Map.h"
 #include "java/util/logging/Level.h"
 #include "java/util/logging/Logger.h"
 
@@ -38,14 +38,14 @@ static JavaUtilLoggingLogger * ComGoodowRealtimeChannelRpcSnapshotService_logger
               withNSString:(NSString *)sessionId
                withBoolean:(BOOL)autoCreate
 withComGoodowRealtimeChannelRpcSnapshotService_Callback:(id<ComGoodowRealtimeChannelRpcSnapshotService_Callback>)callback {
-  id<ElementalUtilMapFromStringToString> params = [ElementalUtilCollections mapFromStringToString];
-  [((id<ElementalUtilMapFromStringToString>) nil_chk(params)) putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ID] withNSString:id_];
+  id<JavaUtilMap> params = [[JavaUtilHashMap alloc] init];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params ID] withId:id_];
   if (sessionId != nil) {
-    [params putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID] withNSString:sessionId];
+    (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params SESSION_ID] withId:sessionId];
   }
-  [params putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withNSString:token];
-  [params putWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params AUTO_CREATE] withNSString:[NSString stringWithFormat:@"%@", [JavaLangBoolean toStringWithBoolean:autoCreate]]];
-  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk(rpc_)) getWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services SNAPSHOT] withElementalUtilMapFromStringToString:params withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcSnapshotService_$1 alloc] initWithNSString:id_ withComGoodowRealtimeChannelRpcSnapshotService_Callback:callback]];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params ACCESS_TOKEN] withId:token];
+  (void) [params putWithId:[ComGoodowRealtimeChannelConstantConstants_Params AUTO_CREATE] withId:[NSString stringWithFormat:@"%@", [JavaLangBoolean toStringWithBoolean:autoCreate]]];
+  (void) [((id<ComGoodowRealtimeChannelRpcRpc>) nil_chk(rpc_)) getWithNSString:[ComGoodowRealtimeChannelConstantConstants_Services SNAPSHOT] withJavaUtilMap:params withComGoodowRealtimeChannelRpcRpc_RpcCallback:[[ComGoodowRealtimeChannelRpcSnapshotService_$1 alloc] initWithNSString:id_ withComGoodowRealtimeChannelRpcSnapshotService_Callback:callback]];
 }
 
 + (void)initialize {
@@ -71,8 +71,8 @@ withComGoodowRealtimeChannelRpcSnapshotService_Callback:(id<ComGoodowRealtimeCha
 }
 
 - (void)onSuccessWithNSString:(NSString *)data {
-  id<GDRJsonObject> obj = [ComGoodowRealtimeChannelRpcRpcUtil evalPrefixedWithNSString:data];
-  [((id<ComGoodowRealtimeChannelRpcSnapshotService_Callback>) nil_chk(val$callback_)) onSuccessWithGDRJsonValue:[((id<GDRJsonObject>) nil_chk(obj)) getWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params SNAPSHOT]] withNSString:nil withInt:(int) [obj getNumberWithNSString:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]];
+  id<GDJsonObject> obj = [ComGoodowRealtimeChannelRpcRpcUtil evalPrefixedWithNSString:data];
+  [((id<ComGoodowRealtimeChannelRpcSnapshotService_Callback>) nil_chk(val$callback_)) onSuccessWithGDJsonValue:[((id<GDJsonObject>) nil_chk(obj)) get:[ComGoodowRealtimeChannelConstantConstants_Params SNAPSHOT]] withNSString:nil withInt:(int) [obj getNumber:[ComGoodowRealtimeChannelConstantConstants_Params REVISION]]];
 }
 
 - (id)initWithNSString:(NSString *)capture$0

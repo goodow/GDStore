@@ -18,8 +18,8 @@
 @class IOSObjectArray;
 @class JavaUtilLoggingLogger;
 @protocol ElementalUtilMapFromStringTo;
+@protocol GDJsonValue;
 @protocol GDREventHandler;
-@protocol GDRJsonValue;
 @protocol JavaUtilMap;
 
 #import "JreEmulation.h"
@@ -66,9 +66,9 @@
                             withGDREventHandler:(id<GDREventHandler>)handler
                                     withBoolean:(BOOL)opt_capture;
 - (void)undo;
-- (void)addOrRemoveParentWithGDRJsonValue:(id<GDRJsonValue>)childOrNull
-                             withNSString:(NSString *)parentId
-                              withBoolean:(BOOL)isAdd;
+- (void)addOrRemoveParentWithGDJsonValue:(id<GDJsonValue>)childOrNull
+                            withNSString:(NSString *)parentId
+                             withBoolean:(BOOL)isAdd;
 - (GDRIndexReference *)createIndexReferenceWithNSString:(NSString *)referencedObjectId
                                                 withInt:(int)index
                                             withBoolean:(BOOL)canBeDeleted;

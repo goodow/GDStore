@@ -13,10 +13,10 @@
 
 @implementation ComGoodowRealtimeOperationMapStringStringMapOperation
 
-+ (ComGoodowRealtimeOperationMapStringStringMapOperation *)parseWithGDRJsonArray:(id<GDRJsonArray>)serialized {
-  int length = [((id<GDRJsonArray>) nil_chk(serialized)) length];
-  NSAssert([serialized getNumberWithInt:0] == ComGoodowRealtimeOperationMapAbstractMapOperation_TYPE && (length == 3 || length == 4), @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/map/string/StringMapOperation.java:23 condition failed: assert serialized.getNumber(0) == TYPE && (length == 3 || length == 4);");
-  return [[ComGoodowRealtimeOperationMapStringStringMapOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDRJsonArray:serialized] withNSString:[serialized getStringWithInt:2] withId:nil withId:length == 3 ? nil : [serialized getStringWithInt:3]];
++ (ComGoodowRealtimeOperationMapStringStringMapOperation *)parseWithGDJsonArray:(id<GDJsonArray>)serialized {
+  int length = [((id<GDJsonArray>) nil_chk(serialized)) length];
+  NSAssert([serialized getNumber:0] == ComGoodowRealtimeOperationMapAbstractMapOperation_TYPE && (length == 3 || length == 4), @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/map/string/StringMapOperation.java:23 condition failed: assert serialized.getNumber(0) == TYPE && (length == 3 || length == 4);");
+  return [[ComGoodowRealtimeOperationMapStringStringMapOperation alloc] initWithNSString:[ComGoodowRealtimeOperationAbstractOperation parseIdWithGDJsonArray:serialized] withNSString:[serialized getString:2] withId:nil withId:length == 3 ? nil : [serialized getString:3]];
 }
 
 - (id)initWithNSString:(NSString *)id_

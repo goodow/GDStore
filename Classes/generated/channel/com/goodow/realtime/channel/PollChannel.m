@@ -12,8 +12,8 @@
 #include "com/goodow/realtime/channel/util/ChannelNative.h"
 #include "elemental/json/Json.h"
 #include "elemental/json/JsonArray.h"
-#include "elemental/util/ArrayOfString.h"
 #include "java/lang/Runnable.h"
+#include "java/util/Set.h"
 #include "java/util/logging/Logger.h"
 
 @implementation ComGoodowRealtimeChannelPollChannel
@@ -56,18 +56,18 @@ static ComGoodowRealtimeChannelPollChannel * ComGoodowRealtimeChannelPollChannel
 }
 
 - (void)runImpl {
-  id<ElementalUtilArrayOfString> ids = [((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(demuxer_)) getIds];
-  id<GDRJsonArray> array = [GDRJson createArray];
-  if ([((id<ElementalUtilArrayOfString>) nil_chk(ids)) length] != 0) {
-    for (int i = 0, len = [ids length]; i < len; i++) {
-      id<GDRJsonArray> req = [GDRJson createArray];
-      NSString *id_ = [ids getWithInt:i];
-      [((id<GDRJsonArray>) nil_chk(req)) setWithInt:0 withNSString:id_];
-      [req setWithInt:1 withDouble:[demuxer_ getRevisionWithNSString:id_] + 1];
-      [((id<GDRJsonArray>) nil_chk(array)) setWithInt:i withGDRJsonValue:req];
+  id<JavaUtilSet> ids = [((ComGoodowRealtimeChannelChannelDemuxer *) nil_chk(demuxer_)) getIds];
+  id<GDJsonArray> array = [GDJson createArray];
+  if (![((id<JavaUtilSet>) nil_chk(ids)) isEmpty]) {
+    int i = 0;
+    for (NSString * __strong id_ in ids) {
+      id<GDJsonArray> req = [GDJson createArray];
+      [((id<GDJsonArray>) nil_chk(req)) set:0 string:id_];
+      [req set:1 number:[demuxer_ getRevisionWithNSString:id_] + 1];
+      [((id<GDJsonArray>) nil_chk(array)) set:i++ value:req];
     }
   }
-  [((ComGoodowRealtimeChannelRpcPollService *) nil_chk(service_)) pollWithGDRJsonArray:array withNSString:[ComGoodowRealtimeChannelChannelDemuxer getSessionId]];
+  [((ComGoodowRealtimeChannelRpcPollService *) nil_chk(service_)) pollWithGDJsonArray:array withNSString:[ComGoodowRealtimeChannelChannelDemuxer getSessionId]];
 }
 
 + (void)initialize {
