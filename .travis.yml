@@ -1,0 +1,8 @@
+language: objective-c
+xcode_workspace: Project/GDStore.xcworkspace
+xcode_scheme: GDChannelTests
+
+before_install:
+  - gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+  - cd Project && pod install
+  - cd $TRAVIS_BUILD_DIR
