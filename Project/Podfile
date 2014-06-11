@@ -6,4 +6,4 @@ pod 'GDChannel', :git => 'https://github.com/goodow/GDChannel.git'
 pod 'GDStore', :path => '..'
 # pod 'PonyDebugger', '~> 0.3.0'
 
-link_with ['GDStore', 'demo', 'test']
+link_with ['GDStore', 'Playground']

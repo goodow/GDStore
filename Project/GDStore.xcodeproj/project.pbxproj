@@ -24,6 +24,16 @@
 		8D78B446174F1B8E0006C456 /* Storyboard-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D78B445174F1B8E0006C456 /* Storyboard-iPhone.storyboard */; };
 		8D8CA154172BC9B400652CC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8CA153172BC9B400652CC1 /* Foundation.framework */; };
 		8D9446B017363044002EB5AE /* test.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DBB74A3172BD0F20052F0ED /* test.m */; };
+		8DAFB1781948665300C9CF57 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8CA153172BC9B400652CC1 /* Foundation.framework */; };
+		8DAFB1791948665300C9CF57 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745E172BD0B60052F0ED /* CoreGraphics.framework */; };
+		8DAFB17A1948665300C9CF57 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745B172BD0B60052F0ED /* UIKit.framework */; };
+		8DAFB1801948665300C9CF57 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 8DAFB17E1948665300C9CF57 /* InfoPlist.strings */; };
+		8DAFB1821948665300C9CF57 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAFB1811948665300C9CF57 /* main.m */; };
+		8DAFB1861948665300C9CF57 /* GDSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAFB1851948665300C9CF57 /* GDSAppDelegate.m */; };
+		8DAFB1891948665300C9CF57 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DAFB1871948665300C9CF57 /* Main_iPhone.storyboard */; };
+		8DAFB18C1948665400C9CF57 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DAFB18A1948665400C9CF57 /* Main_iPad.storyboard */; };
+		8DAFB18F1948665400C9CF57 /* GDSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DAFB18E1948665400C9CF57 /* GDSViewController.m */; };
+		8DAFB1911948665400C9CF57 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DAFB1901948665400C9CF57 /* Images.xcassets */; };
 		8DBB745C172BD0B60052F0ED /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745B172BD0B60052F0ED /* UIKit.framework */; };
 		8DBB745D172BD0B60052F0ED /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8D8CA153172BC9B400652CC1 /* Foundation.framework */; };
 		8DBB745F172BD0B60052F0ED /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB745E172BD0B60052F0ED /* CoreGraphics.framework */; };
@@ -80,6 +90,19 @@
 		8D8344591737567700253F19 /* Makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		8D8CA150172BC9B400652CC1 /* libGDStore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libGDStore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D8CA153172BC9B400652CC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		8DAFB1771948665300C9CF57 /* Playground.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Playground.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8DAFB17D1948665300C9CF57 /* Playground-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Playground-Info.plist"; sourceTree = "<group>"; };
+		8DAFB17F1948665300C9CF57 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8DAFB1811948665300C9CF57 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		8DAFB1831948665300C9CF57 /* Playground-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Playground-Prefix.pch"; sourceTree = "<group>"; };
+		8DAFB1841948665300C9CF57 /* GDSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSAppDelegate.h; sourceTree = "<group>"; };
+		8DAFB1851948665300C9CF57 /* GDSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSAppDelegate.m; sourceTree = "<group>"; };
+		8DAFB1881948665300C9CF57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		8DAFB18B1948665400C9CF57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		8DAFB18D1948665400C9CF57 /* GDSViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDSViewController.h; sourceTree = "<group>"; };
+		8DAFB18E1948665400C9CF57 /* GDSViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDSViewController.m; sourceTree = "<group>"; };
+		8DAFB1901948665400C9CF57 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		8DAFB1971948665400C9CF57 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		8DBB745A172BD0B60052F0ED /* demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = demo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DBB745B172BD0B60052F0ED /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		8DBB745E172BD0B60052F0ED /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -162,6 +185,16 @@
 			files = (
 				8D8CA154172BC9B400652CC1 /* Foundation.framework in Frameworks */,
 				0CA3B6C16AFA4502A56E2629 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8DAFB1741948665300C9CF57 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DAFB1791948665300C9CF57 /* CoreGraphics.framework in Frameworks */,
+				8DAFB17A1948665300C9CF57 /* UIKit.framework in Frameworks */,
+				8DAFB1781948665300C9CF57 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +282,7 @@
 				8DBB7460172BD0B60052F0ED /* demo */,
 				8DBB749C172BD0F20052F0ED /* test */,
 				8DF804D31733979300B67EDC /* UnitTest */,
+				8DAFB17B1948665300C9CF57 /* Playground */,
 				8D8CA152172BC9B400652CC1 /* Frameworks */,
 				8D8CA151172BC9B400652CC1 /* Products */,
 				CC32686C9A964CE998DA7A84 /* Pods.xcconfig */,
@@ -263,6 +297,7 @@
 				8DBB745A172BD0B60052F0ED /* demo.app */,
 				8DD88ACF172F7811006DCFA8 /* libtest.a */,
 				8DF804E6173397C600B67EDC /* UnitTest.octest */,
+				8DAFB1771948665300C9CF57 /* Playground.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -280,10 +315,37 @@
 				9EE324FAA28F4670B4B27AEC /* libPods-demo.a */,
 				EFB495390FFE472690E604A5 /* libPods-test.a */,
 				8DD88AD0172F7811006DCFA8 /* Cocoa.framework */,
+				8DAFB1971948665400C9CF57 /* XCTest.framework */,
 				8DD88AD2172F7811006DCFA8 /* Other Frameworks */,
 				934154E8F61A46D3939CD886 /* libPods-test.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8DAFB17B1948665300C9CF57 /* Playground */ = {
+			isa = PBXGroup;
+			children = (
+				8DAFB1841948665300C9CF57 /* GDSAppDelegate.h */,
+				8DAFB1851948665300C9CF57 /* GDSAppDelegate.m */,
+				8DAFB1871948665300C9CF57 /* Main_iPhone.storyboard */,
+				8DAFB18A1948665400C9CF57 /* Main_iPad.storyboard */,
+				8DAFB18D1948665400C9CF57 /* GDSViewController.h */,
+				8DAFB18E1948665400C9CF57 /* GDSViewController.m */,
+				8DAFB1901948665400C9CF57 /* Images.xcassets */,
+				8DAFB17C1948665300C9CF57 /* Supporting Files */,
+			);
+			path = Playground;
+			sourceTree = "<group>";
+		};
+		8DAFB17C1948665300C9CF57 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8DAFB17D1948665300C9CF57 /* Playground-Info.plist */,
+				8DAFB17E1948665300C9CF57 /* InfoPlist.strings */,
+				8DAFB1811948665300C9CF57 /* main.m */,
+				8DAFB1831948665300C9CF57 /* Playground-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		8DBB7460172BD0B60052F0ED /* demo */ = {
@@ -426,6 +488,23 @@
 			productReference = 8D8CA150172BC9B400652CC1 /* libGDStore.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		8DAFB1761948665300C9CF57 /* Playground */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8DAFB1A91948665400C9CF57 /* Build configuration list for PBXNativeTarget "Playground" */;
+			buildPhases = (
+				8DAFB1731948665300C9CF57 /* Sources */,
+				8DAFB1741948665300C9CF57 /* Frameworks */,
+				8DAFB1751948665300C9CF57 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Playground;
+			productName = Playground;
+			productReference = 8DAFB1771948665300C9CF57 /* Playground.app */;
+			productType = "com.apple.product-type.application";
+		};
 		8DBB7459172BD0B60052F0ED /* demo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DBB7491172BD0B70052F0ED /* Build configuration list for PBXNativeTarget "demo" */;
@@ -489,8 +568,9 @@
 		8D8CA148172BC9B400652CC1 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = GDS;
 				LastUpgradeCheck = 0500;
-				ORGANIZATIONNAME = "Larry Tin";
+				ORGANIZATIONNAME = Goodow;
 				TargetAttributes = {
 					8DBB7459172BD0B60052F0ED = {
 						DevelopmentTeam = 742YX7Q977;
@@ -503,6 +583,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 8D8CA147172BC9B400652CC1;
 			productRefGroup = 8D8CA151172BC9B400652CC1 /* Products */;
@@ -513,11 +594,23 @@
 				8DBB7459172BD0B60052F0ED /* demo */,
 				8DD88ACE172F7811006DCFA8 /* test */,
 				8DF804E5173397C600B67EDC /* UnitTest */,
+				8DAFB1761948665300C9CF57 /* Playground */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		8DAFB1751948665300C9CF57 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DAFB18C1948665400C9CF57 /* Main_iPad.storyboard in Resources */,
+				8DAFB1911948665400C9CF57 /* Images.xcassets in Resources */,
+				8DAFB1891948665300C9CF57 /* Main_iPhone.storyboard in Resources */,
+				8DAFB1801948665300C9CF57 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DBB7458172BD0B60052F0ED /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -678,6 +771,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		8DAFB1731948665300C9CF57 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8DAFB18F1948665400C9CF57 /* GDSViewController.m in Sources */,
+				8DAFB1821948665300C9CF57 /* main.m in Sources */,
+				8DAFB1861948665300C9CF57 /* GDSAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DBB7456172BD0B60052F0ED /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -709,6 +812,30 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		8DAFB17E1948665300C9CF57 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DAFB17F1948665300C9CF57 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8DAFB1871948665300C9CF57 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DAFB1881948665300C9CF57 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		8DAFB18A1948665400C9CF57 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8DAFB18B1948665400C9CF57 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
 		8DBB7463172BD0B60052F0ED /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -812,6 +939,61 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		8DAFB1A51948665400C9CF57 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Playground/Playground-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Playground/Playground-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		8DAFB1A61948665400C9CF57 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Playground/Playground-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				INFOPLIST_FILE = "Playground/Playground-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -942,6 +1124,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		8DAFB1A91948665400C9CF57 /* Build configuration list for PBXNativeTarget "Playground" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DAFB1A51948665400C9CF57 /* Debug */,
+				8DAFB1A61948665400C9CF57 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 		8DBB7491172BD0B70052F0ED /* Build configuration list for PBXNativeTarget "demo" */ = {
 			isa = XCConfigurationList;
