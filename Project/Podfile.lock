@@ -33,7 +33,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   GDChannel: 28d5e401e33af26ce2791e1c4f4117772f278674
   GDJson: 425eaa6e2f2df52486ea4e5dcaef8d54061f7eb8
-  GDStore: c6cacdf9c5fa18de522e3cbc383fcd364c8fe34e
+  GDStore: 8d98daade81d7aa71cf070651a05ae03600e0003
   Google-Diff-Match-Patch: 1f9c0b972c351d9c0a4fee137eb96896460477cd
   J2ObjC: 1a0ecde2fe9f624d076ef2aea16723ef2094e7fc
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304

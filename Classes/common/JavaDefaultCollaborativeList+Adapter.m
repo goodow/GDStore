@@ -21,6 +21,7 @@
 
 #import "JavaDefaultCollaborativeList+Adapter.h"
 #import "JavaDefaultCollaborativeObject+Adapter.h"
+#import "NSArray+GDJsonArray.h"
 
 @implementation ComGoodowRealtimeStoreImplDefaultCollaborativeList (Adapter)
 - (id<GDCRegistration>)onValuesAdded:(void (^)(id <GDSValuesAddedEvent>))handler {
@@ -60,7 +61,7 @@
 }
 
 - (id <GDSIndexReference>)registerReference:(int)index canBeDeleted:(BOOL)canBeDeleted {
-  return [self registerReferenceWithInt:index withBoolean:canBeDeleted];
+  return (id <GDSIndexReference>)[self registerReferenceWithInt:index withBoolean:canBeDeleted];
 }
 
 - (void)remove:(int)index {

@@ -20,6 +20,8 @@
 //
 
 #import "JavaDefaultModel+Adapter.h"
+#import "NSArray+GDJsonArray.h"
+#import "NSDictionary+GDJsonObject.h"
 
 @implementation ComGoodowRealtimeStoreImplDefaultModel (Adapter)
 - (id<GDCRegistration>)onUndoRedoStateChanged:(void (^)(id <GDSUndoRedoStateChangedEvent>))handler {
@@ -27,15 +29,15 @@
 }
 
 - (id<GDSCollaborativeList>)createList:(NSArray *)opt_initialValue {
-  return [self createListWithComGoodowRealtimeJsonJsonArray:opt_initialValue];
+  return (id<GDSCollaborativeList>)[self createListWithComGoodowRealtimeJsonJsonArray:opt_initialValue];
 }
 
 - (id<GDSCollaborativeMap>)createMap:(NSDictionary *)opt_initialValue {
-  return [self createMapWithComGoodowRealtimeJsonJsonObject:opt_initialValue];
+  return (id<GDSCollaborativeMap>)[self createMapWithComGoodowRealtimeJsonJsonObject:opt_initialValue];
 }
 
 - (id<GDSCollaborativeString>)createString:(NSString *)opt_initialValue {
-  return [self createStringWithNSString:opt_initialValue];
+  return (id<GDSCollaborativeString>)[self createStringWithNSString:opt_initialValue];
 }
 
 @end

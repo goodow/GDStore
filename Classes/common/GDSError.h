@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDSErrorType.h"
 
 /**
  * An error affecting the realtime document.
@@ -33,6 +34,6 @@
 - (NSString *)message;
 
 /* The type of the error that occurred. */
-- (NSString *)type;
+- (GDSErrorType)type;
 
 @end

@@ -52,6 +52,7 @@
 		CD87A6C3D9CDFD0524E9FBD5 /* JavaDefaultIndexReference+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A2E4C2DC360806AE9C19 /* JavaDefaultIndexReference+Adapter.m */; };
 		CD87A7586C6144E672DAFAB7 /* JavaDefaultCollaborativeString+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A484F9ABE6B6BC6C4997 /* JavaDefaultCollaborativeString+Adapter.m */; };
 		CD87AAFB5DDE39CABC160A2C /* JavaDefaultModel+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A18DAC4919E4CFAD91ED /* JavaDefaultModel+Adapter.m */; };
+		D43497F3CB6C490AA9EE2D4F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
 		E9DC2A00751B46E898D9F2C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -142,9 +143,11 @@
 		CD87A18DAC4919E4CFAD91ED /* JavaDefaultModel+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultModel+Adapter.m"; sourceTree = "<group>"; };
 		CD87A1DC5D17CE2723FAB95C /* GDSCollaborativeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaborativeString.h; sourceTree = "<group>"; };
 		CD87A2030B78D589A6452887 /* GDSCollaborativeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaborativeList.h; sourceTree = "<group>"; };
+		CD87A2531B8D0BA066B8F61D /* GDSEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSEventType.h; sourceTree = "<group>"; };
 		CD87A270ECBF228E1B48B1EB /* GDSTextDeletedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSTextDeletedEvent.h; sourceTree = "<group>"; };
 		CD87A274AEDFBDD4C3AAE4B5 /* JavaDefaultDocument+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultDocument+Adapter.h"; sourceTree = "<group>"; };
 		CD87A2E4C2DC360806AE9C19 /* JavaDefaultIndexReference+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultIndexReference+Adapter.m"; sourceTree = "<group>"; };
+		CD87A2FEA0B0895229F2D2E7 /* GDSErrorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSErrorType.h; sourceTree = "<group>"; };
 		CD87A301A52A7791F8208138 /* GDSValuesAddedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSValuesAddedEvent.h; sourceTree = "<group>"; };
 		CD87A36AFC4C694BEBA27914 /* GDSCollaboratorJoinedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaboratorJoinedEvent.h; sourceTree = "<group>"; };
 		CD87A427946E2E07AA6A0D8B /* JavaDefaultCollaborativeString+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultCollaborativeString+Adapter.h"; sourceTree = "<group>"; };
@@ -195,6 +198,7 @@
 				8DAFB1791948665300C9CF57 /* CoreGraphics.framework in Frameworks */,
 				8DAFB17A1948665300C9CF57 /* UIKit.framework in Frameworks */,
 				8DAFB1781948665300C9CF57 /* Foundation.framework in Frameworks */,
+				D43497F3CB6C490AA9EE2D4F /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +275,8 @@
 				CD87AE564E0DA2F090165178 /* JavaDefaultIndexReference+Adapter.h */,
 				CD87A56195D8E7451B272763 /* GDSStore.h */,
 				CD87AA27055D00904B634DCB /* GDSError.h */,
+				CD87A2531B8D0BA066B8F61D /* GDSEventType.h */,
+				CD87A2FEA0B0895229F2D2E7 /* GDSErrorType.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -492,9 +498,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8DAFB1A91948665400C9CF57 /* Build configuration list for PBXNativeTarget "Playground" */;
 			buildPhases = (
+				9C50C867494B4999A320EF20 /* Check Pods Manifest.lock */,
 				8DAFB1731948665300C9CF57 /* Sources */,
 				8DAFB1741948665300C9CF57 /* Frameworks */,
 				8DAFB1751948665300C9CF57 /* Resources */,
+				8B94A28BE48549AB9CD93291 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -588,6 +596,8 @@
 			mainGroup = 8D8CA147172BC9B400652CC1;
 			productRefGroup = 8D8CA151172BC9B400652CC1 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+			);
 			projectRoot = "";
 			targets = (
 				8D8CA14F172BC9B400652CC1 /* GDStore */,
@@ -699,6 +709,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Pods-test-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		8B94A28BE48549AB9CD93291 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		8D57F28A172F811A00F1B0FE /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -724,6 +749,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		9C50C867494B4999A320EF20 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		B560A6E7B3354EA78C7B9449 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -944,6 +984,7 @@
 		};
 		8DAFB1A51948665400C9CF57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC32686C9A964CE998DA7A84 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -973,6 +1014,7 @@
 		};
 		8DAFB1A61948665400C9CF57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC32686C9A964CE998DA7A84 /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;

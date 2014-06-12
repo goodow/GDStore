@@ -41,3 +41,5 @@
 #import "GDSValuesAddedEvent.h"
 #import "GDSValuesRemovedEvent.h"
 #import "GDSValuesSetEvent.h"
+#import "GDSEventType.h"
+#import "GDSErrorType.h"

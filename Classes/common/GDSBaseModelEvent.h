@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDSEventType.h"
 
 /* A base class for model events. */
 @protocol GDSBaseModelEvent
@@ -37,6 +38,6 @@
 - (NSString *)userId;
 
 /* Event type. */
-- (NSString *)type;
+- (GDSEventType)type;
 
 @end

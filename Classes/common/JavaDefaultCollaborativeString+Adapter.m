@@ -36,11 +36,11 @@
 }
 
 - (void)insertString:(int)index text:(NSString *)text {
-  [self insertStringWithInt:<#(int)index#> withNSString:<#(NSString *)text#>];
+  [self insertStringWithInt:index withNSString:text];
 }
 
 - (id <GDSIndexReference>)registerReference:(int)index canBeDeleted:(BOOL)canBeDeleted {
-  return [self registerReferenceWithInt:index withBoolean:canBeDeleted];
+  return (id <GDSIndexReference>)[self registerReferenceWithInt:index withBoolean:canBeDeleted];
 }
 
 - (void)removeRange:(int)startIndex endIndex:(int)endIndex {
