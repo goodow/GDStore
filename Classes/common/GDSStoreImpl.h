@@ -13,23 +13,16 @@
 // limitations under the License.
 
 //
-//  JavaDefaultIndexReference+Adapter.m
+//  GDSStoreImpl.h
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "JavaDefaultIndexReference+Adapter.h"
-#import "JavaDefaultCollaborativeObject+Adapter.h"
+#import "JavaToIOSStoreAdapter.h"
 
-@implementation ComGoodowRealtimeStoreImplDefaultIndexReference (Adapter)
-- (id<GDCRegistration>)onReferenceShifted:(void (^)(id <GDSReferenceShiftedEvent>))handler {
-  return (id<GDCRegistration>)[self onReferenceShiftedWithComGoodowRealtimeCoreHandler:handler];
-}
+@interface GDSStoreImpl : JavaToIOSStoreAdapter <GDSStore>
 
-- (void)setIndex:(int)index {
-  [self indexWithInt:index];
-}
-
+- (id)initWithServerUri:(NSString *)serverUri withOptions:(NSDictionary *)options;
 
 @end

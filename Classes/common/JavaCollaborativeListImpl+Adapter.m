@@ -13,17 +13,17 @@
 // limitations under the License.
 
 //
-//  JavaDefaultCollaborativeList+Adapter.m
+//  JavaCollaborativeListImpl+Adapter.m
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "JavaDefaultCollaborativeList+Adapter.h"
-#import "JavaDefaultCollaborativeObject+Adapter.h"
+#import "JavaCollaborativeListImpl+Adapter.h"
+#import "JavaCollaborativeObjectImpl+Adapter.h"
 #import "NSArray+GDJsonArray.h"
 
-@implementation ComGoodowRealtimeStoreImplDefaultCollaborativeList (Adapter)
+@implementation ComGoodowRealtimeStoreImplCollaborativeListImpl (Adapter)
 - (id<GDCRegistration>)onValuesAdded:(void (^)(id <GDSValuesAddedEvent>))handler {
   return (id<GDCRegistration>)[self onValuesAddedWithComGoodowRealtimeCoreHandler:handler];
 }
@@ -85,7 +85,7 @@
 }
 
 - (void)setLength:(int)length {
-  [self lengthWithInt:length];
+  [self setLengthWithInt:length];
 }
 
 - (void)push:(id)value {

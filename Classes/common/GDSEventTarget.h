@@ -20,6 +20,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GDSEventType.h"
 
 @protocol GDCRegistration;
 
@@ -39,6 +40,6 @@
  * @param opt_capture In DOM-compliant browsers, this determines whether the listener is fired
  *          during the capture or bubble phase of the event.
  */
-- (id<GDCRegistration>)addEventListener:(NSString *)type handler:(void (^)(id))handler opt_capture:(BOOL)opt_capture;
+- (id<GDCRegistration>)addEventListener:(GDSEventType)type handler:(void (^)(id))handler opt_capture:(BOOL)opt_capture;
 
 @end

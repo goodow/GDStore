@@ -35,10 +35,6 @@
 
 - (id<GDCBus>)getBus;
 
-- (NSString *)sessionId;
-
-- (NSString *)userId;
-
 /**
  * Loads the realtime data model associated with {@code docId}. If no realtime data model is
  * associated with {@code docId}, a new realtime document will be created and
@@ -55,8 +51,9 @@
  *          {@link GDSError} object describing the error will be passed to
  *          this function.
  */
-- (void)load:(NSString *)id onLoaded:(void (^)(id<GDSDocument>))onLoaded
-    opt_initializer:(void (^)(id<GDSModel>))opt_initializer
-    opt_error:(void (^)(id<GDSError>))opt_error;
+- (void)          load:(NSString *)id
+              onLoaded:(void (^)(id<GDSDocument>))onLoaded
+       opt_initializer:(void (^)(id<GDSModel>))opt_initializer
+             opt_error:(void (^)(id<GDSError>))opt_error;
 
 @end

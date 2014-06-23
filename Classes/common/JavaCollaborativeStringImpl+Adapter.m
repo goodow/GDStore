@@ -13,16 +13,16 @@
 // limitations under the License.
 
 //
-//  JavaDefaultCollaborativeString+Adapter.m
+//  JavaCollaborativeStringImpl+Adapter.m
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "JavaDefaultCollaborativeString+Adapter.h"
-#import "JavaDefaultCollaborativeObject+Adapter.h"
+#import "JavaCollaborativeStringImpl+Adapter.h"
+#import "JavaCollaborativeObjectImpl+Adapter.h"
 
-@implementation ComGoodowRealtimeStoreImplDefaultCollaborativeString (Adapter)
+@implementation ComGoodowRealtimeStoreImplCollaborativeStringImpl (Adapter)
 - (id<GDCRegistration>)onTextDeleted:(void (^)(id <GDSTextDeletedEvent>))handler {
   return (id<GDCRegistration>)[self onTextDeletedWithComGoodowRealtimeCoreHandler:handler];
 }

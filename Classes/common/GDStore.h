@@ -43,3 +43,4 @@
 #import "GDSValuesSetEvent.h"
 #import "GDSEventType.h"
 #import "GDSErrorType.h"
+#import "GDSStoreImpl.h"

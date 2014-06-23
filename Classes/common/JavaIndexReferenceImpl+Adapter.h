@@ -13,14 +13,14 @@
 // limitations under the License.
 
 //
-//  JavaDefaultCollaborativeString+Adapter.h
+//  JavaIndexReferenceImpl+Adapter.h
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "com/goodow/realtime/store/impl/DefaultCollaborativeString.h"
-#import "GDSCollaborativeString.h"
+#import "com/goodow/realtime/store/impl/IndexReferenceImpl.h"
+#import "GDSIndexReference.h"
 
-@interface ComGoodowRealtimeStoreImplDefaultCollaborativeString (Adapter) <GDSCollaborativeString>
+@interface ComGoodowRealtimeStoreImplIndexReferenceImpl (Adapter) <GDSIndexReference>
 @end

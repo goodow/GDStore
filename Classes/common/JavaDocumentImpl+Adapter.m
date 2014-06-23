@@ -13,15 +13,15 @@
 // limitations under the License.
 
 //
-//  JavaDefaultDocument+Adapter.m
+//  JavaDocumentImpl+Adapter.m
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "JavaDefaultDocument+Adapter.h"
+#import "JavaDocumentImpl+Adapter.h"
 
-@implementation ComGoodowRealtimeStoreImplDefaultDocument (Adapter)
+@implementation ComGoodowRealtimeStoreImplDocumentImpl (Adapter)
 - (id<GDCRegistration>)onCollaboratorJoined:(void (^)(id <GDSCollaboratorJoinedEvent>))handler {
   return (id<GDCRegistration>)[self onCollaboratorJoinedWithComGoodowRealtimeCoreHandler:handler];
 }

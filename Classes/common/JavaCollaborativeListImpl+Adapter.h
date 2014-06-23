@@ -13,14 +13,14 @@
 // limitations under the License.
 
 //
-//  JavaDefaultCollaborativeObject+Adapter.h
+//  JavaCollaborativeListImpl+Adapter.h
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "com/goodow/realtime/store/impl/DefaultCollaborativeObject.h"
-#import "GDSCollaborativeObject.h"
+#import "com/goodow/realtime/store/impl/CollaborativeListImpl.h"
+#import "GDSCollaborativeList.h"
 
-@interface ComGoodowRealtimeStoreImplDefaultCollaborativeObject (Adapter) <GDSCollaborativeObject>
+@interface ComGoodowRealtimeStoreImplCollaborativeListImpl (Adapter) <GDSCollaborativeList>
 @end

@@ -13,16 +13,16 @@
 // limitations under the License.
 
 //
-//  JavaDefaultCollaborativeMap+Adapter.m
+//  JavaCollaborativeMapImpl+Adapter.m
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "JavaDefaultCollaborativeMap+Adapter.h"
-#import "JavaDefaultCollaborativeObject+Adapter.h"
+#import "JavaCollaborativeMapImpl+Adapter.h"
+#import "JavaCollaborativeObjectImpl+Adapter.h"
 
-@implementation ComGoodowRealtimeStoreImplDefaultCollaborativeMap (Adapter)
+@implementation ComGoodowRealtimeStoreImplCollaborativeMapImpl (Adapter)
 
 - (id)set:(NSString *)key value:(id)value {
   return [self setWithNSString:key withId:value];

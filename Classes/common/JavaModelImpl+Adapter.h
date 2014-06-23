@@ -13,14 +13,14 @@
 // limitations under the License.
 
 //
-//  JavaDefaultModel+Adapter.h
+//  JavaModelImpl+Adapter.h
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "com/goodow/realtime/store/impl/DefaultModel.h"
+#import "com/goodow/realtime/store/impl/ModelImpl.h"
 #import "GDSModel.h"
 
-@interface ComGoodowRealtimeStoreImplDefaultModel (Adapter) <GDSModel>
+@interface ComGoodowRealtimeStoreImplModelImpl (Adapter) <GDSModel>
 @end

@@ -13,15 +13,16 @@
 // limitations under the License.
 
 //
-//  JavaDefaultCollaborativeObject+Adapter.m
+//  JavaCollaborativeObjectImpl+Adapter.m
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "JavaDefaultCollaborativeObject+Adapter.h"
+#import "JavaCollaborativeObjectImpl+Adapter.h"
+#import "com/goodow/realtime/store/EventType.h"
 
-@implementation ComGoodowRealtimeStoreImplDefaultCollaborativeObject (Adapter)
+@implementation ComGoodowRealtimeStoreImplCollaborativeObjectImpl (Adapter)
 - (id <GDCRegistration>)onObjectChanged:(void (^)(id <GDSObjectChangedEvent>))handler {
   return (id<GDCRegistration>)[self onObjectChangedWithComGoodowRealtimeCoreHandler:handler];
 }
@@ -30,10 +31,10 @@
   return [self id__];
 }
 
-- (id <GDCRegistration>)addEventListener:(NSString *)type handler:(void (^)(id))handler opt_capture:(BOOL)opt_capture {
-  return (id<GDCRegistration>)[self addEventListenerWithComGoodowRealtimeStoreEventTypeEnum:type
-                                                           withComGoodowRealtimeCoreHandler:handler
-                                                                                withBoolean:opt_capture];
+- (id <GDCRegistration>)addEventListener:(GDSEventType)type handler:(void (^)(id))handler opt_capture:(BOOL)opt_capture {
+  return (id<GDCRegistration>)[self addEventListenerWithComGoodowRealtimeStoreEventTypeEnum:
+      [[ComGoodowRealtimeStoreEventTypeEnum values] objectAtIndex:type]
+      withComGoodowRealtimeCoreHandler:handler withBoolean:opt_capture];
 }
 
 @end

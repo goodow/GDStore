@@ -13,14 +13,24 @@
 // limitations under the License.
 
 //
-//  JavaDefaultDocument+Adapter.h
+//  JavaToIOSStoreAdapter.h
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "com/goodow/realtime/store/impl/DefaultDocument.h"
-#import "GDSDocument.h"
+#import <Foundation/Foundation.h>
+#import "GDSStore.h"
 
-@interface ComGoodowRealtimeStoreImplDefaultDocument (Adapter) <GDSDocument>
+@protocol ComGoodowRealtimeStoreStore;
+
+@interface JavaToIOSStoreAdapter : NSObject <GDSStore> {
+@private
+  id<ComGoodowRealtimeStoreStore> delegate_;
+}
+
+-(id)initWithJavaStore:(id<ComGoodowRealtimeStoreStore>)store;
+
++ (JavaToIOSStoreAdapter *)fromJavaStore:(id<ComGoodowRealtimeStoreStore>)store;
+
 @end

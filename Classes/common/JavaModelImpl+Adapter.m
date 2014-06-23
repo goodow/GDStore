@@ -13,17 +13,17 @@
 // limitations under the License.
 
 //
-//  JavaDefaultModel+Adapter.m
+//  JavaModelImpl+Adapter.m
 //  GDStore
 //
 //  Created by Larry Tin.
 //
 
-#import "JavaDefaultModel+Adapter.h"
+#import "JavaModelImpl+Adapter.h"
 #import "NSArray+GDJsonArray.h"
 #import "NSDictionary+GDJsonObject.h"
 
-@implementation ComGoodowRealtimeStoreImplDefaultModel (Adapter)
+@implementation ComGoodowRealtimeStoreImplModelImpl (Adapter)
 - (id<GDCRegistration>)onUndoRedoStateChanged:(void (^)(id <GDSUndoRedoStateChangedEvent>))handler {
   return (id<GDCRegistration>)[self onUndoRedoStateChangedWithComGoodowRealtimeCoreHandler:handler];
 }

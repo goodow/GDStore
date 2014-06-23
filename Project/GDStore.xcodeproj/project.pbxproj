@@ -45,13 +45,15 @@
 		8DF804E7173397C600B67EDC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DBB747E172BD0B70052F0ED /* SenTestingKit.framework */; };
 		8DF804E8173397C600B67EDC /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8DD88AD0172F7811006DCFA8 /* Cocoa.framework */; };
 		8DF804F7173398F300B67EDC /* UnitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DF804DA1733979300B67EDC /* UnitTest.m */; };
-		CD87A1FD747092FEF2F4532A /* JavaDefaultCollaborativeMap+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87AAA0A7661B8BC983E2D8 /* JavaDefaultCollaborativeMap+Adapter.m */; };
-		CD87A40F5D9AD5B53B7E5603 /* JavaDefaultDocument+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87AE6FBEDD3668BE44B558 /* JavaDefaultDocument+Adapter.m */; };
-		CD87A42F5F11D9135998B027 /* JavaDefaultCollaborativeList+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87AB6BCEA9C79FEBD439A9 /* JavaDefaultCollaborativeList+Adapter.m */; };
-		CD87A5611041F8EC7E4E5142 /* JavaDefaultCollaborativeObject+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87AA7BDCE35A230A87EC1D /* JavaDefaultCollaborativeObject+Adapter.m */; };
-		CD87A6C3D9CDFD0524E9FBD5 /* JavaDefaultIndexReference+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A2E4C2DC360806AE9C19 /* JavaDefaultIndexReference+Adapter.m */; };
-		CD87A7586C6144E672DAFAB7 /* JavaDefaultCollaborativeString+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A484F9ABE6B6BC6C4997 /* JavaDefaultCollaborativeString+Adapter.m */; };
-		CD87AAFB5DDE39CABC160A2C /* JavaDefaultModel+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A18DAC4919E4CFAD91ED /* JavaDefaultModel+Adapter.m */; };
+		CD87A11A5192F4883FB8C970 /* GDSStoreImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A98F651BE1920DA11FBA /* GDSStoreImpl.m */; };
+		CD87A1FD747092FEF2F4532A /* JavaCollaborativeMapImpl+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87AAA0A7661B8BC983E2D8 /* JavaCollaborativeMapImpl+Adapter.m */; };
+		CD87A40F5D9AD5B53B7E5603 /* JavaDocumentImpl+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87AE6FBEDD3668BE44B558 /* JavaDocumentImpl+Adapter.m */; };
+		CD87A42F5F11D9135998B027 /* JavaCollaborativeListImpl+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87AB6BCEA9C79FEBD439A9 /* JavaCollaborativeListImpl+Adapter.m */; };
+		CD87A5611041F8EC7E4E5142 /* JavaCollaborativeObjectImpl+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87AA7BDCE35A230A87EC1D /* JavaCollaborativeObjectImpl+Adapter.m */; };
+		CD87A6C3D9CDFD0524E9FBD5 /* JavaIndexReferenceImpl+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A2E4C2DC360806AE9C19 /* JavaIndexReferenceImpl+Adapter.m */; };
+		CD87A7586C6144E672DAFAB7 /* JavaCollaborativeStringImpl+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A484F9ABE6B6BC6C4997 /* JavaCollaborativeStringImpl+Adapter.m */; };
+		CD87A84876F4A67C7C4DB8FD /* JavaToIOSStoreAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A747D1C4F90C7751DB0B /* JavaToIOSStoreAdapter.m */; };
+		CD87AAFB5DDE39CABC160A2C /* JavaModelImpl+Adapter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD87A18DAC4919E4CFAD91ED /* JavaModelImpl+Adapter.m */; };
 		D43497F3CB6C490AA9EE2D4F /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
 		E9DC2A00751B46E898D9F2C8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31DD2DBBD4894B0A890BE47B /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -139,41 +141,45 @@
 		CC32686C9A964CE998DA7A84 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		CD87A09760BFAB8E9FE4C3C0 /* GDSValuesRemovedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSValuesRemovedEvent.h; sourceTree = "<group>"; };
 		CD87A0E086C3F6B7924AE1FF /* GDSTextInsertedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSTextInsertedEvent.h; sourceTree = "<group>"; };
-		CD87A146E9921CD439CCA08A /* JavaDefaultCollaborativeList+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultCollaborativeList+Adapter.h"; sourceTree = "<group>"; };
-		CD87A18DAC4919E4CFAD91ED /* JavaDefaultModel+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultModel+Adapter.m"; sourceTree = "<group>"; };
+		CD87A146E9921CD439CCA08A /* JavaCollaborativeListImpl+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaCollaborativeListImpl+Adapter.h"; sourceTree = "<group>"; };
+		CD87A18DAC4919E4CFAD91ED /* JavaModelImpl+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaModelImpl+Adapter.m"; sourceTree = "<group>"; };
 		CD87A1DC5D17CE2723FAB95C /* GDSCollaborativeString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaborativeString.h; sourceTree = "<group>"; };
 		CD87A2030B78D589A6452887 /* GDSCollaborativeList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaborativeList.h; sourceTree = "<group>"; };
 		CD87A2531B8D0BA066B8F61D /* GDSEventType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSEventType.h; sourceTree = "<group>"; };
 		CD87A270ECBF228E1B48B1EB /* GDSTextDeletedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSTextDeletedEvent.h; sourceTree = "<group>"; };
-		CD87A274AEDFBDD4C3AAE4B5 /* JavaDefaultDocument+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultDocument+Adapter.h"; sourceTree = "<group>"; };
-		CD87A2E4C2DC360806AE9C19 /* JavaDefaultIndexReference+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultIndexReference+Adapter.m"; sourceTree = "<group>"; };
+		CD87A274AEDFBDD4C3AAE4B5 /* JavaDocumentImpl+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDocumentImpl+Adapter.h"; sourceTree = "<group>"; };
+		CD87A2E4C2DC360806AE9C19 /* JavaIndexReferenceImpl+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaIndexReferenceImpl+Adapter.m"; sourceTree = "<group>"; };
 		CD87A2FEA0B0895229F2D2E7 /* GDSErrorType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSErrorType.h; sourceTree = "<group>"; };
 		CD87A301A52A7791F8208138 /* GDSValuesAddedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSValuesAddedEvent.h; sourceTree = "<group>"; };
 		CD87A36AFC4C694BEBA27914 /* GDSCollaboratorJoinedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaboratorJoinedEvent.h; sourceTree = "<group>"; };
-		CD87A427946E2E07AA6A0D8B /* JavaDefaultCollaborativeString+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultCollaborativeString+Adapter.h"; sourceTree = "<group>"; };
-		CD87A484F9ABE6B6BC6C4997 /* JavaDefaultCollaborativeString+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultCollaborativeString+Adapter.m"; sourceTree = "<group>"; };
+		CD87A427946E2E07AA6A0D8B /* JavaCollaborativeStringImpl+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaCollaborativeStringImpl+Adapter.h"; sourceTree = "<group>"; };
+		CD87A484F9ABE6B6BC6C4997 /* JavaCollaborativeStringImpl+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaCollaborativeStringImpl+Adapter.m"; sourceTree = "<group>"; };
 		CD87A4ECA5C7579C4D5C7B33 /* GDSValueChangedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSValueChangedEvent.h; sourceTree = "<group>"; };
+		CD87A529E1D55FFDB2F9610B /* JavaToIOSStoreAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JavaToIOSStoreAdapter.h; sourceTree = "<group>"; };
 		CD87A56195D8E7451B272763 /* GDSStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSStore.h; sourceTree = "<group>"; };
 		CD87A620D802663EFFCCF90A /* GDSCollaborativeMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaborativeMap.h; sourceTree = "<group>"; };
 		CD87A63ACB960EE80AF78AE0 /* GDSObjectChangedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSObjectChangedEvent.h; sourceTree = "<group>"; };
-		CD87A72984452031F67948F2 /* JavaDefaultModel+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultModel+Adapter.h"; sourceTree = "<group>"; };
+		CD87A72984452031F67948F2 /* JavaModelImpl+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaModelImpl+Adapter.h"; sourceTree = "<group>"; };
+		CD87A747D1C4F90C7751DB0B /* JavaToIOSStoreAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JavaToIOSStoreAdapter.m; sourceTree = "<group>"; };
 		CD87A8176DAF2E6B4625BC38 /* GDSValuesSetEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSValuesSetEvent.h; sourceTree = "<group>"; };
 		CD87A837019E1750B26388F4 /* GDSCollaborativeObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaborativeObject.h; sourceTree = "<group>"; };
 		CD87A8D3AFDF9253AB5992D2 /* GDSModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSModel.h; sourceTree = "<group>"; };
 		CD87A9688E5A0D4D90454EE6 /* GDSCollaborator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaborator.h; sourceTree = "<group>"; };
+		CD87A98F651BE1920DA11FBA /* GDSStoreImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDSStoreImpl.m; sourceTree = "<group>"; };
 		CD87A9EE648CD40076CF0F49 /* GDSIndexReference.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSIndexReference.h; sourceTree = "<group>"; };
 		CD87A9FC7039B4029EC538AD /* GDSUndoRedoStateChangedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSUndoRedoStateChangedEvent.h; sourceTree = "<group>"; };
 		CD87AA27055D00904B634DCB /* GDSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSError.h; sourceTree = "<group>"; };
 		CD87AA2773C1D1028C6BB89F /* GDSBaseModelEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSBaseModelEvent.h; sourceTree = "<group>"; };
-		CD87AA7BDCE35A230A87EC1D /* JavaDefaultCollaborativeObject+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultCollaborativeObject+Adapter.m"; sourceTree = "<group>"; };
-		CD87AAA0A7661B8BC983E2D8 /* JavaDefaultCollaborativeMap+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultCollaborativeMap+Adapter.m"; sourceTree = "<group>"; };
+		CD87AA7BDCE35A230A87EC1D /* JavaCollaborativeObjectImpl+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaCollaborativeObjectImpl+Adapter.m"; sourceTree = "<group>"; };
+		CD87AAA0A7661B8BC983E2D8 /* JavaCollaborativeMapImpl+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaCollaborativeMapImpl+Adapter.m"; sourceTree = "<group>"; };
 		CD87AAAB1C66B93369584C78 /* GDSDocumentSaveStateChangedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSDocumentSaveStateChangedEvent.h; sourceTree = "<group>"; };
-		CD87AB6BCEA9C79FEBD439A9 /* JavaDefaultCollaborativeList+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultCollaborativeList+Adapter.m"; sourceTree = "<group>"; };
+		CD87AB6BCEA9C79FEBD439A9 /* JavaCollaborativeListImpl+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaCollaborativeListImpl+Adapter.m"; sourceTree = "<group>"; };
 		CD87ABF586EB56A408AD8196 /* GDSEventTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSEventTarget.h; sourceTree = "<group>"; };
-		CD87AE1F69CAD10170E09F8E /* JavaDefaultCollaborativeObject+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultCollaborativeObject+Adapter.h"; sourceTree = "<group>"; };
-		CD87AE564E0DA2F090165178 /* JavaDefaultIndexReference+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultIndexReference+Adapter.h"; sourceTree = "<group>"; };
-		CD87AE6C242D8646FC6FDB1C /* JavaDefaultCollaborativeMap+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaDefaultCollaborativeMap+Adapter.h"; sourceTree = "<group>"; };
-		CD87AE6FBEDD3668BE44B558 /* JavaDefaultDocument+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDefaultDocument+Adapter.m"; sourceTree = "<group>"; };
+		CD87ACE4FFCF555DE5763D21 /* GDSStoreImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSStoreImpl.h; sourceTree = "<group>"; };
+		CD87AE1F69CAD10170E09F8E /* JavaCollaborativeObjectImpl+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaCollaborativeObjectImpl+Adapter.h"; sourceTree = "<group>"; };
+		CD87AE564E0DA2F090165178 /* JavaIndexReferenceImpl+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaIndexReferenceImpl+Adapter.h"; sourceTree = "<group>"; };
+		CD87AE6C242D8646FC6FDB1C /* JavaCollaborativeMapImpl+Adapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "JavaCollaborativeMapImpl+Adapter.h"; sourceTree = "<group>"; };
+		CD87AE6FBEDD3668BE44B558 /* JavaDocumentImpl+Adapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "JavaDocumentImpl+Adapter.m"; sourceTree = "<group>"; };
 		CD87AEC73AD4C26D8803CA1E /* GDSCollaboratorLeftEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSCollaboratorLeftEvent.h; sourceTree = "<group>"; };
 		CD87AF4421490A949515EFF0 /* GDSDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSDocument.h; sourceTree = "<group>"; };
 		CD87AFB796F3E45ABAB05734 /* GDSReferenceShiftedEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDSReferenceShiftedEvent.h; sourceTree = "<group>"; };
@@ -259,24 +265,28 @@
 				CD87ABF586EB56A408AD8196 /* GDSEventTarget.h */,
 				CD87A8D3AFDF9253AB5992D2 /* GDSModel.h */,
 				CD87A1DC5D17CE2723FAB95C /* GDSCollaborativeString.h */,
-				CD87AB6BCEA9C79FEBD439A9 /* JavaDefaultCollaborativeList+Adapter.m */,
-				CD87A146E9921CD439CCA08A /* JavaDefaultCollaborativeList+Adapter.h */,
-				CD87AE1F69CAD10170E09F8E /* JavaDefaultCollaborativeObject+Adapter.h */,
-				CD87AA7BDCE35A230A87EC1D /* JavaDefaultCollaborativeObject+Adapter.m */,
-				CD87AAA0A7661B8BC983E2D8 /* JavaDefaultCollaborativeMap+Adapter.m */,
-				CD87AE6C242D8646FC6FDB1C /* JavaDefaultCollaborativeMap+Adapter.h */,
-				CD87A484F9ABE6B6BC6C4997 /* JavaDefaultCollaborativeString+Adapter.m */,
-				CD87A427946E2E07AA6A0D8B /* JavaDefaultCollaborativeString+Adapter.h */,
-				CD87AE6FBEDD3668BE44B558 /* JavaDefaultDocument+Adapter.m */,
-				CD87A274AEDFBDD4C3AAE4B5 /* JavaDefaultDocument+Adapter.h */,
-				CD87A18DAC4919E4CFAD91ED /* JavaDefaultModel+Adapter.m */,
-				CD87A72984452031F67948F2 /* JavaDefaultModel+Adapter.h */,
-				CD87A2E4C2DC360806AE9C19 /* JavaDefaultIndexReference+Adapter.m */,
-				CD87AE564E0DA2F090165178 /* JavaDefaultIndexReference+Adapter.h */,
+				CD87AB6BCEA9C79FEBD439A9 /* JavaCollaborativeListImpl+Adapter.m */,
+				CD87A146E9921CD439CCA08A /* JavaCollaborativeListImpl+Adapter.h */,
+				CD87AE1F69CAD10170E09F8E /* JavaCollaborativeObjectImpl+Adapter.h */,
+				CD87AA7BDCE35A230A87EC1D /* JavaCollaborativeObjectImpl+Adapter.m */,
+				CD87AAA0A7661B8BC983E2D8 /* JavaCollaborativeMapImpl+Adapter.m */,
+				CD87AE6C242D8646FC6FDB1C /* JavaCollaborativeMapImpl+Adapter.h */,
+				CD87A484F9ABE6B6BC6C4997 /* JavaCollaborativeStringImpl+Adapter.m */,
+				CD87A427946E2E07AA6A0D8B /* JavaCollaborativeStringImpl+Adapter.h */,
+				CD87AE6FBEDD3668BE44B558 /* JavaDocumentImpl+Adapter.m */,
+				CD87A274AEDFBDD4C3AAE4B5 /* JavaDocumentImpl+Adapter.h */,
+				CD87A18DAC4919E4CFAD91ED /* JavaModelImpl+Adapter.m */,
+				CD87A72984452031F67948F2 /* JavaModelImpl+Adapter.h */,
+				CD87A2E4C2DC360806AE9C19 /* JavaIndexReferenceImpl+Adapter.m */,
+				CD87AE564E0DA2F090165178 /* JavaIndexReferenceImpl+Adapter.h */,
 				CD87A56195D8E7451B272763 /* GDSStore.h */,
 				CD87AA27055D00904B634DCB /* GDSError.h */,
 				CD87A2531B8D0BA066B8F61D /* GDSEventType.h */,
 				CD87A2FEA0B0895229F2D2E7 /* GDSErrorType.h */,
+				CD87A98F651BE1920DA11FBA /* GDSStoreImpl.m */,
+				CD87ACE4FFCF555DE5763D21 /* GDSStoreImpl.h */,
+				CD87A747D1C4F90C7751DB0B /* JavaToIOSStoreAdapter.m */,
+				CD87A529E1D55FFDB2F9610B /* JavaToIOSStoreAdapter.h */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -801,13 +811,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD87A42F5F11D9135998B027 /* JavaDefaultCollaborativeList+Adapter.m in Sources */,
-				CD87A5611041F8EC7E4E5142 /* JavaDefaultCollaborativeObject+Adapter.m in Sources */,
-				CD87A1FD747092FEF2F4532A /* JavaDefaultCollaborativeMap+Adapter.m in Sources */,
-				CD87A7586C6144E672DAFAB7 /* JavaDefaultCollaborativeString+Adapter.m in Sources */,
-				CD87A40F5D9AD5B53B7E5603 /* JavaDefaultDocument+Adapter.m in Sources */,
-				CD87AAFB5DDE39CABC160A2C /* JavaDefaultModel+Adapter.m in Sources */,
-				CD87A6C3D9CDFD0524E9FBD5 /* JavaDefaultIndexReference+Adapter.m in Sources */,
+				CD87A42F5F11D9135998B027 /* JavaCollaborativeListImpl+Adapter.m in Sources */,
+				CD87A5611041F8EC7E4E5142 /* JavaCollaborativeObjectImpl+Adapter.m in Sources */,
+				CD87A1FD747092FEF2F4532A /* JavaCollaborativeMapImpl+Adapter.m in Sources */,
+				CD87A7586C6144E672DAFAB7 /* JavaCollaborativeStringImpl+Adapter.m in Sources */,
+				CD87A40F5D9AD5B53B7E5603 /* JavaDocumentImpl+Adapter.m in Sources */,
+				CD87AAFB5DDE39CABC160A2C /* JavaModelImpl+Adapter.m in Sources */,
+				CD87A6C3D9CDFD0524E9FBD5 /* JavaIndexReferenceImpl+Adapter.m in Sources */,
+				CD87A11A5192F4883FB8C970 /* GDSStoreImpl.m in Sources */,
+				CD87A84876F4A67C7C4DB8FD /* JavaToIOSStoreAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
