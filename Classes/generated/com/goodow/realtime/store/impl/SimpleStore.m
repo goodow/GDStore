@@ -41,19 +41,11 @@
   return bus_;
 }
 
-- (NSString *)sessionId {
-  return sessionId__;
-}
-
-- (NSString *)userId {
-  return userId__;
-}
-
 - (void)load__WithNSString:(NSString *)id_
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)onLoaded
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_initializer
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_error {
-  ComGoodowRealtimeStoreImplDocumentBridge *bridge = [[ComGoodowRealtimeStoreImplDocumentBridge alloc] initWithComGoodowRealtimeStoreStore:self withNSString:id_ withComGoodowRealtimeJsonJsonArray:nil withComGoodowRealtimeCoreHandler:opt_error];
+  ComGoodowRealtimeStoreImplDocumentBridge *bridge = [[ComGoodowRealtimeStoreImplDocumentBridge alloc] initWithComGoodowRealtimeStoreStore:self withNSString:id_ withComGoodowRealtimeJsonJsonArray:nil withComGoodowRealtimeJsonJsonArray:nil withComGoodowRealtimeCoreHandler:opt_error];
   [bridge createRoot];
   if (opt_initializer != nil) {
     [((id<ComGoodowRealtimeCoreScheduler>) nil_chk([ComGoodowRealtimeCorePlatform scheduler])) handleWithId:opt_initializer withId:[((id<ComGoodowRealtimeStoreDocument>) nil_chk([bridge getDocument])) getModel]];
@@ -64,8 +56,6 @@ withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_error {
 - (void)copyAllFieldsTo:(ComGoodowRealtimeStoreImplSimpleStore *)other {
   [super copyAllFieldsTo:other];
   other->bus_ = bus_;
-  other->sessionId__ = sessionId__;
-  other->userId__ = userId__;
 }
 
 + (J2ObjcClassInfo *)__metadata {
@@ -74,16 +64,12 @@ withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_error {
     { "initWithComGoodowRealtimeChannelBus:", "SimpleStore", NULL, 0x1, NULL },
     { "close", NULL, "V", 0x1, NULL },
     { "getBus", NULL, "Lcom.goodow.realtime.channel.Bus;", 0x1, NULL },
-    { "sessionId", NULL, "Ljava.lang.String;", 0x11, NULL },
-    { "userId", NULL, "Ljava.lang.String;", 0x1, NULL },
     { "load__WithNSString:withComGoodowRealtimeCoreHandler:withComGoodowRealtimeCoreHandler:withComGoodowRealtimeCoreHandler:", "load", "V", 0x1, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "bus_", NULL, 0x11, "Lcom.goodow.realtime.channel.Bus;", NULL,  },
-    { "userId__", "userId", 0x4, "Ljava.lang.String;", NULL,  },
-    { "sessionId__", "sessionId", 0x4, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplSimpleStore = { "SimpleStore", "com.goodow.realtime.store.impl", NULL, 0x1, 7, methods, 3, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplSimpleStore = { "SimpleStore", "com.goodow.realtime.store.impl", NULL, 0x1, 5, methods, 1, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplSimpleStore;
 }
 

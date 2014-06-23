@@ -8,7 +8,7 @@
 #include "IOSClass.h"
 #include "com/goodow/realtime/json/JsonArray.h"
 #include "com/goodow/realtime/store/ValuesAddedEvent.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreValuesAddedEvent : NSObject
 @end

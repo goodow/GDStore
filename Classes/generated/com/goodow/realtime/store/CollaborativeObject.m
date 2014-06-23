@@ -9,7 +9,7 @@
 #include "com/goodow/realtime/core/Handler.h"
 #include "com/goodow/realtime/core/Registration.h"
 #include "com/goodow/realtime/store/CollaborativeObject.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreCollaborativeObject : NSObject
 @end

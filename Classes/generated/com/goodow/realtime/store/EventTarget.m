@@ -5,10 +5,12 @@
 //  Created by retechretech.
 //
 
+#include "IOSClass.h"
 #include "com/goodow/realtime/core/Handler.h"
 #include "com/goodow/realtime/core/Registration.h"
 #include "com/goodow/realtime/store/EventTarget.h"
 #include "com/goodow/realtime/store/EventType.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreEventTarget : NSObject
 @end

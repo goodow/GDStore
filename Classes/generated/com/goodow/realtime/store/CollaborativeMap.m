@@ -10,7 +10,7 @@
 #include "com/goodow/realtime/core/Registration.h"
 #include "com/goodow/realtime/json/JsonArray.h"
 #include "com/goodow/realtime/store/CollaborativeMap.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreCollaborativeMap : NSObject
 @end

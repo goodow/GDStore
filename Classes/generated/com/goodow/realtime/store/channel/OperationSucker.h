@@ -14,13 +14,9 @@
 @class JavaLangThrowable;
 @class JavaUtilLoggingLogger;
 @protocol ComGoodowRealtimeChannelBus;
-@protocol ComGoodowRealtimeChannelMessage;
-@protocol ComGoodowRealtimeCoreRegistration;
-@protocol ComGoodowRealtimeJsonJsonObject;
 @protocol ComGoodowRealtimeOperationTransformer;
 
 #import "JreEmulation.h"
-#include "com/goodow/realtime/core/Handler.h"
 #include "com/goodow/realtime/store/channel/OperationChannel.h"
 #include "com/goodow/realtime/store/impl/DocumentBridge.h"
 
@@ -30,7 +26,6 @@
   ComGoodowRealtimeStoreChannelOperationChannel *channel_;
   id<ComGoodowRealtimeOperationTransformer> transformer_;
   id<ComGoodowRealtimeChannelBus> bus_;
-  id<ComGoodowRealtimeCoreRegistration> presenceReg_;
   ComGoodowRealtimeStoreImplDocumentBridge *bridge_;
 }
 
@@ -38,7 +33,7 @@
                              withNSString:(NSString *)id_;
 
 - (void)load__WithComGoodowRealtimeStoreImplDocumentBridge:(ComGoodowRealtimeStoreImplDocumentBridge *)bridge
-                       withComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)snapshot;
+                                                withDouble:(double)version_;
 
 - (void)onAckWithId:(ComGoodowRealtimeOperationImplCollaborativeOperation *)serverHistoryOp
         withBoolean:(BOOL)clean;
@@ -61,7 +56,6 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationSucker, id__, NSString
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationSucker, channel_, ComGoodowRealtimeStoreChannelOperationChannel *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationSucker, transformer_, id<ComGoodowRealtimeOperationTransformer>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationSucker, bus_, id<ComGoodowRealtimeChannelBus>)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationSucker, presenceReg_, id<ComGoodowRealtimeCoreRegistration>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationSucker, bridge_, ComGoodowRealtimeStoreImplDocumentBridge *)
 
 FOUNDATION_EXPORT JavaUtilLoggingLogger *ComGoodowRealtimeStoreChannelOperationSucker_logger_;
@@ -83,20 +77,5 @@ J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelOperationSucker, logger_
 __attribute__((always_inline)) inline void ComGoodowRealtimeStoreChannelOperationSucker_$1_init() {}
 
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationSucker_$1, this$0_, ComGoodowRealtimeStoreChannelOperationSucker *)
-
-@interface ComGoodowRealtimeStoreChannelOperationSucker_$2 : NSObject < ComGoodowRealtimeCoreHandler > {
- @public
-  ComGoodowRealtimeStoreImplDocumentBridge *val$bridge_;
-}
-
-- (void)handleWithId:(id<ComGoodowRealtimeChannelMessage>)message;
-
-- (id)initWithComGoodowRealtimeStoreImplDocumentBridge:(ComGoodowRealtimeStoreImplDocumentBridge *)capture$0;
-
-@end
-
-__attribute__((always_inline)) inline void ComGoodowRealtimeStoreChannelOperationSucker_$2_init() {}
-
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationSucker_$2, val$bridge_, ComGoodowRealtimeStoreImplDocumentBridge *)
 
 #endif // _ComGoodowRealtimeStoreChannelOperationSucker_H_

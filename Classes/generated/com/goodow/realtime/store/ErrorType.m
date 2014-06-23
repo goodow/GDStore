@@ -7,6 +7,7 @@
 
 #include "IOSClass.h"
 #include "com/goodow/realtime/store/ErrorType.h"
+#include "com/google/gwt/core/client/js/JsExport.h"
 #include "java/lang/IllegalArgumentException.h"
 
 BOOL ComGoodowRealtimeStoreErrorTypeEnum_initialized = NO;
@@ -50,6 +51,10 @@ ComGoodowRealtimeStoreErrorTypeEnum *ComGoodowRealtimeStoreErrorTypeEnum_values[
   @throw [[JavaLangIllegalArgumentException alloc] initWithNSString:name];
   return nil;
 }
++ (IOSObjectArray *)__annotations {
+  return [IOSObjectArray arrayWithObjects:(id[]) { [[ComGoogleGwtCoreClientJsJsExport alloc] initWithValue:@""] } count:1 type:[IOSClass classWithProtocol:@protocol(JavaLangAnnotationAnnotation)]];
+}
+
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {

@@ -8,7 +8,7 @@
 #include "IOSClass.h"
 #include "com/goodow/realtime/store/Error.h"
 #include "com/goodow/realtime/store/ErrorType.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreError : NSObject
 @end

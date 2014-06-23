@@ -25,21 +25,21 @@
 #include "com/goodow/realtime/store/CollaborativeMap.h"
 #include "com/goodow/realtime/store/Collaborator.h"
 #include "com/goodow/realtime/store/Document.h"
-#include "com/goodow/realtime/store/Error.h"
 #include "com/goodow/realtime/store/EventType.h"
 #include "com/goodow/realtime/store/Store.h"
 #include "com/goodow/realtime/store/UndoRedoStateChangedEvent.h"
 #include "com/goodow/realtime/store/channel/Constants.h"
-#include "com/goodow/realtime/store/impl/DefaultCollaborativeList.h"
-#include "com/goodow/realtime/store/impl/DefaultCollaborativeMap.h"
-#include "com/goodow/realtime/store/impl/DefaultCollaborativeObject.h"
-#include "com/goodow/realtime/store/impl/DefaultCollaborativeString.h"
-#include "com/goodow/realtime/store/impl/DefaultDocument.h"
-#include "com/goodow/realtime/store/impl/DefaultIndexReference.h"
-#include "com/goodow/realtime/store/impl/DefaultModel.h"
-#include "com/goodow/realtime/store/impl/DefaultUndoRedoStateChangedEvent.h"
+#include "com/goodow/realtime/store/impl/CollaborativeListImpl.h"
+#include "com/goodow/realtime/store/impl/CollaborativeMapImpl.h"
+#include "com/goodow/realtime/store/impl/CollaborativeObjectImpl.h"
+#include "com/goodow/realtime/store/impl/CollaborativeStringImpl.h"
+#include "com/goodow/realtime/store/impl/CollaboratorImpl.h"
 #include "com/goodow/realtime/store/impl/DocumentBridge.h"
+#include "com/goodow/realtime/store/impl/DocumentImpl.h"
+#include "com/goodow/realtime/store/impl/IndexReferenceImpl.h"
+#include "com/goodow/realtime/store/impl/ModelImpl.h"
 #include "com/goodow/realtime/store/impl/SimpleStore.h"
+#include "com/goodow/realtime/store/impl/UndoRedoStateChangedEventImpl.h"
 #include "java/lang/RuntimeException.h"
 #include "java/lang/Void.h"
 
@@ -48,14 +48,17 @@
 - (id)initWithComGoodowRealtimeStoreStore:(id<ComGoodowRealtimeStoreStore>)store
                              withNSString:(NSString *)id_
        withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)components
+       withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)collaborators
          withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)errorHandler {
   if (self = [super init]) {
     undoManager_ = [ComGoodowRealtimeOperationUndoUndoManagerFactory getNoOp];
     outputSink_ = ComGoodowRealtimeStoreImplDocumentBridge_OutputSink_get_VOID_();
     self->store_ = store == nil ? [[ComGoodowRealtimeStoreImplSimpleStore alloc] init] : ((id) store);
     self->id__ = id_;
-    document_ = [[ComGoodowRealtimeStoreImplDefaultDocument alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:self withComGoodowRealtimeCoreHandler:errorHandler];
+    document_ = [[ComGoodowRealtimeStoreImplDocumentImpl alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:self withComGoodowRealtimeCoreHandler:errorHandler];
     model_ = [document_ getModel];
+    collaborators = collaborators == nil ? [ComGoodowRealtimeJsonJson createArray] : collaborators;
+    [collaborators forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplDocumentBridge_$1 alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:self withComGoodowRealtimeStoreStore:store]];
     if (components != nil && [components length] > 0) {
       ComGoodowRealtimeOperationImplCollaborativeTransformer *transformer = [[ComGoodowRealtimeOperationImplCollaborativeTransformer alloc] init];
       ComGoodowRealtimeOperationImplCollaborativeOperation *operation = [transformer createOperationWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"op" withId:components]];
@@ -71,21 +74,16 @@
 }
 
 - (void)createRoot {
-  [((ComGoodowRealtimeStoreImplDefaultModel *) nil_chk(model_)) createRoot];
+  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_)) createRoot];
 }
 
 - (id<ComGoodowRealtimeStoreDocument>)getDocument {
   return document_;
 }
 
-- (void)onCollaboratorChangedWithBoolean:(BOOL)isJoined
-  withComGoodowRealtimeStoreCollaborator:(id<ComGoodowRealtimeStoreCollaborator>)collaborator {
-  [((ComGoodowRealtimeStoreImplDefaultDocument *) nil_chk(document_)) onCollaboratorChangedWithBoolean:isJoined withComGoodowRealtimeStoreCollaborator:collaborator];
-}
-
 - (void)scheduleHandleWithComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)handler
                                                 withId:(id)event {
-  [((id<ComGoodowRealtimeCoreScheduler>) nil_chk([ComGoodowRealtimeCorePlatform scheduler])) scheduleDeferredWithComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplDocumentBridge_$1 alloc] initWithComGoodowRealtimeCoreHandler:handler withId:event]];
+  [((id<ComGoodowRealtimeCoreScheduler>) nil_chk([ComGoodowRealtimeCorePlatform scheduler])) scheduleDeferredWithComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplDocumentBridge_$2 alloc] initWithComGoodowRealtimeCoreHandler:handler withId:event]];
 }
 
 - (void)setOutputSinkWithComGoodowRealtimeStoreImplDocumentBridge_OutputSink:(id<ComGoodowRealtimeStoreImplDocumentBridge_OutputSink>)outputSink {
@@ -97,14 +95,14 @@
 }
 
 - (id<ComGoodowRealtimeJsonJsonObject>)toJson {
-  return [((id<ComGoodowRealtimeStoreCollaborativeMap>) nil_chk([((ComGoodowRealtimeStoreImplDefaultModel *) nil_chk(model_)) getRoot])) toJson];
+  return [((id<ComGoodowRealtimeStoreCollaborativeMap>) nil_chk([((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_)) getRoot])) toJson];
 }
 
 - (id<ComGoodowRealtimeJsonJsonArray>)toSnapshot {
   id<ComGoodowRealtimeJsonJsonArray> createComponents = [ComGoodowRealtimeJsonJson createArray];
   id<ComGoodowRealtimeJsonJsonArray> components = [ComGoodowRealtimeJsonJson createArray];
-  [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((ComGoodowRealtimeStoreImplDefaultModel *) nil_chk(model_))->objects_)) forEachWithComGoodowRealtimeJsonJsonObject_MapIterator:[[ComGoodowRealtimeStoreImplDocumentBridge_$2 alloc] initWithComGoodowRealtimeJsonJsonArray:createComponents withComGoodowRealtimeJsonJsonArray:components]];
-  [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(components)) forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplDocumentBridge_$3 alloc] initWithComGoodowRealtimeJsonJsonArray:createComponents]];
+  [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_))->objects_)) forEachWithComGoodowRealtimeJsonJsonObject_MapIterator:[[ComGoodowRealtimeStoreImplDocumentBridge_$3 alloc] initWithComGoodowRealtimeJsonJsonArray:createComponents withComGoodowRealtimeJsonJsonArray:components]];
+  [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(components)) forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplDocumentBridge_$4 alloc] initWithComGoodowRealtimeJsonJsonArray:createComponents]];
   return createComponents;
 }
 
@@ -113,7 +111,8 @@
 }
 
 - (void)consumeAndSubmitWithComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)component {
-  ComGoodowRealtimeOperationImplCollaborativeOperation *operation = [[ComGoodowRealtimeOperationImplCollaborativeOperation alloc] initWithNSString:[((id<ComGoodowRealtimeStoreStore>) nil_chk(store_)) userId] withNSString:[store_ sessionId] withComGoodowRealtimeJsonJsonArray:[((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([ComGoodowRealtimeJsonJson createArray])) pushWithId:component]];
+  id<ComGoodowRealtimeStoreCollaborator> me = [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((ComGoodowRealtimeStoreImplDocumentImpl *) nil_chk(document_))->collaborators_)) getWithNSString:[((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(store_)) getBus])) getSessionId]];
+  ComGoodowRealtimeOperationImplCollaborativeOperation *operation = [[ComGoodowRealtimeOperationImplCollaborativeOperation alloc] initWithNSString:me == nil ? nil : [me userId] withNSString:[((id<ComGoodowRealtimeChannelBus>) nil_chk([store_ getBus])) getSessionId] withComGoodowRealtimeJsonJsonArray:[((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([ComGoodowRealtimeJsonJson createArray])) pushWithId:component]];
   [self applyLocallyWithComGoodowRealtimeOperationImplCollaborativeOperation:operation];
   [((id<ComGoodowRealtimeOperationUndoUndoManager>) nil_chk(undoManager_)) checkpoint];
   [self undoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:operation];
@@ -121,8 +120,7 @@
 }
 
 - (BOOL)isLocalSessionWithNSString:(NSString *)sessionId {
-  NSString *local = [((id<ComGoodowRealtimeStoreStore>) nil_chk(store_)) sessionId];
-  return sessionId == nil ? local == nil : [sessionId isEqual:local];
+  return [((NSString *) nil_chk([((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(store_)) getBus])) getSessionId])) isEqual:sessionId];
 }
 
 - (void)redo {
@@ -134,7 +132,7 @@
 }
 
 - (void)applyLocallyWithComGoodowRealtimeOperationImplCollaborativeOperation:(ComGoodowRealtimeOperationImplCollaborativeOperation *)operation {
-  [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(((ComGoodowRealtimeOperationImplCollaborativeOperation *) nil_chk(operation))->components_)) forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplDocumentBridge_$4 alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:self withComGoodowRealtimeOperationImplCollaborativeOperation:operation]];
+  [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(((ComGoodowRealtimeOperationImplCollaborativeOperation *) nil_chk(operation))->components_)) forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplDocumentBridge_$5 alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:self withComGoodowRealtimeOperationImplCollaborativeOperation:operation]];
 }
 
 - (void)bypassUndoStackWithComGoodowRealtimeOperationImplCollaborativeOperation:(ComGoodowRealtimeOperationImplCollaborativeOperation *)operation {
@@ -146,11 +144,11 @@
 - (void)mayUndoRedoStateChanged {
   BOOL canUndo = [((id<ComGoodowRealtimeOperationUndoUndoManager>) nil_chk(undoManager_)) canUndo];
   BOOL canRedo = [undoManager_ canRedo];
-  if ([((ComGoodowRealtimeStoreImplDefaultModel *) nil_chk(model_)) canUndo] != canUndo || [model_ canRedo] != canRedo) {
+  if ([((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_)) canUndo] != canUndo || [model_ canRedo] != canRedo) {
     model_->canUndo__ = canUndo;
     model_->canRedo__ = canRedo;
-    id<ComGoodowRealtimeStoreUndoRedoStateChangedEvent> event = [[ComGoodowRealtimeStoreImplDefaultUndoRedoStateChangedEvent alloc] initWithComGoodowRealtimeStoreModel:model_ withComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"canUndo" withBoolean:canUndo])) setWithNSString:@"canRedo" withBoolean:canRedo]];
-    (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@%@:%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_EVENT_(), ComGoodowRealtimeStoreEventTypeEnum_get_UNDO_REDO_STATE_CHANGED(), id__] withId:event];
+    id<ComGoodowRealtimeStoreUndoRedoStateChangedEvent> event = [[ComGoodowRealtimeStoreImplUndoRedoStateChangedEventImpl alloc] initWithComGoodowRealtimeStoreModel:model_ withComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"canUndo" withBoolean:canUndo])) setWithNSString:@"canRedo" withBoolean:canRedo]];
+    (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), id__, ComGoodowRealtimeStoreEventTypeEnum_get_UNDO_REDO_STATE_CHANGED()] withId:event];
   }
 }
 
@@ -175,11 +173,10 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "initWithComGoodowRealtimeStoreStore:withNSString:withComGoodowRealtimeJsonJsonArray:withComGoodowRealtimeCoreHandler:", "DocumentBridge", NULL, 0x1, NULL },
+    { "initWithComGoodowRealtimeStoreStore:withNSString:withComGoodowRealtimeJsonJsonArray:withComGoodowRealtimeJsonJsonArray:withComGoodowRealtimeCoreHandler:", "DocumentBridge", NULL, 0x1, NULL },
     { "consumeWithComGoodowRealtimeOperationImplCollaborativeOperation:", "consume", "V", 0x1, NULL },
     { "createRoot", NULL, "V", 0x1, NULL },
     { "getDocument", NULL, "Lcom.goodow.realtime.store.Document;", 0x1, NULL },
-    { "onCollaboratorChangedWithBoolean:withComGoodowRealtimeStoreCollaborator:", "onCollaboratorChanged", "V", 0x1, NULL },
     { "scheduleHandleWithComGoodowRealtimeCoreHandler:withId:", "scheduleHandle", "V", 0x1, NULL },
     { "setOutputSinkWithComGoodowRealtimeStoreImplDocumentBridge_OutputSink:", "setOutputSink", "V", 0x1, NULL },
     { "setUndoEnabledWithBoolean:", "setUndoEnabled", "V", 0x1, NULL },
@@ -199,12 +196,12 @@
   static J2ObjcFieldInfo fields[] = {
     { "store_", NULL, 0x10, "Lcom.goodow.realtime.store.Store;", NULL,  },
     { "id__", "id", 0x10, "Ljava.lang.String;", NULL,  },
-    { "document_", NULL, 0x12, "Lcom.goodow.realtime.store.impl.DefaultDocument;", NULL,  },
-    { "model_", NULL, 0x12, "Lcom.goodow.realtime.store.impl.DefaultModel;", NULL,  },
+    { "document_", NULL, 0x12, "Lcom.goodow.realtime.store.impl.DocumentImpl;", NULL,  },
+    { "model_", NULL, 0x12, "Lcom.goodow.realtime.store.impl.ModelImpl;", NULL,  },
     { "undoManager_", NULL, 0x2, "Lcom.goodow.realtime.operation.undo.UndoManager;", NULL,  },
     { "outputSink_", NULL, 0x0, "Lcom.goodow.realtime.store.impl.DocumentBridge$OutputSink;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge = { "DocumentBridge", "com.goodow.realtime.store.impl", NULL, 0x1, 20, methods, 6, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge = { "DocumentBridge", "com.goodow.realtime.store.impl", NULL, 0x1, 19, methods, 6, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplDocumentBridge;
 }
 
@@ -262,6 +259,37 @@ id<ComGoodowRealtimeStoreImplDocumentBridge_OutputSink> ComGoodowRealtimeStoreIm
 
 @implementation ComGoodowRealtimeStoreImplDocumentBridge_$1
 
+- (void)callWithInt:(int)index
+             withId:(id<ComGoodowRealtimeJsonJsonObject>)obj {
+  BOOL isMe = [((NSString *) nil_chk([((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(val$store_)) getBus])) getSessionId])) isEqual:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(obj)) getStringWithNSString:@"sessionId"]];
+  id<ComGoodowRealtimeStoreCollaborator> collaborator = [[ComGoodowRealtimeStoreImplCollaboratorImpl alloc] initWithComGoodowRealtimeJsonJsonObject:[obj setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_IS_ME_() withBoolean:isMe]];
+  (void) [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((ComGoodowRealtimeStoreImplDocumentImpl *) nil_chk(this$0_->document_))->collaborators_)) setWithNSString:[collaborator sessionId] withId:collaborator];
+}
+
+- (id)initWithComGoodowRealtimeStoreImplDocumentBridge:(ComGoodowRealtimeStoreImplDocumentBridge *)outer$
+                       withComGoodowRealtimeStoreStore:(id<ComGoodowRealtimeStoreStore>)capture$0 {
+  this$0_ = outer$;
+  val$store_ = capture$0;
+  return [super init];
+}
+
++ (J2ObjcClassInfo *)__metadata {
+  static J2ObjcMethodInfo methods[] = {
+    { "callWithInt:withComGoodowRealtimeJsonJsonObject:", "call", "V", 0x1, NULL },
+    { "initWithComGoodowRealtimeStoreImplDocumentBridge:withComGoodowRealtimeStoreStore:", "init", NULL, 0x0, NULL },
+  };
+  static J2ObjcFieldInfo fields[] = {
+    { "this$0_", NULL, 0x1012, "Lcom.goodow.realtime.store.impl.DocumentBridge;", NULL,  },
+    { "val$store_", NULL, 0x1012, "Lcom.goodow.realtime.store.Store;", NULL,  },
+  };
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$1 = { "$1", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 2, fields, 0, NULL};
+  return &_ComGoodowRealtimeStoreImplDocumentBridge_$1;
+}
+
+@end
+
+@implementation ComGoodowRealtimeStoreImplDocumentBridge_$2
+
 - (void)handleWithId:(id)ignore {
   [((id<ComGoodowRealtimeCoreScheduler>) nil_chk([ComGoodowRealtimeCorePlatform scheduler])) handleWithId:val$handler_ withId:val$event_];
 }
@@ -282,17 +310,17 @@ id<ComGoodowRealtimeStoreImplDocumentBridge_OutputSink> ComGoodowRealtimeStoreIm
     { "val$handler_", NULL, 0x1012, "Lcom.goodow.realtime.core.Handler;", NULL,  },
     { "val$event_", NULL, 0x1012, "TT;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$1 = { "$1", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 2, fields, 0, NULL};
-  return &_ComGoodowRealtimeStoreImplDocumentBridge_$1;
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$2 = { "$2", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 2, fields, 0, NULL};
+  return &_ComGoodowRealtimeStoreImplDocumentBridge_$2;
 }
 
 @end
 
-@implementation ComGoodowRealtimeStoreImplDocumentBridge_$2
+@implementation ComGoodowRealtimeStoreImplDocumentBridge_$3
 
 - (void)callWithNSString:(NSString *)key
-                  withId:(ComGoodowRealtimeStoreImplDefaultCollaborativeObject *)object {
-  IOSObjectArray *initializeComponents = [((ComGoodowRealtimeStoreImplDefaultCollaborativeObject *) nil_chk(object)) toInitialization];
+                  withId:(ComGoodowRealtimeStoreImplCollaborativeObjectImpl *)object {
+  IOSObjectArray *initializeComponents = [((ComGoodowRealtimeStoreImplCollaborativeObjectImpl *) nil_chk(object)) toInitialization];
   BOOL isCreateOp = YES;
   {
     IOSObjectArray *a__ = initializeComponents;
@@ -320,20 +348,20 @@ id<ComGoodowRealtimeStoreImplDocumentBridge_OutputSink> ComGoodowRealtimeStoreIm
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "callWithNSString:withComGoodowRealtimeStoreImplDefaultCollaborativeObject:", "call", "V", 0x1, NULL },
+    { "callWithNSString:withComGoodowRealtimeStoreImplCollaborativeObjectImpl:", "call", "V", 0x1, NULL },
     { "initWithComGoodowRealtimeJsonJsonArray:withComGoodowRealtimeJsonJsonArray:", "init", NULL, 0x0, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "val$createComponents_", NULL, 0x1012, "Lcom.goodow.realtime.json.JsonArray;", NULL,  },
     { "val$components_", NULL, 0x1012, "Lcom.goodow.realtime.json.JsonArray;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$2 = { "$2", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 2, fields, 0, NULL};
-  return &_ComGoodowRealtimeStoreImplDocumentBridge_$2;
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$3 = { "$3", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 2, fields, 0, NULL};
+  return &_ComGoodowRealtimeStoreImplDocumentBridge_$3;
 }
 
 @end
 
-@implementation ComGoodowRealtimeStoreImplDocumentBridge_$3
+@implementation ComGoodowRealtimeStoreImplDocumentBridge_$4
 
 - (void)callWithInt:(int)index
              withId:(id<ComGoodowRealtimeJsonJsonElement>)component {
@@ -353,40 +381,39 @@ id<ComGoodowRealtimeStoreImplDocumentBridge_OutputSink> ComGoodowRealtimeStoreIm
   static J2ObjcFieldInfo fields[] = {
     { "val$createComponents_", NULL, 0x1012, "Lcom.goodow.realtime.json.JsonArray;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$3 = { "$3", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 1, fields, 0, NULL};
-  return &_ComGoodowRealtimeStoreImplDocumentBridge_$3;
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$4 = { "$4", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 1, fields, 0, NULL};
+  return &_ComGoodowRealtimeStoreImplDocumentBridge_$4;
 }
 
 @end
 
-@implementation ComGoodowRealtimeStoreImplDocumentBridge_$4
+@implementation ComGoodowRealtimeStoreImplDocumentBridge_$5
 
 - (void)callWithInt:(int)index
              withId:(ComGoodowRealtimeOperationImplAbstractComponent *)component {
   if (((ComGoodowRealtimeOperationImplAbstractComponent *) nil_chk(component))->type_ != ComGoodowRealtimeOperationCreateCreateComponent_TYPE) {
-    ComGoodowRealtimeStoreImplDefaultCollaborativeObject *obj = [((ComGoodowRealtimeStoreImplDefaultModel *) nil_chk(this$0_->model_)) getObjectWithNSString:component->id__];
-    [((ComGoodowRealtimeStoreImplDefaultCollaborativeObject *) nil_chk(obj)) consumeWithNSString:((ComGoodowRealtimeOperationImplCollaborativeOperation *) nil_chk(val$operation_))->userId_ withNSString:val$operation_->sessionId_ withComGoodowRealtimeOperationOperationComponent:component];
+    [((ComGoodowRealtimeStoreImplCollaborativeObjectImpl *) nil_chk([((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_)) getObjectWithNSString:component->id__])) consumeWithNSString:((ComGoodowRealtimeOperationImplCollaborativeOperation *) nil_chk(val$operation_))->userId_ withNSString:val$operation_->sessionId_ withComGoodowRealtimeOperationOperationComponent:component];
     return;
   }
-  ComGoodowRealtimeStoreImplDefaultCollaborativeObject *obj;
+  ComGoodowRealtimeStoreImplCollaborativeObjectImpl *obj;
   switch (((ComGoodowRealtimeOperationCreateCreateComponent *) check_class_cast(component, [ComGoodowRealtimeOperationCreateCreateComponent class]))->subType_) {
     case ComGoodowRealtimeOperationCreateCreateComponent_MAP:
-    obj = [[ComGoodowRealtimeStoreImplDefaultCollaborativeMap alloc] initWithComGoodowRealtimeStoreImplDefaultModel:this$0_->model_];
+    obj = [[ComGoodowRealtimeStoreImplCollaborativeMapImpl alloc] initWithComGoodowRealtimeStoreImplModelImpl:this$0_->model_];
     break;
     case ComGoodowRealtimeOperationCreateCreateComponent_LIST:
-    obj = [[ComGoodowRealtimeStoreImplDefaultCollaborativeList alloc] initWithComGoodowRealtimeStoreImplDefaultModel:this$0_->model_];
+    obj = [[ComGoodowRealtimeStoreImplCollaborativeListImpl alloc] initWithComGoodowRealtimeStoreImplModelImpl:this$0_->model_];
     break;
     case ComGoodowRealtimeOperationCreateCreateComponent_STRING:
-    obj = [[ComGoodowRealtimeStoreImplDefaultCollaborativeString alloc] initWithComGoodowRealtimeStoreImplDefaultModel:this$0_->model_];
+    obj = [[ComGoodowRealtimeStoreImplCollaborativeStringImpl alloc] initWithComGoodowRealtimeStoreImplModelImpl:this$0_->model_];
     break;
     case ComGoodowRealtimeOperationCreateCreateComponent_INDEX_REFERENCE:
-    obj = [[ComGoodowRealtimeStoreImplDefaultIndexReference alloc] initWithComGoodowRealtimeStoreImplDefaultModel:this$0_->model_];
+    obj = [[ComGoodowRealtimeStoreImplIndexReferenceImpl alloc] initWithComGoodowRealtimeStoreImplModelImpl:this$0_->model_];
     break;
     default:
     @throw [[JavaLangRuntimeException alloc] initWithNSString:@"Shouldn't reach here!"];
   }
-  ((ComGoodowRealtimeStoreImplDefaultCollaborativeObject *) nil_chk(obj))->id__ = component->id__;
-  (void) [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((ComGoodowRealtimeStoreImplDefaultModel *) nil_chk(this$0_->model_))->objects_)) setWithNSString:obj->id__ withId:obj];
+  ((ComGoodowRealtimeStoreImplCollaborativeObjectImpl *) nil_chk(obj))->id__ = component->id__;
+  (void) [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_))->objects_)) setWithNSString:obj->id__ withId:obj];
   this$0_->model_->bytesUsed_ += ((int) [((NSString *) nil_chk([component description])) length]);
   this$0_->model_->bytesUsed_++;
 }
@@ -407,8 +434,8 @@ withComGoodowRealtimeOperationImplCollaborativeOperation:(ComGoodowRealtimeOpera
     { "this$0_", NULL, 0x1012, "Lcom.goodow.realtime.store.impl.DocumentBridge;", NULL,  },
     { "val$operation_", NULL, 0x1012, "Lcom.goodow.realtime.operation.impl.CollaborativeOperation;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$4 = { "$4", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 2, fields, 0, NULL};
-  return &_ComGoodowRealtimeStoreImplDocumentBridge_$4;
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge_$5 = { "$5", "com.goodow.realtime.store.impl", "DocumentBridge", 0x8000, 2, methods, 2, fields, 0, NULL};
+  return &_ComGoodowRealtimeStoreImplDocumentBridge_$5;
 }
 
 @end

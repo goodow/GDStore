@@ -33,7 +33,6 @@
   id<ComGoodowRealtimeStoreChannelOperationChannel_Listener> listener_;
   ComGoodowRealtimeStoreChannelOperationChannel_StateEnum *state_;
   ComGoodowRealtimeStoreChannelTransformQueue *queue_;
-  NSString *sessionId_;
   NSString *id__;
   id<ComGoodowRealtimeChannelBus> bus_;
   id<ComGoodowRealtimeCoreRegistration> handlerRegistration_;
@@ -45,8 +44,7 @@ withComGoodowRealtimeOperationTransformer:(id<ComGoodowRealtimeOperationTransfor
 withComGoodowRealtimeChannelBus:(id<ComGoodowRealtimeChannelBus>)bus
 withComGoodowRealtimeStoreChannelOperationChannel_Listener:(id<ComGoodowRealtimeStoreChannelOperationChannel_Listener>)listener;
 
-- (void)connectWithDouble:(double)version_
-             withNSString:(NSString *)sessionId;
+- (void)connectWithDouble:(double)version_;
 
 - (void)disconnect;
 
@@ -93,7 +91,6 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel, maybeSendTask
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel, listener_, id<ComGoodowRealtimeStoreChannelOperationChannel_Listener>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel, state_, ComGoodowRealtimeStoreChannelOperationChannel_StateEnum *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel, queue_, ComGoodowRealtimeStoreChannelTransformQueue *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel, sessionId_, NSString *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel, id__, NSString *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel, bus_, id<ComGoodowRealtimeChannelBus>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel, handlerRegistration_, id<ComGoodowRealtimeCoreRegistration>)
@@ -171,20 +168,17 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel_$1, this$0_, C
 @interface ComGoodowRealtimeStoreChannelOperationChannel_$2 : NSObject < ComGoodowRealtimeCoreHandler > {
  @public
   ComGoodowRealtimeStoreChannelOperationChannel *this$0_;
-  NSString *val$sessionId_;
 }
 
 - (void)handleWithId:(id<ComGoodowRealtimeChannelMessage>)message;
 
-- (id)initWithComGoodowRealtimeStoreChannelOperationChannel:(ComGoodowRealtimeStoreChannelOperationChannel *)outer$
-                                               withNSString:(NSString *)capture$0;
+- (id)initWithComGoodowRealtimeStoreChannelOperationChannel:(ComGoodowRealtimeStoreChannelOperationChannel *)outer$;
 
 @end
 
 __attribute__((always_inline)) inline void ComGoodowRealtimeStoreChannelOperationChannel_$2_init() {}
 
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel_$2, this$0_, ComGoodowRealtimeStoreChannelOperationChannel *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreChannelOperationChannel_$2, val$sessionId_, NSString *)
 
 @interface ComGoodowRealtimeStoreChannelOperationChannel_$3 : NSObject < ComGoodowRealtimeCoreHandler > {
  @public

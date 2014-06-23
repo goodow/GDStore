@@ -10,7 +10,7 @@
 #include "com/goodow/realtime/core/Registration.h"
 #include "com/goodow/realtime/store/CollaborativeString.h"
 #include "com/goodow/realtime/store/IndexReference.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreCollaborativeString : NSObject
 @end

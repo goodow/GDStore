@@ -8,6 +8,8 @@
 #ifndef _ComGoodowRealtimeStoreDocumentSaveStateChangedEvent_H_
 #define _ComGoodowRealtimeStoreDocumentSaveStateChangedEvent_H_
 
+@class ComGoodowRealtimeStoreEventTypeEnum;
+
 #import "JreEmulation.h"
 
 @protocol ComGoodowRealtimeStoreDocumentSaveStateChangedEvent < NSObject, JavaObject >
@@ -15,6 +17,8 @@
 - (BOOL)isPending;
 
 - (BOOL)isSaving;
+
+- (ComGoodowRealtimeStoreEventTypeEnum *)type;
 
 @end
 

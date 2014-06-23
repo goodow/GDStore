@@ -8,6 +8,7 @@
 #ifndef _ComGoodowRealtimeStoreCollaboratorLeftEvent_H_
 #define _ComGoodowRealtimeStoreCollaboratorLeftEvent_H_
 
+@class ComGoodowRealtimeStoreEventTypeEnum;
 @protocol ComGoodowRealtimeStoreCollaborator;
 
 #import "JreEmulation.h"
@@ -15,6 +16,8 @@
 @protocol ComGoodowRealtimeStoreCollaboratorLeftEvent < NSObject, JavaObject >
 
 - (id<ComGoodowRealtimeStoreCollaborator>)collaborator;
+
+- (ComGoodowRealtimeStoreEventTypeEnum *)type;
 
 @end
 

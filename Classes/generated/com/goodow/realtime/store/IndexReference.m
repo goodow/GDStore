@@ -10,7 +10,7 @@
 #include "com/goodow/realtime/core/Registration.h"
 #include "com/goodow/realtime/store/CollaborativeObject.h"
 #include "com/goodow/realtime/store/IndexReference.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreIndexReference : NSObject
 @end
@@ -22,7 +22,7 @@
     { "onReferenceShiftedWithComGoodowRealtimeCoreHandler:", "onReferenceShifted", "Lcom.goodow.realtime.core.Registration;", 0x401, NULL },
     { "canBeDeleted", NULL, "Z", 0x401, NULL },
     { "index", NULL, "I", 0x401, NULL },
-    { "indexWithInt:", "index", "V", 0x401, NULL },
+    { "setIndexWithInt:", "setIndex", "V", 0x401, NULL },
     { "referencedObject", NULL, "TT;", 0x401, NULL },
   };
   static J2ObjcClassInfo _ComGoodowRealtimeStoreIndexReference = { "IndexReference", "com.goodow.realtime.store", NULL, 0x201, 5, methods, 0, NULL, 0, NULL};

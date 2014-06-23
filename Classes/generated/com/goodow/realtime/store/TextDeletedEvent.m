@@ -7,7 +7,7 @@
 
 #include "IOSClass.h"
 #include "com/goodow/realtime/store/TextDeletedEvent.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreTextDeletedEvent : NSObject
 @end

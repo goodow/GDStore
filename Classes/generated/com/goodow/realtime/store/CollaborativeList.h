@@ -64,7 +64,7 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values;
 
 - (int)length;
 
-- (void)lengthWithInt:(int)length;
+- (void)setLengthWithInt:(int)length;
 
 @end
 

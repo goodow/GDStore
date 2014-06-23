@@ -8,7 +8,7 @@
 #include "IOSClass.h"
 #include "com/goodow/realtime/store/BaseModelEvent.h"
 #include "com/goodow/realtime/store/EventType.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreBaseModelEvent : NSObject
 @end

@@ -8,7 +8,8 @@
 #include "IOSClass.h"
 #include "com/goodow/realtime/store/Collaborator.h"
 #include "com/goodow/realtime/store/CollaboratorLeftEvent.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/goodow/realtime/store/EventType.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreCollaboratorLeftEvent : NSObject
 @end
@@ -18,8 +19,9 @@
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "collaborator", NULL, "Lcom.goodow.realtime.store.Collaborator;", 0x401, NULL },
+    { "type", NULL, "Lcom.goodow.realtime.store.EventType;", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreCollaboratorLeftEvent = { "CollaboratorLeftEvent", "com.goodow.realtime.store", NULL, 0x201, 1, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreCollaboratorLeftEvent = { "CollaboratorLeftEvent", "com.goodow.realtime.store", NULL, 0x201, 2, methods, 0, NULL, 0, NULL};
   return &_ComGoodowRealtimeStoreCollaboratorLeftEvent;
 }
 

@@ -20,12 +20,7 @@ __attribute__((always_inline)) inline void ComGoodowRealtimeStoreChannelConstant
 
 @end
 
-@interface ComGoodowRealtimeStoreChannelConstants_Addr : NSObject
-
-@end
-
-FOUNDATION_EXPORT BOOL ComGoodowRealtimeStoreChannelConstants_Addr_initialized;
-J2OBJC_STATIC_INIT(ComGoodowRealtimeStoreChannelConstants_Addr)
+__attribute__((always_inline)) inline void ComGoodowRealtimeStoreChannelConstants_Addr_init() {}
 
 FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_STORE_;
 J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, STORE_, NSString *)
@@ -33,11 +28,11 @@ J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, STORE_, 
 FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_OPS_;
 J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, OPS_, NSString *)
 
+FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_WATCH_;
+J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, WATCH_, NSString *)
+
 FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_PRESENCE_;
 J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, PRESENCE_, NSString *)
-
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_EVENT_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, EVENT_, NSString *)
 
 FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_DOCUMENT_ERROR_;
 J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, DOCUMENT_ERROR_, NSString *)
@@ -69,28 +64,13 @@ J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, VERSION_,
 FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_SNAPSHOT_;
 J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, SNAPSHOT_, NSString *)
 
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_ACCESS_TOKEN_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, ACCESS_TOKEN_, NSString *)
+FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_COLLABORATORS_;
+J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, COLLABORATORS_, NSString *)
 
 FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_IS_JOINED_;
 J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, IS_JOINED_, NSString *)
 
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_USER_ID_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, USER_ID_, NSString *)
-
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_DISPLAY_NAME_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, DISPLAY_NAME_, NSString *)
-
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_COLOR_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, COLOR_, NSString *)
-
 FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_IS_ME_;
 J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, IS_ME_, NSString *)
-
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_IS_ANONYMOUS_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, IS_ANONYMOUS_, NSString *)
-
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Key_PHOTO_URL_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Key, PHOTO_URL_, NSString *)
 
 #endif // _ComGoodowRealtimeStoreChannelConstants_H_

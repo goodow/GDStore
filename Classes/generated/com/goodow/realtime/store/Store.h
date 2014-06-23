@@ -19,10 +19,6 @@
 
 - (id<ComGoodowRealtimeChannelBus>)getBus;
 
-- (NSString *)sessionId;
-
-- (NSString *)userId;
-
 - (void)load__WithNSString:(NSString *)id_
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)onLoaded
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_initializer

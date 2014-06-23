@@ -17,8 +17,6 @@
 @interface ComGoodowRealtimeStoreImplSimpleStore : NSObject < ComGoodowRealtimeStoreStore > {
  @public
   id<ComGoodowRealtimeChannelBus> bus_;
-  NSString *userId__;
-  NSString *sessionId__;
 }
 
 - (id)init;
@@ -28,10 +26,6 @@
 - (void)close;
 
 - (id<ComGoodowRealtimeChannelBus>)getBus;
-
-- (NSString *)sessionId;
-
-- (NSString *)userId;
 
 - (void)load__WithNSString:(NSString *)id_
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)onLoaded
@@ -45,7 +39,5 @@ withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_error;
 __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplSimpleStore_init() {}
 
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSimpleStore, bus_, id<ComGoodowRealtimeChannelBus>)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSimpleStore, userId__, NSString *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSimpleStore, sessionId__, NSString *)
 
 #endif // _ComGoodowRealtimeStoreImplSimpleStore_H_

@@ -11,15 +11,14 @@
 @class ComGoodowRealtimeOperationImplAbstractComponent;
 @class ComGoodowRealtimeOperationImplCollaborativeOperation;
 @class ComGoodowRealtimeOperationOperationComponent;
-@class ComGoodowRealtimeStoreImplDefaultCollaborativeObject;
-@class ComGoodowRealtimeStoreImplDefaultDocument;
-@class ComGoodowRealtimeStoreImplDefaultModel;
+@class ComGoodowRealtimeStoreImplCollaborativeObjectImpl;
+@class ComGoodowRealtimeStoreImplDocumentImpl;
+@class ComGoodowRealtimeStoreImplModelImpl;
 @class JavaLangVoid;
 @protocol ComGoodowRealtimeJsonJsonArray;
 @protocol ComGoodowRealtimeJsonJsonElement;
 @protocol ComGoodowRealtimeJsonJsonObject;
 @protocol ComGoodowRealtimeOperationUndoUndoManager;
-@protocol ComGoodowRealtimeStoreCollaborator;
 @protocol ComGoodowRealtimeStoreDocument;
 @protocol ComGoodowRealtimeStoreImplDocumentBridge_OutputSink;
 @protocol ComGoodowRealtimeStoreStore;
@@ -34,8 +33,8 @@
  @public
   id<ComGoodowRealtimeStoreStore> store_;
   NSString *id__;
-  ComGoodowRealtimeStoreImplDefaultDocument *document_;
-  ComGoodowRealtimeStoreImplDefaultModel *model_;
+  ComGoodowRealtimeStoreImplDocumentImpl *document_;
+  ComGoodowRealtimeStoreImplModelImpl *model_;
   id<ComGoodowRealtimeOperationUndoUndoManager> undoManager_;
   id<ComGoodowRealtimeStoreImplDocumentBridge_OutputSink> outputSink_;
 }
@@ -43,6 +42,7 @@
 - (id)initWithComGoodowRealtimeStoreStore:(id<ComGoodowRealtimeStoreStore>)store
                              withNSString:(NSString *)id_
        withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)components
+       withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)collaborators
          withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)errorHandler;
 
 - (void)consumeWithId:(ComGoodowRealtimeOperationImplCollaborativeOperation *)operation;
@@ -50,9 +50,6 @@
 - (void)createRoot;
 
 - (id<ComGoodowRealtimeStoreDocument>)getDocument;
-
-- (void)onCollaboratorChangedWithBoolean:(BOOL)isJoined
-  withComGoodowRealtimeStoreCollaborator:(id<ComGoodowRealtimeStoreCollaborator>)collaborator;
 
 - (void)scheduleHandleWithComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)handler
                                                 withId:(id)event;
@@ -93,8 +90,8 @@ __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBri
 
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge, store_, id<ComGoodowRealtimeStoreStore>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge, id__, NSString *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge, document_, ComGoodowRealtimeStoreImplDefaultDocument *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge, model_, ComGoodowRealtimeStoreImplDefaultModel *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge, document_, ComGoodowRealtimeStoreImplDocumentImpl *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge, model_, ComGoodowRealtimeStoreImplModelImpl *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge, undoManager_, id<ComGoodowRealtimeOperationUndoUndoManager>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge, outputSink_, id<ComGoodowRealtimeStoreImplDocumentBridge_OutputSink>)
 
@@ -126,7 +123,26 @@ J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreImplDocumentBridge_OutputSink, 
 
 __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_OutputSink_$1_init() {}
 
-@interface ComGoodowRealtimeStoreImplDocumentBridge_$1 : NSObject < ComGoodowRealtimeCoreHandler > {
+@interface ComGoodowRealtimeStoreImplDocumentBridge_$1 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
+ @public
+  ComGoodowRealtimeStoreImplDocumentBridge *this$0_;
+  id<ComGoodowRealtimeStoreStore> val$store_;
+}
+
+- (void)callWithInt:(int)index
+             withId:(id<ComGoodowRealtimeJsonJsonObject>)obj;
+
+- (id)initWithComGoodowRealtimeStoreImplDocumentBridge:(ComGoodowRealtimeStoreImplDocumentBridge *)outer$
+                       withComGoodowRealtimeStoreStore:(id<ComGoodowRealtimeStoreStore>)capture$0;
+
+@end
+
+__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$1_init() {}
+
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$1, this$0_, ComGoodowRealtimeStoreImplDocumentBridge *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$1, val$store_, id<ComGoodowRealtimeStoreStore>)
+
+@interface ComGoodowRealtimeStoreImplDocumentBridge_$2 : NSObject < ComGoodowRealtimeCoreHandler > {
  @public
   id<ComGoodowRealtimeCoreHandler> val$handler_;
   id val$event_;
@@ -139,31 +155,31 @@ __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBri
 
 @end
 
-__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$1_init() {}
+__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$2_init() {}
 
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$1, val$handler_, id<ComGoodowRealtimeCoreHandler>)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$1, val$event_, id)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$2, val$handler_, id<ComGoodowRealtimeCoreHandler>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$2, val$event_, id)
 
-@interface ComGoodowRealtimeStoreImplDocumentBridge_$2 : NSObject < ComGoodowRealtimeJsonJsonObject_MapIterator > {
+@interface ComGoodowRealtimeStoreImplDocumentBridge_$3 : NSObject < ComGoodowRealtimeJsonJsonObject_MapIterator > {
  @public
   id<ComGoodowRealtimeJsonJsonArray> val$createComponents_;
   id<ComGoodowRealtimeJsonJsonArray> val$components_;
 }
 
 - (void)callWithNSString:(NSString *)key
-                  withId:(ComGoodowRealtimeStoreImplDefaultCollaborativeObject *)object;
+                  withId:(ComGoodowRealtimeStoreImplCollaborativeObjectImpl *)object;
 
 - (id)initWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)capture$0
           withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)capture$1;
 
 @end
 
-__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$2_init() {}
+__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$3_init() {}
 
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$2, val$createComponents_, id<ComGoodowRealtimeJsonJsonArray>)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$2, val$components_, id<ComGoodowRealtimeJsonJsonArray>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$3, val$createComponents_, id<ComGoodowRealtimeJsonJsonArray>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$3, val$components_, id<ComGoodowRealtimeJsonJsonArray>)
 
-@interface ComGoodowRealtimeStoreImplDocumentBridge_$3 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
+@interface ComGoodowRealtimeStoreImplDocumentBridge_$4 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
  @public
   id<ComGoodowRealtimeJsonJsonArray> val$createComponents_;
 }
@@ -175,11 +191,11 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$2, val$components_
 
 @end
 
-__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$3_init() {}
+__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$4_init() {}
 
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$3, val$createComponents_, id<ComGoodowRealtimeJsonJsonArray>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$4, val$createComponents_, id<ComGoodowRealtimeJsonJsonArray>)
 
-@interface ComGoodowRealtimeStoreImplDocumentBridge_$4 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
+@interface ComGoodowRealtimeStoreImplDocumentBridge_$5 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
  @public
   ComGoodowRealtimeStoreImplDocumentBridge *this$0_;
   ComGoodowRealtimeOperationImplCollaborativeOperation *val$operation_;
@@ -193,9 +209,9 @@ withComGoodowRealtimeOperationImplCollaborativeOperation:(ComGoodowRealtimeOpera
 
 @end
 
-__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$4_init() {}
+__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplDocumentBridge_$5_init() {}
 
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$4, this$0_, ComGoodowRealtimeStoreImplDocumentBridge *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$4, val$operation_, ComGoodowRealtimeOperationImplCollaborativeOperation *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$5, this$0_, ComGoodowRealtimeStoreImplDocumentBridge *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentBridge_$5, val$operation_, ComGoodowRealtimeOperationImplCollaborativeOperation *)
 
 #endif // _ComGoodowRealtimeStoreImplDocumentBridge_H_

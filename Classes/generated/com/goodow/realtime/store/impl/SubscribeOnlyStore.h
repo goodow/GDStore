@@ -15,7 +15,6 @@
 @protocol ComGoodowRealtimeCoreRegistration;
 @protocol ComGoodowRealtimeJsonJsonObject;
 @protocol ComGoodowRealtimeOperationTransformer;
-@protocol ComGoodowRealtimeStoreStore;
 
 #import "JreEmulation.h"
 #include "com/goodow/realtime/core/Handler.h"
@@ -30,9 +29,6 @@
 - (id)initWithNSString:(NSString *)serverAddress
 withComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)options;
 
-- (id<ComGoodowRealtimeStoreStore>)authorizeWithNSString:(NSString *)userId
-                                            withNSString:(NSString *)sessionId;
-
 - (void)load__WithNSString:(NSString *)id_
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)onLoaded
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_initializer
@@ -40,13 +36,8 @@ withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_error;
 
 - (void)onLoadedWithNSString:(NSString *)id_
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_initializer
-withComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)snapshot
+                  withDouble:(double)version_
 withComGoodowRealtimeStoreImplDocumentBridge:(ComGoodowRealtimeStoreImplDocumentBridge *)bridge;
-
-- (void)doLoadWithNSString:(NSString *)id_
-withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)onLoaded
-withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_initializer
-withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_error;
 
 @end
 
@@ -56,12 +47,12 @@ __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplSubscribeOn
  @public
   ComGoodowRealtimeStoreImplSubscribeOnlyStore *this$0_;
   NSString *val$id_;
-  id<ComGoodowRealtimeCoreHandler> val$onLoaded_;
-  id<ComGoodowRealtimeCoreHandler> val$opt_initializer_;
   id<ComGoodowRealtimeCoreHandler> val$opt_error_;
+  id<ComGoodowRealtimeCoreHandler> val$opt_initializer_;
+  id<ComGoodowRealtimeCoreHandler> val$onLoaded_;
 }
 
-- (void)handleWithId:(id<ComGoodowRealtimeJsonJsonObject>)msg;
+- (void)handleWithId:(id<ComGoodowRealtimeChannelMessage>)message;
 
 - (id)initWithComGoodowRealtimeStoreImplSubscribeOnlyStore:(ComGoodowRealtimeStoreImplSubscribeOnlyStore *)outer$
                                               withNSString:(NSString *)capture$0
@@ -75,9 +66,9 @@ __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplSubscribeOn
 
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1, this$0_, ComGoodowRealtimeStoreImplSubscribeOnlyStore *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1, val$id_, NSString *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1, val$onLoaded_, id<ComGoodowRealtimeCoreHandler>)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1, val$opt_initializer_, id<ComGoodowRealtimeCoreHandler>)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1, val$opt_error_, id<ComGoodowRealtimeCoreHandler>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1, val$opt_initializer_, id<ComGoodowRealtimeCoreHandler>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1, val$onLoaded_, id<ComGoodowRealtimeCoreHandler>)
 
 @interface ComGoodowRealtimeStoreImplSubscribeOnlyStore_$2 : NSObject < ComGoodowRealtimeCoreHandler > {
  @public
@@ -114,32 +105,5 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$2, val$bridge_
 __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplSubscribeOnlyStore_$3_init() {}
 
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$3, val$handlerReg_, id<ComGoodowRealtimeCoreRegistration>)
-
-@interface ComGoodowRealtimeStoreImplSubscribeOnlyStore_$4 : NSObject < ComGoodowRealtimeCoreHandler > {
- @public
-  ComGoodowRealtimeStoreImplSubscribeOnlyStore *this$0_;
-  NSString *val$id_;
-  id<ComGoodowRealtimeCoreHandler> val$opt_error_;
-  id<ComGoodowRealtimeCoreHandler> val$opt_initializer_;
-  id<ComGoodowRealtimeCoreHandler> val$onLoaded_;
-}
-
-- (void)handleWithId:(id<ComGoodowRealtimeChannelMessage>)message;
-
-- (id)initWithComGoodowRealtimeStoreImplSubscribeOnlyStore:(ComGoodowRealtimeStoreImplSubscribeOnlyStore *)outer$
-                                              withNSString:(NSString *)capture$0
-                          withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)capture$1
-                          withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)capture$2
-                          withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)capture$3;
-
-@end
-
-__attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplSubscribeOnlyStore_$4_init() {}
-
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$4, this$0_, ComGoodowRealtimeStoreImplSubscribeOnlyStore *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$4, val$id_, NSString *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$4, val$opt_error_, id<ComGoodowRealtimeCoreHandler>)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$4, val$opt_initializer_, id<ComGoodowRealtimeCoreHandler>)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplSubscribeOnlyStore_$4, val$onLoaded_, id<ComGoodowRealtimeCoreHandler>)
 
 #endif // _ComGoodowRealtimeStoreImplSubscribeOnlyStore_H_

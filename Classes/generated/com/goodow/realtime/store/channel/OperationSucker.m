@@ -7,8 +7,6 @@
 
 #include "IOSClass.h"
 #include "com/goodow/realtime/channel/Bus.h"
-#include "com/goodow/realtime/channel/Message.h"
-#include "com/goodow/realtime/core/Registration.h"
 #include "com/goodow/realtime/json/Json.h"
 #include "com/goodow/realtime/json/JsonObject.h"
 #include "com/goodow/realtime/operation/Transformer.h"
@@ -20,10 +18,9 @@
 #include "com/goodow/realtime/store/channel/Constants.h"
 #include "com/goodow/realtime/store/channel/OperationChannel.h"
 #include "com/goodow/realtime/store/channel/OperationSucker.h"
-#include "com/goodow/realtime/store/impl/DefaultCollaborator.h"
-#include "com/goodow/realtime/store/impl/DefaultDocumentSaveStateChangedEvent.h"
-#include "com/goodow/realtime/store/impl/DefaultError.h"
 #include "com/goodow/realtime/store/impl/DocumentBridge.h"
+#include "com/goodow/realtime/store/impl/DocumentSaveStateChangedEventImpl.h"
+#include "com/goodow/realtime/store/impl/ErrorImpl.h"
 #include "java/lang/Throwable.h"
 #include "java/util/logging/Level.h"
 #include "java/util/logging/Logger.h"
@@ -46,11 +43,10 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
 }
 
 - (void)load__WithComGoodowRealtimeStoreImplDocumentBridge:(ComGoodowRealtimeStoreImplDocumentBridge *)bridge
-                       withComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)snapshot {
+                                                withDouble:(double)version_ {
   self->bridge_ = bridge;
   [((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(bridge)) setOutputSinkWithComGoodowRealtimeStoreImplDocumentBridge_OutputSink:[[ComGoodowRealtimeStoreChannelOperationSucker_$1 alloc] initWithComGoodowRealtimeStoreChannelOperationSucker:self]];
-  presenceReg_ = [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) registerHandlerWithNSString:[NSString stringWithFormat:@"%@%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_PRESENCE_(), id__] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreChannelOperationSucker_$2 alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:bridge]];
-  [((ComGoodowRealtimeStoreChannelOperationChannel *) nil_chk(channel_)) connectWithDouble:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(snapshot)) getNumberWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_VERSION_()] withNSString:[snapshot getStringWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_SESSION_ID_()]];
+  [((ComGoodowRealtimeStoreChannelOperationChannel *) nil_chk(channel_)) connectWithDouble:version_];
 }
 
 - (void)onAckWithId:(ComGoodowRealtimeOperationImplCollaborativeOperation *)serverHistoryOp
@@ -59,7 +55,7 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
 
 - (void)onErrorWithJavaLangThrowable:(JavaLangThrowable *)e {
   [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeStoreChannelOperationSucker_logger_)) logWithJavaUtilLoggingLevel:JavaUtilLoggingLevel_get_WARNING_() withNSString:@"Channel error occurs" withJavaLangThrowable:e];
-  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) publishLocalWithNSString:[NSString stringWithFormat:@"%@%@:%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_EVENT_(), ComGoodowRealtimeStoreChannelConstants_Addr_get_DOCUMENT_ERROR_(), id__] withId:[[ComGoodowRealtimeStoreImplDefaultError alloc] initWithComGoodowRealtimeStoreErrorTypeEnum:ComGoodowRealtimeStoreErrorTypeEnum_get_SERVER_ERROR() withNSString:@"Channel error occurs" withBoolean:YES]];
+  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), id__, ComGoodowRealtimeStoreChannelConstants_Addr_get_DOCUMENT_ERROR_()] withId:[[ComGoodowRealtimeStoreImplErrorImpl alloc] initWithComGoodowRealtimeStoreErrorTypeEnum:ComGoodowRealtimeStoreErrorTypeEnum_get_SERVER_ERROR() withNSString:@"Channel error occurs" withBoolean:YES]];
 }
 
 - (void)onRemoteOpWithId:(ComGoodowRealtimeOperationImplCollaborativeOperation *)serverHistoryOp {
@@ -70,7 +66,7 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
 
 - (void)onSaveStateChangedWithBoolean:(BOOL)isSaving
                           withBoolean:(BOOL)isPending {
-  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) publishLocalWithNSString:[NSString stringWithFormat:@"%@%@:%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_EVENT_(), ComGoodowRealtimeStoreEventTypeEnum_get_DOCUMENT_SAVE_STATE_CHANGED(), id__] withId:[[ComGoodowRealtimeStoreImplDefaultDocumentSaveStateChangedEvent alloc] initWithComGoodowRealtimeStoreDocument:[((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(bridge_)) getDocument] withComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"isSaving" withBoolean:isSaving])) setWithNSString:@"isPending" withBoolean:isPending]]];
+  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), id__, ComGoodowRealtimeStoreEventTypeEnum_get_DOCUMENT_SAVE_STATE_CHANGED()] withId:[[ComGoodowRealtimeStoreImplDocumentSaveStateChangedEventImpl alloc] initWithComGoodowRealtimeStoreDocument:[((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(bridge_)) getDocument] withComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"isSaving" withBoolean:isSaving])) setWithNSString:@"isPending" withBoolean:isPending]]];
 }
 
 + (void)initialize {
@@ -86,14 +82,13 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
   other->bus_ = bus_;
   other->channel_ = channel_;
   other->id__ = id__;
-  other->presenceReg_ = presenceReg_;
   other->transformer_ = transformer_;
 }
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "initWithComGoodowRealtimeChannelBus:withNSString:", "OperationSucker", NULL, 0x1, NULL },
-    { "load__WithComGoodowRealtimeStoreImplDocumentBridge:withComGoodowRealtimeJsonJsonObject:", "load", "V", 0x1, NULL },
+    { "load__WithComGoodowRealtimeStoreImplDocumentBridge:withDouble:", "load", "V", 0x1, NULL },
     { "onAckWithComGoodowRealtimeOperationImplCollaborativeOperation:withBoolean:", "onAck", "V", 0x1, NULL },
     { "onErrorWithJavaLangThrowable:", "onError", "V", 0x1, NULL },
     { "onRemoteOpWithComGoodowRealtimeOperationImplCollaborativeOperation:", "onRemoteOp", "V", 0x1, NULL },
@@ -105,10 +100,9 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
     { "channel_", NULL, 0x12, "Lcom.goodow.realtime.store.channel.OperationChannel;", NULL,  },
     { "transformer_", NULL, 0x12, "Lcom.goodow.realtime.operation.Transformer;", NULL,  },
     { "bus_", NULL, 0x12, "Lcom.goodow.realtime.channel.Bus;", NULL,  },
-    { "presenceReg_", NULL, 0x2, "Lcom.goodow.realtime.core.Registration;", NULL,  },
     { "bridge_", NULL, 0x2, "Lcom.goodow.realtime.store.impl.DocumentBridge;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreChannelOperationSucker = { "OperationSucker", "com.goodow.realtime.store.channel", NULL, 0x1, 6, methods, 7, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreChannelOperationSucker = { "OperationSucker", "com.goodow.realtime.store.channel", NULL, 0x1, 6, methods, 6, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreChannelOperationSucker;
 }
 
@@ -117,7 +111,6 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
 @implementation ComGoodowRealtimeStoreChannelOperationSucker_$1
 
 - (void)close {
-  [((id<ComGoodowRealtimeCoreRegistration>) nil_chk(this$0_->presenceReg_)) unregister];
   [((ComGoodowRealtimeStoreChannelOperationChannel *) nil_chk(this$0_->channel_)) disconnect];
 }
 
@@ -141,33 +134,6 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
   };
   static J2ObjcClassInfo _ComGoodowRealtimeStoreChannelOperationSucker_$1 = { "$1", "com.goodow.realtime.store.channel", "OperationSucker", 0x8000, 3, methods, 1, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreChannelOperationSucker_$1;
-}
-
-@end
-
-@implementation ComGoodowRealtimeStoreChannelOperationSucker_$2
-
-- (void)handleWithId:(id<ComGoodowRealtimeChannelMessage>)message {
-  id<ComGoodowRealtimeJsonJsonObject> body = [((id<ComGoodowRealtimeChannelMessage>) nil_chk(message)) body];
-  BOOL isJoined = ![((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(body)) hasWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_IS_JOINED_()] || [body getBooleanWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_IS_JOINED_()];
-  [((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(val$bridge_)) onCollaboratorChangedWithBoolean:isJoined withComGoodowRealtimeStoreCollaborator:[[ComGoodowRealtimeStoreImplDefaultCollaborator alloc] initWithComGoodowRealtimeJsonJsonObject:body]];
-}
-
-- (id)initWithComGoodowRealtimeStoreImplDocumentBridge:(ComGoodowRealtimeStoreImplDocumentBridge *)capture$0 {
-  val$bridge_ = capture$0;
-  return [super init];
-}
-
-+ (J2ObjcClassInfo *)__metadata {
-  static J2ObjcMethodInfo methods[] = {
-    { "handleWithComGoodowRealtimeChannelMessage:", "handle", "V", 0x1, NULL },
-    { "initWithComGoodowRealtimeStoreImplDocumentBridge:", "init", NULL, 0x0, NULL },
-  };
-  static J2ObjcFieldInfo fields[] = {
-    { "val$bridge_", NULL, 0x1012, "Lcom.goodow.realtime.store.impl.DocumentBridge;", NULL,  },
-  };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreChannelOperationSucker_$2 = { "$2", "com.goodow.realtime.store.channel", "OperationSucker", 0x8000, 2, methods, 1, fields, 0, NULL};
-  return &_ComGoodowRealtimeStoreChannelOperationSucker_$2;
 }
 
 @end

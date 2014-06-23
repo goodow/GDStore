@@ -11,7 +11,7 @@
 #include "com/goodow/realtime/json/JsonArray.h"
 #include "com/goodow/realtime/store/CollaborativeList.h"
 #include "com/goodow/realtime/store/IndexReference.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 #include "java/util/Comparator.h"
 
 @interface ComGoodowRealtimeStoreCollaborativeList : NSObject
@@ -40,7 +40,7 @@
     { "replaceRangeWithInt:withComGoodowRealtimeJsonJsonArray:", "replaceRange", "V", 0x401, NULL },
     { "setWithInt:withId:", "set", "V", 0x401, NULL },
     { "length", NULL, "I", 0x401, NULL },
-    { "lengthWithInt:", "length", "V", 0x401, NULL },
+    { "setLengthWithInt:", "setLength", "V", 0x401, NULL },
   };
   static J2ObjcClassInfo _ComGoodowRealtimeStoreCollaborativeList = { "CollaborativeList", "com.goodow.realtime.store", NULL, 0x201, 20, methods, 0, NULL, 0, NULL};
   return &_ComGoodowRealtimeStoreCollaborativeList;

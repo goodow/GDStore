@@ -9,7 +9,7 @@
 #include "com/goodow/realtime/channel/Bus.h"
 #include "com/goodow/realtime/core/Handler.h"
 #include "com/goodow/realtime/store/Store.h"
-#include "com/google/gwt/core/client/js/JsProperty.h"
+#include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreStore : NSObject
 @end
@@ -20,11 +20,9 @@
   static J2ObjcMethodInfo methods[] = {
     { "close", NULL, "V", 0x401, NULL },
     { "getBus", NULL, "Lcom.goodow.realtime.channel.Bus;", 0x401, NULL },
-    { "sessionId", NULL, "Ljava.lang.String;", 0x401, NULL },
-    { "userId", NULL, "Ljava.lang.String;", 0x401, NULL },
     { "load__WithNSString:withComGoodowRealtimeCoreHandler:withComGoodowRealtimeCoreHandler:withComGoodowRealtimeCoreHandler:", "load", "V", 0x401, NULL },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreStore = { "Store", "com.goodow.realtime.store", NULL, 0x201, 5, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreStore = { "Store", "com.goodow.realtime.store", NULL, 0x201, 3, methods, 0, NULL, 0, NULL};
   return &_ComGoodowRealtimeStoreStore;
 }
 

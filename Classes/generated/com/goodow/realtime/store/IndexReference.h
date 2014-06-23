@@ -21,7 +21,7 @@
 
 - (int)index;
 
-- (void)indexWithInt:(int)index;
+- (void)setIndexWithInt:(int)index;
 
 - (id)referencedObject;
 
