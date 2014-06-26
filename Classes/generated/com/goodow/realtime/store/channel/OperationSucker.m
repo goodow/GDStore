@@ -55,7 +55,7 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
 
 - (void)onErrorWithJavaLangThrowable:(JavaLangThrowable *)e {
   [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeStoreChannelOperationSucker_logger_)) logWithJavaUtilLoggingLevel:JavaUtilLoggingLevel_get_WARNING_() withNSString:@"Channel error occurs" withJavaLangThrowable:e];
-  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), id__, ComGoodowRealtimeStoreChannelConstants_Addr_get_DOCUMENT_ERROR_()] withId:[[ComGoodowRealtimeStoreImplErrorImpl alloc] initWithComGoodowRealtimeStoreErrorTypeEnum:ComGoodowRealtimeStoreErrorTypeEnum_get_SERVER_ERROR() withNSString:@"Channel error occurs" withBoolean:YES]];
+  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), id__, ComGoodowRealtimeStoreChannelConstants_Topic_get_DOCUMENT_ERROR_()] withId:[[ComGoodowRealtimeStoreImplErrorImpl alloc] initWithComGoodowRealtimeStoreErrorTypeEnum:ComGoodowRealtimeStoreErrorTypeEnum_get_SERVER_ERROR() withNSString:@"Channel error occurs" withBoolean:YES]];
 }
 
 - (void)onRemoteOpWithId:(ComGoodowRealtimeOperationImplCollaborativeOperation *)serverHistoryOp {
@@ -66,7 +66,7 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreChannelOperationSucker_logger_;
 
 - (void)onSaveStateChangedWithBoolean:(BOOL)isSaving
                           withBoolean:(BOOL)isPending {
-  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), id__, ComGoodowRealtimeStoreEventTypeEnum_get_DOCUMENT_SAVE_STATE_CHANGED()] withId:[[ComGoodowRealtimeStoreImplDocumentSaveStateChangedEventImpl alloc] initWithComGoodowRealtimeStoreDocument:[((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(bridge_)) getDocument] withComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"isSaving" withBoolean:isSaving])) setWithNSString:@"isPending" withBoolean:isPending]]];
+  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), id__, ComGoodowRealtimeStoreEventTypeEnum_get_DOCUMENT_SAVE_STATE_CHANGED()] withId:[[ComGoodowRealtimeStoreImplDocumentSaveStateChangedEventImpl alloc] initWithComGoodowRealtimeStoreDocument:[((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(bridge_)) getDocument] withComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"isSaving" withBoolean:isSaving])) setWithNSString:@"isPending" withBoolean:isPending]]];
 }
 
 + (void)initialize {

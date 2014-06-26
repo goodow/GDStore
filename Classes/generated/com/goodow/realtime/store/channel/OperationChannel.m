@@ -55,11 +55,11 @@ withComGoodowRealtimeStoreChannelOperationChannel_Listener:(id<ComGoodowRealtime
 - (void)connectWithDouble:(double)version_ {
   NSAssert(![self isConnected], @"Already connected");
   NSAssert(version_ >= 0, [[NSString stringWithFormat:@"Invalid version J2OBJC_COMMA() %f" J2OBJC_COMMA() version_] description]);
-  NSString *addr = [NSString stringWithFormat:@"%@/%@%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), id__, ComGoodowRealtimeStoreChannelConstants_Addr_get_WATCH_()];
+  NSString *addr = [NSString stringWithFormat:@"%@/%@%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), id__, ComGoodowRealtimeStoreChannelConstants_Topic_get_WATCH_()];
   if ([(id) bus_ isKindOfClass:[ComGoodowRealtimeChannelImplReliableSubscribeBus class]]) {
     [((ComGoodowRealtimeChannelImplReliableSubscribeBus *) nil_chk(((ComGoodowRealtimeChannelImplReliableSubscribeBus *) check_class_cast(bus_, [ComGoodowRealtimeChannelImplReliableSubscribeBus class])))) synchronizeSequenceNumberWithNSString:addr withDouble:version_ - 1];
   }
-  handlerRegistration_ = [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) registerHandlerWithNSString:addr withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreChannelOperationChannel_$2 alloc] initWithComGoodowRealtimeStoreChannelOperationChannel:self]];
+  handlerRegistration_ = [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) subscribeWithNSString:addr withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreChannelOperationChannel_$2 alloc] initWithComGoodowRealtimeStoreChannelOperationChannel:self]];
   [((ComGoodowRealtimeStoreChannelTransformQueue *) nil_chk(queue_)) init__WithDouble:version_];
   [self setStateWithComGoodowRealtimeStoreChannelOperationChannel_StateEnum:ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_get_ACKED()];
 }
@@ -86,7 +86,7 @@ withComGoodowRealtimeStoreChannelOperationChannel_Listener:(id<ComGoodowRealtime
   [self checkConnected];
   [((ComGoodowRealtimeStoreChannelTransformQueue *) nil_chk(queue_)) clientOpWithId:operation];
   if (!isMaybeSendTaskScheduled_ && [queue_ unackedClientOp] == nil) {
-    NSAssert(state_ == ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_get_ACKED(), @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:188 condition failed: assert state == State.ACKED;");
+    NSAssert(state_ == ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_get_ACKED(), @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:187 condition failed: assert state == State.ACKED;");
     isMaybeSendTaskScheduled_ = YES;
     [((id<ComGoodowRealtimeCoreScheduler>) nil_chk([ComGoodowRealtimeCorePlatform scheduler])) scheduleDeferredWithComGoodowRealtimeCoreHandler:maybeSendTask_];
   }
@@ -114,11 +114,11 @@ withComGoodowRealtimeStoreChannelOperationChannel_Listener:(id<ComGoodowRealtime
     case ComGoodowRealtimeStoreChannelOperationChannel_State_UNINITIALISED:
     break;
     case ComGoodowRealtimeStoreChannelOperationChannel_State_ACKED:
-    NSAssert([((ComGoodowRealtimeStoreChannelTransformQueue *) nil_chk(queue_)) version__] >= 0, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:216 condition failed: assert queue.version() >= 0;");
-    NSAssert([queue_ unackedClientOp] == nil, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:217 condition failed: assert queue.unackedClientOp() == null;");
+    NSAssert([((ComGoodowRealtimeStoreChannelTransformQueue *) nil_chk(queue_)) version__] >= 0, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:215 condition failed: assert queue.version() >= 0;");
+    NSAssert([queue_ unackedClientOp] == nil, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:216 condition failed: assert queue.unackedClientOp() == null;");
     break;
     case ComGoodowRealtimeStoreChannelOperationChannel_State_WAITING_ACK:
-    NSAssert(!isMaybeSendTaskScheduled_, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:220 condition failed: assert !isMaybeSendTaskScheduled;");
+    NSAssert(!isMaybeSendTaskScheduled_, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:219 condition failed: assert !isMaybeSendTaskScheduled;");
     break;
     default:
     @throw [[JavaLangAssertionError alloc] initWithId:[NSString stringWithFormat:@"State %@ not implemented", state_]];
@@ -128,7 +128,7 @@ withComGoodowRealtimeStoreChannelOperationChannel_Listener:(id<ComGoodowRealtime
 - (BOOL)isClean {
   [self checkConnected];
   BOOL ret = ![((ComGoodowRealtimeStoreChannelTransformQueue *) nil_chk(queue_)) hasQueuedClientOps] && [queue_ unackedClientOp] == nil;
-  NSAssert(!ret || state_ == ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_get_ACKED(), @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:234 condition failed: assert !ret || state == State.ACKED;");
+  NSAssert(!ret || state_ == ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_get_ACKED(), @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:233 condition failed: assert !ret || state == State.ACKED;");
   return ret;
 }
 
@@ -178,10 +178,10 @@ withComGoodowRealtimeStoreChannelOperationChannel_Listener:(id<ComGoodowRealtime
 
 - (void)sendUnackedOps {
   id<ComGoodowRealtimeOperationOperation> unackedClientOp = [((ComGoodowRealtimeStoreChannelTransformQueue *) nil_chk(queue_)) unackedClientOp];
-  NSAssert(unackedClientOp != nil, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:299 condition failed: assert unackedClientOp != null;");
+  NSAssert(unackedClientOp != nil, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:298 condition failed: assert unackedClientOp != null;");
   [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeStoreChannelOperationChannel_logger_)) logWithJavaUtilLoggingLevel:JavaUtilLoggingLevel_get_INFO_() withNSString:[NSString stringWithFormat:@"Sending %@ @%f", unackedClientOp, [queue_ version__]]];
   id<ComGoodowRealtimeJsonJsonObject> delta = [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"action" withId:@"post"])) setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_ID_() withId:id__])) setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_OP_DATA_() withId:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((id<ComGoodowRealtimeJsonJsonObject>) check_protocol_cast([((id<ComGoodowRealtimeOperationOperation>) nil_chk(unackedClientOp)) toJson], @protocol(ComGoodowRealtimeJsonJsonObject))))) setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_VERSION_() withDouble:[queue_ version__]]];
-  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) sendWithNSString:ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_() withId:delta withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreChannelOperationChannel_$3 alloc] initWithComGoodowRealtimeStoreChannelOperationChannel:self]];
+  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) sendWithNSString:ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_() withId:delta withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreChannelOperationChannel_$3 alloc] initWithComGoodowRealtimeStoreChannelOperationChannel:self]];
   [self setStateWithComGoodowRealtimeStoreChannelOperationChannel_StateEnum:ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_get_WAITING_ACK()];
 }
 

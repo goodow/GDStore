@@ -21,9 +21,9 @@
   return [super initWithComGoodowRealtimeChannelBus:bus];
 }
 
-- (id)initWithNSString:(NSString *)serverAddress
+- (id)initWithNSString:(NSString *)serverUri
 withComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)options {
-  return [super initWithNSString:serverAddress withComGoodowRealtimeJsonJsonObject:options];
+  return [super initWithNSString:serverUri withComGoodowRealtimeJsonJsonObject:options];
 }
 
 - (void)onLoadedWithNSString:(NSString *)id_

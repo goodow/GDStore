@@ -11,6 +11,7 @@
 #include "com/goodow/realtime/json/JsonObject.h"
 #include "com/goodow/realtime/json/JsonType.h"
 #include "com/goodow/realtime/store/CollaborativeObject.h"
+#include "com/goodow/realtime/store/impl/CollaborativeObjectImpl.h"
 #include "com/goodow/realtime/store/impl/JsonSerializer.h"
 #include "java/lang/Boolean.h"
 #include "java/lang/Double.h"
@@ -54,23 +55,23 @@
     return nil;
   }
   id<ComGoodowRealtimeJsonJsonArray> array = [ComGoodowRealtimeJsonJson createArray];
-  if ([obj isKindOfClass:[NSNumber class]]) {
-    (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_VALUE_TYPE])) pushWithDouble:[((NSNumber *) nil_chk(((NSNumber *) check_class_cast(obj, [NSNumber class])))) doubleValue]];
-  }
-  else if ([obj isKindOfClass:[JavaLangBoolean class]]) {
-    (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_VALUE_TYPE])) pushWithBoolean:[((JavaLangBoolean *) nil_chk(((JavaLangBoolean *) check_class_cast(obj, [JavaLangBoolean class])))) booleanValue]];
-  }
-  else if ([obj conformsToProtocol: @protocol(ComGoodowRealtimeStoreCollaborativeObject)]) {
-    (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_REFERENCE_TYPE])) pushWithId:[((id<ComGoodowRealtimeStoreCollaborativeObject>) nil_chk(((id<ComGoodowRealtimeStoreCollaborativeObject>) check_protocol_cast(obj, @protocol(ComGoodowRealtimeStoreCollaborativeObject))))) id__]];
-  }
-  else if ([obj isKindOfClass:[NSString class]]) {
+  if ([obj isKindOfClass:[NSString class]]) {
     (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_VALUE_TYPE])) pushWithId:obj];
+  }
+  else if ([obj isKindOfClass:[ComGoodowRealtimeStoreImplCollaborativeObjectImpl class]]) {
+    (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_REFERENCE_TYPE])) pushWithId:[((id<ComGoodowRealtimeStoreCollaborativeObject>) nil_chk(((id<ComGoodowRealtimeStoreCollaborativeObject>) check_protocol_cast(obj, @protocol(ComGoodowRealtimeStoreCollaborativeObject))))) id__]];
   }
   else if ([obj conformsToProtocol: @protocol(ComGoodowRealtimeJsonJsonObject)]) {
     (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_VALUE_TYPE])) pushWithId:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((id<ComGoodowRealtimeJsonJsonObject>) check_protocol_cast(obj, @protocol(ComGoodowRealtimeJsonJsonObject))))) copy__]];
   }
   else if ([obj conformsToProtocol: @protocol(ComGoodowRealtimeJsonJsonArray)]) {
     (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_VALUE_TYPE])) pushWithId:[((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(((id<ComGoodowRealtimeJsonJsonArray>) check_protocol_cast(obj, @protocol(ComGoodowRealtimeJsonJsonArray))))) copy__]];
+  }
+  else if ([obj isKindOfClass:[NSNumber class]]) {
+    (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_VALUE_TYPE])) pushWithDouble:[((NSNumber *) nil_chk(((NSNumber *) check_class_cast(obj, [NSNumber class])))) doubleValue]];
+  }
+  else if ([obj isKindOfClass:[JavaLangBoolean class]]) {
+    (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(array)) pushWithDouble:ComGoodowRealtimeStoreImplJsonSerializer_VALUE_TYPE])) pushWithBoolean:[((JavaLangBoolean *) nil_chk(((JavaLangBoolean *) check_class_cast(obj, [JavaLangBoolean class])))) booleanValue]];
   }
   else {
     @throw [[JavaLangIllegalArgumentException alloc] initWithNSString:[NSString stringWithFormat:@"Invalid JSON type: %@", [[nil_chk(obj) getClass] getName]]];

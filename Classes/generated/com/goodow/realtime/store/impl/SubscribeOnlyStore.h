@@ -19,14 +19,14 @@
 #import "JreEmulation.h"
 #include "com/goodow/realtime/core/Handler.h"
 #include "com/goodow/realtime/store/impl/DocumentBridge.h"
-#include "com/goodow/realtime/store/impl/SimpleStore.h"
+#include "com/goodow/realtime/store/impl/MemoryStore.h"
 
-@interface ComGoodowRealtimeStoreImplSubscribeOnlyStore : ComGoodowRealtimeStoreImplSimpleStore {
+@interface ComGoodowRealtimeStoreImplSubscribeOnlyStore : ComGoodowRealtimeStoreImplMemoryStore {
 }
 
 - (id)initWithComGoodowRealtimeChannelBus:(id<ComGoodowRealtimeChannelBus>)bus;
 
-- (id)initWithNSString:(NSString *)serverAddress
+- (id)initWithNSString:(NSString *)serverUri
 withComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)options;
 
 - (void)load__WithNSString:(NSString *)id_

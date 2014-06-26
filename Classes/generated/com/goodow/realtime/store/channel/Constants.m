@@ -19,27 +19,27 @@
 
 @end
 
-@interface ComGoodowRealtimeStoreChannelConstants_Addr : NSObject
+@interface ComGoodowRealtimeStoreChannelConstants_Topic : NSObject
 @end
 
-NSString * ComGoodowRealtimeStoreChannelConstants_Addr_STORE_ = @"realtime/store";
-NSString * ComGoodowRealtimeStoreChannelConstants_Addr_OPS_ = @"/_ops";
-NSString * ComGoodowRealtimeStoreChannelConstants_Addr_WATCH_ = @"/_watch";
-NSString * ComGoodowRealtimeStoreChannelConstants_Addr_PRESENCE_ = @"/_presence";
-NSString * ComGoodowRealtimeStoreChannelConstants_Addr_DOCUMENT_ERROR_ = @"document_error";
+NSString * ComGoodowRealtimeStoreChannelConstants_Topic_STORE_ = @"realtime/store";
+NSString * ComGoodowRealtimeStoreChannelConstants_Topic_OPS_ = @"/_ops";
+NSString * ComGoodowRealtimeStoreChannelConstants_Topic_WATCH_ = @"/_watch";
+NSString * ComGoodowRealtimeStoreChannelConstants_Topic_PRESENCE_ = @"/_presence";
+NSString * ComGoodowRealtimeStoreChannelConstants_Topic_DOCUMENT_ERROR_ = @"document_error";
 
-@implementation ComGoodowRealtimeStoreChannelConstants_Addr
+@implementation ComGoodowRealtimeStoreChannelConstants_Topic
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcFieldInfo fields[] = {
-    { "STORE_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Addr_STORE_,  },
-    { "OPS_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Addr_OPS_,  },
-    { "WATCH_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Addr_WATCH_,  },
-    { "PRESENCE_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Addr_PRESENCE_,  },
-    { "DOCUMENT_ERROR_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Addr_DOCUMENT_ERROR_,  },
+    { "STORE_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Topic_STORE_,  },
+    { "OPS_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Topic_OPS_,  },
+    { "WATCH_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Topic_WATCH_,  },
+    { "PRESENCE_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Topic_PRESENCE_,  },
+    { "DOCUMENT_ERROR_", NULL, 0x19, "Ljava.lang.String;", &ComGoodowRealtimeStoreChannelConstants_Topic_DOCUMENT_ERROR_,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreChannelConstants_Addr = { "Addr", "com.goodow.realtime.store.channel", "Constants", 0x209, 0, NULL, 5, fields, 0, NULL};
-  return &_ComGoodowRealtimeStoreChannelConstants_Addr;
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreChannelConstants_Topic = { "Topic", "com.goodow.realtime.store.channel", "Constants", 0x209, 0, NULL, 5, fields, 0, NULL};
+  return &_ComGoodowRealtimeStoreChannelConstants_Topic;
 }
 
 @end

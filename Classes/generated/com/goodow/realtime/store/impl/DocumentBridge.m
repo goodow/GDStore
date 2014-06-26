@@ -37,8 +37,8 @@
 #include "com/goodow/realtime/store/impl/DocumentBridge.h"
 #include "com/goodow/realtime/store/impl/DocumentImpl.h"
 #include "com/goodow/realtime/store/impl/IndexReferenceImpl.h"
+#include "com/goodow/realtime/store/impl/MemoryStore.h"
 #include "com/goodow/realtime/store/impl/ModelImpl.h"
-#include "com/goodow/realtime/store/impl/SimpleStore.h"
 #include "com/goodow/realtime/store/impl/UndoRedoStateChangedEventImpl.h"
 #include "java/lang/RuntimeException.h"
 #include "java/lang/Void.h"
@@ -53,7 +53,7 @@
   if (self = [super init]) {
     undoManager_ = [ComGoodowRealtimeOperationUndoUndoManagerFactory getNoOp];
     outputSink_ = ComGoodowRealtimeStoreImplDocumentBridge_OutputSink_get_VOID_();
-    self->store_ = store == nil ? [[ComGoodowRealtimeStoreImplSimpleStore alloc] init] : ((id) store);
+    self->store_ = store == nil ? [[ComGoodowRealtimeStoreImplMemoryStore alloc] init] : ((id) store);
     self->id__ = id_;
     document_ = [[ComGoodowRealtimeStoreImplDocumentImpl alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:self withComGoodowRealtimeCoreHandler:errorHandler];
     model_ = [document_ getModel];
@@ -148,7 +148,7 @@
     model_->canUndo__ = canUndo;
     model_->canRedo__ = canRedo;
     id<ComGoodowRealtimeStoreUndoRedoStateChangedEvent> event = [[ComGoodowRealtimeStoreImplUndoRedoStateChangedEventImpl alloc] initWithComGoodowRealtimeStoreModel:model_ withComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"canUndo" withBoolean:canUndo])) setWithNSString:@"canRedo" withBoolean:canRedo]];
-    (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), id__, ComGoodowRealtimeStoreEventTypeEnum_get_UNDO_REDO_STATE_CHANGED()] withId:event];
+    (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), id__, ComGoodowRealtimeStoreEventTypeEnum_get_UNDO_REDO_STATE_CHANGED()] withId:event];
   }
 }
 

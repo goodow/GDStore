@@ -21,7 +21,7 @@
 
 - (id)initWithComGoodowRealtimeChannelBus:(id<ComGoodowRealtimeChannelBus>)bus;
 
-- (id)initWithNSString:(NSString *)serverAddress
+- (id)initWithNSString:(NSString *)serverUri
 withComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)options;
 
 - (void)onLoadedWithNSString:(NSString *)id_

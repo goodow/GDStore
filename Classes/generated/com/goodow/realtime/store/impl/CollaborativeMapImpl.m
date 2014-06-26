@@ -256,7 +256,7 @@ withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOper
 - (void)callWithNSString:(NSString *)key
                   withId:(id<ComGoodowRealtimeJsonJsonArray>)value {
   id val = [this$0_ getWithNSString:key];
-  if ([val conformsToProtocol: @protocol(ComGoodowRealtimeStoreCollaborativeObject)]) {
+  if ([val isKindOfClass:[ComGoodowRealtimeStoreImplCollaborativeObjectImpl class]]) {
     (void) [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(val$json_)) setWithNSString:key withId:[((id<ComGoodowRealtimeStoreCollaborativeObject>) nil_chk(((id<ComGoodowRealtimeStoreCollaborativeObject>) check_protocol_cast(val, @protocol(ComGoodowRealtimeStoreCollaborativeObject))))) toJson]];
   }
   else {

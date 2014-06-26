@@ -404,7 +404,7 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
   if (val == nil) {
     (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(val$json_)) pushWithId:nil];
   }
-  else if ([val conformsToProtocol: @protocol(ComGoodowRealtimeStoreCollaborativeObject)]) {
+  else if ([val isKindOfClass:[ComGoodowRealtimeStoreImplCollaborativeObjectImpl class]]) {
     (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(val$json_)) pushWithId:[((id<ComGoodowRealtimeStoreCollaborativeObject>) check_protocol_cast(val, @protocol(ComGoodowRealtimeStoreCollaborativeObject))) toJson]];
   }
   else {

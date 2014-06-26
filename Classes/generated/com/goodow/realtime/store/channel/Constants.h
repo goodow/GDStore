@@ -16,26 +16,26 @@
 
 __attribute__((always_inline)) inline void ComGoodowRealtimeStoreChannelConstants_init() {}
 
-@protocol ComGoodowRealtimeStoreChannelConstants_Addr < NSObject, JavaObject >
+@protocol ComGoodowRealtimeStoreChannelConstants_Topic < NSObject, JavaObject >
 
 @end
 
-__attribute__((always_inline)) inline void ComGoodowRealtimeStoreChannelConstants_Addr_init() {}
+__attribute__((always_inline)) inline void ComGoodowRealtimeStoreChannelConstants_Topic_init() {}
 
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_STORE_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, STORE_, NSString *)
+FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Topic_STORE_;
+J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Topic, STORE_, NSString *)
 
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_OPS_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, OPS_, NSString *)
+FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Topic_OPS_;
+J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Topic, OPS_, NSString *)
 
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_WATCH_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, WATCH_, NSString *)
+FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Topic_WATCH_;
+J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Topic, WATCH_, NSString *)
 
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_PRESENCE_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, PRESENCE_, NSString *)
+FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Topic_PRESENCE_;
+J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Topic, PRESENCE_, NSString *)
 
-FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Addr_DOCUMENT_ERROR_;
-J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Addr, DOCUMENT_ERROR_, NSString *)
+FOUNDATION_EXPORT NSString *ComGoodowRealtimeStoreChannelConstants_Topic_DOCUMENT_ERROR_;
+J2OBJC_STATIC_FIELD_GETTER(ComGoodowRealtimeStoreChannelConstants_Topic, DOCUMENT_ERROR_, NSString *)
 
 @protocol ComGoodowRealtimeStoreChannelConstants_Key < NSObject, JavaObject >
 

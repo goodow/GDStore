@@ -35,27 +35,27 @@
   return [self initComGoodowRealtimeStoreImplSubscribeOnlyStoreWithComGoodowRealtimeChannelBus:bus];
 }
 
-- (id)initWithNSString:(NSString *)serverAddress
+- (id)initWithNSString:(NSString *)serverUri
 withComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)options {
-  return [self initComGoodowRealtimeStoreImplSubscribeOnlyStoreWithComGoodowRealtimeChannelBus:[[ComGoodowRealtimeChannelImplReliableSubscribeBus alloc] initWithComGoodowRealtimeChannelBus:[[ComGoodowRealtimeChannelImplReconnectBus alloc] initWithNSString:serverAddress withComGoodowRealtimeJsonJsonObject:options] withComGoodowRealtimeJsonJsonObject:options]];
+  return [self initComGoodowRealtimeStoreImplSubscribeOnlyStoreWithComGoodowRealtimeChannelBus:[[ComGoodowRealtimeChannelImplReliableSubscribeBus alloc] initWithComGoodowRealtimeChannelBus:[[ComGoodowRealtimeChannelImplReconnectBus alloc] initWithNSString:serverUri withComGoodowRealtimeJsonJsonObject:options] withComGoodowRealtimeJsonJsonObject:options]];
 }
 
 - (void)load__WithNSString:(NSString *)id_
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)onLoaded
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_initializer
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_error {
-  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) sendWithNSString:ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_() withId:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_ID_() withId:id_] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1 alloc] initWithComGoodowRealtimeStoreImplSubscribeOnlyStore:self withNSString:id_ withComGoodowRealtimeCoreHandler:opt_error withComGoodowRealtimeCoreHandler:opt_initializer withComGoodowRealtimeCoreHandler:onLoaded]];
+  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) sendWithNSString:ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_() withId:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_ID_() withId:id_] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplSubscribeOnlyStore_$1 alloc] initWithComGoodowRealtimeStoreImplSubscribeOnlyStore:self withNSString:id_ withComGoodowRealtimeCoreHandler:opt_error withComGoodowRealtimeCoreHandler:opt_initializer withComGoodowRealtimeCoreHandler:onLoaded]];
 }
 
 - (void)onLoadedWithNSString:(NSString *)id_
 withComGoodowRealtimeCoreHandler:(id<ComGoodowRealtimeCoreHandler>)opt_initializer
                   withDouble:(double)version_
 withComGoodowRealtimeStoreImplDocumentBridge:(ComGoodowRealtimeStoreImplDocumentBridge *)bridge {
-  NSString *address = [NSString stringWithFormat:@"%@/%@%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), id_, ComGoodowRealtimeStoreChannelConstants_Addr_get_WATCH_()];
+  NSString *topic = [NSString stringWithFormat:@"%@/%@%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), id_, ComGoodowRealtimeStoreChannelConstants_Topic_get_WATCH_()];
   if ([(id) bus_ isKindOfClass:[ComGoodowRealtimeChannelImplReliableSubscribeBus class]]) {
-    [((ComGoodowRealtimeChannelImplReliableSubscribeBus *) nil_chk(((ComGoodowRealtimeChannelImplReliableSubscribeBus *) check_class_cast(bus_, [ComGoodowRealtimeChannelImplReliableSubscribeBus class])))) synchronizeSequenceNumberWithNSString:address withDouble:version_ - 1];
+    [((ComGoodowRealtimeChannelImplReliableSubscribeBus *) nil_chk(((ComGoodowRealtimeChannelImplReliableSubscribeBus *) check_class_cast(bus_, [ComGoodowRealtimeChannelImplReliableSubscribeBus class])))) synchronizeSequenceNumberWithNSString:topic withDouble:version_ - 1];
   }
-  id<ComGoodowRealtimeCoreRegistration> handlerReg = [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) registerHandlerWithNSString:address withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplSubscribeOnlyStore_$2 alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:bridge]];
+  id<ComGoodowRealtimeCoreRegistration> handlerReg = [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) subscribeWithNSString:topic withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplSubscribeOnlyStore_$2 alloc] initWithComGoodowRealtimeStoreImplDocumentBridge:bridge]];
   [((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(bridge)) setOutputSinkWithComGoodowRealtimeStoreImplDocumentBridge_OutputSink:[[ComGoodowRealtimeStoreImplSubscribeOnlyStore_$3 alloc] initWithComGoodowRealtimeCoreRegistration:handlerReg]];
 }
 

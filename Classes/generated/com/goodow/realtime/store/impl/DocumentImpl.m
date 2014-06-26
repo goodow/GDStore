@@ -45,9 +45,9 @@
     collaborators_ = [ComGoodowRealtimeJsonJson createObject];
     id<ComGoodowRealtimeChannelBus> bus = [((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(internalApi))->store_)) getBus];
     if (errorHandler != nil) {
-      (void) [handlerRegs_ wrapWithComGoodowRealtimeCoreRegistration:[((id<ComGoodowRealtimeChannelBus>) nil_chk(bus)) registerLocalHandlerWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), internalApi->id__, ComGoodowRealtimeStoreChannelConstants_Addr_get_DOCUMENT_ERROR_()] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplDocumentImpl_$2 alloc] initWithComGoodowRealtimeCoreHandler:errorHandler]]];
+      (void) [handlerRegs_ wrapWithComGoodowRealtimeCoreRegistration:[((id<ComGoodowRealtimeChannelBus>) nil_chk(bus)) subscribeLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), internalApi->id__, ComGoodowRealtimeStoreChannelConstants_Topic_get_DOCUMENT_ERROR_()] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplDocumentImpl_$2 alloc] initWithComGoodowRealtimeCoreHandler:errorHandler]]];
     }
-    (void) [handlerRegs_ wrapWithComGoodowRealtimeCoreRegistration:[((id<ComGoodowRealtimeChannelBus>) nil_chk(bus)) registerHandlerWithNSString:[NSString stringWithFormat:@"%@/%@%@%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), internalApi->id__, ComGoodowRealtimeStoreChannelConstants_Addr_get_PRESENCE_(), ComGoodowRealtimeStoreChannelConstants_Addr_get_WATCH_()] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplDocumentImpl_$3 alloc] initWithComGoodowRealtimeStoreImplDocumentImpl:self]]];
+    (void) [handlerRegs_ wrapWithComGoodowRealtimeCoreRegistration:[((id<ComGoodowRealtimeChannelBus>) nil_chk(bus)) subscribeWithNSString:[NSString stringWithFormat:@"%@/%@%@%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), internalApi->id__, ComGoodowRealtimeStoreChannelConstants_Topic_get_PRESENCE_(), ComGoodowRealtimeStoreChannelConstants_Topic_get_WATCH_()] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplDocumentImpl_$3 alloc] initWithComGoodowRealtimeStoreImplDocumentImpl:self]]];
   }
   return self;
 }
@@ -87,11 +87,11 @@
   if (type == nil || handler == nil) {
     @throw [[JavaLangNullPointerException alloc] initWithNSString:[NSString stringWithFormat:@"%@ was null.", (type == nil ? @"type" : @"handler")]];
   }
-  return [((ComGoodowRealtimeCoreRegistrations *) nil_chk(handlerRegs_)) wrapWithComGoodowRealtimeCoreRegistration:[((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_))->bridge_))->store_)) getBus])) registerLocalHandlerWithNSString:[NSString stringWithFormat:@"%@/%@/%@%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), model_->bridge_->id__, (objectId == nil ? @"" : ([NSString stringWithFormat:@"%@/", objectId])), type] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplDocumentImpl_$5 alloc] initWithComGoodowRealtimeCoreHandler:handler]]];
+  return [((ComGoodowRealtimeCoreRegistrations *) nil_chk(handlerRegs_)) wrapWithComGoodowRealtimeCoreRegistration:[((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_))->bridge_))->store_)) getBus])) subscribeLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), model_->bridge_->id__, (objectId == nil ? @"" : ([NSString stringWithFormat:@"%@/", objectId])), type] withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreImplDocumentImpl_$5 alloc] initWithComGoodowRealtimeCoreHandler:handler]]];
 }
 
 - (void)scheduleEventWithComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEvent>)event {
-  NSAssert(![((id<ComGoodowRealtimeStoreBaseModelEvent>) nil_chk(event)) bubbles], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/DocumentImpl.java:207 condition failed: assert !event.bubbles();");
+  NSAssert(![((id<ComGoodowRealtimeStoreBaseModelEvent>) nil_chk(event)) bubbles], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/DocumentImpl.java:211 condition failed: assert !event.bubbles();");
   if (eventsToFire_ == nil) {
     eventsToFire_ = [ComGoodowRealtimeJsonJson createArray];
   }
@@ -168,7 +168,7 @@ withComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEven
 }
 
 - (void)fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:(ComGoodowRealtimeStoreImplBaseModelEventImpl *)event {
-  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_))->bridge_))->store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), this$0_->model_->bridge_->id__, ((ComGoodowRealtimeStoreImplBaseModelEventImpl *) nil_chk(event))->target_, event->type__] withId:event];
+  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_))->bridge_))->store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), this$0_->model_->bridge_->id__, ((ComGoodowRealtimeStoreImplBaseModelEventImpl *) nil_chk(event))->target_, event->type__] withId:event];
 }
 
 - (id)initWithComGoodowRealtimeStoreImplDocumentImpl:(ComGoodowRealtimeStoreImplDocumentImpl *)outer$ {
@@ -324,13 +324,13 @@ withComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEven
   if (isJoined) {
     if (![((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(this$0_->collaborators_)) hasWithNSString:sessionId]) {
       (void) [this$0_->collaborators_ setWithNSString:sessionId withId:collaborator];
-      (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_))->bridge_))->store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), this$0_->model_->bridge_->id__, ComGoodowRealtimeStoreEventTypeEnum_get_COLLABORATOR_JOINED()] withId:[[ComGoodowRealtimeStoreImplCollaboratorJoinedEventImpl alloc] initWithComGoodowRealtimeStoreDocument:this$0_ withComGoodowRealtimeStoreCollaborator:collaborator]];
+      (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_))->bridge_))->store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), this$0_->model_->bridge_->id__, ComGoodowRealtimeStoreEventTypeEnum_get_COLLABORATOR_JOINED()] withId:[[ComGoodowRealtimeStoreImplCollaboratorJoinedEventImpl alloc] initWithComGoodowRealtimeStoreDocument:this$0_ withComGoodowRealtimeStoreCollaborator:collaborator]];
     }
   }
   else {
     if ([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(this$0_->collaborators_)) hasWithNSString:sessionId]) {
       (void) [this$0_->collaborators_ removeWithNSString:sessionId];
-      (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_))->bridge_))->store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Addr_get_STORE_(), this$0_->model_->bridge_->id__, ComGoodowRealtimeStoreEventTypeEnum_get_COLLABORATOR_LEFT()] withId:[[ComGoodowRealtimeStoreImplCollaboratorLeftEventImpl alloc] initWithComGoodowRealtimeStoreDocument:this$0_ withComGoodowRealtimeStoreCollaborator:collaborator]];
+      (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_))->bridge_))->store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), this$0_->model_->bridge_->id__, ComGoodowRealtimeStoreEventTypeEnum_get_COLLABORATOR_LEFT()] withId:[[ComGoodowRealtimeStoreImplCollaboratorLeftEventImpl alloc] initWithComGoodowRealtimeStoreDocument:this$0_ withComGoodowRealtimeStoreCollaborator:collaborator]];
     }
   }
 }
