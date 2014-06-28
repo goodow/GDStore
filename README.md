@@ -8,6 +8,12 @@ iOS and Mac OS X Client for realtime-store
 
 [CocoaPods](http://cocoapods.org) is the recommended way to add GDStore to your project.
 
-1. Add a pod entry for GDStore to your Podfile `pod 'GDStore', '~> 0.5.5'`
+1. Add these pods to your Podfile:
+```ruby
+pod 'J2ObjC', :git => 'https://github.com/goodow/j2objc.git'
+pod 'GDJson', :git => 'https://github.com/goodow/GDJson.git'
+pod 'GDChannel', :git => 'https://github.com/goodow/GDChannel.git'
+pod 'GDStore', :git => 'https://github.com/goodow/GDStore.git'
+```
 2. Install the pod(s) by running `pod install`.
 3. Include GDStore wherever you need it with `#import "GDStore.h"`.

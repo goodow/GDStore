@@ -70,7 +70,7 @@
 
 - (void)consumeWithId:(ComGoodowRealtimeOperationImplCollaborativeOperation *)operation {
   [self applyLocallyWithComGoodowRealtimeOperationImplCollaborativeOperation:operation];
-  [self nonUndoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:operation];
+  [((id<ComGoodowRealtimeOperationUndoUndoManager>) nil_chk(undoManager_)) nonUndoableOpWithId:operation];
 }
 
 - (void)createRoot {
@@ -115,7 +115,8 @@
   ComGoodowRealtimeOperationImplCollaborativeOperation *operation = [[ComGoodowRealtimeOperationImplCollaborativeOperation alloc] initWithNSString:me == nil ? nil : [me userId] withNSString:[((id<ComGoodowRealtimeChannelBus>) nil_chk([store_ getBus])) getSessionId] withComGoodowRealtimeJsonJsonArray:[((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([ComGoodowRealtimeJsonJson createArray])) pushWithId:component]];
   [self applyLocallyWithComGoodowRealtimeOperationImplCollaborativeOperation:operation];
   [((id<ComGoodowRealtimeOperationUndoUndoManager>) nil_chk(undoManager_)) checkpoint];
-  [self undoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:operation];
+  [undoManager_ undoableOpWithId:operation];
+  [self mayUndoRedoStateChanged];
   [((id<ComGoodowRealtimeStoreImplDocumentBridge_OutputSink>) nil_chk(outputSink_)) consumeWithId:operation];
 }
 
@@ -152,15 +153,6 @@
   }
 }
 
-- (void)nonUndoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:(ComGoodowRealtimeOperationImplCollaborativeOperation *)op {
-  [((id<ComGoodowRealtimeOperationUndoUndoManager>) nil_chk(undoManager_)) nonUndoableOpWithId:op];
-}
-
-- (void)undoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:(ComGoodowRealtimeOperationImplCollaborativeOperation *)op {
-  [((id<ComGoodowRealtimeOperationUndoUndoManager>) nil_chk(undoManager_)) undoableOpWithId:op];
-  [self mayUndoRedoStateChanged];
-}
-
 - (void)copyAllFieldsTo:(ComGoodowRealtimeStoreImplDocumentBridge *)other {
   [super copyAllFieldsTo:other];
   other->document_ = document_;
@@ -190,8 +182,6 @@
     { "applyLocallyWithComGoodowRealtimeOperationImplCollaborativeOperation:", "applyLocally", "V", 0x2, NULL },
     { "bypassUndoStackWithComGoodowRealtimeOperationImplCollaborativeOperation:", "bypassUndoStack", "V", 0x2, NULL },
     { "mayUndoRedoStateChanged", NULL, "V", 0x2, NULL },
-    { "nonUndoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:", "nonUndoableOp", "V", 0x2, NULL },
-    { "undoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:", "undoableOp", "V", 0x2, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "store_", NULL, 0x10, "Lcom.goodow.realtime.store.Store;", NULL,  },
@@ -201,7 +191,7 @@
     { "undoManager_", NULL, 0x2, "Lcom.goodow.realtime.operation.undo.UndoManager;", NULL,  },
     { "outputSink_", NULL, 0x0, "Lcom.goodow.realtime.store.impl.DocumentBridge$OutputSink;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge = { "DocumentBridge", "com.goodow.realtime.store.impl", NULL, 0x1, 19, methods, 6, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentBridge = { "DocumentBridge", "com.goodow.realtime.store.impl", NULL, 0x1, 17, methods, 6, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplDocumentBridge;
 }
 

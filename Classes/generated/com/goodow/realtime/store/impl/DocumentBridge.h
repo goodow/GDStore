@@ -78,10 +78,6 @@
 
 - (void)mayUndoRedoStateChanged;
 
-- (void)nonUndoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:(ComGoodowRealtimeOperationImplCollaborativeOperation *)op;
-
-- (void)undoableOpWithComGoodowRealtimeOperationImplCollaborativeOperation:(ComGoodowRealtimeOperationImplCollaborativeOperation *)op;
-
 - (void)copyAllFieldsTo:(ComGoodowRealtimeStoreImplDocumentBridge *)other;
 
 @end
