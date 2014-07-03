@@ -9,11 +9,19 @@
 
 @implementation ComGoodowRealtimeStoreDatabindingAlreadyBoundError
 
-- (id)initWithId:(id)domElement {
+- (id)init {
+  return [self initComGoodowRealtimeStoreDatabindingAlreadyBoundErrorWithId:nil];
+}
+
+- (id)initComGoodowRealtimeStoreDatabindingAlreadyBoundErrorWithId:(id)domElement {
   if (self = [super init]) {
     self->domElement_ = domElement;
   }
   return self;
+}
+
+- (id)initWithId:(id)domElement {
+  return [self initComGoodowRealtimeStoreDatabindingAlreadyBoundErrorWithId:domElement];
 }
 
 - (id)getDomElement {
@@ -32,6 +40,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
+    { "init", "AlreadyBoundError", NULL, 0x1, NULL },
     { "initWithId:", "AlreadyBoundError", NULL, 0x1, NULL },
     { "getDomElement", NULL, "Ljava.lang.Object;", 0x1, NULL },
     { "getName", NULL, "Ljava.lang.String;", 0x1, NULL },
@@ -40,7 +49,7 @@
     { "domElement_", NULL, 0x12, "Ljava.lang.Object;", NULL,  },
     { "name_", NULL, 0x2, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreDatabindingAlreadyBoundError = { "AlreadyBoundError", "com.goodow.realtime.store.databinding", NULL, 0x1, 3, methods, 2, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreDatabindingAlreadyBoundError = { "AlreadyBoundError", "com.goodow.realtime.store.databinding", NULL, 0x1, 4, methods, 2, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreDatabindingAlreadyBoundError;
 }
 

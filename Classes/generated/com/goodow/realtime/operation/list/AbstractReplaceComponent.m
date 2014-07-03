@@ -95,12 +95,6 @@
   }
 }
 
-- (int)transformIndexReferenceWithInt:(int)index
-                          withBoolean:(BOOL)rigthSide
-                          withBoolean:(BOOL)canBeDeleted {
-  return index;
-}
-
 - (IOSObjectArray *)transformComponentWithComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)other
                                                                            withBoolean:(BOOL)applied {
   ComGoodowRealtimeOperationListAbstractListComponent *op = (ComGoodowRealtimeOperationListAbstractListComponent *) check_class_cast(other, [ComGoodowRealtimeOperationListAbstractListComponent class]);
@@ -122,6 +116,12 @@
   }
 }
 
+- (int)transformIndexReferenceWithInt:(int)index
+                          withBoolean:(BOOL)rigthSide
+                          withBoolean:(BOOL)canBeDeleted {
+  return index;
+}
+
 - (ComGoodowRealtimeOperationListAbstractReplaceComponent *)createWithInt:(int)startIndex
                                                                    withId:(id)oldValues
                                                                    withId:(id)newValues {
@@ -140,8 +140,8 @@
     { "initWithNSString:withInt:withId:withId:", "AbstractReplaceComponent", NULL, 0x4, NULL },
     { "applyWithComGoodowRealtimeOperationListListTarget:", "apply", "V", 0x1, NULL },
     { "transformWithComGoodowRealtimeOperationOperation:withBoolean:", "transform", "Lcom.goodow.realtime.operation.Operation;", 0x1, NULL },
-    { "transformIndexReferenceWithInt:withBoolean:withBoolean:", "transformIndexReference", "I", 0x1, NULL },
     { "transformComponentWithComGoodowRealtimeOperationOperationComponent:withBoolean:", "transformComponent", "[Lcom.goodow.realtime.operation.OperationComponent;", 0x1, NULL },
+    { "transformIndexReferenceWithInt:withBoolean:withBoolean:", "transformIndexReference", "I", 0x1, NULL },
     { "createWithInt:withId:withId:", "create", "Lcom.goodow.realtime.operation.list.AbstractReplaceComponent;", 0x404, NULL },
   };
   static J2ObjcFieldInfo fields[] = {

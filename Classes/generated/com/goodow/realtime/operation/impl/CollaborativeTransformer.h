@@ -100,6 +100,22 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$2, v
 
 @interface ComGoodowRealtimeOperationImplCollaborativeTransformer_$3 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
  @public
+  id<ComGoodowRealtimeJsonJsonArray> val$transformedApplied_;
+}
+
+- (void)callWithInt:(int)index
+             withId:(id<ComGoodowRealtimeOperationOperation>)operation;
+
+- (id)initWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)capture$0;
+
+@end
+
+__attribute__((always_inline)) inline void ComGoodowRealtimeOperationImplCollaborativeTransformer_$3_init() {}
+
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$3, val$transformedApplied_, id<ComGoodowRealtimeJsonJsonArray>)
+
+@interface ComGoodowRealtimeOperationImplCollaborativeTransformer_$4 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
+ @public
   ComGoodowRealtimeOperationImplCollaborativeTransformer *this$0_;
   id<ComGoodowRealtimeJsonJsonArray> val$transformed_;
   id<ComGoodowRealtimeJsonJsonArray> val$transformedApplied_;
@@ -114,10 +130,10 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$2, v
 
 @end
 
-__attribute__((always_inline)) inline void ComGoodowRealtimeOperationImplCollaborativeTransformer_$3_init() {}
+__attribute__((always_inline)) inline void ComGoodowRealtimeOperationImplCollaborativeTransformer_$4_init() {}
 
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$3, this$0_, ComGoodowRealtimeOperationImplCollaborativeTransformer *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$3, val$transformed_, id<ComGoodowRealtimeJsonJsonArray>)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$3, val$transformedApplied_, id<ComGoodowRealtimeJsonJsonArray>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$4, this$0_, ComGoodowRealtimeOperationImplCollaborativeTransformer *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$4, val$transformed_, id<ComGoodowRealtimeJsonJsonArray>)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeOperationImplCollaborativeTransformer_$4, val$transformedApplied_, id<ComGoodowRealtimeJsonJsonArray>)
 
 #endif // _ComGoodowRealtimeOperationImplCollaborativeTransformer_H_

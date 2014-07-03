@@ -14,6 +14,7 @@
 #include "com/goodow/realtime/store/CollaborativeMap.h"
 #include "com/goodow/realtime/store/CollaborativeString.h"
 #include "com/goodow/realtime/store/Model.h"
+#include "com/google/gwt/core/client/js/JsExport.h"
 #include "com/google/gwt/core/client/js/JsType.h"
 
 @interface ComGoodowRealtimeStoreModel : NSObject

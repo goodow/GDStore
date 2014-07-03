@@ -8,6 +8,7 @@
 #ifndef _ComGoodowRealtimeStoreImplCollaborativeListImpl_H_
 #define _ComGoodowRealtimeStoreImplCollaborativeListImpl_H_
 
+@class ComGoodowRealtimeOperationListAbstractListComponent;
 @class ComGoodowRealtimeOperationOperationComponent;
 @class ComGoodowRealtimeStoreImplModelImpl;
 @class IOSObjectArray;
@@ -166,6 +167,7 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplCollaborativeListImpl_$2, val$json
   ComGoodowRealtimeStoreImplCollaborativeListImpl *this$0_;
   NSString *val$sessionId_;
   NSString *val$userId_;
+  ComGoodowRealtimeOperationListAbstractListComponent *val$op_;
 }
 
 - (void)delete__WithInt:(int)startIndex
@@ -179,7 +181,8 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplCollaborativeListImpl_$2, val$json
 
 - (id)initWithComGoodowRealtimeStoreImplCollaborativeListImpl:(ComGoodowRealtimeStoreImplCollaborativeListImpl *)outer$
                                                  withNSString:(NSString *)capture$0
-                                                 withNSString:(NSString *)capture$1;
+                                                 withNSString:(NSString *)capture$1
+      withComGoodowRealtimeOperationListAbstractListComponent:(ComGoodowRealtimeOperationListAbstractListComponent *)capture$2;
 
 @end
 
@@ -188,6 +191,7 @@ __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplCollaborati
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplCollaborativeListImpl_$3, this$0_, ComGoodowRealtimeStoreImplCollaborativeListImpl *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplCollaborativeListImpl_$3, val$sessionId_, NSString *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplCollaborativeListImpl_$3, val$userId_, NSString *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplCollaborativeListImpl_$3, val$op_, ComGoodowRealtimeOperationListAbstractListComponent *)
 
 @interface ComGoodowRealtimeStoreImplCollaborativeListImpl_$4 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
  @public

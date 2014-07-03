@@ -23,6 +23,9 @@
 - (IOSObjectArray *)transformComponentWithComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)other
                                                                            withBoolean:(BOOL)applied;
 
+- (NSString *)getMessageWithComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>)other
+                                                    withBoolean:(BOOL)applied;
+
 - (void)applyWithId:(id)param0;
 
 - (id<ComGoodowRealtimeOperationOperation>)invert;

@@ -34,12 +34,12 @@
 - (id<ComGoodowRealtimeOperationOperation>)transformWithComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>)other
                                                                                 withBoolean:(BOOL)applied;
 
+- (IOSObjectArray *)transformComponentWithComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)other
+                                                                           withBoolean:(BOOL)applied;
+
 - (int)transformIndexReferenceWithInt:(int)index
                           withBoolean:(BOOL)rigthSide
                           withBoolean:(BOOL)canBeDeleted;
-
-- (IOSObjectArray *)transformComponentWithComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)other
-                                                                           withBoolean:(BOOL)applied;
 
 - (ComGoodowRealtimeOperationListAbstractDeleteComponent *)createWithInt:(int)startIndex
                                                                  withInt:(int)length;

@@ -1,6 +1,6 @@
 #import "GDRRootViewController.h"
 #import "GTMHTTPFetcher/GTMHTTPFetcherLogViewController.h"
-#import "GDR.h"
+#import "GDStore.h"
 #import "GDRCollaborativeListViewController.h"
 #import "GDRCollaborativeStringViewController.h"
 #import "GDRCollaborativeMapViewController.h"

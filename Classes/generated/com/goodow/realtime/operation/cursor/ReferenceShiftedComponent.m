@@ -9,13 +9,14 @@
 #include "com/goodow/realtime/operation/Operation.h"
 #include "com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.h"
 #include "com/goodow/realtime/operation/impl/AbstractComponent.h"
+#include "com/goodow/realtime/operation/list/AbstractListComponent.h"
 #include "java/lang/IllegalStateException.h"
 #include "java/lang/Void.h"
 
 @implementation ComGoodowRealtimeOperationCursorReferenceShiftedComponent
 
 + (ComGoodowRealtimeOperationCursorReferenceShiftedComponent *)parseWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)serialized {
-  NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationCursorReferenceShiftedComponent_TYPE && [serialized length] == 6, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.java:24 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 6;");
+  NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationCursorReferenceShiftedComponent_TYPE && [serialized length] == 6, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.java:25 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 6;");
   return [[ComGoodowRealtimeOperationCursorReferenceShiftedComponent alloc] initWithNSString:[ComGoodowRealtimeOperationImplAbstractComponent parseIdWithComGoodowRealtimeJsonJsonArray:serialized] withNSString:[serialized getStringWithInt:2] withInt:(int) [serialized getNumberWithInt:3] withBoolean:[serialized getBooleanWithInt:4] withInt:(int) [serialized getNumberWithInt:5]];
 }
 
@@ -43,10 +44,17 @@
 
 - (ComGoodowRealtimeOperationCursorReferenceShiftedComponent *)transformWithComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>)other
                                                                                                     withBoolean:(BOOL)applied {
-  NSAssert([(id) other isKindOfClass:[ComGoodowRealtimeOperationCursorReferenceShiftedComponent class]] && [self isSameIdWithComGoodowRealtimeOperationOperation:other], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.java:56 condition failed: assert other instanceof ReferenceShiftedComponent && isSameId(other);");
-  ComGoodowRealtimeOperationCursorReferenceShiftedComponent *op = (ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) check_class_cast(other, [ComGoodowRealtimeOperationCursorReferenceShiftedComponent class]);
-  NSAssert([((NSString *) nil_chk(referencedObjectId_)) isEqual:((ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) nil_chk(op))->referencedObjectId_], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.java:58 condition failed: assert referencedObjectId.equals(op.referencedObjectId);");
-  return applied ? nil : [[ComGoodowRealtimeOperationCursorReferenceShiftedComponent alloc] initWithNSString:id__ withNSString:referencedObjectId_ withInt:newIndex_ withBoolean:canBeDeleted_ withInt:op->newIndex_];
+  if ([(id) other isKindOfClass:[ComGoodowRealtimeOperationCursorReferenceShiftedComponent class]]) {
+    NSAssert([self isSameIdWithComGoodowRealtimeOperationOperation:other], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.java:58 condition failed: assert isSameId(other);");
+    ComGoodowRealtimeOperationCursorReferenceShiftedComponent *op = (ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) check_class_cast(other, [ComGoodowRealtimeOperationCursorReferenceShiftedComponent class]);
+    NSAssert([((NSString *) nil_chk(referencedObjectId_)) isEqual:((ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) nil_chk(op))->referencedObjectId_], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.java:60 condition failed: assert referencedObjectId.equals(op.referencedObjectId);");
+    return applied ? nil : [[ComGoodowRealtimeOperationCursorReferenceShiftedComponent alloc] initWithNSString:id__ withNSString:referencedObjectId_ withInt:newIndex_ withBoolean:canBeDeleted_ withInt:op->newIndex_];
+  }
+  else {
+    NSAssert([(id) other isKindOfClass:[ComGoodowRealtimeOperationListAbstractListComponent class]] && [((NSString *) nil_chk(referencedObjectId_)) isEqual:((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(((ComGoodowRealtimeOperationListAbstractListComponent *) check_class_cast(other, [ComGoodowRealtimeOperationListAbstractListComponent class]))))->id__], @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.java:64 condition failed: assert other instanceof AbstractListComponent &&\n             referencedObjectId.equals(((AbstractListComponent) other).id);");
+    ComGoodowRealtimeOperationListAbstractListComponent *op = (ComGoodowRealtimeOperationListAbstractListComponent *) check_class_cast(other, [ComGoodowRealtimeOperationListAbstractListComponent class]);
+    return [[ComGoodowRealtimeOperationCursorReferenceShiftedComponent alloc] initWithNSString:id__ withNSString:referencedObjectId_ withInt:[((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(op)) transformIndexReferenceWithInt:newIndex_ withBoolean:YES withBoolean:canBeDeleted_] withBoolean:canBeDeleted_ withInt:[op transformIndexReferenceWithInt:oldIndex_ withBoolean:YES withBoolean:canBeDeleted_]];
+  }
 }
 
 - (void)toJsonWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)json {

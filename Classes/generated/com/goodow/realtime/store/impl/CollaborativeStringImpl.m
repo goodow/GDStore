@@ -12,9 +12,9 @@
 #include "com/goodow/realtime/core/Platform.h"
 #include "com/goodow/realtime/core/Registration.h"
 #include "com/goodow/realtime/json/JsonObject.h"
-#include "com/goodow/realtime/operation/Operation.h"
 #include "com/goodow/realtime/operation/OperationComponent.h"
 #include "com/goodow/realtime/operation/create/CreateComponent.h"
+#include "com/goodow/realtime/operation/list/AbstractListComponent.h"
 #include "com/goodow/realtime/operation/list/string/StringDeleteComponent.h"
 #include "com/goodow/realtime/operation/list/string/StringInsertComponent.h"
 #include "com/goodow/realtime/store/EventType.h"
@@ -102,7 +102,8 @@
 - (void)consumeWithNSString:(NSString *)userId
                withNSString:(NSString *)sessionId
 withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)component {
-  [((id<ComGoodowRealtimeOperationOperation>) nil_chk(((id<ComGoodowRealtimeOperationOperation>) check_protocol_cast(component, @protocol(ComGoodowRealtimeOperationOperation))))) applyWithId:[[ComGoodowRealtimeStoreImplCollaborativeStringImpl_$2 alloc] initWithComGoodowRealtimeStoreImplCollaborativeStringImpl:self withNSString:sessionId withNSString:userId]];
+  ComGoodowRealtimeOperationListAbstractListComponent *op = (ComGoodowRealtimeOperationListAbstractListComponent *) check_class_cast(component, [ComGoodowRealtimeOperationListAbstractListComponent class]);
+  [((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(op)) applyWithId:[[ComGoodowRealtimeStoreImplCollaborativeStringImpl_$2 alloc] initWithComGoodowRealtimeStoreImplCollaborativeStringImpl:self withNSString:sessionId withNSString:userId withComGoodowRealtimeOperationListAbstractListComponent:op]];
 }
 
 - (IOSObjectArray *)toInitialization {
@@ -126,25 +127,23 @@ withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOper
                      withNSString:(NSString *)sessionId
                      withNSString:(NSString *)userId {
   int endIndex = startIndex + length;
-  NSAssert(length > 0 && endIndex <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeStringImpl.java:161 condition failed: assert length > 0 && endIndex <= length();");
+  NSAssert(length > 0 && endIndex <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeStringImpl.java:164 condition failed: assert length > 0 && endIndex <= length();");
   NSString *toDelete = [((JavaLangStringBuilder *) nil_chk(snapshot_)) substringWithInt:startIndex withInt:endIndex];
   id<ComGoodowRealtimeStoreTextDeletedEvent> event = [[ComGoodowRealtimeStoreImplTextDeletedEventImpl alloc] initWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([self eventWithNSString:sessionId withNSString:userId])) setWithNSString:@"index" withDouble:startIndex])) setWithNSString:@"text" withId:toDelete]];
   (void) [snapshot_ delete__WithInt:startIndex withInt:endIndex];
   [self fireEventWithComGoodowRealtimeStoreBaseModelEvent:event];
-  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_)) setIndexReferenceIndexWithNSString:id__ withBoolean:NO withInt:startIndex withInt:length withNSString:sessionId withNSString:userId];
-  model_->bytesUsed_ -= length;
+  ((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_))->bytesUsed_ -= length;
 }
 
 - (void)insertAndFireEventWithInt:(int)index
                      withNSString:(NSString *)text
                      withNSString:(NSString *)sessionId
                      withNSString:(NSString *)userId {
-  NSAssert(index <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeStringImpl.java:173 condition failed: assert index <= length();");
+  NSAssert(index <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeStringImpl.java:175 condition failed: assert index <= length();");
   id<ComGoodowRealtimeStoreTextInsertedEvent> event = [[ComGoodowRealtimeStoreImplTextInsertedEventImpl alloc] initWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([self eventWithNSString:sessionId withNSString:userId])) setWithNSString:@"index" withDouble:index])) setWithNSString:@"text" withId:text]];
   (void) [((JavaLangStringBuilder *) nil_chk(snapshot_)) insertWithInt:index withNSString:text];
   [self fireEventWithComGoodowRealtimeStoreBaseModelEvent:event];
-  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_)) setIndexReferenceIndexWithNSString:id__ withBoolean:YES withInt:index withInt:((int) [((NSString *) nil_chk(text)) length]) withNSString:sessionId withNSString:userId];
-  model_->bytesUsed_ += ((int) [text length]);
+  ((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_))->bytesUsed_ += ((int) [((NSString *) nil_chk(text)) length]);
 }
 
 - (void)copyAllFieldsTo:(ComGoodowRealtimeStoreImplCollaborativeStringImpl *)other {
@@ -230,11 +229,13 @@ withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOper
 - (void)delete__WithInt:(int)startIndex
                 withInt:(int)length {
   [this$0_ deleteAndFireEventWithInt:startIndex withInt:length withNSString:val$sessionId_ withNSString:val$userId_];
+  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_)) transformCursorWithComGoodowRealtimeOperationListAbstractListComponent:val$op_ withNSString:val$userId_ withNSString:val$sessionId_];
 }
 
 - (void)insertWithInt:(int)startIndex
                withId:(NSString *)values {
   [this$0_ insertAndFireEventWithInt:startIndex withNSString:values withNSString:val$sessionId_ withNSString:val$userId_];
+  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_)) transformCursorWithComGoodowRealtimeOperationListAbstractListComponent:val$op_ withNSString:val$userId_ withNSString:val$sessionId_];
 }
 
 - (void)replaceWithInt:(int)startIndex
@@ -244,10 +245,12 @@ withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOper
 
 - (id)initWithComGoodowRealtimeStoreImplCollaborativeStringImpl:(ComGoodowRealtimeStoreImplCollaborativeStringImpl *)outer$
                                                    withNSString:(NSString *)capture$0
-                                                   withNSString:(NSString *)capture$1 {
+                                                   withNSString:(NSString *)capture$1
+        withComGoodowRealtimeOperationListAbstractListComponent:(ComGoodowRealtimeOperationListAbstractListComponent *)capture$2 {
   this$0_ = outer$;
   val$sessionId_ = capture$0;
   val$userId_ = capture$1;
+  val$op_ = capture$2;
   return [super init];
 }
 
@@ -256,14 +259,15 @@ withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOper
     { "delete__WithInt:withInt:", "delete", "V", 0x1, NULL },
     { "insertWithInt:withNSString:", "insert", "V", 0x1, NULL },
     { "replaceWithInt:withNSString:", "replace", "V", 0x1, NULL },
-    { "initWithComGoodowRealtimeStoreImplCollaborativeStringImpl:withNSString:withNSString:", "init", NULL, 0x0, NULL },
+    { "initWithComGoodowRealtimeStoreImplCollaborativeStringImpl:withNSString:withNSString:withComGoodowRealtimeOperationListAbstractListComponent:", "init", NULL, 0x0, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "this$0_", NULL, 0x1012, "Lcom.goodow.realtime.store.impl.CollaborativeStringImpl;", NULL,  },
     { "val$sessionId_", NULL, 0x1012, "Ljava.lang.String;", NULL,  },
     { "val$userId_", NULL, 0x1012, "Ljava.lang.String;", NULL,  },
+    { "val$op_", NULL, 0x1012, "Lcom.goodow.realtime.operation.list.AbstractListComponent;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplCollaborativeStringImpl_$2 = { "$2", "com.goodow.realtime.store.impl", "CollaborativeStringImpl", 0x8000, 4, methods, 3, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplCollaborativeStringImpl_$2 = { "$2", "com.goodow.realtime.store.impl", "CollaborativeStringImpl", 0x8000, 4, methods, 4, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplCollaborativeStringImpl_$2;
 }
 

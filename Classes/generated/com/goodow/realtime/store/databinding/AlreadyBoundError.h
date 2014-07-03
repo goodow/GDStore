@@ -9,12 +9,15 @@
 #define _ComGoodowRealtimeStoreDatabindingAlreadyBoundError_H_
 
 #import "JreEmulation.h"
+#include "java/lang/Error.h"
 
-@interface ComGoodowRealtimeStoreDatabindingAlreadyBoundError : NSObject {
+@interface ComGoodowRealtimeStoreDatabindingAlreadyBoundError : JavaLangError {
  @public
   id domElement_;
   NSString *name_;
 }
+
+- (id)init;
 
 - (id)initWithId:(id)domElement;
 

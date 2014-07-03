@@ -1,4 +1,4 @@
-#import "GDR.h"
+#import "GDStore.h"
 #import "GDRCollaborativeStringViewController.h"
 
 @interface GDRCollaborativeStringViewController ()

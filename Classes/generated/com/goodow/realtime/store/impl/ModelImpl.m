@@ -15,6 +15,7 @@
 #include "com/goodow/realtime/json/JsonObject.h"
 #include "com/goodow/realtime/operation/create/CreateComponent.h"
 #include "com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.h"
+#include "com/goodow/realtime/operation/list/AbstractListComponent.h"
 #include "com/goodow/realtime/operation/list/json/JsonInsertComponent.h"
 #include "com/goodow/realtime/operation/list/string/StringInsertComponent.h"
 #include "com/goodow/realtime/operation/map/json/JsonMapComponent.h"
@@ -166,7 +167,7 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreImplModelImpl_log_;
       (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(list)) pushWithId:parentId];
     }
     else {
-      NSAssert(list != nil && [list indexOfWithId:parentId] != -1, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/ModelImpl.java:238 condition failed: assert list != null && list.indexOf(parentId) != -1;");
+      NSAssert(list != nil && [list indexOfWithId:parentId] != -1, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/ModelImpl.java:239 condition failed: assert list != null && list.indexOf(parentId) != -1;");
       [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(list)) removeValueWithId:parentId];
       if ([list length] == 0) {
         (void) [parents_ removeWithNSString:childId];
@@ -194,18 +195,15 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreImplModelImpl_log_;
   [self endCompoundOperation];
 }
 
-- (void)setIndexReferenceIndexWithNSString:(NSString *)referencedObject
-                               withBoolean:(BOOL)isInsert
-                                   withInt:(int)index
-                                   withInt:(int)length
-                              withNSString:(NSString *)sessionId
-                              withNSString:(NSString *)userId {
+- (void)transformCursorWithComGoodowRealtimeOperationListAbstractListComponent:(ComGoodowRealtimeOperationListAbstractListComponent *)op
+                                                                  withNSString:(NSString *)userId
+                                                                  withNSString:(NSString *)sessionId {
   if (indexReferences_ == nil) {
     return;
   }
-  id<ComGoodowRealtimeJsonJsonArray> cursors = [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(indexReferences_)) getArrayWithNSString:referencedObject];
+  id<ComGoodowRealtimeJsonJsonArray> cursors = [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(indexReferences_)) getArrayWithNSString:((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(op))->id__];
   if (cursors != nil) {
-    [cursors forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplModelImpl_$3 alloc] initWithComGoodowRealtimeStoreImplModelImpl:self withBoolean:isInsert withInt:index withInt:length withNSString:sessionId withNSString:userId]];
+    [cursors forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplModelImpl_$3 alloc] initWithComGoodowRealtimeStoreImplModelImpl:self withComGoodowRealtimeOperationListAbstractListComponent:op withNSString:userId withNSString:sessionId]];
   }
 }
 
@@ -274,7 +272,7 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreImplModelImpl_log_;
     { "addOrRemoveParentWithComGoodowRealtimeJsonJsonArray:withNSString:withBoolean:", "addOrRemoveParent", "V", 0x0, NULL },
     { "createIndexReferenceWithNSString:withInt:withBoolean:", "createIndexReference", "Lcom.goodow.realtime.store.IndexReference;", 0x0, NULL },
     { "createRoot", NULL, "V", 0x0, NULL },
-    { "setIndexReferenceIndexWithNSString:withBoolean:withInt:withInt:withNSString:withNSString:", "setIndexReferenceIndex", "V", 0x0, NULL },
+    { "transformCursorWithComGoodowRealtimeOperationListAbstractListComponent:withNSString:withNSString:", "transformCursor", "V", 0x0, NULL },
     { "beginCreationCompoundOperation", NULL, "V", 0x2, NULL },
     { "generateObjectId", NULL, "Ljava.lang.String;", 0x2, NULL },
     { "registerIndexReferenceWithNSString:withNSString:", "registerIndexReference", "V", 0x2, NULL },
@@ -366,38 +364,36 @@ JavaUtilLoggingLogger * ComGoodowRealtimeStoreImplModelImpl_log_;
 - (void)callWithInt:(int)idx
              withId:(NSString *)indexReferenceId {
   ComGoodowRealtimeStoreImplIndexReferenceImpl *indexReference = [this$0_ getObjectWithNSString:indexReferenceId];
-  [((ComGoodowRealtimeStoreImplIndexReferenceImpl *) nil_chk(indexReference)) setIndexWithBoolean:val$isInsert_ withInt:val$index_ withInt:val$length_ withNSString:val$sessionId_ withNSString:val$userId_];
+  int currentIndex = [((ComGoodowRealtimeStoreImplIndexReferenceImpl *) nil_chk(indexReference)) index];
+  int newIndex = [((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(val$op_)) transformIndexReferenceWithInt:currentIndex withBoolean:YES withBoolean:[indexReference canBeDeleted]];
+  if (newIndex != currentIndex) {
+    [indexReference consumeWithNSString:val$userId_ withNSString:val$sessionId_ withComGoodowRealtimeOperationOperationComponent:[[ComGoodowRealtimeOperationCursorReferenceShiftedComponent alloc] initWithNSString:indexReferenceId withNSString:val$op_->id__ withInt:newIndex withBoolean:[indexReference canBeDeleted] withInt:currentIndex]];
+  }
 }
 
 - (id)initWithComGoodowRealtimeStoreImplModelImpl:(ComGoodowRealtimeStoreImplModelImpl *)outer$
-                                      withBoolean:(BOOL)capture$0
-                                          withInt:(int)capture$1
-                                          withInt:(int)capture$2
-                                     withNSString:(NSString *)capture$3
-                                     withNSString:(NSString *)capture$4 {
+withComGoodowRealtimeOperationListAbstractListComponent:(ComGoodowRealtimeOperationListAbstractListComponent *)capture$0
+                                     withNSString:(NSString *)capture$1
+                                     withNSString:(NSString *)capture$2 {
   this$0_ = outer$;
-  val$isInsert_ = capture$0;
-  val$index_ = capture$1;
-  val$length_ = capture$2;
-  val$sessionId_ = capture$3;
-  val$userId_ = capture$4;
+  val$op_ = capture$0;
+  val$userId_ = capture$1;
+  val$sessionId_ = capture$2;
   return [super init];
 }
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
     { "callWithInt:withNSString:", "call", "V", 0x1, NULL },
-    { "initWithComGoodowRealtimeStoreImplModelImpl:withBoolean:withInt:withInt:withNSString:withNSString:", "init", NULL, 0x0, NULL },
+    { "initWithComGoodowRealtimeStoreImplModelImpl:withComGoodowRealtimeOperationListAbstractListComponent:withNSString:withNSString:", "init", NULL, 0x0, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "this$0_", NULL, 0x1012, "Lcom.goodow.realtime.store.impl.ModelImpl;", NULL,  },
-    { "val$isInsert_", NULL, 0x1012, "Z", NULL,  },
-    { "val$index_", NULL, 0x1012, "I", NULL,  },
-    { "val$length_", NULL, 0x1012, "I", NULL,  },
-    { "val$sessionId_", NULL, 0x1012, "Ljava.lang.String;", NULL,  },
+    { "val$op_", NULL, 0x1012, "Lcom.goodow.realtime.operation.list.AbstractListComponent;", NULL,  },
     { "val$userId_", NULL, 0x1012, "Ljava.lang.String;", NULL,  },
+    { "val$sessionId_", NULL, 0x1012, "Ljava.lang.String;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplModelImpl_$3 = { "$3", "com.goodow.realtime.store.impl", "ModelImpl", 0x8000, 2, methods, 6, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplModelImpl_$3 = { "$3", "com.goodow.realtime.store.impl", "ModelImpl", 0x8000, 2, methods, 4, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplModelImpl_$3;
 }
 

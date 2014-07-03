@@ -1,5 +1,5 @@
 #import "GDRCollaborativeListViewController.h"
-#import "GDR.h"
+#import "GDStore.h"
 
 @interface GDRCollaborativeListViewController ()
 

@@ -5,7 +5,9 @@
 //  Created by retechretech.
 //
 
+#include "IOSClass.h"
 #include "com/goodow/realtime/store/CollaborativeString.h"
+#include "com/goodow/realtime/store/databinding/AlreadyBoundError.h"
 #include "com/goodow/realtime/store/databinding/Binding.h"
 #include "com/goodow/realtime/store/databinding/Databinding.h"
 
@@ -22,7 +24,7 @@
 
 + (J2ObjcClassInfo *)__metadata {
   static J2ObjcMethodInfo methods[] = {
-    { "bindStringWithComGoodowRealtimeStoreCollaborativeString:withId:", "bindString", "Lcom.goodow.realtime.store.databinding.Binding;", 0x9, NULL },
+    { "bindStringWithComGoodowRealtimeStoreCollaborativeString:withId:", "bindString", "Lcom.goodow.realtime.store.databinding.Binding;", 0x9, "Lcom.goodow.realtime.store.databinding.AlreadyBoundError;" },
     { "init", NULL, NULL, 0x1, NULL },
   };
   static J2ObjcClassInfo _ComGoodowRealtimeStoreDatabindingDatabinding = { "Databinding", "com.goodow.realtime.store.databinding", NULL, 0x1, 2, methods, 0, NULL, 0, NULL};

@@ -8,6 +8,7 @@
 #ifndef _ComGoodowRealtimeStoreImplModelImpl_H_
 #define _ComGoodowRealtimeStoreImplModelImpl_H_
 
+@class ComGoodowRealtimeOperationListAbstractListComponent;
 @class ComGoodowRealtimeStoreImplDocumentBridge;
 @class ComGoodowRealtimeStoreImplDocumentImpl;
 @class IOSObjectArray;
@@ -89,12 +90,9 @@
 
 - (void)createRoot;
 
-- (void)setIndexReferenceIndexWithNSString:(NSString *)referencedObject
-                               withBoolean:(BOOL)isInsert
-                                   withInt:(int)index
-                                   withInt:(int)length
-                              withNSString:(NSString *)sessionId
-                              withNSString:(NSString *)userId;
+- (void)transformCursorWithComGoodowRealtimeOperationListAbstractListComponent:(ComGoodowRealtimeOperationListAbstractListComponent *)op
+                                                                  withNSString:(NSString *)userId
+                                                                  withNSString:(NSString *)sessionId;
 
 - (void)beginCreationCompoundOperation;
 
@@ -160,29 +158,26 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplModelImpl_$2, val$toRtn_, id<ComGo
 @interface ComGoodowRealtimeStoreImplModelImpl_$3 : NSObject < ComGoodowRealtimeJsonJsonArray_ListIterator > {
  @public
   ComGoodowRealtimeStoreImplModelImpl *this$0_;
-  BOOL val$isInsert_;
-  int val$index_;
-  int val$length_;
-  NSString *val$sessionId_;
+  ComGoodowRealtimeOperationListAbstractListComponent *val$op_;
   NSString *val$userId_;
+  NSString *val$sessionId_;
 }
 
 - (void)callWithInt:(int)idx
              withId:(NSString *)indexReferenceId;
 
 - (id)initWithComGoodowRealtimeStoreImplModelImpl:(ComGoodowRealtimeStoreImplModelImpl *)outer$
-                                      withBoolean:(BOOL)capture$0
-                                          withInt:(int)capture$1
-                                          withInt:(int)capture$2
-                                     withNSString:(NSString *)capture$3
-                                     withNSString:(NSString *)capture$4;
+withComGoodowRealtimeOperationListAbstractListComponent:(ComGoodowRealtimeOperationListAbstractListComponent *)capture$0
+                                     withNSString:(NSString *)capture$1
+                                     withNSString:(NSString *)capture$2;
 
 @end
 
 __attribute__((always_inline)) inline void ComGoodowRealtimeStoreImplModelImpl_$3_init() {}
 
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplModelImpl_$3, this$0_, ComGoodowRealtimeStoreImplModelImpl *)
-J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplModelImpl_$3, val$sessionId_, NSString *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplModelImpl_$3, val$op_, ComGoodowRealtimeOperationListAbstractListComponent *)
 J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplModelImpl_$3, val$userId_, NSString *)
+J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplModelImpl_$3, val$sessionId_, NSString *)
 
 #endif // _ComGoodowRealtimeStoreImplModelImpl_H_

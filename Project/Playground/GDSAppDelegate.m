@@ -7,13 +7,31 @@
 //
 
 #import "GDSAppDelegate.h"
+#import "GDStore.h"
 
 @implementation GDSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-    return YES;
+  id<GDSStore> store = [[GDSStoreImpl alloc] initWithServerUri:@"ws://realtime.goodow.com:1986/channel/websocket" withOptions:nil];
+  [store load:@"playground/1" onLoaded:^(id<GDSDocument> document) {
+    id<GDSModel> model = [document getModel];
+    id<GDSCollaborativeMap> root = [model getRoot];
+    NSArray *collaborators = [document getCollaborators];
+  } opt_initializer:^(id<GDSModel> model) {
+    id<GDSCollaborativeMap> root = [model getRoot];
+    id<GDSCollaborativeString> string = [model createString:@"Edit Me!"];
+    [root set:@"demo_string" value:string];
+    
+    id<GDSCollaborativeList> list = [model createList:@[@"Cat", @"Dog", @"Sheep", @"Chicken"]];
+    [root set:@"demo_list" value:list];
+    
+    id<GDSCollaborativeMap> map = [model createMap:@{@"Key 1": @"Value 1", @"Key 2": @"Value 2", @"Key 3": @"Value 3", @"Key 4": @"Value 4"}];
+    [root set:@"demo_map" value:map];
+  } opt_error:nil];
+
+  // Override point for customization after application launch.
+  return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

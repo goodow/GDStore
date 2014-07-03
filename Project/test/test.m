@@ -7,6 +7,8 @@
 //
 
 #import "test.h"
+#import "GDSBaseModelEvent.h"
+#import "GDSCollaborativeList.h"
 
 @implementation test
 
@@ -17,6 +19,9 @@
     
   #endif
   NSLog(@"了");
+  
+  id<GDSCollaborativeList> evt;
+  evt.length = 3;
 }
 
 @end

@@ -65,44 +65,14 @@
                withNSString:(NSString *)sessionId
 withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)component {
   ComGoodowRealtimeOperationCursorReferenceShiftedComponent *op = (ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) check_class_cast(component, [ComGoodowRealtimeOperationCursorReferenceShiftedComponent class]);
-  NSAssert(((ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) nil_chk(op))->oldIndex_ == [self index], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/IndexReferenceImpl.java:77 condition failed: assert op.oldIndex == index();");
+  NSAssert(((ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) nil_chk(op))->oldIndex_ == [self index] || [self index] == -1, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/IndexReferenceImpl.java:77 condition failed: assert op.oldIndex == index() || index() == -1;");
   referencedObjectId_ = op->referencedObjectId_;
   index__ = op->newIndex_;
   canBeDeleted__ = op->canBeDeleted_;
-  if (op->oldIndex_ != -1) {
+  if (op->oldIndex_ != -1 && op->oldIndex_ != op->newIndex_) {
     id<ComGoodowRealtimeStoreReferenceShiftedEvent> event = [[ComGoodowRealtimeStoreImplReferenceShiftedEventImpl alloc] initWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([self eventWithNSString:sessionId withNSString:userId])) setWithNSString:@"oldIndex" withDouble:op->oldIndex_])) setWithNSString:@"newIndex" withDouble:op->newIndex_]];
     [self fireEventWithComGoodowRealtimeStoreBaseModelEvent:event];
   }
-}
-
-- (void)setIndexWithBoolean:(BOOL)isInsert
-                    withInt:(int)index
-                    withInt:(int)length
-               withNSString:(NSString *)sessionId
-               withNSString:(NSString *)userId {
-  int cursor = [self index];
-  if (cursor < index) {
-    return;
-  }
-  int newIndex = -2;
-  if (isInsert) {
-    newIndex = cursor + length;
-  }
-  else {
-    if (cursor < index + length) {
-      if (canBeDeleted__) {
-        newIndex = -1;
-      }
-      else {
-        newIndex = index;
-      }
-    }
-    else {
-      newIndex = cursor - length;
-    }
-  }
-  ComGoodowRealtimeOperationCursorReferenceShiftedComponent *op = [[ComGoodowRealtimeOperationCursorReferenceShiftedComponent alloc] initWithNSString:id__ withNSString:referencedObjectId_ withInt:newIndex withBoolean:canBeDeleted__ withInt:cursor];
-  [self consumeWithNSString:userId withNSString:sessionId withComGoodowRealtimeOperationOperationComponent:op];
 }
 
 - (IOSObjectArray *)toInitialization {
@@ -127,7 +97,6 @@ withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOper
     { "setIndexWithInt:", "setIndex", "V", 0x1, NULL },
     { "toJson", NULL, "Lcom.goodow.realtime.json.JsonObject;", 0x1, NULL },
     { "consumeWithNSString:withNSString:withComGoodowRealtimeOperationOperationComponent:", "consume", "V", 0x4, NULL },
-    { "setIndexWithBoolean:withInt:withInt:withNSString:withNSString:", "setIndex", "V", 0x0, NULL },
     { "toInitialization", NULL, "[Lcom.goodow.realtime.operation.OperationComponent;", 0x0, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
@@ -135,7 +104,7 @@ withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOper
     { "index__", "index", 0x2, "I", NULL,  },
     { "canBeDeleted__", "canBeDeleted", 0x2, "Z", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplIndexReferenceImpl = { "IndexReferenceImpl", "com.goodow.realtime.store.impl", NULL, 0x0, 10, methods, 3, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplIndexReferenceImpl = { "IndexReferenceImpl", "com.goodow.realtime.store.impl", NULL, 0x0, 9, methods, 3, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplIndexReferenceImpl;
 }
 

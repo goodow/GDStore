@@ -45,12 +45,6 @@
                withNSString:(NSString *)sessionId
 withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)component;
 
-- (void)setIndexWithBoolean:(BOOL)isInsert
-                    withInt:(int)index
-                    withInt:(int)length
-               withNSString:(NSString *)sessionId
-               withNSString:(NSString *)userId;
-
 - (IOSObjectArray *)toInitialization;
 
 - (void)copyAllFieldsTo:(ComGoodowRealtimeStoreImplIndexReferenceImpl *)other;

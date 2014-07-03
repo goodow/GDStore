@@ -9,18 +9,24 @@
 #include "com/goodow/realtime/json/JsonElement.h"
 #include "com/goodow/realtime/operation/Operation.h"
 #include "com/goodow/realtime/operation/OperationComponent.h"
+#include "java/lang/Boolean.h"
 #include "java/lang/UnsupportedOperationException.h"
 
 @implementation ComGoodowRealtimeOperationOperationComponent
 
 - (id<ComGoodowRealtimeOperationOperation>)transformWithComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>)other
                                                                                 withBoolean:(BOOL)applied {
-  @throw [[JavaLangUnsupportedOperationException alloc] init];
+  @throw [[JavaLangUnsupportedOperationException alloc] initWithNSString:[self getMessageWithComGoodowRealtimeOperationOperation:other withBoolean:applied]];
 }
 
 - (IOSObjectArray *)transformComponentWithComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)other
                                                                            withBoolean:(BOOL)applied {
-  @throw [[JavaLangUnsupportedOperationException alloc] init];
+  @throw [[JavaLangUnsupportedOperationException alloc] initWithNSString:[self getMessageWithComGoodowRealtimeOperationOperation:other withBoolean:applied]];
+}
+
+- (NSString *)getMessageWithComGoodowRealtimeOperationOperation:(id<ComGoodowRealtimeOperationOperation>)other
+                                                    withBoolean:(BOOL)applied {
+  return [NSString stringWithFormat:@"Transform applied(%@) %@\nAgainst %@", [JavaLangBoolean toStringWithBoolean:applied], [((id<ComGoodowRealtimeJsonJsonElement>) nil_chk([self toJson])) toJsonString], [((id<ComGoodowRealtimeJsonJsonElement>) nil_chk([((id<ComGoodowRealtimeOperationOperation>) nil_chk(other)) toJson])) toJsonString]];
 }
 
 - (void)applyWithId:(id)param0 {
@@ -48,12 +54,13 @@
   static J2ObjcMethodInfo methods[] = {
     { "transformWithComGoodowRealtimeOperationOperation:withBoolean:", "transform", "Lcom.goodow.realtime.operation.Operation;", 0x1, NULL },
     { "transformComponentWithComGoodowRealtimeOperationOperationComponent:withBoolean:", "transformComponent", "[Lcom.goodow.realtime.operation.OperationComponent;", 0x1, NULL },
+    { "getMessageWithComGoodowRealtimeOperationOperation:withBoolean:", "getMessage", "Ljava.lang.String;", 0x2, NULL },
     { "applyWithId:", "apply", "V", 0x401, NULL },
     { "invert", NULL, "Lcom.goodow.realtime.operation.Operation;", 0x401, NULL },
     { "toJson", NULL, "Lcom.goodow.realtime.json.JsonElement;", 0x401, NULL },
     { "init", NULL, NULL, 0x1, NULL },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeOperationOperationComponent = { "OperationComponent", "com.goodow.realtime.operation", NULL, 0x401, 6, methods, 0, NULL, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeOperationOperationComponent = { "OperationComponent", "com.goodow.realtime.operation", NULL, 0x401, 7, methods, 0, NULL, 0, NULL};
   return &_ComGoodowRealtimeOperationOperationComponent;
 }
 

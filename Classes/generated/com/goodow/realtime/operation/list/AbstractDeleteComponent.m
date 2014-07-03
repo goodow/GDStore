@@ -97,6 +97,16 @@
   }
 }
 
+- (IOSObjectArray *)transformComponentWithComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)other
+                                                                           withBoolean:(BOOL)applied {
+  ComGoodowRealtimeOperationListAbstractListComponent *op = (ComGoodowRealtimeOperationListAbstractListComponent *) check_class_cast(other, [ComGoodowRealtimeOperationListAbstractListComponent class]);
+  int endIndex0 = startIndex_ + length_;
+  NSAssert(((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(op))->type_ == ComGoodowRealtimeOperationListAbstractInsertComponent_TYPE && op->startIndex_ > startIndex_ && op->startIndex_ < endIndex0, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/AbstractDeleteComponent.java:120 condition failed: assert op.type == AbstractInsertComponent.TYPE && op.startIndex > startIndex\n        && op.startIndex < endIndex0;");
+  int len0 = op->startIndex_ - startIndex_;
+  int len1 = length_ - len0;
+  return [self asArrayWithNSObjectArray:[IOSObjectArray arrayWithObjects:(id[]){ values_ == nil ? [self createWithInt:startIndex_ withInt:len0] : [self createWithInt:startIndex_ withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:len0]], values_ == nil ? [self createWithInt:startIndex_ + op->length_ withInt:len1] : [self createWithInt:startIndex_ + op->length_ withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:len0 withInt:len1]] } count:2 type:[IOSClass classWithClass:[NSObject class]]]];
+}
+
 - (int)transformIndexReferenceWithInt:(int)index
                           withBoolean:(BOOL)rigthSide
                           withBoolean:(BOOL)canBeDeleted {
@@ -109,16 +119,6 @@
   else {
     return index;
   }
-}
-
-- (IOSObjectArray *)transformComponentWithComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)other
-                                                                           withBoolean:(BOOL)applied {
-  ComGoodowRealtimeOperationListAbstractListComponent *op = (ComGoodowRealtimeOperationListAbstractListComponent *) check_class_cast(other, [ComGoodowRealtimeOperationListAbstractListComponent class]);
-  int endIndex0 = startIndex_ + length_;
-  NSAssert(((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(op))->type_ == ComGoodowRealtimeOperationListAbstractInsertComponent_TYPE && op->startIndex_ > startIndex_ && op->startIndex_ < endIndex0, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/AbstractDeleteComponent.java:131 condition failed: assert op.type == AbstractInsertComponent.TYPE && op.startIndex > startIndex\n        && op.startIndex < endIndex0;");
-  int len0 = op->startIndex_ - startIndex_;
-  int len1 = length_ - len0;
-  return [self asArrayWithNSObjectArray:[IOSObjectArray arrayWithObjects:(id[]){ values_ == nil ? [self createWithInt:startIndex_ withInt:len0] : [self createWithInt:startIndex_ withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:len0]], values_ == nil ? [self createWithInt:startIndex_ + op->length_ withInt:len1] : [self createWithInt:startIndex_ + op->length_ withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:len0 withInt:len1]] } count:2 type:[IOSClass classWithClass:[NSObject class]]]];
 }
 
 - (ComGoodowRealtimeOperationListAbstractDeleteComponent *)createWithInt:(int)startIndex
@@ -141,8 +141,8 @@
     { "initWithNSString:withInt:withId:", "AbstractDeleteComponent", NULL, 0x4, NULL },
     { "applyWithComGoodowRealtimeOperationListListTarget:", "apply", "V", 0x1, NULL },
     { "transformWithComGoodowRealtimeOperationOperation:withBoolean:", "transform", "Lcom.goodow.realtime.operation.Operation;", 0x1, NULL },
-    { "transformIndexReferenceWithInt:withBoolean:withBoolean:", "transformIndexReference", "I", 0x1, NULL },
     { "transformComponentWithComGoodowRealtimeOperationOperationComponent:withBoolean:", "transformComponent", "[Lcom.goodow.realtime.operation.list.AbstractDeleteComponent;", 0x1, NULL },
+    { "transformIndexReferenceWithInt:withBoolean:withBoolean:", "transformIndexReference", "I", 0x1, NULL },
     { "createWithInt:withInt:", "create", "Lcom.goodow.realtime.operation.list.AbstractDeleteComponent;", 0x404, NULL },
     { "createWithInt:withId:", "create", "Lcom.goodow.realtime.operation.list.AbstractDeleteComponent;", 0x404, NULL },
   };

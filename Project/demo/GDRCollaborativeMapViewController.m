@@ -1,5 +1,5 @@
 #import "GDRCollaborativeMapViewController.h"
-#import "GDR.h"
+#import "GDStore.h"
 
 @interface GDRCollaborativeMapViewController ()
 

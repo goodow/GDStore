@@ -12,9 +12,9 @@
 #include "com/goodow/realtime/json/Json.h"
 #include "com/goodow/realtime/json/JsonArray.h"
 #include "com/goodow/realtime/json/JsonObject.h"
-#include "com/goodow/realtime/operation/Operation.h"
 #include "com/goodow/realtime/operation/OperationComponent.h"
 #include "com/goodow/realtime/operation/create/CreateComponent.h"
+#include "com/goodow/realtime/operation/list/AbstractListComponent.h"
 #include "com/goodow/realtime/operation/list/json/JsonDeleteComponent.h"
 #include "com/goodow/realtime/operation/list/json/JsonInsertComponent.h"
 #include "com/goodow/realtime/operation/list/json/JsonReplaceComponent.h"
@@ -229,7 +229,8 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values {
 - (void)consumeWithNSString:(NSString *)userId
                withNSString:(NSString *)sessionId
 withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOperationComponent *)component {
-  [((id<ComGoodowRealtimeOperationOperation>) nil_chk(((id<ComGoodowRealtimeOperationOperation>) check_protocol_cast(component, @protocol(ComGoodowRealtimeOperationOperation))))) applyWithId:[[ComGoodowRealtimeStoreImplCollaborativeListImpl_$3 alloc] initWithComGoodowRealtimeStoreImplCollaborativeListImpl:self withNSString:sessionId withNSString:userId]];
+  ComGoodowRealtimeOperationListAbstractListComponent *op = (ComGoodowRealtimeOperationListAbstractListComponent *) check_class_cast(component, [ComGoodowRealtimeOperationListAbstractListComponent class]);
+  [((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(op)) applyWithId:[[ComGoodowRealtimeStoreImplCollaborativeListImpl_$3 alloc] initWithComGoodowRealtimeStoreImplCollaborativeListImpl:self withNSString:sessionId withNSString:userId withComGoodowRealtimeOperationListAbstractListComponent:op]];
 }
 
 - (IOSObjectArray *)toInitialization {
@@ -272,19 +273,18 @@ withComGoodowRealtimeOperationOperationComponent:(ComGoodowRealtimeOperationOper
 withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
                      withNSString:(NSString *)sessionId
                      withNSString:(NSString *)userId {
-  NSAssert(index <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeListImpl.java:304 condition failed: assert index <= length();");
+  NSAssert(index <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeListImpl.java:307 condition failed: assert index <= length();");
   id<ComGoodowRealtimeJsonJsonArray> objects = [ComGoodowRealtimeJsonJson createArray];
   [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(values)) forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplCollaborativeListImpl_$4 alloc] initWithComGoodowRealtimeStoreImplCollaborativeListImpl:self withComGoodowRealtimeJsonJsonArray:objects withInt:index]];
   id<ComGoodowRealtimeStoreValuesAddedEvent> event = [[ComGoodowRealtimeStoreImplValuesAddedEventImpl alloc] initWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([self eventWithNSString:sessionId withNSString:userId])) setWithNSString:@"index" withDouble:index])) setWithNSString:@"values" withId:objects]];
   [self fireEventWithComGoodowRealtimeStoreBaseModelEvent:event];
-  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_)) setIndexReferenceIndexWithNSString:id__ withBoolean:YES withInt:index withInt:[values length] withNSString:sessionId withNSString:userId];
 }
 
 - (void)removeAndFireEventWithInt:(int)index
                           withInt:(int)length
                      withNSString:(NSString *)sessionId
                      withNSString:(NSString *)userId {
-  NSAssert(index + length <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeListImpl.java:322 condition failed: assert index + length <= length();");
+  NSAssert(index + length <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeListImpl.java:324 condition failed: assert index + length <= length();");
   id<ComGoodowRealtimeJsonJsonArray> objects = [ComGoodowRealtimeJsonJson createArray];
   for (int i = 0; i < length; i++) {
     (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(objects)) pushWithId:[self getWithInt:index]];
@@ -295,14 +295,13 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
   }
   id<ComGoodowRealtimeStoreValuesRemovedEvent> event = [[ComGoodowRealtimeStoreImplValuesRemovedEventImpl alloc] initWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([self eventWithNSString:sessionId withNSString:userId])) setWithNSString:@"index" withDouble:index])) setWithNSString:@"values" withId:objects]];
   [self fireEventWithComGoodowRealtimeStoreBaseModelEvent:event];
-  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_)) setIndexReferenceIndexWithNSString:id__ withBoolean:NO withInt:index withInt:length withNSString:sessionId withNSString:userId];
 }
 
 - (void)replaceAndFireEventWithInt:(int)index
 withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
                       withNSString:(NSString *)sessionId
                       withNSString:(NSString *)userId {
-  NSAssert(index + [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(values)) length] <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeListImpl.java:339 condition failed: assert index + values.length() <= length();");
+  NSAssert(index + [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(values)) length] <= [self length], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/CollaborativeListImpl.java:340 condition failed: assert index + values.length() <= length();");
   id<ComGoodowRealtimeJsonJsonArray> oldObjects = [ComGoodowRealtimeJsonJson createArray];
   id<ComGoodowRealtimeJsonJsonArray> newObjects = [ComGoodowRealtimeJsonJson createArray];
   [values forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplCollaborativeListImpl_$5 alloc] initWithComGoodowRealtimeStoreImplCollaborativeListImpl:self withComGoodowRealtimeJsonJsonArray:oldObjects withInt:index withComGoodowRealtimeJsonJsonArray:newObjects]];
@@ -439,11 +438,13 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
 - (void)delete__WithInt:(int)startIndex
                 withInt:(int)length {
   [this$0_ removeAndFireEventWithInt:startIndex withInt:length withNSString:val$sessionId_ withNSString:val$userId_];
+  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_)) transformCursorWithComGoodowRealtimeOperationListAbstractListComponent:val$op_ withNSString:val$userId_ withNSString:val$sessionId_];
 }
 
 - (void)insertWithInt:(int)startIndex
                withId:(id<ComGoodowRealtimeJsonJsonArray>)values {
   [this$0_ insertAndFireEventWithInt:startIndex withComGoodowRealtimeJsonJsonArray:values withNSString:val$sessionId_ withNSString:val$userId_];
+  [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_)) transformCursorWithComGoodowRealtimeOperationListAbstractListComponent:val$op_ withNSString:val$userId_ withNSString:val$sessionId_];
 }
 
 - (void)replaceWithInt:(int)startIndex
@@ -453,10 +454,12 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
 
 - (id)initWithComGoodowRealtimeStoreImplCollaborativeListImpl:(ComGoodowRealtimeStoreImplCollaborativeListImpl *)outer$
                                                  withNSString:(NSString *)capture$0
-                                                 withNSString:(NSString *)capture$1 {
+                                                 withNSString:(NSString *)capture$1
+      withComGoodowRealtimeOperationListAbstractListComponent:(ComGoodowRealtimeOperationListAbstractListComponent *)capture$2 {
   this$0_ = outer$;
   val$sessionId_ = capture$0;
   val$userId_ = capture$1;
+  val$op_ = capture$2;
   return [super init];
 }
 
@@ -465,14 +468,15 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
     { "delete__WithInt:withInt:", "delete", "V", 0x1, NULL },
     { "insertWithInt:withComGoodowRealtimeJsonJsonArray:", "insert", "V", 0x1, NULL },
     { "replaceWithInt:withComGoodowRealtimeJsonJsonArray:", "replace", "V", 0x1, NULL },
-    { "initWithComGoodowRealtimeStoreImplCollaborativeListImpl:withNSString:withNSString:", "init", NULL, 0x0, NULL },
+    { "initWithComGoodowRealtimeStoreImplCollaborativeListImpl:withNSString:withNSString:withComGoodowRealtimeOperationListAbstractListComponent:", "init", NULL, 0x0, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "this$0_", NULL, 0x1012, "Lcom.goodow.realtime.store.impl.CollaborativeListImpl;", NULL,  },
     { "val$sessionId_", NULL, 0x1012, "Ljava.lang.String;", NULL,  },
     { "val$userId_", NULL, 0x1012, "Ljava.lang.String;", NULL,  },
+    { "val$op_", NULL, 0x1012, "Lcom.goodow.realtime.operation.list.AbstractListComponent;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplCollaborativeListImpl_$3 = { "$3", "com.goodow.realtime.store.impl", "CollaborativeListImpl", 0x8000, 4, methods, 3, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplCollaborativeListImpl_$3 = { "$3", "com.goodow.realtime.store.impl", "CollaborativeListImpl", 0x8000, 4, methods, 4, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplCollaborativeListImpl_$3;
 }
 

@@ -19,6 +19,7 @@
 #include "com/goodow/realtime/operation/impl/CollaborativeTransformer.h"
 #include "com/goodow/realtime/operation/list/AbstractDeleteComponent.h"
 #include "com/goodow/realtime/operation/list/AbstractInsertComponent.h"
+#include "com/goodow/realtime/operation/list/AbstractListComponent.h"
 #include "com/goodow/realtime/operation/list/AbstractReplaceComponent.h"
 #include "com/goodow/realtime/operation/list/SimpleDeleteComponent.h"
 #include "com/goodow/realtime/operation/list/json/JsonHelper.h"
@@ -34,7 +35,7 @@
 @implementation ComGoodowRealtimeOperationImplCollaborativeTransformer
 
 - (ComGoodowRealtimeOperationImplCollaborativeOperation *)composeWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)operations {
-  NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(operations)) length] > 0 && [operations indexOfWithId:nil] == -1, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:42 condition failed: assert operations.length() > 0 && operations.indexOf(null) == -1;");
+  NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(operations)) length] > 0 && [operations indexOfWithId:nil] == -1, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:43 condition failed: assert operations.length() > 0 && operations.indexOf(null) == -1;");
   ComGoodowRealtimeOperationImplCollaborativeOperation *first = [operations getWithInt:0];
   if ([operations length] == 1) {
     return first;
@@ -81,7 +82,7 @@
 }
 
 - (ComGoodowRealtimeOperationImplCollaborativeOperation *)createOperationWithComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)opData {
-  NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(opData)) getArrayWithNSString:ComGoodowRealtimeOperationImplCollaborativeOperation_get_OP_()])) length] > 0, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:103 condition failed: assert opData.getArray(CollaborativeOperation.OP).length() > 0;");
+  NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(opData)) getArrayWithNSString:ComGoodowRealtimeOperationImplCollaborativeOperation_get_OP_()])) length] > 0, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:104 condition failed: assert opData.getArray(CollaborativeOperation.OP).length() > 0;");
   id<ComGoodowRealtimeJsonJsonArray> components = [ComGoodowRealtimeJsonJson createArray];
   [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([opData getArrayWithNSString:ComGoodowRealtimeOperationImplCollaborativeOperation_get_OP_()])) forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeOperationImplCollaborativeTransformer_$2 alloc] initWithComGoodowRealtimeOperationImplCollaborativeTransformer:self withComGoodowRealtimeJsonJsonArray:components]];
   return [[ComGoodowRealtimeOperationImplCollaborativeOperation alloc] initWithNSString:[opData getStringWithNSString:ComGoodowRealtimeOperationImplCollaborativeOperation_get_UID_()] withNSString:[opData getStringWithNSString:ComGoodowRealtimeOperationImplCollaborativeOperation_get_SID_()] withComGoodowRealtimeJsonJsonArray:components];
@@ -97,10 +98,11 @@
 
 - (ComGoodowRealtimeOperationUtilPair *)transformWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)operations
                                                  withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)appliedOperations {
-  NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(operations)) indexOfWithId:nil] == -1 && [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(appliedOperations)) indexOfWithId:nil] == -1, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:127 condition failed: assert operations.indexOf(null) == -1 && appliedOperations.indexOf(null) == -1;");
+  NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(operations)) indexOfWithId:nil] == -1 && [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(appliedOperations)) indexOfWithId:nil] == -1, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:128 condition failed: assert operations.indexOf(null) == -1 && appliedOperations.indexOf(null) == -1;");
   id<ComGoodowRealtimeJsonJsonArray> transformed = [ComGoodowRealtimeJsonJson createArray];
-  id<ComGoodowRealtimeJsonJsonArray> transformedApplied = [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(appliedOperations)) copy__];
-  [operations forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeOperationImplCollaborativeTransformer_$3 alloc] initWithComGoodowRealtimeOperationImplCollaborativeTransformer:self withComGoodowRealtimeJsonJsonArray:transformed withComGoodowRealtimeJsonJsonArray:transformedApplied]];
+  id<ComGoodowRealtimeJsonJsonArray> transformedApplied = [ComGoodowRealtimeJsonJson createArray];
+  [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(appliedOperations)) forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeOperationImplCollaborativeTransformer_$3 alloc] initWithComGoodowRealtimeJsonJsonArray:transformedApplied]];
+  [operations forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeOperationImplCollaborativeTransformer_$4 alloc] initWithComGoodowRealtimeOperationImplCollaborativeTransformer:self withComGoodowRealtimeJsonJsonArray:transformed withComGoodowRealtimeJsonJsonArray:transformedApplied]];
   return [ComGoodowRealtimeOperationUtilPair ofWithId:transformed withId:transformedApplied];
 }
 
@@ -109,14 +111,17 @@
                  withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)others
                                             withInt:(int)startIndex
                                         withBoolean:(BOOL)applied {
-  NSAssert(operation != nil, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:142 condition failed: assert operation != null;");
+  NSAssert(operation != nil, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:149 condition failed: assert operation != null;");
   if (startIndex == [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(others)) length]) {
     (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(transformedResults)) pushWithId:operation];
     return;
   }
   id<ComGoodowRealtimeOperationOperation> other = [others getWithInt:startIndex];
-  NSAssert(other != nil, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:148 condition failed: assert other != null;");
+  NSAssert(other != nil, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/impl/CollaborativeTransformer.java:155 condition failed: assert other != null;");
   if ([(id) operation isKindOfClass:[ComGoodowRealtimeOperationImplAbstractComponent class]] && ![((ComGoodowRealtimeOperationImplAbstractComponent *) nil_chk(((ComGoodowRealtimeOperationImplAbstractComponent *) check_class_cast(operation, [ComGoodowRealtimeOperationImplAbstractComponent class])))) isSameIdWithComGoodowRealtimeOperationOperation:other]) {
+    if ([(id) operation isKindOfClass:[ComGoodowRealtimeOperationCursorReferenceShiftedComponent class]] && [(id) other isKindOfClass:[ComGoodowRealtimeOperationListAbstractListComponent class]] && [((NSString *) nil_chk(((ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) nil_chk(((ComGoodowRealtimeOperationCursorReferenceShiftedComponent *) check_class_cast(operation, [ComGoodowRealtimeOperationCursorReferenceShiftedComponent class]))))->referencedObjectId_)) isEqual:((ComGoodowRealtimeOperationListAbstractListComponent *) nil_chk(((ComGoodowRealtimeOperationListAbstractListComponent *) check_class_cast(other, [ComGoodowRealtimeOperationListAbstractListComponent class]))))->id__]) {
+      operation = [((id<ComGoodowRealtimeOperationOperation>) nil_chk(operation)) transformWithComGoodowRealtimeOperationOperation:other withBoolean:applied];
+    }
     [self transformWithComGoodowRealtimeJsonJsonArray:transformedResults withComGoodowRealtimeOperationOperation:operation withComGoodowRealtimeJsonJsonArray:others withInt:++startIndex withBoolean:applied];
     return;
   }
@@ -281,6 +286,32 @@
 
 - (void)callWithInt:(int)index
              withId:(id<ComGoodowRealtimeOperationOperation>)operation {
+  (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(val$transformedApplied_)) pushWithId:operation];
+}
+
+- (id)initWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)capture$0 {
+  val$transformedApplied_ = capture$0;
+  return [super init];
+}
+
++ (J2ObjcClassInfo *)__metadata {
+  static J2ObjcMethodInfo methods[] = {
+    { "callWithInt:withComGoodowRealtimeOperationOperation:", "call", "V", 0x1, NULL },
+    { "initWithComGoodowRealtimeJsonJsonArray:", "init", NULL, 0x0, NULL },
+  };
+  static J2ObjcFieldInfo fields[] = {
+    { "val$transformedApplied_", NULL, 0x1012, "Lcom.goodow.realtime.json.JsonArray;", NULL,  },
+  };
+  static J2ObjcClassInfo _ComGoodowRealtimeOperationImplCollaborativeTransformer_$3 = { "$3", "com.goodow.realtime.operation.impl", "CollaborativeTransformer", 0x8000, 2, methods, 1, fields, 0, NULL};
+  return &_ComGoodowRealtimeOperationImplCollaborativeTransformer_$3;
+}
+
+@end
+
+@implementation ComGoodowRealtimeOperationImplCollaborativeTransformer_$4
+
+- (void)callWithInt:(int)index
+             withId:(id<ComGoodowRealtimeOperationOperation>)operation {
   [this$0_ transformWithComGoodowRealtimeJsonJsonArray:val$transformed_ withComGoodowRealtimeOperationOperation:operation withComGoodowRealtimeJsonJsonArray:val$transformedApplied_ withInt:0 withBoolean:NO];
 }
 
@@ -303,8 +334,8 @@
     { "val$transformed_", NULL, 0x1012, "Lcom.goodow.realtime.json.JsonArray;", NULL,  },
     { "val$transformedApplied_", NULL, 0x1012, "Lcom.goodow.realtime.json.JsonArray;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeOperationImplCollaborativeTransformer_$3 = { "$3", "com.goodow.realtime.operation.impl", "CollaborativeTransformer", 0x8000, 2, methods, 3, fields, 0, NULL};
-  return &_ComGoodowRealtimeOperationImplCollaborativeTransformer_$3;
+  static J2ObjcClassInfo _ComGoodowRealtimeOperationImplCollaborativeTransformer_$4 = { "$4", "com.goodow.realtime.operation.impl", "CollaborativeTransformer", 0x8000, 2, methods, 3, fields, 0, NULL};
+  return &_ComGoodowRealtimeOperationImplCollaborativeTransformer_$4;
 }
 
 @end
