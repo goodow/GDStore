@@ -291,7 +291,7 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
     id<ComGoodowRealtimeJsonJsonArray> value = [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(snapshot_)) getArrayWithInt:index];
     (void) [snapshot_ removeWithInt:index];
     [((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_)) addOrRemoveParentWithComGoodowRealtimeJsonJsonArray:value withNSString:id__ withBoolean:NO];
-    model_->bytesUsed_ -= ((int) [((NSString *) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(value)) toJsonString])) length]);
+    model_->bytesUsed_ -= ((int) [(value == nil ? @"null" : [value toJsonString]) length]);
   }
   id<ComGoodowRealtimeStoreValuesRemovedEvent> event = [[ComGoodowRealtimeStoreImplValuesRemovedEventImpl alloc] initWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([self eventWithNSString:sessionId withNSString:userId])) setWithNSString:@"index" withDouble:index])) setWithNSString:@"values" withId:objects]];
   [self fireEventWithComGoodowRealtimeStoreBaseModelEvent:event];
@@ -528,8 +528,8 @@ withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)values
   (void) [this$0_->snapshot_ insertWithInt:val$index_ + idx++ withId:newValue];
   [this$0_->model_ addOrRemoveParentWithComGoodowRealtimeJsonJsonArray:oldValue withNSString:this$0_->id__ withBoolean:NO];
   [this$0_->model_ addOrRemoveParentWithComGoodowRealtimeJsonJsonArray:newValue withNSString:this$0_->id__ withBoolean:YES];
-  this$0_->model_->bytesUsed_ -= ((int) [((NSString *) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(oldValue)) toJsonString])) length]);
-  this$0_->model_->bytesUsed_ += ((int) [((NSString *) nil_chk([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(newValue)) toJsonString])) length]);
+  this$0_->model_->bytesUsed_ -= ((int) [(oldValue == nil ? @"null" : [oldValue toJsonString]) length]);
+  this$0_->model_->bytesUsed_ += ((int) [(newValue == nil ? @"null" : [newValue toJsonString]) length]);
 }
 
 - (id)initWithComGoodowRealtimeStoreImplCollaborativeListImpl:(ComGoodowRealtimeStoreImplCollaborativeListImpl *)outer$

@@ -60,13 +60,13 @@
       return [self createWithInt:startIndex_ - op->length_ withId:oldValues_ withId:values_];
     }
     else if (op->startIndex_ <= startIndex_) {
-      return endIndex1 < endIndex0 ? [self createWithInt:op->startIndex_ withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1]] : nil;
+      return endIndex1 < endIndex0 ? [self createWithInt:op->startIndex_ withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1]] : nil;
     }
     else {
-      return endIndex1 < endIndex0 ? [self createWithInt:startIndex_ withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) replaceWithWithId:oldValues_ withInt:op->startIndex_ - startIndex_ withInt:op->length_ withId:nil] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) replaceWithWithId:values_ withInt:op->startIndex_ - startIndex_ withInt:op->length_ withId:nil]] : [self createWithInt:startIndex_ withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:0 withInt:op->startIndex_ - startIndex_] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:op->startIndex_ - startIndex_]];
+      return endIndex1 < endIndex0 ? [self createWithInt:startIndex_ withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) replaceWithWithId:oldValues_ withInt:op->startIndex_ - startIndex_ withInt:op->length_ withId:nil] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) replaceWithWithId:values_ withInt:op->startIndex_ - startIndex_ withInt:op->length_ withId:nil]] : [self createWithInt:startIndex_ withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:0 withInt:op->startIndex_ - startIndex_] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:op->startIndex_ - startIndex_]];
     }
     case ComGoodowRealtimeOperationListAbstractReplaceComponent_TYPE:
-    if (endIndex1 <= startIndex_ || op->startIndex_ >= endIndex0 || (!applied && oldValues_ == nil)) {
+    if (endIndex1 <= startIndex_ || op->startIndex_ >= endIndex0 || (!applied && ![self canUndo])) {
       return self;
     }
     else if (op->startIndex_ <= startIndex_) {
@@ -75,7 +75,7 @@
         return [self createWithInt:startIndex_ withId:transformedOldValues withId:values_];
       }
       else {
-        return endIndex1 < endIndex0 ? [self createWithInt:endIndex1 withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1]] : nil;
+        return endIndex1 < endIndex0 ? [self createWithInt:endIndex1 withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1]] : nil;
       }
     }
     else {
@@ -84,7 +84,7 @@
         return [self createWithInt:startIndex_ withId:transformedOldValues withId:values_];
       }
       else if (endIndex1 >= endIndex0) {
-        return [self createWithInt:startIndex_ withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:0 withInt:op->startIndex_ - startIndex_] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:op->startIndex_ - startIndex_]];
+        return [self createWithInt:startIndex_ withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:0 withInt:op->startIndex_ - startIndex_] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:op->startIndex_ - startIndex_]];
       }
       else {
         return [super transformWithComGoodowRealtimeOperationOperation:other withBoolean:applied];
@@ -104,12 +104,12 @@
     case ComGoodowRealtimeOperationListAbstractInsertComponent_TYPE:
     if (op->startIndex_ > startIndex_ && op->startIndex_ < endIndex0) {
       int len0 = op->startIndex_ - startIndex_;
-      return [self asArrayWithNSObjectArray:[IOSObjectArray arrayWithObjects:(id[]){ [self createWithInt:startIndex_ withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:0 withInt:len0] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:len0]], [self createWithInt:endIndex1 withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:len0 withInt:length_ - len0] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:len0 withInt:length_ - len0]] } count:2 type:[IOSClass classWithClass:[NSObject class]]]];
+      return [self asArrayWithNSObjectArray:[IOSObjectArray arrayWithObjects:(id[]){ [self createWithInt:startIndex_ withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:0 withInt:len0] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:len0]], [self createWithInt:endIndex1 withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:len0 withInt:length_ - len0] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:len0 withInt:length_ - len0]] } count:2 type:[IOSClass classWithClass:[NSObject class]]]];
     }
     case ComGoodowRealtimeOperationListAbstractReplaceComponent_TYPE:
     if (applied && op->startIndex_ > startIndex_ && endIndex1 < endIndex0) {
-      ComGoodowRealtimeOperationListAbstractReplaceComponent *op1 = [self createWithInt:startIndex_ withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:0 withInt:op->startIndex_ - startIndex_] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:op->startIndex_ - startIndex_]];
-      return [self asArrayWithNSObjectArray:[IOSObjectArray arrayWithObjects:(id[]){ op1, [self createWithInt:endIndex1 withId:oldValues_ == nil ? nil : [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1] withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1]] } count:2 type:[IOSClass classWithClass:[NSObject class]]]];
+      ComGoodowRealtimeOperationListAbstractReplaceComponent *op1 = [self createWithInt:startIndex_ withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:0 withInt:op->startIndex_ - startIndex_] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:0 withInt:op->startIndex_ - startIndex_]];
+      return [self asArrayWithNSObjectArray:[IOSObjectArray arrayWithObjects:(id[]){ op1, [self createWithInt:endIndex1 withId:[self canUndo] ? [((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:oldValues_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1] : nil withId:[((id<ComGoodowRealtimeOperationListListHelper>) nil_chk([self getHelper])) subsetWithId:values_ withInt:endIndex1 - startIndex_ withInt:endIndex0 - endIndex1]] } count:2 type:[IOSClass classWithClass:[NSObject class]]]];
     }
     default:
     @throw [[JavaLangRuntimeException alloc] initWithNSString:[NSString stringWithFormat:@"Unsupported List Operation type: %d", op->type_]];
@@ -130,6 +130,10 @@
   return 0;
 }
 
+- (BOOL)canUndo {
+  return oldValues_ != nil;
+}
+
 - (void)copyAllFieldsTo:(ComGoodowRealtimeOperationListAbstractReplaceComponent *)other {
   [super copyAllFieldsTo:other];
   other->oldValues_ = oldValues_;
@@ -143,13 +147,14 @@
     { "transformComponentWithComGoodowRealtimeOperationOperationComponent:withBoolean:", "transformComponent", "[Lcom.goodow.realtime.operation.OperationComponent;", 0x1, NULL },
     { "transformIndexReferenceWithInt:withBoolean:withBoolean:", "transformIndexReference", "I", 0x1, NULL },
     { "createWithInt:withId:withId:", "create", "Lcom.goodow.realtime.operation.list.AbstractReplaceComponent;", 0x404, NULL },
+    { "canUndo", NULL, "Z", 0x2, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "TYPE_", NULL, 0x19, "I", NULL, .constantValue.asInt = ComGoodowRealtimeOperationListAbstractReplaceComponent_TYPE },
     { "oldValues_", NULL, 0x14, "TT;", NULL,  },
   };
   static const char *superclass_type_args[] = {"TT;"};
-  static J2ObjcClassInfo _ComGoodowRealtimeOperationListAbstractReplaceComponent = { "AbstractReplaceComponent", "com.goodow.realtime.operation.list", NULL, 0x401, 6, methods, 2, fields, 1, superclass_type_args};
+  static J2ObjcClassInfo _ComGoodowRealtimeOperationListAbstractReplaceComponent = { "AbstractReplaceComponent", "com.goodow.realtime.operation.list", NULL, 0x401, 7, methods, 2, fields, 1, superclass_type_args};
   return &_ComGoodowRealtimeOperationListAbstractReplaceComponent;
 }
 

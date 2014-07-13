@@ -47,6 +47,8 @@
 - (ComGoodowRealtimeOperationListAbstractDeleteComponent *)createWithInt:(int)startIndex
                                                                   withId:(id)values;
 
+- (BOOL)canUndo;
+
 @end
 
 __attribute__((always_inline)) inline void ComGoodowRealtimeOperationListAbstractDeleteComponent_init() {}

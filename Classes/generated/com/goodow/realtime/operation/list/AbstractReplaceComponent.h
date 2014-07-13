@@ -44,6 +44,8 @@
                                                                    withId:(id)oldValues
                                                                    withId:(id)newValues;
 
+- (BOOL)canUndo;
+
 - (void)copyAllFieldsTo:(ComGoodowRealtimeOperationListAbstractReplaceComponent *)other;
 
 @end

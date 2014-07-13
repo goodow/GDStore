@@ -59,6 +59,8 @@
 
 - (void)scheduleEventWithComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEvent>)event;
 
+- (void)fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:(ComGoodowRealtimeStoreImplBaseModelEventImpl *)event;
+
 - (void)copyAllFieldsTo:(ComGoodowRealtimeStoreImplDocumentImpl *)other;
 
 @end
@@ -83,8 +85,6 @@ J2OBJC_FIELD_SETTER(ComGoodowRealtimeStoreImplDocumentImpl, eventsTask_, id<ComG
 - (void)bubblingToAncestorsWithNSString:(NSString *)id_
 withComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEvent>)event
      withComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)seen;
-
-- (void)fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:(ComGoodowRealtimeStoreImplBaseModelEventImpl *)event;
 
 - (id)initWithComGoodowRealtimeStoreImplDocumentImpl:(ComGoodowRealtimeStoreImplDocumentImpl *)outer$;
 

@@ -91,15 +91,20 @@
 }
 
 - (void)scheduleEventWithComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEvent>)event {
-  NSAssert(![((id<ComGoodowRealtimeStoreBaseModelEvent>) nil_chk(event)) bubbles], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/DocumentImpl.java:211 condition failed: assert !event.bubbles();");
+  NSAssert(![((id<ComGoodowRealtimeStoreBaseModelEvent>) nil_chk(event)) bubbles], @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/DocumentImpl.java:205 condition failed: assert !event.bubbles();");
   if (eventsToFire_ == nil) {
     eventsToFire_ = [ComGoodowRealtimeJsonJson createArray];
   }
   (void) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(eventsToFire_)) pushWithId:event];
+  [self fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:(ComGoodowRealtimeStoreImplBaseModelEventImpl *) check_class_cast(event, [ComGoodowRealtimeStoreImplBaseModelEventImpl class])];
   if (!isEventsScheduled_) {
     isEventsScheduled_ = YES;
     [((id<ComGoodowRealtimeCoreScheduler>) nil_chk([ComGoodowRealtimeCorePlatform scheduler])) scheduleDeferredWithComGoodowRealtimeCoreHandler:eventsTask_];
   }
+}
+
+- (void)fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:(ComGoodowRealtimeStoreImplBaseModelEventImpl *)event {
+  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(model_))->bridge_))->store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), model_->bridge_->id__, ((ComGoodowRealtimeStoreImplBaseModelEventImpl *) nil_chk(event))->target_, event->type__] withId:event];
 }
 
 - (void)copyAllFieldsTo:(ComGoodowRealtimeStoreImplDocumentImpl *)other {
@@ -123,6 +128,7 @@
     { "getModel", NULL, "Lcom.goodow.realtime.store.impl.ModelImpl;", 0x1, NULL },
     { "addEventListenerWithNSString:withComGoodowRealtimeStoreEventTypeEnum:withComGoodowRealtimeCoreHandler:withBoolean:", "addEventListener", "Lcom.goodow.realtime.core.Registration;", 0x0, NULL },
     { "scheduleEventWithComGoodowRealtimeStoreBaseModelEvent:", "scheduleEvent", "V", 0x0, NULL },
+    { "fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:", "fireEvent", "V", 0x2, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
     { "model_", NULL, 0x12, "Lcom.goodow.realtime.store.impl.ModelImpl;", NULL,  },
@@ -132,7 +138,7 @@
     { "eventsToFire_", NULL, 0x2, "Lcom.goodow.realtime.json.JsonArray;", NULL,  },
     { "eventsTask_", NULL, 0x12, "Lcom.goodow.realtime.core.Handler;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentImpl = { "DocumentImpl", "com.goodow.realtime.store.impl", NULL, 0x0, 9, methods, 6, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentImpl = { "DocumentImpl", "com.goodow.realtime.store.impl", NULL, 0x0, 10, methods, 6, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplDocumentImpl;
 }
 
@@ -167,10 +173,6 @@ withComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEven
   [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_)) getParentsWithNSString:id_])) forEachWithComGoodowRealtimeJsonJsonArray_ListIterator:[[ComGoodowRealtimeStoreImplDocumentImpl_$1_$3 alloc] initWithComGoodowRealtimeStoreImplDocumentImpl_$1:self withComGoodowRealtimeStoreBaseModelEvent:event withComGoodowRealtimeJsonJsonArray:seen]];
 }
 
-- (void)fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:(ComGoodowRealtimeStoreImplBaseModelEventImpl *)event {
-  (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk([((id<ComGoodowRealtimeStoreStore>) nil_chk(((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->model_))->bridge_))->store_)) getBus])) publishLocalWithNSString:[NSString stringWithFormat:@"%@/%@/%@/%@", ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_(), this$0_->model_->bridge_->id__, ((ComGoodowRealtimeStoreImplBaseModelEventImpl *) nil_chk(event))->target_, event->type__] withId:event];
-}
-
 - (id)initWithComGoodowRealtimeStoreImplDocumentImpl:(ComGoodowRealtimeStoreImplDocumentImpl *)outer$ {
   this$0_ = outer$;
   return [super init];
@@ -186,7 +188,6 @@ withComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEven
   static J2ObjcMethodInfo methods[] = {
     { "handleWithJavaLangVoid:", "handle", "V", 0x1, NULL },
     { "bubblingToAncestorsWithNSString:withComGoodowRealtimeStoreBaseModelEvent:withComGoodowRealtimeJsonJsonArray:", "bubblingToAncestors", "V", 0x2, NULL },
-    { "fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:", "fireEvent", "V", 0x2, NULL },
     { "initWithComGoodowRealtimeStoreImplDocumentImpl:", "init", NULL, 0x0, NULL },
   };
   static J2ObjcFieldInfo fields[] = {
@@ -194,7 +195,7 @@ withComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEven
     { "evtsToFire_", NULL, 0x2, "Lcom.goodow.realtime.json.JsonArray;", NULL,  },
     { "eventsById_", NULL, 0x2, "Lcom.goodow.realtime.json.JsonObject;", NULL,  },
   };
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentImpl_$1 = { "$1", "com.goodow.realtime.store.impl", "DocumentImpl", 0x8000, 4, methods, 3, fields, 0, NULL};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreImplDocumentImpl_$1 = { "$1", "com.goodow.realtime.store.impl", "DocumentImpl", 0x8000, 3, methods, 3, fields, 0, NULL};
   return &_ComGoodowRealtimeStoreImplDocumentImpl_$1;
 }
 
@@ -207,7 +208,6 @@ withComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEven
   NSAssert(!((ComGoodowRealtimeStoreImplBaseModelEventImpl *) nil_chk(event))->bubbles__, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/impl/DocumentImpl.java:58 condition failed: assert !event.bubbles;");
   NSString *id_ = event->target_;
   [this$0_ bubblingToAncestorsWithNSString:id_ withComGoodowRealtimeStoreBaseModelEvent:event withComGoodowRealtimeJsonJsonArray:[ComGoodowRealtimeJsonJson createArray]];
-  [this$0_ fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:event];
 }
 
 - (id)initWithComGoodowRealtimeStoreImplDocumentImpl_$1:(ComGoodowRealtimeStoreImplDocumentImpl_$1 *)outer$ {
@@ -235,7 +235,7 @@ withComGoodowRealtimeStoreBaseModelEvent:(id<ComGoodowRealtimeStoreBaseModelEven
                   withId:(id<ComGoodowRealtimeJsonJsonArray>)events {
   ComGoodowRealtimeStoreImplBaseModelEventImpl *first = [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(events)) getWithInt:0];
   ComGoodowRealtimeStoreImplObjectChangedEventImpl *objectChangedEvent = [[ComGoodowRealtimeStoreImplObjectChangedEventImpl alloc] initWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"target" withId:key])) setWithNSString:@"sessionId" withId:((ComGoodowRealtimeStoreImplBaseModelEventImpl *) nil_chk(first))->sessionId__])) setWithNSString:@"userId" withId:first->userId__])) setWithNSString:@"isLocal" withBoolean:[((ComGoodowRealtimeStoreImplDocumentBridge *) nil_chk(((ComGoodowRealtimeStoreImplModelImpl *) nil_chk(this$0_->this$0_->model_))->bridge_)) isLocalSessionWithNSString:first->sessionId__]])) setWithNSString:@"events" withId:events]];
-  [this$0_ fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:objectChangedEvent];
+  [this$0_->this$0_ fireEventWithComGoodowRealtimeStoreImplBaseModelEventImpl:objectChangedEvent];
 }
 
 - (id)initWithComGoodowRealtimeStoreImplDocumentImpl_$1:(ComGoodowRealtimeStoreImplDocumentImpl_$1 *)outer$ {
