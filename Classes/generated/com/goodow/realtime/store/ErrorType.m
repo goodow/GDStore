@@ -60,8 +60,17 @@ ComGoodowRealtimeStoreErrorTypeEnum *ComGoodowRealtimeStoreErrorTypeEnum_values[
   static J2ObjcMethodInfo methods[] = {
     { "init", NULL, NULL, 0x1, NULL },
   };
+  static J2ObjcFieldInfo fields[] = {
+    { "CLIENT_ERROR", "CLIENT_ERROR", 0x4019, "Lcom.goodow.realtime.store.ErrorType;", &ComGoodowRealtimeStoreErrorTypeEnum_CLIENT_ERROR,  },
+    { "CONCURRENT_CREATION", "CONCURRENT_CREATION", 0x4019, "Lcom.goodow.realtime.store.ErrorType;", &ComGoodowRealtimeStoreErrorTypeEnum_CONCURRENT_CREATION,  },
+    { "FORBIDDEN", "FORBIDDEN", 0x4019, "Lcom.goodow.realtime.store.ErrorType;", &ComGoodowRealtimeStoreErrorTypeEnum_FORBIDDEN,  },
+    { "INVALID_COMPOUND_OPERATION", "INVALID_COMPOUND_OPERATION", 0x4019, "Lcom.goodow.realtime.store.ErrorType;", &ComGoodowRealtimeStoreErrorTypeEnum_INVALID_COMPOUND_OPERATION,  },
+    { "NOT_FOUND", "NOT_FOUND", 0x4019, "Lcom.goodow.realtime.store.ErrorType;", &ComGoodowRealtimeStoreErrorTypeEnum_NOT_FOUND,  },
+    { "SERVER_ERROR", "SERVER_ERROR", 0x4019, "Lcom.goodow.realtime.store.ErrorType;", &ComGoodowRealtimeStoreErrorTypeEnum_SERVER_ERROR,  },
+    { "TOKEN_REFRESH_REQUIRED", "TOKEN_REFRESH_REQUIRED", 0x4019, "Lcom.goodow.realtime.store.ErrorType;", &ComGoodowRealtimeStoreErrorTypeEnum_TOKEN_REFRESH_REQUIRED,  },
+  };
   static const char *superclass_type_args[] = {"Lcom.goodow.realtime.store.ErrorType;"};
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreErrorTypeEnum = { "ErrorType", "com.goodow.realtime.store", NULL, 0x4011, 1, methods, 0, NULL, 1, superclass_type_args};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreErrorTypeEnum = { "ErrorType", "com.goodow.realtime.store", NULL, 0x4011, 1, methods, 7, fields, 1, superclass_type_args};
   return &_ComGoodowRealtimeStoreErrorTypeEnum;
 }
 

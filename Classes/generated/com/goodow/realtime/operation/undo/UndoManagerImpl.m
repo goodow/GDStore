@@ -139,7 +139,7 @@
   if ([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(partitions_)) length] == 0) {
     return 0;
   }
-  int number = (int) [partitions_ getNumberWithInt:[partitions_ length] - 1];
+  int number = J2ObjCFpToInt([partitions_ getNumberWithInt:[partitions_ length] - 1]);
   (void) [partitions_ removeWithInt:[partitions_ length] - 1];
   return number;
 }

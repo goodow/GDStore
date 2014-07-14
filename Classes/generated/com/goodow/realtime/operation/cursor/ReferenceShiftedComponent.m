@@ -17,7 +17,7 @@
 
 + (ComGoodowRealtimeOperationCursorReferenceShiftedComponent *)parseWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)serialized {
   NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationCursorReferenceShiftedComponent_TYPE && [serialized length] == 6, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/cursor/ReferenceShiftedComponent.java:25 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 6;");
-  return [[ComGoodowRealtimeOperationCursorReferenceShiftedComponent alloc] initWithNSString:[ComGoodowRealtimeOperationImplAbstractComponent parseIdWithComGoodowRealtimeJsonJsonArray:serialized] withNSString:[serialized getStringWithInt:2] withInt:(int) [serialized getNumberWithInt:3] withBoolean:[serialized getBooleanWithInt:4] withInt:(int) [serialized getNumberWithInt:5]];
+  return [[ComGoodowRealtimeOperationCursorReferenceShiftedComponent alloc] initWithNSString:[ComGoodowRealtimeOperationImplAbstractComponent parseIdWithComGoodowRealtimeJsonJsonArray:serialized] withNSString:[serialized getStringWithInt:2] withInt:J2ObjCFpToInt([serialized getNumberWithInt:3]) withBoolean:[serialized getBooleanWithInt:4] withInt:J2ObjCFpToInt([serialized getNumberWithInt:5])];
 }
 
 - (id)initWithNSString:(NSString *)id_

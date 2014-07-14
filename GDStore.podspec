@@ -3,10 +3,12 @@ Pod::Spec.new do |s|
   s.version      = "0.5.5"
   s.license      = { :type => 'Apache 2.0', :file => 'COPYING' }
   s.summary      = "Goodow Realtime provides collaborative objects, events, and methods for creating collaborative apps via the use of operational transforms."
-  s.homepage     = "https://github.com/goodow/realtime"
+  s.homepage     = "https://github.com/goodow/realtime-store"
   s.author       = { "Larry Tin" => "dev@goodow.com" }
   s.source       = { :git => "https://github.com/goodow/GDStore.git", :tag => "v#{s.version}" }
 
+  s.ios.deployment_target = '5.0'
+  s.osx.deployment_target = '10.7'
   s.requires_arc = true
   s.header_mappings_dir = 'Classes/generated'
 

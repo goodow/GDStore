@@ -17,7 +17,7 @@
 
 + (ComGoodowRealtimeOperationListStringStringDeleteComponent *)parseWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)serialized {
   NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationListAbstractDeleteComponent_TYPE && [serialized length] == 4, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/list/string/StringDeleteComponent.java:21 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 4;");
-  return [[ComGoodowRealtimeOperationListStringStringDeleteComponent alloc] initWithNSString:[ComGoodowRealtimeOperationImplAbstractComponent parseIdWithComGoodowRealtimeJsonJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListComponent parseStartIndexWithComGoodowRealtimeJsonJsonArray:serialized] withInt:(int) [serialized getNumberWithInt:3]];
+  return [[ComGoodowRealtimeOperationListStringStringDeleteComponent alloc] initWithNSString:[ComGoodowRealtimeOperationImplAbstractComponent parseIdWithComGoodowRealtimeJsonJsonArray:serialized] withInt:[ComGoodowRealtimeOperationListAbstractListComponent parseStartIndexWithComGoodowRealtimeJsonJsonArray:serialized] withInt:J2ObjCFpToInt([serialized getNumberWithInt:3])];
 }
 
 - (id)initWithNSString:(NSString *)id_

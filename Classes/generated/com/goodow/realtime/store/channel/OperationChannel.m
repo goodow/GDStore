@@ -171,7 +171,7 @@ withComGoodowRealtimeStoreChannelOperationChannel_Listener:(id<ComGoodowRealtime
 
 - (void)onIncomingOperationWithDouble:(double)appliedAt
                                withId:(id<ComGoodowRealtimeOperationOperation>)operation {
-  [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeStoreChannelOperationChannel_logger_)) logWithJavaUtilLoggingLevel:JavaUtilLoggingLevel_get_INFO_() withNSString:[NSString stringWithFormat:@"Incoming applied @%f %@", appliedAt, state_]];
+  [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeStoreChannelOperationChannel_logger_)) logWithJavaUtilLoggingLevel:JavaUtilLoggingLevel_get_FINE_() withNSString:[NSString stringWithFormat:@"Incoming applied @%f %@", appliedAt, state_]];
   [((ComGoodowRealtimeStoreChannelTransformQueue *) nil_chk(queue_)) serverOpWithDouble:appliedAt withId:operation];
   [((id<ComGoodowRealtimeStoreChannelOperationChannel_Listener>) nil_chk(listener_)) onRemoteOpWithId:operation];
 }
@@ -179,7 +179,7 @@ withComGoodowRealtimeStoreChannelOperationChannel_Listener:(id<ComGoodowRealtime
 - (void)sendUnackedOps {
   id<ComGoodowRealtimeOperationOperation> unackedClientOp = [((ComGoodowRealtimeStoreChannelTransformQueue *) nil_chk(queue_)) unackedClientOp];
   NSAssert(unackedClientOp != nil, @"/Users/retechretech/dev/workspace/realtime/realtime-store/src/main/java/com/goodow/realtime/store/channel/OperationChannel.java:298 condition failed: assert unackedClientOp != null;");
-  [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeStoreChannelOperationChannel_logger_)) logWithJavaUtilLoggingLevel:JavaUtilLoggingLevel_get_INFO_() withNSString:[NSString stringWithFormat:@"Sending %@ @%f", unackedClientOp, [queue_ version__]]];
+  [((JavaUtilLoggingLogger *) nil_chk(ComGoodowRealtimeStoreChannelOperationChannel_logger_)) logWithJavaUtilLoggingLevel:JavaUtilLoggingLevel_get_FINE_() withNSString:[NSString stringWithFormat:@"Sending %@ @%f", unackedClientOp, [queue_ version__]]];
   id<ComGoodowRealtimeJsonJsonObject> delta = [((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([ComGoodowRealtimeJsonJson createObject])) setWithNSString:@"action" withId:@"post"])) setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_ID_() withId:id__])) setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_OP_DATA_() withId:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(((id<ComGoodowRealtimeJsonJsonObject>) check_protocol_cast([((id<ComGoodowRealtimeOperationOperation>) nil_chk(unackedClientOp)) toJson], @protocol(ComGoodowRealtimeJsonJsonObject))))) setWithNSString:ComGoodowRealtimeStoreChannelConstants_Key_get_VERSION_() withDouble:[queue_ version__]]];
   (void) [((id<ComGoodowRealtimeChannelBus>) nil_chk(bus_)) sendWithNSString:ComGoodowRealtimeStoreChannelConstants_Topic_get_STORE_() withId:delta withComGoodowRealtimeCoreHandler:[[ComGoodowRealtimeStoreChannelOperationChannel_$3 alloc] initWithComGoodowRealtimeStoreChannelOperationChannel:self]];
   [self setStateWithComGoodowRealtimeStoreChannelOperationChannel_StateEnum:ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_get_WAITING_ACK()];
@@ -333,8 +333,14 @@ ComGoodowRealtimeStoreChannelOperationChannel_StateEnum *ComGoodowRealtimeStoreC
     { "transitionsToWithComGoodowRealtimeStoreChannelOperationChannel_StateEnumArray:", "transitionsTo", "V", 0x82, NULL },
     { "init", NULL, NULL, 0x0, NULL },
   };
+  static J2ObjcFieldInfo fields[] = {
+    { "UNINITIALISED", "UNINITIALISED", 0x4019, "Lcom.goodow.realtime.store.channel.OperationChannel$State;", &ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_UNINITIALISED,  },
+    { "ACKED", "ACKED", 0x4019, "Lcom.goodow.realtime.store.channel.OperationChannel$State;", &ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_ACKED,  },
+    { "WAITING_ACK", "WAITING_ACK", 0x4019, "Lcom.goodow.realtime.store.channel.OperationChannel$State;", &ComGoodowRealtimeStoreChannelOperationChannel_StateEnum_WAITING_ACK,  },
+    { "to_", NULL, 0x2, "Ljava.util.EnumSet;", NULL,  },
+  };
   static const char *superclass_type_args[] = {"Lcom.goodow.realtime.store.channel.OperationChannel$State;"};
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreChannelOperationChannel_StateEnum = { "State", "com.goodow.realtime.store.channel", "OperationChannel", 0x4018, 2, methods, 0, NULL, 1, superclass_type_args};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreChannelOperationChannel_StateEnum = { "State", "com.goodow.realtime.store.channel", "OperationChannel", 0x4018, 2, methods, 4, fields, 1, superclass_type_args};
   return &_ComGoodowRealtimeStoreChannelOperationChannel_StateEnum;
 }
 

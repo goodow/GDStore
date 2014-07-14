@@ -13,7 +13,7 @@
 @implementation ComGoodowRealtimeOperationListAbstractListComponent
 
 + (int)parseStartIndexWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)serialized {
-  return (int) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:2];
+  return J2ObjCFpToInt([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:2]);
 }
 
 - (id)initWithInt:(int)type

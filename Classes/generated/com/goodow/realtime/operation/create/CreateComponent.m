@@ -15,7 +15,7 @@
 
 + (ComGoodowRealtimeOperationCreateCreateComponent *)parseWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)serialized {
   NSAssert([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:0] == ComGoodowRealtimeOperationCreateCreateComponent_TYPE && [serialized length] == 3, @"/Users/retechretech/dev/workspace/realtime/realtime-operation/src/main/java/com/goodow/realtime/operation/create/CreateComponent.java:27 condition failed: assert serialized.getNumber(0) == TYPE && serialized.length() == 3;");
-  return [[ComGoodowRealtimeOperationCreateCreateComponent alloc] initWithNSString:[ComGoodowRealtimeOperationImplAbstractComponent parseIdWithComGoodowRealtimeJsonJsonArray:serialized] withInt:(int) [serialized getNumberWithInt:2]];
+  return [[ComGoodowRealtimeOperationCreateCreateComponent alloc] initWithNSString:[ComGoodowRealtimeOperationImplAbstractComponent parseIdWithComGoodowRealtimeJsonJsonArray:serialized] withInt:J2ObjCFpToInt([serialized getNumberWithInt:2])];
 }
 
 - (id)initWithNSString:(NSString *)id_

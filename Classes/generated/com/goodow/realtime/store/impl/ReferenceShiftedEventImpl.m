@@ -13,8 +13,8 @@
 
 - (id)initWithComGoodowRealtimeJsonJsonObject:(id<ComGoodowRealtimeJsonJsonObject>)serialized {
   if (self = [super initWithComGoodowRealtimeJsonJsonObject:[((id<ComGoodowRealtimeJsonJsonObject>) nil_chk([((id<ComGoodowRealtimeJsonJsonObject>) nil_chk(serialized)) setWithNSString:@"type" withId:[((ComGoodowRealtimeStoreEventTypeEnum *) nil_chk(ComGoodowRealtimeStoreEventTypeEnum_get_REFERENCE_SHIFTED())) name]])) setWithNSString:@"bubbles" withBoolean:NO]]) {
-    self->oldIndex__ = (int) [serialized getNumberWithNSString:@"oldIndex"];
-    self->newIndex__ = (int) [serialized getNumberWithNSString:@"newIndex"];
+    self->oldIndex__ = J2ObjCFpToInt([serialized getNumberWithNSString:@"oldIndex"]);
+    self->newIndex__ = J2ObjCFpToInt([serialized getNumberWithNSString:@"newIndex"]);
   }
   return self;
 }

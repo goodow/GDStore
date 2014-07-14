@@ -26,7 +26,7 @@
   if (arrayOrNull == nil) {
     return nil;
   }
-  switch ((int) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(arrayOrNull)) getNumberWithInt:0]) {
+  switch (J2ObjCFpToInt([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(arrayOrNull)) getNumberWithInt:0])) {
     case ComGoodowRealtimeStoreImplJsonSerializer_VALUE_TYPE:
     switch ([[arrayOrNull getTypeWithInt:1] ordinal]) {
       case ComGoodowRealtimeJsonJsonType_BOOLEAN:

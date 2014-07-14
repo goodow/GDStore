@@ -47,7 +47,7 @@
 
 - (ComGoodowRealtimeOperationImplAbstractComponent *)createComponentWithComGoodowRealtimeJsonJsonArray:(id<ComGoodowRealtimeJsonJsonArray>)serialized {
   ComGoodowRealtimeOperationImplAbstractComponent *component = nil;
-  switch ((int) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:0]) {
+  switch (J2ObjCFpToInt([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk(serialized)) getNumberWithInt:0])) {
     case ComGoodowRealtimeOperationCreateCreateComponent_TYPE:
     component = [ComGoodowRealtimeOperationCreateCreateComponent parseWithComGoodowRealtimeJsonJsonArray:serialized];
     break;
@@ -55,7 +55,7 @@
     component = [ComGoodowRealtimeOperationMapJsonJsonMapComponent parseWithComGoodowRealtimeJsonJsonArray:serialized];
     break;
     case ComGoodowRealtimeOperationListAbstractInsertComponent_TYPE:
-    switch ((int) [((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([serialized getArrayWithInt:3])) getNumberWithInt:0]) {
+    switch (J2ObjCFpToInt([((id<ComGoodowRealtimeJsonJsonArray>) nil_chk([serialized getArrayWithInt:3])) getNumberWithInt:0])) {
       case ComGoodowRealtimeOperationListJsonJsonHelper_TYPE:
       component = [ComGoodowRealtimeOperationListJsonJsonInsertComponent parseWithComGoodowRealtimeJsonJsonArray:serialized];
       break;

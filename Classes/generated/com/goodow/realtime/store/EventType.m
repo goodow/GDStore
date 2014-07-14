@@ -71,8 +71,22 @@ ComGoodowRealtimeStoreEventTypeEnum *ComGoodowRealtimeStoreEventTypeEnum_values[
     { "description", "toString", "Ljava.lang.String;", 0x1, NULL },
     { "init", NULL, NULL, 0x1, NULL },
   };
+  static J2ObjcFieldInfo fields[] = {
+    { "COLLABORATOR_JOINED", "COLLABORATOR_JOINED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_COLLABORATOR_JOINED,  },
+    { "COLLABORATOR_LEFT", "COLLABORATOR_LEFT", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_COLLABORATOR_LEFT,  },
+    { "DOCUMENT_SAVE_STATE_CHANGED", "DOCUMENT_SAVE_STATE_CHANGED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_DOCUMENT_SAVE_STATE_CHANGED,  },
+    { "OBJECT_CHANGED", "OBJECT_CHANGED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_OBJECT_CHANGED,  },
+    { "REFERENCE_SHIFTED", "REFERENCE_SHIFTED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_REFERENCE_SHIFTED,  },
+    { "TEXT_DELETED", "TEXT_DELETED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_TEXT_DELETED,  },
+    { "TEXT_INSERTED", "TEXT_INSERTED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_TEXT_INSERTED,  },
+    { "VALUES_ADDED", "VALUES_ADDED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_VALUES_ADDED,  },
+    { "VALUES_REMOVED", "VALUES_REMOVED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_VALUES_REMOVED,  },
+    { "VALUES_SET", "VALUES_SET", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_VALUES_SET,  },
+    { "VALUE_CHANGED", "VALUE_CHANGED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_VALUE_CHANGED,  },
+    { "UNDO_REDO_STATE_CHANGED", "UNDO_REDO_STATE_CHANGED", 0x4019, "Lcom.goodow.realtime.store.EventType;", &ComGoodowRealtimeStoreEventTypeEnum_UNDO_REDO_STATE_CHANGED,  },
+  };
   static const char *superclass_type_args[] = {"Lcom.goodow.realtime.store.EventType;"};
-  static J2ObjcClassInfo _ComGoodowRealtimeStoreEventTypeEnum = { "EventType", "com.goodow.realtime.store", NULL, 0x4011, 2, methods, 0, NULL, 1, superclass_type_args};
+  static J2ObjcClassInfo _ComGoodowRealtimeStoreEventTypeEnum = { "EventType", "com.goodow.realtime.store", NULL, 0x4011, 2, methods, 12, fields, 1, superclass_type_args};
   return &_ComGoodowRealtimeStoreEventTypeEnum;
 }
 
