@@ -11,7 +11,7 @@
 
 static NSString * STR_KEY = @"demo_string";
 
-@interface ViewController ()
+@interface ViewController () <UITextViewDelegate>
 
 @property (nonatomic, strong) id<GDSStore> store;
 @property (nonatomic, strong) id<GDSDocument> document;
@@ -63,6 +63,12 @@ static NSString * STR_KEY = @"demo_string";
     [self.collaboratingString onTextDeleted:^(id<GDSTextDeletedEvent> deleteEvent) {
         self.textView.text = [self.collaboratingString getText];
     }];
+}
+
+#pragma mark - UITextView Delegate
+
+- (void)textViewDidChange:(UITextView *)textView {
+    [self.collaboratingString setText:textView.text];
 }
 
 @end
