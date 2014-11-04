@@ -9,7 +9,7 @@
 #import "ViewController.h"
 #import "GDStore.h"
 
-static NSString * STR_KEY = @"demo_string";
+static NSString *STR_KEY = @"demo_string";
 
 @interface ViewController () <UITextViewDelegate>
 
@@ -27,7 +27,7 @@ static NSString * STR_KEY = @"demo_string";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.textView.textContainerInset = UIEdgeInsetsMake(10, 10, 10, 10);
-    self.textView.text = @"Demo";
+    self.textView.text = @"";
     [self loadDocuments];
 }
 
