@@ -1,12 +1,20 @@
-# platform :ios, '7.0'
-platform :osx, '10.8'
+# Uncomment this line to define a global platform for your project
+# platform :ios, '6.0'
+inhibit_all_warnings!
 
 source 'https://github.com/CocoaPods/Specs.git'
-link_with 'GDStore', 'UnitTest'
+
+target 'Playground-iOS' do
 
 pod 'J2ObjC', :git => 'https://github.com/goodow/j2objc.git', :tag => 'v0.9.3-lib'
 pod 'GDJson', :git => 'https://github.com/goodow/GDJson.git'
 pod 'GDChannel', :git => 'https://github.com/goodow/GDChannel.git'
 pod 'GDStore', :path => '..'
 # pod 'PonyDebugger', '~> 0.3.0'
+
+end
+
+target 'Playground-iOSTests' do
+
+end
 
