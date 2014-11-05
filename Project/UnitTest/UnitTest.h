@@ -6,8 +6,8 @@
 //  Copyright (c) 2013年 Larry Tin. All rights reserved.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface UnitTest : SenTestCase
+@interface UnitTest : XCTestCase
 
 @end

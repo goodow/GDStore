@@ -14,28 +14,19 @@ PODS:
   - SocketRocket (0.3.1-beta2)
 
 DEPENDENCIES:
-  - GDChannel (from `https://github.com/goodow/GDChannel.git`)
-  - GDJson (from `https://github.com/goodow/GDJson.git`)
   - GDStore (from `..`)
-  - J2ObjC (from `https://github.com/goodow/j2objc.git`, tag `v0.9.3-lib`)
+  - J2ObjC (= 0.9.3)
 
 EXTERNAL SOURCES:
-  GDChannel:
-    :git: https://github.com/goodow/GDChannel.git
-  GDJson:
-    :git: https://github.com/goodow/GDJson.git
   GDStore:
     :path: ..
-  J2ObjC:
-    :git: https://github.com/goodow/j2objc.git
-    :tag: v0.9.3-lib
 
 SPEC CHECKSUMS:
-  GDChannel: fa3a474ec8ffe1b0e4139283edc9196fb23ada02
-  GDJson: f962d8b722a8b2c4947369017b091f87c1927cbf
+  GDChannel: 947f34306c58523c05398a86d634dd7a071e5833
+  GDJson: 62812741823991956bbcd3c2e7cb5a0cdfa1352a
   GDStore: 49f2c5937d1ac6022cb296012621c30692cc4edd
   Google-Diff-Match-Patch: 1f9c0b972c351d9c0a4fee137eb96896460477cd
-  J2ObjC: db552552f1694fddaa717ce1284191b9a4c1f193
+  J2ObjC: e5881af74be2a3df0eadd377ce5fcf88712c2e26
   SocketRocket: 79a68ae186063c65e1fe6f638b1ae2927aa5f304
 
 COCOAPODS: 0.34.4

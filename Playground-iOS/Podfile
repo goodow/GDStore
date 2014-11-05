@@ -1,16 +1,10 @@
-# Uncomment this line to define a global platform for your project
-# platform :ios, '6.0'
-inhibit_all_warnings!
-
 source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.1'
 
 target 'Playground-iOS' do
 
-pod 'J2ObjC', :git => 'https://github.com/goodow/j2objc.git', :tag => 'v0.9.3-lib'
-pod 'GDJson', :git => 'https://github.com/goodow/GDJson.git'
-pod 'GDChannel', :git => 'https://github.com/goodow/GDChannel.git'
+pod 'J2ObjC', '0.9.3'
 pod 'GDStore', :path => '..'
-# pod 'PonyDebugger', '~> 0.3.0'
 
 end
 
