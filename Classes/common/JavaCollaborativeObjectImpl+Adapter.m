@@ -21,6 +21,7 @@
 
 #import "JavaCollaborativeObjectImpl+Adapter.h"
 #import "com/goodow/realtime/store/EventType.h"
+#import "IOSObjectArray.h"
 
 @implementation ComGoodowRealtimeStoreImplCollaborativeObjectImpl (Adapter)
 - (id <GDCRegistration>)onObjectChanged:(void (^)(id <GDSObjectChangedEvent>))handler {

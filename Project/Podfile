@@ -4,7 +4,7 @@ platform :osx, '10.8'
 source 'https://github.com/CocoaPods/Specs.git'
 link_with 'GDStore', 'UnitTest'
 
-pod 'J2ObjC', :git => 'https://github.com/goodow/j2objc.git', :tag => 'v0.9.3-lib'
+pod 'J2ObjC', :git => 'https://github.com/goodow/j2objc.git'
 pod 'GDJson', :git => 'https://github.com/goodow/GDJson.git'
 pod 'GDChannel', :git => 'https://github.com/goodow/GDChannel.git'
 pod 'GDStore', :path => '..'
