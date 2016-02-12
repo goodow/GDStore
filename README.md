@@ -6,7 +6,7 @@ Visit [Google groups](https://groups.google.com/forum/#!forum/goodow-realtime) f
 
 ## Adding GDStore to your project
 
-### Cocoapods
+### CocoaPods
 
 [CocoaPods](http://cocoapods.org) is the recommended way to add GDStore to your project.
 
